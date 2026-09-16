@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pdf
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.idea/
+stage1_eda_input/
+stage1_eda_output/_checkpoints/
+

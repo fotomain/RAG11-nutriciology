@@ -1,0 +1,19 @@
+# RAG11 Nutrition — Python dependencies
+# Install with (inside your .venv):
+#   pip install -r requirements.txt
+
+# --- Stage 1.1: Extract & Chunk (stage1_1_extract_and_chunk.ipynb) ---
+gdown          # downloads the three source PDFs from Google Drive
+pymupdf        # NOTE: package name is "pymupdf" but it's imported as `import fitz`
+tiktoken       # token-accurate child-chunk sizing (cl100k_base encoding)
+
+# --- Stage 1.2: Load to Supabase + embeddings + retrieval (poc_pipline_ipynb.ipynb pattern) ---
+supabase       # Supabase Python client (rag11_chunks_parent_table / _child_table)
+voyageai       # Voyage AI embeddings
+anthropic      # Claude API (generation / contextualization)
+pydantic       # schema validation for chunk JSON
+python-dotenv  # loads secrets from .env
+
+# --- Notebook UX ---
+ipywidgets     # silences "TqdmWarning: IProgress not found" from tqdm.auto,
+               # used internally by supabase/voyageai's progress bars
