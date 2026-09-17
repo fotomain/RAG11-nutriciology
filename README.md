@@ -1,5 +1,5 @@
 # RAG11 Nutrition — Evidence-Based Clinical Nutrition RAG Pipeline
-# V62 improved fearures
+# V62 improved features
 
 A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system built on foundational medical and clinical nutrition textbooks. 
 
