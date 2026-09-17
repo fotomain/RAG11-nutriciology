@@ -128,7 +128,7 @@ stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1
   - Verifies zero missing rows, zero orphaned rows, and that every child chunk has a valid 1024-dim embedding.
 
 ### Stage 2: Question Answering & Evaluation
-- **Notebook**: [`stage2_ask_samples1.ipynb`](stage2_ask_samples1.ipynb)
+- **Notebook**: [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb)
 - **Action**:
   1. Embeds sample clinical nutrition questions using Voyage AI (`input_type="query"`).
   2. Queries Supabase using the `match_rag11_child_chunks` RPC.
@@ -150,9 +150,9 @@ Run the script directly from the project root:
 *(Or pass a custom commit message: `./save_to_github.command "Finished stage 2 evaluations"`)*
 
 ### Option B: Directly Inside the Notebook
-Run **Cell #14** in [`stage2_ask_samples1.ipynb`](stage2_ask_samples1.ipynb):
+Run **Cell #14** in [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb):
 ```python
-save_to_github("stage2_ask_samples1.ipynb - answers verified and synced")
+save_to_github("stage2_ask_examples1.ipynb - answers verified and synced")
 ```
 
 **Features built into the sync tool:**
