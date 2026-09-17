@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p2-c38",
+  "parent_id": "source16-p2",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Amino acids: Chemistry and classification | Pages 29-41]\n\n group have their respective dissociation constants\n(pKa), which is the negative log of the acid dissociation constant (Ka). A lower pKa value indicates a stronger acid or greater tendency\nto give up a proton (Hþ). When the pH of an aqueous solution is equal to pKa, the ionizable group is 50% protonated and 50%\ndeprotonated (Wu, 2022). The dissociation constants for the acid, amino, and side-chain groups are termed pK1 (pKa for the\ncarboxyl group), pK2 (pKa for the amino group), and pK3 (pKa for the side-chain functional group), respectively. The pH of an\naqueous solution at which an AA has no net electrical charge is called the isoelectric point (pI). When an AA is dissolved in\npure water until the solution is saturated, the pH of this solution will approach the pI value of the AA. At pH 7.4 (e.g., in the plasma)\nand pH 7.0 (e.g., in the cytoplasm), the a-carboxylic acid and a-amino groups of a-AAs are completely ionized to take the zwitterion\nform. In their ionized states, glutamic acid and aspartic acid are often referred to as glutamate and aspartate, respectively.\nChemical stability of AAs\nThe crystalline forms of all AAs are stable at 25oC for at least 25 years. However, AAs should be protected from light and a high\nhumidity environment during storage. Except for cysteine and aminomalonic acid, AAs in water are stable at -20oC for 3 months\nand stable at -80oC for 6 months. Likewise, except for cysteine, glutamine, and aminomalonic acid, AAs are generally stable",
+  "token_count": 400
+}

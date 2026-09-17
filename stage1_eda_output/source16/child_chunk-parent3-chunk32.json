@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p3-c32",
+  "parent_id": "source16-p3",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Amino acids: Metabolism | Pages 42-54]\n\nine. Ornithine is then re-used for another turnover of the cycle. ASL, argininosuccinate lyase; ASS, argininosuccinate synthase; CPS-I,\ncarbamoylphosphate synthetase-I; NAG, N-acetylglutamate. Reproduced from Wu (2013) with permission.\nAmino acids: Metabolism\n31\n\n\ncatabolism of AAs (including glutamate, glutamine, and glycine) in these cell types, and can also be derived from the blood. Gluta-\nmate dehydrogenase and glutaminase are major enzymes for generating ammonia in the liver and intestine, respectively. After car-\nbamoylphosphate synthetase I (CPS-I) converts NH3 plus HCO3\n\u0006 into carbamoyl phosphate, the latter combines with ornithine\n(an AA from the diet, blood, or cytosolic arginase) to form citrulline by ornithine carbamoyltransferase (OCT). The cytosolic orni-\nthine is transported by ORNT1 (mitochondrial ornithine transporter 1, an antiporter) to the mitochondrial matrix in exchange for\nthe exit of mitochondrial citrulline to the cytosol, where citrulline is rapidly metabolized to arginine in the presence of aspartate\nand then to urea plus ornithine via a series of three enzymes: argininosuccinate synthase, argininosuccinate lyase, and arginase-I\n(Meijer et al., 1990). A major source of the cytosolic aspartate is the mitochondrial aspartate, which is exchanged with the cytosolic\nglutamate through the action of Citrin (a transporter in the mitochondrial membrane). Thus, the urea cycle is characterized by meta-\nbolic compartmentation and channeling",
+  "token_count": 400
+}

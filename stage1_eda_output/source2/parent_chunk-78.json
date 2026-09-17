@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p78",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "6.4 Sweet potato, cooked",
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "12.2 Nutrition and Long-Term Cardiovascular Illnesses",
   "level": 2,
-  "start_page": 39,
-  "end_page": 39,
+  "start_page": 256,
+  "end_page": 259,
   "block_type": [],
-  "text": "6.4 \nSweet potato, cooked \n1 cup \n6.3 \nPumpkin seeds, whole \n1 oz \n5.2 \nGreen peas, cooked \n½ cup \n4.4 \nSpinach, cooked \n1 cup \n4.3 \nBaked potato with skin \n1 medium"
+  "text": ""
 }

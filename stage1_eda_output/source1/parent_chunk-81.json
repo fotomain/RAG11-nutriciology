@@ -1,10 +1,12 @@
 {
   "parent_id": "source1-p81",
   "source": "human-nutrition-text.pdf",
+  "source_key": "source1",
+  "source_row_guid": "2b8f8480-5b57-5811-83b4-e808c7221d53",
   "title": "Iodine",
   "level": 2,
   "start_page": 722,
   "end_page": 722,
   "block_type": [],
-  "text": "Iodine \nUNIVERSITY OF HAWAI‘I AT MĀNOA FOOD SCIENCE AND HUMAN \nNUTRITION PROGRAM AND HUMAN NUTRITION PROGRAM \nRecall the discovery of iodine and its use as a means of preventing \ngoiter, a gross enlargement of the thyroid gland in the neck. Iodine \nis essential for the synthesis of thyroid hormone, which regulates \nbasal metabolism, growth, and development. Low iodine levels and \nconsequently hypothyroidism has many signs and symptoms \nincluding fatigue, sensitivity to cold, constipation, weight gain, \ndepression, and dry, itchy skin and paleness. The development of \ngoiter may often be the most visible sign of chronic iodine \ndeficiency, but the consequences of low levels of thyroid hormone \ncan be severe during infancy, childhood, and adolescence as it \naffects all stages of growth and development. Thyroid hormone \nplays a major role in brain development and growth and fetuses \nand infants with severe iodine deficiency develop a condition known \nas cretinism, in which physical and neurological impairment can \nbe severe. The World Health Organization (WHO) estimates iodine \ndeficiency affects over two billion people worldwide and it is the \nnumber-one cause of preventable brain damage worldwide.1 \nFigure 11.5 Deaths Due to Iodine Deficiency Worldwide in 2012 \n1. World Health Organization. “Iodine Status Worldwide.” \nAccessed October 2, 2011. http://whqlibdoc.who.int/\npublications/2004/9241592001.pdf. \nIodine  |  681\n"
+  "text": ""
 }

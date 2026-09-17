@@ -1,0 +1,19 @@
+{
+  "rowGUID": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "rowOwnerGUID": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "rowParentGUID": null,
+  "orderInList": 2,
+  "rowJSON": {
+    "source_key": "source2",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1LUks-5LlNAEoTDjpaZboFa99FsWVIcU5",
+    "filename": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
+    "expected_pages": 513,
+    "structure": "regex_numbering",
+    "local_path": "stage1_eda_input/source2/Nutrition_for_Nurses-WEB_260913_200839.pdf",
+    "size_bytes": 30407884,
+    "actual_page_count": 513,
+    "fetched_at": "2026-09-16T22:35:38.387178+00:00"
+  }
+}

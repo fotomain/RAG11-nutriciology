@@ -1,43 +1,97 @@
 -- =========================================================================
--- RAG11 Nutrition RAG — Parent/Child Schema Migration
+-- RAG11 Nutrition RAG — Sources/Parent/Child Schema Migration
 -- Run once in the Supabase Dashboard -> SQL Editor before Stage 1.2
--- ingestion. Creates both tables, the vector index, and the RPC functions.
+-- ingestion. Creates all three tables, the vector index, and the RPC
+-- functions.
 --
--- Schema shape follows the project brief exactly:
+-- Schema shape follows the project brief exactly, and is the SAME 5-column
+-- pattern on all three tables:
 --   rowGUID        unique id for this row
---   rowOwnerGUID   source identifier ('source1' / 'source2' / 'source3')
---   rowParentGUID  hierarchical link (child -> its parent's rowGUID)
+--   rowOwnerGUID   the row's ultimate owner -- see below
+--   rowParentGUID  hierarchical link (child -> its immediate parent's rowGUID)
 --   orderInList    position within the owning list
---   rowJSON        the full chunk payload, verbatim from
---                  stage1_eda_output/<source>/parent_chunk-N.json or
---                  child_chunk-parentN-chunkM.json
+--   rowJSON        the full payload, verbatim from a JSON file stage1_1/1_2
+--                  wrote to disk
 --
 -- A few columns are pulled out of rowJSON as `generated always as` columns
 -- so common filters/joins don't need a jsonb operator on every query, while
 -- rowJSON itself stays the single source of truth (nothing is duplicated by
 -- hand, so it can never drift from the JSON files on disk).
 --
--- Ingestion mapping (Stage 1.2 notebook), matching the RAG10 pattern:
---   rowGUID       = uuid5(namespace, parent_id)   or  uuid5(namespace, child_id)
---   rowParentGUID = uuid5(namespace, child["parent_id"])   (child rows only)
---   orderInList   = the trailing N / M in parent_chunk-N.json / chunk-M
---   rowOwnerGUID  = the source key folder name ('source1', 'source2', 'source3')
+-- Hierarchy and what rowOwnerGUID/rowParentGUID mean at each level:
+--   rag11_data_sources        -- one row per source PDF (the root of its
+--                                 own tree). rowParentGUID is always null
+--                                 here (nothing sits above a source), and
+--                                 rowOwnerGUID == rowGUID (a source owns
+--                                 itself) -- see stage1_1's build_source_row().
+--   rag11_chunks_parent_table -- one row per section. rowOwnerGUID is the
+--                                 owning source's rag11_data_sources
+--                                 rowGUID (a real FK now, not the old plain
+--                                 'source1'/'source2' text). rowParentGUID
+--                                 is null (nothing above a parent chunk
+--                                 except the source itself, tracked via
+--                                 rowOwnerGUID).
+--   rag11_chunks_child_table  -- one row per embeddable chunk. rowOwnerGUID
+--                                 is the same source rowGUID, inherited
+--                                 down the tree; rowParentGUID is its
+--                                 parent chunk's rowGUID.
+--
+-- Ingestion mapping (Stage 1.1/1.2 notebooks), matching the RAG10 pattern:
+--   rag11_data_sources.rowGUID        = uuid5(namespace, "source:" + drive_file_id)
+--   rag11_chunks_parent_table.rowGUID = uuid5(namespace, "parent:" + parent_id)
+--   rag11_chunks_child_table.rowGUID  = uuid5(namespace, "child:" + child_id)
+--   rowParentGUID (child rows only)   = uuid5(namespace, "parent:" + child["parent_id"])
+--   orderInList                       = the trailing N / M in parent_chunk-N.json /
+--                                        chunk-M, or a source's position in the
+--                                        Drive folder listing
+--   rowOwnerGUID (parent/child rows)  = the owning source's rag11_data_sources
+--                                        rowGUID, read from each chunk file's
+--                                        `source_row_guid` field
 -- Deterministic uuid5 ids make re-running ingestion an idempotent upsert.
 -- =========================================================================
 
 -- 1. Enable pgvector -------------------------------------------------------
 create extension if not exists vector with schema extensions;
 
--- 2. Parent table: one row per section/parent chunk -----------------------
+-- 2. Sources table: one row per source PDF ---------------------------------
+create table if not exists public.rag11_data_sources (
+    "rowGUID"       uuid primary key default gen_random_uuid(),
+    "rowOwnerGUID"  uuid not null,   -- always == "rowGUID" (a source owns itself)
+    "rowParentGUID" uuid,            -- always null -- a source has no parent
+    "orderInList"   int not null,    -- position in the Drive folder listing
+    "rowJSON"       jsonb not null,  -- full stage1_eda_output/sources/source_row-N.json payload
+
+    -- generated helper columns, pulled out of rowJSON for cheap filtering
+    source_key    text generated always as ("rowJSON"->>'source_key') stored,
+    filename      text generated always as ("rowJSON"->>'filename') stored,
+    drive_file_id text generated always as ("rowJSON"->>'drive_file_id') stored,
+    structure     text generated always as ("rowJSON"->>'structure') stored,
+
+    created_at timestamptz not null default timezone('utc', now()),
+
+    -- Encodes "a source is its own tree's root/owner" at the DB level, not
+    -- just by convention in the notebooks.
+    constraint rag11_data_sources_self_owned check ("rowOwnerGUID" = "rowGUID"),
+    constraint rag11_data_sources_no_parent check ("rowParentGUID" is null)
+);
+
+create unique index if not exists uq_rag11_sources_order
+    on public.rag11_data_sources ("orderInList");
+
+create unique index if not exists uq_rag11_sources_source_key
+    on public.rag11_data_sources (source_key);
+
+-- 3. Parent table: one row per section/parent chunk ------------------------
 create table if not exists public.rag11_chunks_parent_table (
     "rowGUID"       uuid primary key default gen_random_uuid(),
-    "rowOwnerGUID"  text not null,               -- 'source1' / 'source2' / 'source3'
+    "rowOwnerGUID"  uuid not null references public.rag11_data_sources("rowGUID") on delete cascade,
     "rowParentGUID" uuid,                        -- reserved for a future higher-level grouping; null for top-level sections
     "orderInList"   int not null,                -- position of this parent within its source
     "rowJSON"       jsonb not null,              -- full parent_chunk-N.json payload
 
     -- generated helper columns, pulled out of rowJSON for cheap filtering
     source     text generated always as ("rowJSON"->>'source') stored,
+    source_key text generated always as ("rowJSON"->>'source_key') stored,
     title      text generated always as ("rowJSON"->>'title') stored,
     start_page int  generated always as (("rowJSON"->>'start_page')::int) stored,
     end_page   int  generated always as (("rowJSON"->>'end_page')::int) stored,
@@ -45,22 +99,43 @@ create table if not exists public.rag11_chunks_parent_table (
     created_at timestamptz not null default timezone('utc', now())
 );
 
+-- If this table already exists from an earlier run of this script with a
+-- *text* rowOwnerGUID ('source1' etc.), migrate it here. This only
+-- succeeds on an EMPTY table (there's nothing non-uuid left to cast) --
+-- run sql/delete_chunks_data.sql Option A first if it isn't, since this
+-- project is still at the POC/dev stage per the permissive policies below.
+do $$
+begin
+    if exists (
+        select 1 from information_schema.columns
+        where table_schema = 'public' and table_name = 'rag11_chunks_parent_table'
+          and column_name = 'rowOwnerGUID' and data_type = 'text'
+    ) then
+        alter table public.rag11_chunks_parent_table
+            alter column "rowOwnerGUID" type uuid using "rowOwnerGUID"::uuid;
+        alter table public.rag11_chunks_parent_table
+            add constraint rag11_chunks_parent_owner_fkey
+            foreign key ("rowOwnerGUID") references public.rag11_data_sources("rowGUID") on delete cascade;
+    end if;
+end $$;
+
 create unique index if not exists uq_rag11_parent_owner_order
     on public.rag11_chunks_parent_table ("rowOwnerGUID", "orderInList");
 
 create index if not exists idx_rag11_parent_owner
     on public.rag11_chunks_parent_table ("rowOwnerGUID");
 
--- 3. Child table: one row per embeddable chunk + its embedding -------------
+-- 4. Child table: one row per embeddable chunk + its embedding -------------
 -- Voyage voyage-3 embeddings are 1024-dimensional; adjust the vector(...)
 -- width below (and in both RPCs) if you pick a different Voyage model.
 create table if not exists public.rag11_chunks_child_table (
     "rowGUID"       uuid primary key default gen_random_uuid(),
-    "rowOwnerGUID"  text not null,               -- denormalized source identifier
+    "rowOwnerGUID"  uuid not null references public.rag11_data_sources("rowGUID") on delete cascade,
     "rowParentGUID" uuid not null references public.rag11_chunks_parent_table("rowGUID") on delete cascade,
     "orderInList"   int not null,                -- position of this child within its parent
     "rowJSON"       jsonb not null,              -- full child_chunk-parentN-chunkM.json payload
 
+    source_key  text generated always as ("rowJSON"->>'source_key') stored,
     chunk_text  text generated always as ("rowJSON"->>'text') stored,
     token_count int  generated always as (("rowJSON"->>'token_count')::int) stored,
 
@@ -68,6 +143,23 @@ create table if not exists public.rag11_chunks_child_table (
 
     created_at  timestamptz not null default timezone('utc', now())
 );
+
+-- Same guarded migration as the parent table above, for pre-existing
+-- deployments with a *text* rowOwnerGUID.
+do $$
+begin
+    if exists (
+        select 1 from information_schema.columns
+        where table_schema = 'public' and table_name = 'rag11_chunks_child_table'
+          and column_name = 'rowOwnerGUID' and data_type = 'text'
+    ) then
+        alter table public.rag11_chunks_child_table
+            alter column "rowOwnerGUID" type uuid using "rowOwnerGUID"::uuid;
+        alter table public.rag11_chunks_child_table
+            add constraint rag11_chunks_child_owner_fkey
+            foreign key ("rowOwnerGUID") references public.rag11_data_sources("rowGUID") on delete cascade;
+    end if;
+end $$;
 
 create unique index if not exists uq_rag11_child_parent_order
     on public.rag11_chunks_child_table ("rowParentGUID", "orderInList");
@@ -84,16 +176,27 @@ create index if not exists idx_rag11_child_embedding_hnsw
     using hnsw (embedding vector_cosine_ops)
     with (m = 16, ef_construction = 64);
 
--- 4. Stored procedure: vector search over child chunks ---------------------
+-- 5. Stored procedure: vector search over child chunks ---------------------
+-- Drop every prior overload by its exact signature first. "create or
+-- replace" only replaces an EXACT signature match, so an earlier version of
+-- this script that used a different filter_owner type (e.g. text, before it
+-- was changed to uuid) leaves its old overload sitting in the database
+-- forever. PostgREST then can't pick between them for an RPC call that
+-- omits filter_owner (relying on the default) -- APIError PGRST203 "Could
+-- not choose the best candidate function". Re-running this file is meant
+-- to be idempotent, so we explicitly clear known-stale overloads here.
+drop function if exists public.match_rag11_child_chunks(extensions.vector, int, text);
+drop function if exists public.match_rag11_child_chunks(extensions.vector, int);
+
 create or replace function public.match_rag11_child_chunks(
     query_embedding extensions.vector(1024),
     match_count     int  default 8,
-    filter_owner    text default null
+    filter_owner    uuid default null   -- a rag11_data_sources.rowGUID
 )
 returns table (
     "rowGUID"       uuid,
     "rowParentGUID" uuid,
-    "rowOwnerGUID"  text,
+    "rowOwnerGUID"  uuid,
     "orderInList"   int,
     "rowJSON"       jsonb,
     cosine_distance float
@@ -114,7 +217,7 @@ as $$
     limit least(match_count, 50);
 $$;
 
--- 5. Stored procedure: fetch one parent's full row by rowGUID --------------
+-- 6. Stored procedure: fetch one parent's full row by rowGUID --------------
 -- Convenience RPC so the retrieval layer can expand a matched child back to
 -- its full parent section without hand-building a second REST query.
 create or replace function public.get_rag11_parent(
@@ -126,11 +229,15 @@ as $$
     select * from public.rag11_chunks_parent_table where "rowGUID" = p_row_guid;
 $$;
 
--- 6. Full permissions on both tables (POC / development only) --------------
+-- 7. Full permissions on all three tables (POC / development only) --------
 -- Wide open for a POC, matching the RAG10 pattern. Before production,
 -- replace the "allow all" policies below with narrower ones (e.g.
 -- read-only for anon, writes restricted to service_role).
 grant usage on schema public to anon, authenticated, service_role;
+
+grant select, insert, update, delete
+    on public.rag11_data_sources
+    to anon, authenticated, service_role;
 
 grant select, insert, update, delete
     on public.rag11_chunks_parent_table
@@ -140,8 +247,17 @@ grant select, insert, update, delete
     on public.rag11_chunks_child_table
     to anon, authenticated, service_role;
 
+alter table public.rag11_data_sources       enable row level security;
 alter table public.rag11_chunks_parent_table enable row level security;
 alter table public.rag11_chunks_child_table  enable row level security;
+
+drop policy if exists "allow all - rag11 sources" on public.rag11_data_sources;
+create policy "allow all - rag11 sources"
+    on public.rag11_data_sources
+    for all
+    to anon, authenticated, service_role
+    using (true)
+    with check (true);
 
 drop policy if exists "allow all - rag11 parent" on public.rag11_chunks_parent_table;
 create policy "allow all - rag11 parent"
@@ -160,7 +276,7 @@ create policy "allow all - rag11 child"
     with check (true);
 
 grant execute on function public.match_rag11_child_chunks(
-    extensions.vector, int, text
+    extensions.vector, int, uuid
 ) to anon, authenticated, service_role;
 
 grant execute on function public.get_rag11_parent(uuid)

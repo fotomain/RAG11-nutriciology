@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p135",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "2.3 • Protein",
-  "level": 2,
-  "start_page": 48,
-  "end_page": 49,
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "References",
+  "level": 1,
+  "start_page": 442,
+  "end_page": 497,
   "block_type": [],
-  "text": "2.3 • Protein\n37\n\nStages of Kidney Disease \nClinical Indicators \nAmount of Protein (g/kg of Ideal \nBody Weight) \nStage 3b \nGFR 30–44 \n0.55–0.60 \nStage 4 \nGFR 15–29 \n0.55–0.60 \nStage 5 \nGFR < 15 \n0.55–0.60 \nDialysis \n1.0–1.2 \nTABLE 2.10 Protein Needs in Kidney Disease and Dialysis (sources: American Kidney Fund, 2022; National Kidney Foundation of Hawaii, \nn.d.)"
+  "text": ""
 }

@@ -1,0 +1,19 @@
+{
+  "rowGUID": "312725d3-d1f0-5d9e-94e4-81cf868912d8",
+  "rowOwnerGUID": "312725d3-d1f0-5d9e-94e4-81cf868912d8",
+  "rowParentGUID": null,
+  "orderInList": 14,
+  "rowJSON": {
+    "source_key": "source14",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1H8T_sY0KFQAW1RZCO8zXjMfKESsiI0xD",
+    "filename": "vdoc.pub_motivational-interviewing-in-nutrition-and-fitness.pdf",
+    "expected_pages": 290,
+    "structure": "native_outline_pattern_filtered",
+    "local_path": "stage1_eda_input/source14/vdoc.pub_motivational-interviewing-in-nutrition-and-fitness.pdf",
+    "size_bytes": 3515486,
+    "actual_page_count": 290,
+    "fetched_at": "2026-09-16T22:35:39.631226+00:00"
+  }
+}

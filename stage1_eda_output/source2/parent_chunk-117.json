@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p117",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "6.0 Milk, whole (3.3% fat)",
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "18.3 Treatments and Nutrition",
   "level": 2,
-  "start_page": 43,
-  "end_page": 43,
+  "start_page": 377,
+  "end_page": 379,
   "block_type": [],
-  "text": "6.0 \nMilk, whole (3.3% fat) \n1 cup"
+  "text": ""
 }

@@ -1,0 +1,19 @@
+{
+  "rowGUID": "afdc38a8-69a3-5b33-a746-f14464581420",
+  "rowOwnerGUID": "afdc38a8-69a3-5b33-a746-f14464581420",
+  "rowParentGUID": null,
+  "orderInList": 9,
+  "rowJSON": {
+    "source_key": "source9",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1Uqudhz4WzQV45xum7m7EXqMoAce5eCS-",
+    "filename": "Medical_Nutrition_and_Disease_A_Case_Based_Approach.pdf",
+    "expected_pages": 402,
+    "structure": "native_outline_pattern_filtered",
+    "local_path": "stage1_eda_input/source9/Medical_Nutrition_and_Disease_A_Case_Based_Approach.pdf",
+    "size_bytes": 2608282,
+    "actual_page_count": 402,
+    "fetched_at": "2026-09-16T22:35:38.972852+00:00"
+  }
+}

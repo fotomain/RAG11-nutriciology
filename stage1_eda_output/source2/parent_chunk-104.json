@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p104",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "4.3 Baked potato with skin",
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "16.2 Nutrition and Chronic Renal Illness",
   "level": 2,
-  "start_page": 39,
-  "end_page": 39,
+  "start_page": 341,
+  "end_page": 346,
   "block_type": [],
-  "text": "4.3 \nBaked potato with skin \n1 medium"
+  "text": ""
 }

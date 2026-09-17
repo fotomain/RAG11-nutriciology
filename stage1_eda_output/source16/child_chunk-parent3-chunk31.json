@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p3-c31",
+  "parent_id": "source16-p3",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Amino acids: Metabolism | Pages 42-54]\n\n2 Mg-ADP + Pi\nNAG\nOCT\nCOO\n-\nC NH3\n+\nCH2\nH\nCOO\n-\nMg-ATP\nAMP + PPi\nL-Aspartate\nASS\nCH\nC\nH\nCOO\n-\nOOC\n-\nL-Arginine\nCPS-I\nASL\nMitochondrion\nCytoplasm\nCarbamoyl\nphosphate\nCH2\nCH2\nCH2\nC\nCOO\n-\nNH3\n+\nH\nNH\nC\nNH2\nNH\nCH\nCOO\n-\nCH2\nCOO\n-\nFumarate\nArgininosuccinate\n2 Mg-ATP\n+\n+\nC\nH2\nC\nCH2\nC\nCOO\n-\nNH3\n+\nH\nNH\nC\nNH2\nO\nL-Citrulline\nHCO3\n-  +  NH3\nC\nH2\nC\nCH2\nC\nCOO\n-\nNH3\n+\nH\nNH3\n+\nH2\nH2\nH2\nL-Ornithine\nC\nH2\nCH2\nC\nC\nCOO\n-\nNH3\n+\nH\nNH\nC\nNH2\nNH2\nFig. 3\nThe urea cycle in mammals. The synthesis of urea from ammonia and bicarbonate involves both the mitochondrion and the cytoplasm.\nCitrulline exits the mitochondrion into the cytoplasm where it is converted into arginine, which is rapidly hydrolyzed by arginase into urea plus\nornithine. Ornithine is then re-used for another turnover of the cycle. ASL, argininosuccinate lyase; ASS, argininosuccinate synthase; CPS-I,\ncarbamoylphosphate synthetase-I",
+  "token_count": 400
+}

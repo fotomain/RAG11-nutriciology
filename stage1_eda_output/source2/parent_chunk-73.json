@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p73",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "25.0 to < 30",
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "11.4 Evaluate Nutritional Strategies to Impact Cardiovascular Wellness",
   "level": 2,
-  "start_page": 23,
-  "end_page": 23,
+  "start_page": 240,
+  "end_page": 241,
   "block_type": [],
-  "text": "25.0 to < 30 \nOverweight"
+  "text": ""
 }

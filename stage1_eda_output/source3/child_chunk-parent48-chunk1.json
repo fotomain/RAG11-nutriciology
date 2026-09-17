@@ -1,6 +1,9 @@
 {
   "child_id": "source3-p48-c1",
   "parent_id": "source3-p48",
-  "text": "[Source: Nutrition-Science-and-Everyday-Application-1773787282.pdf | Section: Protein Structure | Pages 311-322]\n\nProtein Structure \nWHAT IS PROTEIN? \nProteins are macromolecules composed of amino acids. For this reason, amino acids are commonly \ncalled the building blocks of protein. There are 20 different amino acids, and we require all of \nthem to make the many different proteins found throughout the body. Proteins are crucial for the \nnourishment, renewal, and continuance of life. \nJust like carbohydrates and fats, proteins contain the elements carbon, hydrogen, and oxygen, but \nproteins are the only macronutrient that also contain nitrogen as part of their core structure. \nIn each amino acid, the elements are arranged into a specific conformation, consisting of a central \ncarbon bound to the following four components: \n• A hydrogen \n• A nitrogen-containing amino group \n• A carboxylic acid group (hence the name “amino acid”) \n• A side chain \nThe first three of those components are the same for all amino acids. The side chain—represented \nby an “R” in the diagram below—is what makes each amino acid unique. \nFigure 6.1. Amino Acid Structure. \nFigure 6.1 Image Description \nAmino acids contain four elements. The arrangement of elements around the carbon \ncenter is the same for all amino acids. Only the side chain (R) differs. Each amino acid consists \nof a central carbon atom connected to a side chain, a hydrogen, a nitrogen-containing amino \ngroup, a carboxylic acid group. \nPROTEIN STRUCTURE\n303\n303\n\nAmino acid side chains vary tremendously in their size and can be as simple as one hydrogen (as \nin glycine, shown in Figure 6.1) or as complex as multiple carbon rings (as in tryptophan). They also \ndiffer in their chemical properties, thus impacting the way amino acids act in their environment \nand with other molecules.",
-  "token_count": 400
+  "source_key": "source3",
+  "source_row_guid": "56fa2b5a-28f7-5fdd-9222-45bc0b8e0b8a",
+  "chunk_type": "prose",
+  "text": "[Source: Nutrition-Science-and-Everyday-Application-1773787282.pdf | Section: Protein Structure | Pages 311-322]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "token_count": 2
 }

@@ -1,10 +1,12 @@
 {
   "parent_id": "source1-p80",
   "source": "human-nutrition-text.pdf",
+  "source_key": "source1",
+  "source_row_guid": "2b8f8480-5b57-5811-83b4-e808c7221d53",
   "title": "Selenium",
   "level": 2,
   "start_page": 716,
   "end_page": 716,
   "block_type": [],
-  "text": "Selenium \nUNIVERSITY OF HAWAI‘I AT MĀNOA FOOD SCIENCE AND HUMAN \nNUTRITION PROGRAM AND HUMAN NUTRITION PROGRAM \nSelenium is a cofactor of enzymes that release active thyroid \nhormone in cells and therefore low levels can cause similar signs \nand symptoms as iodine deficiency. The other important function of \nselenium is as an antioxidant. \nSelenium Functions and Health Benefits \nAround twenty-five known proteins require selenium to function. \nSome are enzymes involved in detoxifying free radicals and include \nglutathione peroxidases and thioredoxin reductase. As an integral \nfunctioning part of these enzymes, selenium aids in the \nregeneration of glutathione and oxidized vitamin C. Selenium as \npart of glutathione peroxidase also protects lipids from free \nradicals, and, in doing so, spares vitamin E. This is just one example \nof how antioxidants work together to protect the body against free-\nradical induced damage. Other functions of selenium-containing \nproteins include protecting endothelial cells that line tissues, \nconverting the inactive thyroid hormone to the active form in cells, \nand mediating inflammatory and immune system responses. \nObservational \nstudies \nhave \ndemonstrated \nthat \nselenium \ndeficiency is linked to an increased risk of cancer. A review of forty-\nnine observational studies published in the May 2011 issue of the \nCochrane Database of Systematic Reviews concluded that higher \nselenium exposure reduces overall cancer incidence by about 34 \npercent in men and 10 percent in women, but notes these studies \nhad several limitations, including data quality, bias, and large \nSelenium  |  675\n"
+  "text": ""
 }

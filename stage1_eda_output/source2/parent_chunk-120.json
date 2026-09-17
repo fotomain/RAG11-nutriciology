@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p120",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "1.6 TABLE 2.5 Common Foods and Their Saturated Fat Content (source: Gebhardt & Thomas, 2022)",
-  "level": 2,
-  "start_page": 43,
-  "end_page": 43,
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "Introduction",
+  "level": 1,
+  "start_page": 384,
+  "end_page": 384,
   "block_type": [],
-  "text": "1.6 \nTABLE 2.5 Common Foods and Their Saturated Fat Content (source: Gebhardt & Thomas, 2022) \nMonounsaturated Fats \nMonounsaturated fats (MUFAs) such as olive oil have become the “go-to” fat, replacing polyunsaturated fats, which \nreceived much of the attention in the 1980s. Table 2.6 lists some common oils and their monounsaturated fat \ncontent. All fats have the same number of calories per gram (9 g), whether saturated or not. \nOil \nMonounsaturated Fat Content (Grams per 1 Tbsp) \nSafflower"
+  "text": ""
 }

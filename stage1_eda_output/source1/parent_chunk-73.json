@@ -1,10 +1,12 @@
 {
   "parent_id": "source1-p73",
   "source": "human-nutrition-text.pdf",
+  "source_key": "source1",
+  "source_row_guid": "2b8f8480-5b57-5811-83b4-e808c7221d53",
   "title": "Sulfur",
   "level": 2,
   "start_page": 676,
   "end_page": 676,
   "block_type": [],
-  "text": "Sulfur \nUNIVERSITY OF HAWAI‘I AT MĀNOA FOOD SCIENCE AND HUMAN \nNUTRITION PROGRAM AND HUMAN NUTRITION PROGRAM \nSulfur is incorporated into protein structures in the body. Amino \nacids, methionine and cysteine contain sulfur which are essential \nfor the antioxidant enzyme glutathione peroxidase. Some vitamins \nlike thiamin and biotin also contain sulfur which are important in \nregulating acidity in the body. Sulfur is a major mineral with no \nrecommended intake or deficiencies when protein needs are met. \nSulfur is mostly consumed as a part of dietary proteins and sulfur \ncontaining vitamins. \nSulfur’s Functional Role \nSulfur is the third most abundant mineral in our body after calcium \nand phosphorus.1 Sulfur is incorporated into protein structures in \nthe body such as keratin in hair and provides stabilization to these \nprotein structures. One of it’s key roles is the synthesis of 3’-\nphosphoadenosine-5’phosphosulfate (PAPS)2 which is used in the \n1. Nimni, M. E., Han, B., & Cordoba, F. (2007). Are we \ngetting enough sulfur in our diet?. Nutrition & \nMetabolism, 4,24. https://doi.org/10.1186/\n1743-7075-4-24. \n2. Weiss, M., Steiner, D. F., & Philipson, L. H. (2000). Insulin \nbiosynthesis, secretion, structure, and structure-activity \nSulfur  |  635\n"
+  "text": ""
 }

@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p5-c13",
+  "parent_id": "source16-p5",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Antioxidants: Intervention studies | Pages 67-79]\n\n several\ndoses of vitamin where studied the higher dose was used for calculations. Similarly, when several time-points where analyzed the\nlast one was used.\nMeta-analysis\nA random-effects meta-analysis with DerSimonian-Laird methods was performed using R software on the change of each outcome\n(i.e. vitamin vs. placebo). Effects sizes are presented as standardized mean differences (SMD), mean differences (MD) or risk ratio\n(RR) with means \u0003 SD and 95% CIs. Heterogeneity was assessed by c2 and I2 and signiﬁcance was set at p < 0.05. Additionally,\nsubgroup analysis (i.e. vitamin E vs. vitamin C, or trained vs. untrained) and meta-regression (length of the study) were performed.\nFasting glucose, HbA1c % and body mass index\nWe analyzed 35 clinical trials including more than 1700 type 2 diabetic and/or overweight to obese subjects (Economides et al.,\n2005; El-Aal et al., 2018; Paolisso et al., 1993; Ward et al., 2007; Ceriello et al., 1991; Reaven et al., 1995; Fuller et al., 1996; Gazis\net al., 1999; Duffy et al., 2001; Botham et al., 2005; Ble-Castillo et al., 2005; Winterbone et al., 2007; Manning et al., 2013; Stone-\nhouse et al., 2016; Rafraf et al., 2016; Farajbakhsh et al., 2019; Mazloom et al., 2011; Bishop et al., 1985; Ragheb et al., 2020; Kun-\nsongkeit et al., 2019; Devanandan et al., ",
+  "token_count": 400
+}

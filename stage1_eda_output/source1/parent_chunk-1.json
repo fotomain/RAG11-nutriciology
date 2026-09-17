@@ -1,6 +1,8 @@
 {
   "parent_id": "source1-p1",
   "source": "human-nutrition-text.pdf",
+  "source_key": "source1",
+  "source_row_guid": "2b8f8480-5b57-5811-83b4-e808c7221d53",
   "title": "Introduction",
   "level": 2,
   "start_page": 44,

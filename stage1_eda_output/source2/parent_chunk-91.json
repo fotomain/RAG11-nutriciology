@@ -1,10 +1,12 @@
 {
   "parent_id": "source2-p91",
   "source": "Nutrition_for_Nurses-WEB_260913_200839.pdf",
-  "title": "2.7 Coconut",
+  "source_key": "source2",
+  "source_row_guid": "c7c1cc6f-cae8-5eba-9022-4a1abbdf6f6f",
+  "title": "14.2 Nutrition and Chronic Pulmonary Illnesses",
   "level": 2,
-  "start_page": 43,
-  "end_page": 43,
+  "start_page": 297,
+  "end_page": 305,
   "block_type": [],
-  "text": "2.7 \nCoconut"
+  "text": ""
 }

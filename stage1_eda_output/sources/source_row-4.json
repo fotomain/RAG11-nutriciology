@@ -1,0 +1,19 @@
+{
+  "rowGUID": "1b404228-7f8f-5ce0-b270-50f059fba2cf",
+  "rowOwnerGUID": "1b404228-7f8f-5ce0-b270-50f059fba2cf",
+  "rowParentGUID": null,
+  "orderInList": 4,
+  "rowJSON": {
+    "source_key": "source4",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1rQbf7Ko6oLPOupiOCj0n91lTe8Fdazi8",
+    "filename": "Advanced_Nutrition_and_Human_Metabolism.pdf",
+    "expected_pages": 181,
+    "structure": "regex_chapter_summary",
+    "local_path": "stage1_eda_input/source4/Advanced_Nutrition_and_Human_Metabolism.pdf",
+    "size_bytes": 2547549,
+    "actual_page_count": 181,
+    "fetched_at": "2026-09-16T22:35:38.383711+00:00"
+  }
+}
