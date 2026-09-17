@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — How It Works &amp; Data Flow</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:64ch; margin:.35rem 0 1.4rem;}
+
+  /* ---- Nav ---- */
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--accent), var(--violet));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.25rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.86rem; font-weight:600;
+    padding:.45rem .75rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  /* ---- Hero ---- */
+  .hero h1{font-size:2.15rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+
+  /* ---- Cards / panels ---- */
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  /* ---- Tables (filter + sort) ---- */
+  .table-toolbar{display:flex; gap:.6rem; align-items:center; margin:1rem 0 .75rem; flex-wrap:wrap;}
+  .table-toolbar input[type="search"]{
+    flex:1; min-width:220px; padding:.55rem .8rem; border-radius:var(--radius-sm);
+    border:1px solid var(--border); background:var(--surface-2); font-size:.86rem; color:var(--ink);
+  }
+  .table-toolbar input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .rowcount{font-size:.78rem; color:var(--ink-muted); white-space:nowrap;}
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table caption{display:none;}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); position:sticky; top:0; cursor:pointer; user-select:none;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  table.data-table thead th:hover{color:var(--accent-dark);}
+  table.data-table thead th .arrow{opacity:.35; margin-left:.25rem; font-size:.7rem;}
+  table.data-table thead th[aria-sort="ascending"] .arrow,
+  table.data-table thead th[aria-sort="descending"] .arrow{opacity:1; color:var(--accent);}
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+  table.data-table tbody tr.is-hidden{display:none;}
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.78rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+
+  /* ---- Sample trace ---- */
+  .trace{display:flex; flex-direction:column; gap:0;}
+  .trace-step{display:grid; grid-template-columns:190px 1fr; gap:1.1rem; padding:1.1rem 0; border-top:1px dashed var(--grid);}
+  .trace-step:first-child{border-top:none;}
+  .trace-meta{position:sticky; top:5rem; align-self:start;}
+  .trace-meta .tag{margin-bottom:.5rem;}
+  .trace-meta h3{margin-bottom:.2rem;}
+  .trace-meta p{margin:0; font-size:.82rem; color:var(--ink-muted);}
+  pre.code{
+    margin:0; background:#0b0b0b0d; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.78rem; color:var(--ink);
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  .answer-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:1rem 1.1rem; font-size:.9rem;
+  }
+  .answer-box .short{font-weight:700; color:var(--accent-dark); margin-bottom:.4rem;}
+  .answer-box .cite{margin-top:.6rem; font-size:.8rem; color:var(--ink-muted);}
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 720px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .trace-step{grid-template-columns:1fr;}
+    .trace-meta{position:static;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#dataflow">Data Flow</a>
+    <a href="#stages">Pipeline Stages</a>
+    <a href="#schema">Schema</a>
+    <a href="#samples">Sample Data</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta">Evidence-based clinical nutrition RAG</div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation</div>
+    <h1>How RAG11 works, end to end</h1>
+    <p class="lede">
+      RAG11 is a hierarchical Retrieval-Augmented Generation pipeline over clinical
+      nutrition textbooks: parent/child chunking, Voyage AI domain embeddings, Supabase
+      pgvector with an HNSW index, and Claude Sonnet for grounded, citation-backed answers.
+      This page traces the data as it moves through every stage, from source PDF to final answer.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>5</b>&nbsp;pipeline stages</div>
+      <div class="chip"><b>3</b>&nbsp;Supabase tables</div>
+      <div class="chip"><b>1024‑dim</b>&nbsp;Voyage‑3 embeddings</div>
+      <div class="chip"><b>HNSW</b>&nbsp;cosine vector index</div>
+      <div class="chip"><b>Claude Sonnet</b>&nbsp;grounded generation</div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <div class="eyebrow">Diagram</div>
+    <h2>System architecture</h2>
+    <p class="lede">Two lifecycles share the same store: an offline ingestion path (top) that builds the knowledge base once, and an online question-answering path (bottom) that queries it on every question.</p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    A["Textbook PDFs (Google Drive)"] --> B["Stage 1.1: Extract and Chunk (hierarchical parent/child chunks)"]
+    B --> C["stage1_eda_output/ (JSON chunk files)"]
+    C --> D["Stage 1.2: Embed and Ingest (Voyage-3 document embeddings)"]
+    D --> E[("Supabase Postgres + pgvector (HNSW vector index)")]
+    E --> F["Stage 1.9: Verify (integrity and parity audit)"]
+    E --> G["Stage 2: Question Answering (match_rag11_child_chunks RPC)"]
+    H["User nutrition question"] --> I["Voyage‑3 'query' embedding"]
+    I --> G
+    G --> J["Claude Sonnet (evidence-backed generation)"]
+    J --> K["Final answer (page citations + short Yes/No)"]
+
+    classDef ingest fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef store fill:#efedfa,stroke:#4a3aa7,color:#0b0b0b;
+    classDef ask fill:#e6f7f0,stroke:#1baf7a,color:#0b0b0b;
+    class A,B,C,D ingest;
+    class E,F store;
+    class G,H,I,J,K ask;
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="dataflow">
+    <div class="eyebrow">Diagram · Gantt</div>
+    <h2>Data flow, stage by stage</h2>
+    <p class="lede">
+      Read left‑to‑right as a hand‑off sequence, not a calendar: each bar is one
+      pipeline stage, ordered by dependency (<code class="pill">after</code>), and
+      diamonds mark the artifact written to disk or to Supabase before the next stage can start.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+gantt
+    title RAG11 data flow (bars = pipeline order, not literal dates)
+    dateFormat  YYYY-MM-DD
+    axisFormat  Step %d
+    todayMarker off
+
+    section 1 · Source acquisition
+    Fetch PDFs from Google Drive (stage1_0, optional)         :active, s10, 2024-01-01, 1d
+
+    section 2 · Extract and chunk (stage1_1)
+    Extract per-page text (capped by MAX_NUMBER_OF_PAGES_TO_USE) :s11a, after s10, 1d
+    Detect sections (per-source algorithm, stage1_1_eda_packages) :s11b, after s11a, 1d
+    Build parent chunks (full section)                         :s11c, after s11b, 1d
+    Build child chunks (~300-500 tok, 10-15% overlap, tiktoken) :s11d, after s11c, 1d
+    Write parent_chunk-N.json / child_chunk-*.json to disk     :milestone, m1, after s11d, 0d
+
+    section 3 · Embed and ingest (stage1_2)
+    Embed child chunks — Voyage-3, input_type=document          :s12a, after m1, 1d
+    Upsert rag11_data_sources / parent / child tables            :s12b, after s12a, 1d
+    Checkpoint each upserted rowGUID (resumable load)            :milestone, m2, after s12b, 0d
+
+    section 4 · Verify (stage1_9)
+    Compare local JSON vs Supabase row counts + embedding dims  :s19, after m2, 1d
+    Smoke-test match_rag11_child_chunks RPC                     :milestone, m3, after s19, 0d
+
+    section 5 · Ask and answer (stage2)
+    Embed question — Voyage-3, input_type=query                 :s2a, after m3, 1d
+    Vector search match_rag11_child_chunks (top-k, HNSW)         :s2b, after s2a, 1d
+    Claude Sonnet grounded generation + citations                :crit, s2c, after s2b, 1d
+        </pre>
+      </div>
+      <p class="caption">Stage 1.0 is optional and idempotent (skips any source PDF already cached locally). Stages 1.1 → 1.9 run once to build the knowledge base; stage 2 runs once per question against the store that 1.9 verified.</p>
+    </div>
+  </section>
+
+  <section id="stages">
+    <div class="eyebrow">Reference</div>
+    <h2>Pipeline stages</h2>
+    <p class="lede">Every notebook in the repo, what it consumes, and what it produces for the next stage.</p>
+    <div class="table-toolbar">
+      <input type="search" id="filter-stages" placeholder="Filter stages… (e.g. “embed”, “Voyage”, “verify”)">
+      <span class="rowcount" data-count-for="table-stages"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-stages">
+        <thead>
+          <tr>
+            <th data-sort="text">Stage<span class="arrow">▲</span></th>
+            <th data-sort="text">Notebook<span class="arrow">▲</span></th>
+            <th data-sort="text">Type<span class="arrow">▲</span></th>
+            <th data-sort="text">Input<span class="arrow">▲</span></th>
+            <th data-sort="text">Output<span class="arrow">▲</span></th>
+            <th data-sort="text">What it does<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-blue">1.0</span> optional</td>
+            <td><code class="pill">stage1_0_eda_fetch_best_sources.ipynb</code></td>
+            <td>Fetch</td>
+            <td>Google Drive folder (<code class="pill">GOOGLE_DRIVE_SOURCES_FOLDER</code>)</td>
+            <td>PDFs cached in <code class="pill">stage1_eda_input/&lt;source&gt;/</code></td>
+            <td>Downloads/catalogs clinical nutrition textbooks via <code class="pill">gdown</code>; idempotent (skips cached PDFs); concurrent via a thread pool.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.1</span></td>
+            <td><code class="pill">stage1_1_extract_and_chunk.ipynb</code></td>
+            <td>Extract &amp; chunk</td>
+            <td>Source PDFs</td>
+            <td><code class="pill">parent_chunk-N.json</code>, <code class="pill">child_chunk-parentN-chunkM.json</code></td>
+            <td>Extracts per-page text, detects sections with a per-source algorithm (native outline / TOC / regex, one module per PDF), builds parent chunks (full section) and child chunks (~300–500 tokens, 10–15% overlap, <code class="pill">tiktoken</code>-based, contextual header prefixed).</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.2</span></td>
+            <td><code class="pill">stage1_2_eda_load_chunks.ipynb</code></td>
+            <td>Embed &amp; ingest</td>
+            <td>Chunk + source JSON files</td>
+            <td>Rows in <code class="pill">rag11_data_sources</code>, <code class="pill">rag11_chunks_parent_table</code>, <code class="pill">rag11_chunks_child_table</code></td>
+            <td>Embeds every child chunk with Voyage AI (<code class="pill">voyage-3</code>, <code class="pill">input_type=document</code>) in parallel batches with retries; deterministic <code class="pill">uuid5</code> row ids make re-runs safe upserts; checkpoints each upserted <code class="pill">rowGUID</code> so an interrupted load resumes.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.9</span></td>
+            <td><code class="pill">stage1_9_eda_verify_all_data.ipynb</code></td>
+            <td>Verify</td>
+            <td>Local JSON manifest + Supabase tables</td>
+            <td>Pass/fail integrity report</td>
+            <td>Recomputes expected rows from local files and compares row-for-row against Supabase (paginated fetch); checks embedding presence/dimension (1024‑d); cross-checks per-source counts; smoke-tests <code class="pill">match_rag11_child_chunks</code>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_samples1.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Grounded answer + page citations + short Yes/No summary</td>
+            <td>Embeds the question (<code class="pill">voyage-3</code>, <code class="pill">input_type=query</code>), calls the <code class="pill">match_rag11_child_chunks</code> RPC for top‑k child chunks, optionally expands to parent context via <code class="pill">get_rag11_parent</code>, then generates a grounded answer with Claude Sonnet strictly from retrieved text.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="schema">
+    <div class="eyebrow">Reference</div>
+    <h2>Database schema</h2>
+    <p class="lede">
+      All three tables share one 5‑column shape — <code class="pill">rowGUID</code>,
+      <code class="pill">rowOwnerGUID</code>, <code class="pill">rowParentGUID</code>,
+      <code class="pill">orderInList</code>, <code class="pill">rowJSON</code> — so the
+      hierarchy (source → parent chunk → child chunk) is encoded the same way at every
+      level, with a few columns pulled out of <code class="pill">rowJSON</code> as
+      generated columns for cheap filtering. <code class="pill">rowJSON</code> itself
+      stays the single source of truth.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+erDiagram
+    rag11_data_sources ||--o{ rag11_chunks_parent_table : "rowOwnerGUID"
+    rag11_chunks_parent_table ||--o{ rag11_chunks_child_table : "rowParentGUID"
+    rag11_data_sources ||--o{ rag11_chunks_child_table : "rowOwnerGUID (inherited)"
+
+    rag11_data_sources {
+      uuid rowGUID PK
+      uuid rowOwnerGUID "== rowGUID, self-owned"
+      uuid rowParentGUID "always null"
+      int orderInList
+      jsonb rowJSON
+    }
+    rag11_chunks_parent_table {
+      uuid rowGUID PK
+      uuid rowOwnerGUID FK "-> rag11_data_sources"
+      uuid rowParentGUID "reserved, null today"
+      int orderInList
+      jsonb rowJSON
+    }
+    rag11_chunks_child_table {
+      uuid rowGUID PK
+      uuid rowOwnerGUID FK "-> rag11_data_sources"
+      uuid rowParentGUID FK "-> parent_table"
+      int orderInList
+      jsonb rowJSON
+      vector embedding "1024-dim, Voyage-3"
+    }
+        </pre>
+      </div>
+      <p class="caption">HNSW cosine index <code class="pill">idx_rag11_child_embedding_hnsw</code> (m=16, ef_construction=64) makes <code class="pill">match_rag11_child_chunks(query_embedding, match_count=8, filter_owner=null)</code> a fast approximate nearest-neighbor search over the child table, capped at 50 results; <code class="pill">get_rag11_parent(rowGUID)</code> expands a matched child back to its full section.</p>
+    </div>
+
+    <div class="table-toolbar">
+      <input type="search" id="filter-schema" placeholder="Filter columns… (e.g. “embedding”, “FK”, “generated”)">
+      <span class="rowcount" data-count-for="table-schema"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-schema">
+        <thead>
+          <tr>
+            <th data-sort="text">Table<span class="arrow">▲</span></th>
+            <th data-sort="text">Column<span class="arrow">▲</span></th>
+            <th data-sort="text">Source<span class="arrow">▲</span></th>
+            <th data-sort="text">Meaning<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this source row.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored</td><td>Always equals <code class="pill">rowGUID</code> — a source owns itself (DB-enforced check constraint).</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowParentGUID</code></td><td>stored</td><td>Always null — a source has no parent (DB-enforced check constraint).</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position in the Drive folder listing.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">source_row-N.json</code> payload; single source of truth.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">source_key</code>, <code class="pill">filename</code>, <code class="pill">drive_file_id</code>, <code class="pill">structure</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins.</td></tr>
+
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this section/parent chunk.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored (FK)</td><td>Owning source's <code class="pill">rag11_data_sources.rowGUID</code>.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowParentGUID</code></td><td>stored</td><td>Reserved for a future higher-level grouping; null for top-level sections.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position of this parent within its source.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">parent_chunk-N.json</code> payload.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">source</code>, <code class="pill">source_key</code>, <code class="pill">title</code>, <code class="pill">start_page</code>, <code class="pill">end_page</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins.</td></tr>
+
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this embeddable chunk.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored (FK)</td><td>Owning source's row id, inherited down the tree.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowParentGUID</code></td><td>stored (FK)</td><td>Its parent chunk's <code class="pill">rowGUID</code>.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position of this child within its parent.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">child_chunk-parentN-chunkM.json</code> payload.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">source_key</code>, <code class="pill">chunk_text</code>, <code class="pill">token_count</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">embedding</code></td><td>stored</td><td>1024‑dim Voyage‑3 vector; indexed by <code class="pill">idx_rag11_child_embedding_hnsw</code> (cosine).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="samples">
+    <div class="eyebrow">Walkthrough</div>
+    <h2>Sample data — one question, start to finish</h2>
+    <p class="lede">Illustrative example data shaped to match the repo's actual file/row schema, tracing a single chunk and a single question through every stage.</p>
+
+    <div class="panel trace">
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">input · stage 1.1</span><h3>Source row</h3><p>Written once per source PDF</p></div>
+        <pre class="code">{
+  <span class="k">"rowGUID"</span>: <span class="s">"5e2a1c3e-9f2b-4a2a-8f7f-1a2b3c4d5e6f"</span>,
+  <span class="k">"rowOwnerGUID"</span>: <span class="s">"5e2a1c3e-9f2b-4a2a-8f7f-1a2b3c4d5e6f"</span>,
+  <span class="k">"rowParentGUID"</span>: <span class="m">null</span>,
+  <span class="k">"orderInList"</span>: <span class="m">1</span>,
+  <span class="k">"rowJSON"</span>: {
+    <span class="k">"source_key"</span>: <span class="s">"source1"</span>,
+    <span class="k">"filename"</span>: <span class="s">"Krause_Food_and_the_Nutrition_Care_Process.pdf"</span>,
+    <span class="k">"drive_file_id"</span>: <span class="s">"1AbCdEfGhIjKlMnOpQrStUvWxYz"</span>,
+    <span class="k">"structure"</span>: <span class="s">"native_outline"</span>
+  }
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">output · stage 1.1</span><h3>Child chunk</h3><p><code class="pill">child_chunk-parent12-chunk3.json</code></p></div>
+        <pre class="code">{
+  <span class="k">"child_id"</span>: <span class="s">"parent12-chunk3"</span>,
+  <span class="k">"parent_id"</span>: <span class="s">"parent12"</span>,
+  <span class="k">"source_key"</span>: <span class="s">"source1"</span>,
+  <span class="k">"start_page"</span>: <span class="m">212</span>,
+  <span class="k">"end_page"</span>: <span class="m">213</span>,
+  <span class="k">"token_count"</span>: <span class="m">412</span>,
+  <span class="k">"text"</span>: <span class="s">"[Krause's Food &amp; the Nutrition Care Process, p.212-213] Protein-energy malnutrition (PEM) is classified into marasmus, kwashiorkor, and mixed marasmic-kwashiorkor forms based on the balance of energy vs. protein deficit and presence of edema..."</span>
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-violet">output · stage 1.2</span><h3>Ingested row</h3><p><code class="pill">rag11_chunks_child_table</code>, embedding truncated for display</p></div>
+        <pre class="code">{
+  <span class="k">"rowGUID"</span>: <span class="s">"9c1d2e3f-...-parent12-chunk3"</span>,
+  <span class="k">"rowOwnerGUID"</span>: <span class="s">"5e2a1c3e-...-source1"</span>,
+  <span class="k">"rowParentGUID"</span>: <span class="s">"7b6a5c4d-...-parent12"</span>,
+  <span class="k">"orderInList"</span>: <span class="m">3</span>,
+  <span class="k">"embedding"</span>: [<span class="m">0.0123</span>, <span class="m">-0.0456</span>, <span class="m">0.0789</span>, <span class="s">"… 1024 dims total …"</span>]
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">input · stage 2</span><h3>User question</h3><p>Embedded with <code class="pill">input_type=query</code></p></div>
+        <pre class="code"><span class="s">"Does a high-protein diet reliably prevent muscle loss during aging?"</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">retrieval · stage 2</span><h3>RPC result</h3><p><code class="pill">match_rag11_child_chunks(query_embedding, match_count=8)</code></p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"9c1d2e3f-...-chunk3"</span>, <span class="k">"cosine_distance"</span>: <span class="m">0.142</span>, <span class="k">"snippet"</span>: <span class="s">"…PEM is classified into marasmus…"</span> },
+  { <span class="k">"rowGUID"</span>: <span class="s">"a1b2c3d4-...-chunk9"</span>, <span class="k">"cosine_distance"</span>: <span class="m">0.187</span>, <span class="k">"snippet"</span>: <span class="s">"…sarcopenia and protein intake thresholds…"</span> }
+  <span class="s">"… up to 8 rows, nearest first …"</span>
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">output · stage 2</span><h3>Final answer</h3><p>Claude Sonnet, grounded strictly in retrieved text</p></div>
+        <div class="answer-box">
+          <div class="short">Short answer: No — not reliably on its own.</div>
+          <p>Higher protein intake helps preserve lean mass during aging but does not by itself prevent sarcopenia; the retrieved sections describe it as necessary alongside resistance exercise, since protein without a mechanical stimulus produces a smaller, inconsistent effect on lean mass retention.</p>
+          <div class="cite">Citations: Krause's Food &amp; the Nutrition Care Process, p. 212–213 · source1, parent 12, chunk 3</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Generated documentation for the RAG11 nutrition RAG pipeline — sourced from <code class="pill">README.md</code>, the <code class="pill">stage1_0…stage2</code> notebooks, and <code class="pill">sql/create_sql_tables.sql</code> in this repository. Sample values in the "Sample Data" section are illustrative, shaped to the pipeline's real schema.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      mainBkg: '#eef4fc',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#efedfa',
+      secondaryBorderColor: '#4a3aa7',
+      tertiaryColor: '#e6f7f0',
+      tertiaryBorderColor: '#1baf7a',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b',
+      gridColor: '#e1e0d9',
+      todayLineColor: '#e34948',
+      sectionBkgColor: '#eef4fc',
+      sectionBkgColor2: '#fdf1ea',
+      altSectionBkgColor: '#fcfcfb',
+      taskBkgColor: '#2a78d6',
+      taskBorderColor: '#184f95',
+      taskTextColor: '#ffffff',
+      taskTextOutsideColor: '#0b0b0b',
+      taskTextLightColor: '#ffffff',
+      activeTaskBkgColor: '#1baf7a',
+      activeTaskBorderColor: '#0e7d54',
+      doneTaskBkgColor: '#c3c2b7',
+      doneTaskBorderColor: '#898781',
+      critBkgColor: '#e34948',
+      critBorderColor: '#a52d2c'
+    },
+    gantt: { useWidth: 1000, barHeight: 22, topPadding: 46, leftPadding: 90 }
+  });
+
+  // ---- sticky-nav shadow on scroll ----
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  // ---- scroll-spy: reactivate the matching nav link as sections pass ----
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // ---- generic filter + sort for .data-table ----
+  function wireTable(tableId, filterId){
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var tbody = table.tBodies[0];
+    var rows = Array.prototype.slice.call(tbody.rows);
+    var countEl = document.querySelector('[data-count-for="' + tableId + '"]');
+
+    function updateCount(){
+      if (!countEl) return;
+      var visible = rows.filter(function(r){ return !r.classList.contains('is-hidden'); }).length;
+      countEl.textContent = visible + ' / ' + rows.length + ' rows';
+    }
+
+    var filterInput = document.getElementById(filterId);
+    if (filterInput) {
+      filterInput.addEventListener('input', function(){
+        var q = filterInput.value.trim().toLowerCase();
+        rows.forEach(function(r){
+          var hit = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+          r.classList.toggle('is-hidden', !hit);
+        });
+        updateCount();
+      });
+    }
+
+    var ths = Array.prototype.slice.call(table.tHead.rows[0].cells);
+    ths.forEach(function(th, colIndex){
+      th.addEventListener('click', function(){
+        var current = th.getAttribute('aria-sort');
+        var dir = current === 'ascending' ? 'descending' : 'ascending';
+        ths.forEach(function(t){ t.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', dir);
+
+        var sorted = rows.slice().sort(function(a, b){
+          var av = a.cells[colIndex].textContent.trim();
+          var bv = b.cells[colIndex].textContent.trim();
+          var an = parseFloat(av), bn = parseFloat(bv);
+          var cmp;
+          if (!isNaN(an) && !isNaN(bn) && /^[\d.\-]+$/.test(av) && /^[\d.\-]+$/.test(bv)) {
+            cmp = an - bn;
+          } else {
+            cmp = av.localeCompare(bv);
+          }
+          return dir === 'ascending' ? cmp : -cmp;
+        });
+        sorted.forEach(function(r){ tbody.appendChild(r); });
+        rows = sorted;
+      });
+    });
+
+    updateCount();
+  }
+
+  wireTable('table-stages', 'filter-stages');
+  wireTable('table-schema', 'filter-schema');
+</script>
+</body>
+</html>
