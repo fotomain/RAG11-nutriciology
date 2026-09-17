@@ -84,6 +84,15 @@ from .hypothetical_document_embedding import (
     generate_hypothetical_document,
     retrieve_chunks_hyde,
 )
+from .multi_query_question_splitting import (
+    MAX_SUBQUESTIONS,
+    MULTI_QUERY_MAX_TOKENS,
+    MULTI_QUERY_MIN_POOL,
+    MULTI_QUERY_POOL_MULTIPLIER,
+    MULTI_QUERY_SYSTEM_PROMPT,
+    retrieve_chunks_multi_query,
+    split_into_subquestions,
+)
 from .parent_chunk_expansion import (
     DEFAULT_MAX_PARENT_CHARS,
     build_expanded_context_block,
@@ -130,6 +139,13 @@ __all__ = [
     "generate_hypothetical_document",
     "embed_hypothetical_document",
     "retrieve_chunks_hyde",
+    "MAX_SUBQUESTIONS",
+    "MULTI_QUERY_MAX_TOKENS",
+    "MULTI_QUERY_POOL_MULTIPLIER",
+    "MULTI_QUERY_MIN_POOL",
+    "MULTI_QUERY_SYSTEM_PROMPT",
+    "split_into_subquestions",
+    "retrieve_chunks_multi_query",
     "DEFAULT_MAX_PARENT_CHARS",
     "expand_to_parent_chunks",
     "build_expanded_context_block",

@@ -17,8 +17,9 @@ this repo can `import reusable_code` instead of re-defining the same
 | `rerunk_code.py` | Reranking + manual overrides: **`rerank_chunks`**, `update_rank_value` |
 | `hybrid_search.py` | Dense + keyword search, fused: **`retrieve_chunks_keyword`**, **`reciprocal_rank_fusion`**, **`hybrid_search`** |
 | `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
+| `multi_query_question_splitting.py` | Multi-query / question splitting: **`split_into_subquestions`**, **`retrieve_chunks_multi_query`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
-| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_rerank`, and `expand_to_parents`) |
+| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, and `expand_to_parents`) |
 | `crud_chunks_parent.py` | Row-level CRUD for `rag11_chunks_parent_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
 | `crud_chunks_child.py` | Row-level CRUD for `rag11_chunks_child_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
@@ -52,6 +53,17 @@ result = ask_question("Does drinking coffee before exercise hurt performance?", 
 result = ask_question(
     "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?",
     use_hybrid=True, use_rerank=True, expand_to_parents=True,
+)
+
+# multi-query / question splitting (use_multi_query is optional, default False) --
+# a compound question ("how does X differ from Y") is secretly two searches;
+# Claude splits it into its independent sub-questions, each is searched
+# separately, and the results are fused with Reciprocal Rank Fusion before
+# reranking -- composes with use_hybrid (each sub-question is itself
+# searched with hybrid_search()) and expand_to_parents; ignores use_hyde
+result = ask_question(
+    "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?",
+    use_multi_query=True, use_hybrid=True, use_rerank=True, expand_to_parents=True,
 )
 ```
 
@@ -172,6 +184,40 @@ nutrition examples, and
 `../documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html` for
 the full write-up.
 
+## What "multi-query / question splitting" adds, in one paragraph
+
+One search query can only point in one "direction" in embedding space. A
+question like *"How does soluble fiber's effect on LDL cholesterol differ
+from insoluble fiber's effect?"* is secretly **two** independent
+information needs glued together — (a) soluble fiber's effect, (b)
+insoluble fiber's effect — and embedding the whole thing at once produces a
+blurry average of both topics that can under-match either one.
+`split_into_subquestions()` asks Claude whether a question bundles more
+than one independent need and, if so, rewrites it as that many
+self-contained sub-questions (an already-atomic question comes back
+unchanged, as a single-element list — no extra searches for the common
+case); `retrieve_chunks_multi_query()` then runs the same retrieval
+function once per sub-question over a wide pool and fuses every resulting
+ranked list with the *same* **Reciprocal Rank Fusion**
+`hybrid_search.reciprocal_rank_fusion()` already uses for dense + keyword
+search — reused here to merge "one method, run once per sub-question"
+instead of "two methods, run once." `ask_question(..., use_multi_query=True)`
+wires this in as a drop-in replacement for plain vector search: it takes
+priority over `use_hybrid` as the *top-level* retrieval mode, but composes
+with it (each sub-question is itself searched with `hybrid_search()` when
+`use_hybrid=True`), and with reranking and parent-chunk expansion; it
+ignores `use_hyde` (multi-query needs a single-question retrieval function
+per sub-question — the same reasoning `use_hybrid` already uses to ignore
+HyDE). See `../stage2_ask_examples6_multi_query_question_splitting.ipynb`
+for worked nutrition examples, and
+`../documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html` for the
+full write-up.
+
+Like reranking and HyDE, this needs **zero** schema change — it's a pure
+query-time Python step that adds one extra Claude call (to split the
+question) before calling the exact same retrieval RPCs
+`retrieve_chunks()`/`hybrid_search()` already use, once per sub-question.
+
 ## What "parent-chunk expansion" adds, in one paragraph
 
 A child chunk is deliberately small (~300–500 tokens) so it matches a
@@ -231,6 +277,12 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
   `match_rag11_child_chunks` RPC plain `retrieve_chunks()` already uses;
   the only difference is *which text* gets embedded before that call
   (a Claude-drafted hypothetical paragraph instead of the bare question).
+- **Multi-query / question splitting (`retrieve_chunks_multi_query`,
+  `ask_question(use_multi_query=True)`)** also needs **zero** table/column
+  changes — it calls whatever single-question retrieval function you give
+  it (`retrieve_chunks()` or `hybrid_search()`) once per sub-question,
+  against the exact same RPCs those already use, and merges the results
+  entirely in Python via `reciprocal_rank_fusion()`.
 - **Parent-chunk expansion (`expand_to_parent_chunks`,
   `ask_question(expand_to_parents=True)`)** also needs **zero** table/column
   changes — `rag11_chunks_parent_table` and the child table's

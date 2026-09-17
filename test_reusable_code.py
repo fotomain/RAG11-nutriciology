@@ -23,6 +23,10 @@ from reusable_code.hypothetical_document_embedding import (  # noqa: E402
     generate_hypothetical_document,
     retrieve_chunks_hyde,
 )
+from reusable_code.multi_query_question_splitting import (  # noqa: E402
+    retrieve_chunks_multi_query,
+    split_into_subquestions,
+)
 from reusable_code.parent_chunk_expansion import (  # noqa: E402
     build_expanded_context_block,
     expand_to_parent_chunks,
@@ -186,6 +190,32 @@ class FakeAnthropic:
         self.messages = FakeAnthropicMessages(answer_text)
 
 
+class FakeAnthropicMessagesRouted:
+    """Like FakeAnthropicMessages, but returns a different canned response
+    depending on which system prompt a call used -- needed for multi-query
+    tests, where one ask_question() call makes two different kinds of
+    Anthropic calls (the question-splitting call, then the final generation
+    call) against the same fake client."""
+
+    def __init__(self, default_text, routes=None):
+        self._default_text = default_text
+        self._routes = routes or []  # list of (substring_in_system_prompt, response_text)
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        system = kwargs.get("system", "")
+        for marker, text in self._routes:
+            if marker in system:
+                return SimpleNamespace(content=[SimpleNamespace(type="text", text=text)])
+        return SimpleNamespace(content=[SimpleNamespace(type="text", text=self._default_text)])
+
+
+class FakeAnthropicRouted:
+    def __init__(self, default_text, routes=None):
+        self.messages = FakeAnthropicMessagesRouted(default_text, routes)
+
+
 # ---------------------------------------------------------------------------
 # retrieve_chunks
 # ---------------------------------------------------------------------------
@@ -309,6 +339,73 @@ check("retrieve_chunks_hyde embeds the hypothetical document, not the raw questi
 
 check("retrieve_chunks_hyde without return_hypothetical_document returns a plain row list",
       retrieve_chunks_hyde("What is the RDA for protein?", match_count=3, clients=fake_clients_hyde) == hyde_rows)
+
+# ---------------------------------------------------------------------------
+# Multi-query / question splitting: split_into_subquestions /
+# retrieve_chunks_multi_query
+# ---------------------------------------------------------------------------
+
+FIBER_COMPARISON_Q = "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's effect?"
+_SPLIT_MARKER = "split nutrition questions"  # unique substring of MULTI_QUERY_SYSTEM_PROMPT
+
+fake_anthropic_split = FakeAnthropicRouted(
+    default_text="Short answer: Yes\n\nExplanation.",
+    routes=[(_SPLIT_MARKER,
+             "SUBQ: What does soluble fiber do to LDL cholesterol?\n"
+             "SUBQ: What does insoluble fiber do to LDL cholesterol?")],
+)
+fake_clients_split = Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=fake_anthropic_split)
+
+subqs = split_into_subquestions(FIBER_COMPARISON_Q, clients=fake_clients_split)
+check("split_into_subquestions splits a comparison question into 2 sub-questions", len(subqs) == 2)
+check("split_into_subquestions parses each SUBQ: line",
+      subqs == [
+          "What does soluble fiber do to LDL cholesterol?",
+          "What does insoluble fiber do to LDL cholesterol?",
+      ])
+
+fake_anthropic_nosplit = FakeAnthropicRouted(
+    default_text="Short answer: Yes\n\nExplanation.",
+    routes=[(_SPLIT_MARKER, "SUBQ: Is vitamin C water-soluble?")],
+)
+fake_clients_nosplit = Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=fake_anthropic_nosplit)
+atomic_subqs = split_into_subquestions("Is vitamin C water-soluble?", clients=fake_clients_nosplit)
+check("split_into_subquestions leaves an atomic question as a single-element list",
+      atomic_subqs == ["Is vitamin C water-soluble?"])
+
+fake_anthropic_garbage = FakeAnthropicRouted(
+    default_text="Short answer: Yes\n\nExplanation.",
+    routes=[(_SPLIT_MARKER, "I cannot help with that.")],
+)
+fake_clients_garbage = Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=fake_anthropic_garbage)
+fallback_subqs = split_into_subquestions("Some question?", clients=fake_clients_garbage)
+check("split_into_subquestions falls back to [question] when the response has no SUBQ: lines",
+      fallback_subqs == ["Some question?"])
+
+
+def fake_retrieve_fn(q, match_count, filter_owner=None, clients=None):
+    """Stands in for retrieve_chunks()/hybrid_search(): returns different
+    rows depending on which sub-question was searched, so fusion has
+    something real to merge."""
+    if "soluble" in q and "insoluble" not in q:
+        return [rows[0], rows[1]]  # g1, g2
+    return [rows[1], rows[2]]      # g2, g3
+
+
+mq_rows, mq_subqs = retrieve_chunks_multi_query(
+    FIBER_COMPARISON_Q, match_count=3, retrieve_fn=fake_retrieve_fn,
+    return_subquestions=True, clients=fake_clients_split,
+)
+check("retrieve_chunks_multi_query returns the sub-questions it searched", len(mq_subqs) == 2)
+check("retrieve_chunks_multi_query fuses per-sub-question results, chunk seen by both ranks first",
+      mq_rows[0]["rowGUID"] == "g2")
+check("retrieve_chunks_multi_query surfaces a chunk only one sub-question's search returned",
+      {"g1", "g2", "g3"} == {r["rowGUID"] for r in mq_rows})
+check("retrieve_chunks_multi_query without return_subquestions returns a plain row list",
+      isinstance(
+          retrieve_chunks_multi_query("Some question?", retrieve_fn=fake_retrieve_fn, clients=fake_clients_nosplit),
+          list,
+      ))
 
 # ---------------------------------------------------------------------------
 # build_context_block shows rerank_score when present, omits it otherwise
@@ -502,6 +599,56 @@ check("ask_question(use_hyde=True) returns the hypothetical document used for re
 check("ask_question(use_hyde=True) still uses match_count chunks", result_hyde["chunks_used"] == 3)
 check("ask_question(use_hyde=True) queried the dense RPC with an embedding derived from the hypothetical doc",
       fake_supabase_hyde_ask.rpc_calls[-1][0] == "match_rag11_child_chunks")
+
+# ---------------------------------------------------------------------------
+# ask_question: use_multi_query is optional, defaults to False, takes
+# priority over use_hyde (ignored), and composes with use_hybrid (each
+# sub-question is itself searched with hybrid_search()).
+# ---------------------------------------------------------------------------
+
+check("ask_question() (no use_multi_query arg) marks used_multi_query False and subquestions None",
+      result_plain["used_multi_query"] is False and result_plain["subquestions"] is None)
+
+MULTI_Q = "What is the RDA for protein, and how much per kg is recommended?"
+mq_split_routes = [(_SPLIT_MARKER,
+                     "SUBQ: What is the RDA for protein?\nSUBQ: How much protein per kg is recommended?")]
+
+fake_supabase_mq = FakeSupabase(rpc_data=rows)
+fake_anthropic_mq = FakeAnthropicRouted(
+    default_text="Short answer: Yes\n\nExplanation using protein and RDA text.", routes=mq_split_routes,
+)
+fake_clients_mq = Clients(supabase=fake_supabase_mq, voyage=fake_voyage, anthropic=fake_anthropic_mq)
+
+result_multi_query = ask_question(MULTI_Q, match_count=3, use_multi_query=True, clients=fake_clients_mq)
+check("ask_question(use_multi_query=True) marks used_multi_query", result_multi_query["used_multi_query"] is True)
+check("ask_question(use_multi_query=True) records the sub-questions searched",
+      result_multi_query["subquestions"] == [
+          "What is the RDA for protein?",
+          "How much protein per kg is recommended?",
+      ])
+check("ask_question(use_multi_query=True) queried the dense RPC once per sub-question",
+      sum(1 for name, _ in fake_supabase_mq.rpc_calls if name == "match_rag11_child_chunks") == 2)
+
+result_multi_query_hyde_ignored = ask_question(
+    MULTI_Q, match_count=3, use_multi_query=True, use_hyde=True, clients=fake_clients_mq,
+)
+check("ask_question(use_multi_query=True, use_hyde=True) ignores use_hyde (hypothetical_document stays None)",
+      result_multi_query_hyde_ignored["hypothetical_document"] is None
+      and result_multi_query_hyde_ignored["used_multi_query"] is True)
+
+fake_supabase_mq_hybrid = FakeSupabase(rpc_data={
+    "match_rag11_child_chunks": dense_ranked,
+    "match_rag11_child_chunks_keyword": keyword_ranked,
+})
+fake_clients_mq_hybrid = Clients(supabase=fake_supabase_mq_hybrid, voyage=fake_voyage, anthropic=fake_anthropic_mq)
+result_multi_query_hybrid = ask_question(
+    MULTI_Q, match_count=2, use_multi_query=True, use_hybrid=True, clients=fake_clients_mq_hybrid,
+)
+check("ask_question(use_multi_query=True, use_hybrid=True) marks both flags",
+      result_multi_query_hybrid["used_multi_query"] is True and result_multi_query_hybrid["used_hybrid"] is True)
+check("ask_question(use_multi_query=True, use_hybrid=True) queried both hybrid RPCs, once per sub-question",
+      sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_rag11_child_chunks") == 2
+      and sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_rag11_child_chunks_keyword") == 2)
 
 # ---------------------------------------------------------------------------
 # ask_question: expand_to_parents is optional, defaults to False, and runs

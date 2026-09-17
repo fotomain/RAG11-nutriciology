@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — How It Works &amp; Data Flow (v5)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --indigo:#3355cc; --indigo-tint:#e9f0ff;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:64ch; margin:.35rem 0 1.4rem;}
+
+  /* ---- Nav ---- */
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--accent), var(--violet));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.25rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.86rem; font-weight:600;
+    padding:.45rem .75rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  /* ---- Hero ---- */
+  .hero h1{font-size:2.15rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+  .chip.new{border-color:rgba(27,175,122,.35); background:#e6f7f0;}
+  .chip.newer{border-color:rgba(237,161,0,.4); background:#fdf5e0;}
+  .chip.newest{border-color:rgba(232,123,164,.4); background:#fbe9f0;}
+  .chip.v5{border-color:rgba(51,85,204,.4); background:var(--indigo-tint);}
+
+  /* ---- Cards / panels ---- */
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  /* ---- Tables (filter + sort) ---- */
+  .table-toolbar{display:flex; gap:.6rem; align-items:center; margin:1rem 0 .75rem; flex-wrap:wrap;}
+  .table-toolbar input[type="search"]{
+    flex:1; min-width:220px; padding:.55rem .8rem; border-radius:var(--radius-sm);
+    border:1px solid var(--border); background:var(--surface-2); font-size:.86rem; color:var(--ink);
+  }
+  .table-toolbar input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .rowcount{font-size:.78rem; color:var(--ink-muted); white-space:nowrap;}
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table caption{display:none;}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); position:sticky; top:0; cursor:pointer; user-select:none;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  table.data-table thead th:hover{color:var(--accent-dark);}
+  table.data-table thead th .arrow{opacity:.35; margin-left:.25rem; font-size:.7rem;}
+  table.data-table thead th[aria-sort="ascending"] .arrow,
+  table.data-table thead th[aria-sort="descending"] .arrow{opacity:1; color:var(--accent);}
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+  table.data-table tbody tr.is-hidden{display:none;}
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.78rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+  .tag-orange{background:#fdf1ea; color:#b04a20;}
+  .tag-new{background:#e6f7f0; color:#0e7d54;}
+  .tag-newer{background:#fdf5e0; color:#8a6200;}
+  .tag-newest{background:#fbe9f0; color:#a23763;}
+  .tag-v5{background:var(--indigo-tint); color:#1a3aa0;}
+
+  /* ---- Feature summary cards (hybrid / expansion) ---- */
+  .hybrid-card{
+    display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; align-items:stretch;
+  }
+  .hybrid-card .half{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:1rem 1.1rem; font-size:.88rem; color:var(--ink-2);
+  }
+  .hybrid-card .half h3{color:var(--ink);}
+  .cta-link{
+    display:inline-flex; align-items:center; gap:.4rem; margin-top:1.1rem; font-weight:700;
+    text-decoration:none; background:var(--accent); color:#fff; padding:.7rem 1.1rem;
+    border-radius:999px; font-size:.88rem; box-shadow:var(--shadow);
+  }
+  .cta-link:hover{background:var(--accent-dark);}
+  .cta-link.alt{background:var(--yellow); color:#3a2c00;}
+  .cta-link.alt:hover{background:#c98600;}
+  .cta-link.hyde{background:var(--magenta); color:#3a0f24;}
+  .cta-link.hyde:hover{background:#c95a86;}
+  .cta-link.multiquery{background:var(--indigo); color:#fff;}
+  .cta-link.multiquery:hover{background:#28409e;}
+
+  /* ---- Sample trace ---- */
+  .trace{display:flex; flex-direction:column; gap:0;}
+  .trace-step{display:grid; grid-template-columns:190px 1fr; gap:1.1rem; padding:1.1rem 0; border-top:1px dashed var(--grid);}
+  .trace-step:first-child{border-top:none;}
+  .trace-meta{position:sticky; top:5rem; align-self:start;}
+  .trace-meta .tag{margin-bottom:.5rem;}
+  .trace-meta h3{margin-bottom:.2rem;}
+  .trace-meta p{margin:0; font-size:.82rem; color:var(--ink-muted);}
+  pre.code{
+    margin:0; background:#0b0b0b0d; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.78rem; color:var(--ink);
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  .answer-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:1rem 1.1rem; font-size:.9rem;
+  }
+  .answer-box .short{font-weight:700; color:var(--accent-dark); margin-bottom:.4rem;}
+  .answer-box .cite{margin-top:.6rem; font-size:.8rem; color:var(--ink-muted);}
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 720px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .trace-step{grid-template-columns:1fr;}
+    .trace-meta{position:static;}
+    .hybrid-card{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#dataflow">Data Flow</a>
+    <a href="#hybrid">Hybrid Search</a>
+    <a href="#expansion">Parent Expansion</a>
+    <a href="#hyde">HyDE</a>
+    <a href="#multiquery">Multi-Query</a>
+    <a href="#stages">Pipeline Stages</a>
+    <a href="#schema">Schema</a>
+    <a href="#samples">Sample Data</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta">Evidence-based clinical nutrition RAG · v5</div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation · v5</div>
+    <h1>How RAG11 works, end to end</h1>
+    <p class="lede">
+      RAG11 is a hierarchical Retrieval-Augmented Generation pipeline over clinical
+      nutrition textbooks: parent/child chunking, Voyage AI domain embeddings, Supabase
+      pgvector with an HNSW index, an <strong>optional multi-query / question-splitting</strong>
+      step that turns one compound question into several independently-searched
+      sub-questions, <strong>dense + keyword hybrid retrieval</strong> fused
+      with Reciprocal Rank Fusion, an <strong>optional Hypothetical Document Embeddings (HyDE)</strong>
+      retrieval mode, optional cross-encoder reranking,
+      <strong>optional parent-chunk ("small-to-big") expansion</strong>, and Claude Sonnet
+      for grounded, citation-backed answers. This page traces the data as it moves through
+      every stage, from source PDF to final answer.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>5</b>&nbsp;pipeline stages</div>
+      <div class="chip"><b>3</b>&nbsp;Supabase tables</div>
+      <div class="chip"><b>1024‑dim</b>&nbsp;Voyage‑3 embeddings</div>
+      <div class="chip"><b>HNSW</b>&nbsp;cosine vector index</div>
+      <div class="chip"><b>dense + keyword</b>&nbsp;hybrid search (RRF)</div>
+      <div class="chip"><b>small-to-big</b>&nbsp;parent-chunk expansion</div>
+      <div class="chip"><b>HyDE</b>&nbsp;hypothetical document embeddings</div>
+      <div class="chip v5"><b>NEW</b>&nbsp;multi-query / question splitting</div>
+      <div class="chip"><b>Claude Sonnet</b>&nbsp;grounded generation</div>
+    </div>
+  </section>
+
+  <section id="architecture">
+    <div class="eyebrow">Diagram</div>
+    <h2>System architecture</h2>
+    <p class="lede">Two lifecycles share the same store: an offline ingestion path (top) that builds the knowledge base once, and an online question-answering path (bottom) that queries it on every question — now with two retrieval methods fused into one ranking, an optional HyDE step that can replace what gets embedded before that ranking, and an optional small-to-big expansion step, before Claude ever sees a chunk.</p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    A["Textbook PDFs (Google Drive)"] --> B["Stage 1.1: Extract and Chunk (hierarchical parent/child chunks)"]
+    B --> C["stage1_eda_output/ (JSON chunk files)"]
+    C --> D["Stage 1.2: Embed and Ingest (Voyage-3 document embeddings + tsvector, generated)"]
+    D --> E[("Supabase Postgres + pgvector (HNSW) + full-text (GIN)")]
+    E --> F["Stage 1.9: Verify (integrity and parity audit)"]
+    E --> G["Stage 2: Question Answering"]
+    H["User nutrition question"] -.->|"optional: use_multi_query=True"| MQ["Claude splits into independent<br/>sub-questions -- split_into_subquestions()"]
+    H --> Q1["1 question to search<br/>(no split -- default)"]
+    MQ --> QN["N self-contained sub-questions<br/>(1 per independent information need)"]
+    Q1 --> I["Voyage‑3 'query' embedding"]
+    QN --> I
+    Q1 --> I2["websearch_to_tsquery (keyword)"]
+    QN --> I2
+    H -.->|"optional: use_hyde=True (alt. to I; ignored if use_multi_query=True)"| HG["Claude drafts a hypothetical<br/>textbook-style answer paragraph"]
+    HG --> HE["Voyage‑3 'document' embedding of that paragraph"]
+    I --> DS["Dense search — match_rag11_child_chunks"]
+    HE -.-> DS
+    I2 --> KS["Keyword search — match_rag11_child_chunks_keyword<br/>(only if use_hybrid=True)"]
+    DS --> RRF["Reciprocal Rank Fusion — hybrid_search()<br/>(dense + keyword, per question/sub-question)"]
+    KS --> RRF
+    RRF --> RRFQ["Fuse across sub-questions<br/>reciprocal_rank_fusion() -- only if split into N&gt;1"]
+    RRFQ --> G
+    G -.->|"optional: expand_to_parents=True"| EXP["Parent-chunk expansion<br/>expand_to_parent_chunks() -- read_parent_row(rowParentGUID)"]
+    G --> J["Claude Sonnet (evidence-backed generation)"]
+    EXP --> J
+    J --> K["Final answer (page citations + short Yes/No)"]
+
+    classDef ingest fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef store fill:#efedfa,stroke:#4a3aa7,color:#0b0b0b;
+    classDef ask fill:#e6f7f0,stroke:#1baf7a,color:#0b0b0b;
+    classDef hybrid fill:#fdf1ea,stroke:#eb6834,color:#0b0b0b;
+    classDef expand fill:#fdf5e0,stroke:#eda100,color:#0b0b0b;
+    classDef hyde fill:#fbe9f0,stroke:#e87ba4,color:#0b0b0b;
+    classDef multiquery fill:#e9f0ff,stroke:#3355cc,color:#0b0b0b;
+    class A,B,C,D ingest;
+    class E,F store;
+    class G,H,I,J,K ask;
+    class I2,DS,KS,RRF hybrid;
+    class EXP expand;
+    class HG,HE hyde;
+    class MQ,Q1,QN,RRFQ multiquery;
+        </pre>
+      </div>
+      <p class="caption">Orange nodes are the hybrid-search path (full detail: <a href="HOW_IT_WORKS_Hybrid_Search.html">HOW_IT_WORKS_Hybrid_Search.html</a>); the yellow node is the optional parent-chunk expansion step (full detail: <a href="HOW_IT_WORKS_Parent_Chunk_Expansion.html">HOW_IT_WORKS_Parent_Chunk_Expansion.html</a>); the pink nodes are the optional HyDE step (full detail: <a href="HOW_IT_WORKS_Hypothetical_Document_Embedding.html">HOW_IT_WORKS_Hypothetical_Document_Embedding.html</a>) — it replaces the dense search's input embedding with one computed from a Claude-drafted hypothetical answer instead of the bare question; the blue nodes are the new, optional multi-query / question-splitting step (full detail: <a href="HOW_IT_WORKS_Multi_Query_Question_Splitting.html">HOW_IT_WORKS_Multi_Query_Question_Splitting.html</a>) — it runs before everything else, turning one compound question into several independently-searched sub-questions whose results are fused back together. All four are off by default (<code class="pill">use_multi_query</code>/<code class="pill">use_hybrid</code>/<code class="pill">use_hyde</code>/<code class="pill">expand_to_parents</code> default to <code class="pill">False</code>); <code class="pill">use_hyde</code> is ignored when <code class="pill">use_hybrid=True</code> or <code class="pill">use_multi_query=True</code> (hybrid's dense half always embeds the raw question; multi-query needs a single-question retrieval function per sub-question), but <code class="pill">use_multi_query</code> composes freely with <code class="pill">use_hybrid</code> (each sub-question is itself searched with hybrid search), reranking, and parent-chunk expansion.</p>
+    </div>
+  </section>
+
+  <section id="dataflow">
+    <div class="eyebrow">Diagram · Gantt</div>
+    <h2>Data flow, stage by stage</h2>
+    <p class="lede">
+      Read left‑to‑right as a hand‑off sequence, not a calendar: each bar is one
+      pipeline stage, ordered by dependency (<code class="pill">after</code>), and
+      diamonds mark the artifact written to disk or to Supabase before the next stage can start.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+gantt
+    title RAG11 data flow (bars = pipeline order, not literal dates)
+    dateFormat  YYYY-MM-DD
+    axisFormat  Step %d
+    todayMarker off
+
+    section 1 · Source acquisition
+    Fetch PDFs from Google Drive (stage1_0, optional)         :active, s10, 2024-01-01, 1d
+
+    section 2 · Extract and chunk (stage1_1)
+    Extract per-page text (capped by MAX_NUMBER_OF_PAGES_TO_USE) :s11a, after s10, 1d
+    Detect sections (per-source algorithm, stage1_1_eda_packages) :s11b, after s11a, 1d
+    Build parent chunks (full section)                         :s11c, after s11b, 1d
+    Build child chunks (~300-500 tok, 10-15% overlap, tiktoken) :s11d, after s11c, 1d
+    Write parent_chunk-N.json / child_chunk-*.json to disk     :milestone, m1, after s11d, 0d
+
+    section 3 · Embed and ingest (stage1_2)
+    Embed child chunks — Voyage-3, input_type=document          :s12a, after m1, 1d
+    Upsert rag11_data_sources / parent / child tables            :s12b, after s12a, 1d
+    chunk_tsv generated column computed automatically (no code)  :s12c, after s12b, 1d
+    Checkpoint each upserted rowGUID (resumable load)            :milestone, m2, after s12c, 0d
+
+    section 4 · Verify (stage1_9)
+    Compare local JSON vs Supabase row counts + embedding dims  :s19, after m2, 1d
+    Smoke-test match_rag11_child_chunks RPC                     :milestone, m3, after s19, 0d
+
+    section 5 · Ask and answer (stage2)
+    Optional multi-query split — Claude splits into sub-questions :s2z, after m3, 1d
+    Embed question(s) — Voyage-3, input_type=query (per sub-Q)    :s2a, after s2z, 1d
+    Optional HyDE — draft + embed hypothetical answer instead     :s2a2, after s2a, 1d
+    Dense search match_rag11_child_chunks (HNSW)                 :s2b, after s2a2, 1d
+    Keyword search match_rag11_child_chunks_keyword (GIN)         :s2b2, after s2a2, 1d
+    Fuse dense+keyword — Reciprocal Rank Fusion (per sub-Q)        :s2c, after s2b2, 1d
+    Fuse across sub-questions — reciprocal_rank_fusion() (2nd pass) :s2c2, after s2c, 1d
+    Optional rerank — Voyage cross-encoder                        :s2d, after s2c2, 1d
+    Optional parent-chunk expansion — expand_to_parent_chunks()   :s2d2, after s2d, 1d
+    Claude Sonnet grounded generation + citations                :crit, s2e, after s2d2, 1d
+        </pre>
+      </div>
+      <p class="caption">Stage 1.0 is optional and idempotent (skips any source PDF already cached locally). Stages 1.1 → 1.9 run once to build the knowledge base; stage 2 runs once per question against the store that 1.9 verified. Within stage 2, multi-query splitting, HyDE, dense search, keyword search, reranking, and parent-chunk expansion are each independently optional (<code class="pill">use_multi_query</code>, <code class="pill">use_hyde</code>, <code class="pill">use_hybrid</code>, <code class="pill">use_rerank</code>, and <code class="pill">expand_to_parents</code> all default to <code class="pill">False</code>) and only run when explicitly requested — plain <code class="pill">ask_question(question)</code> still behaves exactly as it always did. When <code class="pill">use_multi_query=True</code> does split a question, every step below it (embedding, dense/keyword search, fusion) runs once per sub-question before the "fuse across sub-questions" pass narrows back down to one ranked list.</p>
+    </div>
+  </section>
+
+  <section id="hybrid">
+    <div class="eyebrow">v2</div>
+    <h2>Hybrid search — dense + keyword, fused</h2>
+    <p class="lede">
+      Pure embedding search compares "meaning vectors" — great at "roughly the same topic,"
+      bad at "contains the exact number/word I need." A question like <em>"How many grams of
+      protein per kilogram does the RDA recommend?"</em> can bury the one chunk that literally
+      says <code class="pill">"0.8 g/kg/day"</code> under chunks that are merely thematically
+      similar. Hybrid search runs a Postgres full-text (keyword) search alongside the existing
+      vector search and merges both ranked lists with <strong>Reciprocal Rank Fusion</strong>,
+      so a chunk that either method ranks highly still surfaces.
+    </p>
+    <div class="hybrid-card">
+      <div class="half">
+        <h3>🔵 Dense search</h3>
+        <p>"Find me something in the same neighborhood." Voyage-3 embeddings + HNSW cosine index over <code class="pill">embedding</code>.</p>
+      </div>
+      <div class="half">
+        <h3>🟢 Keyword search</h3>
+        <p>"Find me the exact house number." Postgres <code class="pill">tsvector</code> + GIN index over <code class="pill">chunk_tsv</code>, ranked by <code class="pill">ts_rank_cd</code>.</p>
+      </div>
+    </div>
+    <a class="cta-link" href="HOW_IT_WORKS_Hybrid_Search.html">Read the full hybrid search write-up →</a>
+  </section>
+
+  <section id="expansion">
+    <div class="eyebrow">v3</div>
+    <h2>Parent-chunk expansion — "small-to-big" context</h2>
+    <p class="lede">
+      Child chunks are deliberately small (~300–500 tokens) so they match a question
+      <strong>precisely</strong> — but a small chunk sometimes doesn't carry enough surrounding
+      context to answer the question <strong>fully</strong>. A comparison question like
+      <em>"How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?"</em>
+      might retrieve a perfect two-sentence match about soluble fiber alone, saying nothing about
+      insoluble fiber. Every child chunk's <code class="pill">rowParentGUID</code> already points
+      at a bigger parent chunk from Stage 1.1 — the full section it was carved from, which usually
+      discusses both sides of a comparison together. Expansion swaps the winning child chunk's
+      text for its parent's right before Claude sees it, deduping when several winning chunks
+      share one parent.
+    </p>
+    <div class="hybrid-card">
+      <div class="half">
+        <h3>🔵 Child chunk (matched)</h3>
+        <p>"Here's the exact sentence that matches." Small, precise — what every retrieval method above already returns.</p>
+      </div>
+      <div class="half">
+        <h3>🟡 Parent chunk (sent to Claude)</h3>
+        <p>"Here's the whole section that sentence lives in." Fetched via <code class="pill">crud_chunks_parent.read_parent_row(rowParentGUID)</code> — no schema change needed.</p>
+      </div>
+    </div>
+    <a class="cta-link alt" href="HOW_IT_WORKS_Parent_Chunk_Expansion.html">Read the full parent-chunk expansion write-up →</a>
+  </section>
+
+  <section id="hyde">
+    <div class="eyebrow">New in v4</div>
+    <h2>HyDE — hypothetical document embeddings</h2>
+    <p class="lede">
+      A question and a textbook answer are written in different "shapes" of English —
+      questions are short and interrogative, real chunks are long, declarative, technical
+      prose — so embedding the bare question sometimes lands closer to a chunk that's merely
+      <em>thematically</em> similar than to the one that actually answers it. HyDE's fix:
+      don't embed the question at all. First ask Claude to draft a short hypothetical
+      textbook-style paragraph that <em>would</em> answer it — it doesn't need to be correct,
+      it only needs to plausibly use the same vocabulary real chunks do — then embed
+      <strong>that paragraph</strong> and search with it instead. It's like handing a librarian
+      a page that looks like the page you want, instead of asking "where's the fiber book?"
+    </p>
+    <div class="hybrid-card">
+      <div class="half">
+        <h3>🔵 Bare-question embedding (default)</h3>
+        <p>"Does drinking coffee before exercise dehydrate you enough to hurt performance?" — short, interrogative, embedded with <code class="pill">input_type=query</code>.</p>
+      </div>
+      <div class="half">
+        <h3>🟣 HyDE embedding (optional)</h3>
+        <p>"Caffeine has a mild diuretic effect, but studies show moderate pre-exercise intake does not cause clinically significant dehydration in habituated users…" — Claude-drafted, embedded with <code class="pill">input_type=document</code>, same register as the real chunks.</p>
+      </div>
+    </div>
+    <a class="cta-link hyde" href="HOW_IT_WORKS_Hypothetical_Document_Embedding.html">Read the full HyDE write-up →</a>
+  </section>
+
+  <section id="multiquery">
+    <div class="eyebrow">New in v5</div>
+    <h2>Multi-query / question splitting — one search can only point one way</h2>
+    <p class="lede">
+      An embedding (or a keyword search) can only point in one "direction" at a time. A
+      question like <em>"How does soluble fiber's effect on LDL cholesterol differ from
+      insoluble fiber's effect?"</em> is secretly <strong>two</strong> independent information
+      needs glued together — one about soluble fiber, one about insoluble fiber. Embedding
+      the whole sentence at once produces a blurry average of both topics, which can
+      under-match either one, or let one side dominate and bury the other below the
+      retrieval cutoff. Multi-query splitting fixes this by asking Claude to split a
+      compound question into its independent sub-questions <em>before</em> retrieval, running
+      the search once per sub-question, and merging every ranked list back into one with the
+      same Reciprocal Rank Fusion hybrid search already uses.
+    </p>
+    <div class="hybrid-card">
+      <div class="half">
+        <h3>🔵 One combined search (default)</h3>
+        <p>"How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?" embedded and searched as one query — a blurry average of two topics.</p>
+      </div>
+      <div class="half">
+        <h3>🟦 Multi-query split (optional)</h3>
+        <p>Split into "What does soluble fiber do to LDL cholesterol?" and "What does insoluble fiber do to LDL cholesterol?" — each searched on its own, then fused via <code class="pill">reciprocal_rank_fusion()</code>, so both topics are guaranteed a fair shot at surfacing.</p>
+      </div>
+    </div>
+    <a class="cta-link multiquery" href="HOW_IT_WORKS_Multi_Query_Question_Splitting.html">Read the full multi-query write-up →</a>
+  </section>
+
+  <section id="stages">
+    <div class="eyebrow">Reference</div>
+    <h2>Pipeline stages</h2>
+    <p class="lede">Every notebook in the repo, what it consumes, and what it produces for the next stage.</p>
+    <div class="table-toolbar">
+      <input type="search" id="filter-stages" placeholder="Filter stages… (e.g. “embed”, “Voyage”, “hybrid”, “parent”)">
+      <span class="rowcount" data-count-for="table-stages"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-stages">
+        <thead>
+          <tr>
+            <th data-sort="text">Stage<span class="arrow">▲</span></th>
+            <th data-sort="text">Notebook<span class="arrow">▲</span></th>
+            <th data-sort="text">Type<span class="arrow">▲</span></th>
+            <th data-sort="text">Input<span class="arrow">▲</span></th>
+            <th data-sort="text">Output<span class="arrow">▲</span></th>
+            <th data-sort="text">What it does<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-blue">1.0</span> optional</td>
+            <td><code class="pill">stage1_0_eda_fetch_best_sources.ipynb</code></td>
+            <td>Fetch</td>
+            <td>Google Drive folder (<code class="pill">GOOGLE_DRIVE_SOURCES_FOLDER</code>)</td>
+            <td>PDFs cached in <code class="pill">stage1_eda_input/&lt;source&gt;/</code></td>
+            <td>Downloads/catalogs clinical nutrition textbooks via <code class="pill">gdown</code>; idempotent (skips cached PDFs); concurrent via a thread pool.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.1</span></td>
+            <td><code class="pill">stage1_1_extract_and_chunk.ipynb</code></td>
+            <td>Extract &amp; chunk</td>
+            <td>Source PDFs</td>
+            <td><code class="pill">parent_chunk-N.json</code>, <code class="pill">child_chunk-parentN-chunkM.json</code></td>
+            <td>Extracts per-page text, detects sections with a per-source algorithm (native outline / TOC / regex, one module per PDF), builds parent chunks (full section) and child chunks (~300–500 tokens, 10–15% overlap, <code class="pill">tiktoken</code>-based, contextual header prefixed).</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.2</span></td>
+            <td><code class="pill">stage1_2_eda_load_chunks.ipynb</code></td>
+            <td>Embed &amp; ingest</td>
+            <td>Chunk + source JSON files</td>
+            <td>Rows in <code class="pill">rag11_data_sources</code>, <code class="pill">rag11_chunks_parent_table</code>, <code class="pill">rag11_chunks_child_table</code></td>
+            <td>Embeds every child chunk with Voyage AI (<code class="pill">voyage-3</code>, <code class="pill">input_type=document</code>) in parallel batches with retries; deterministic <code class="pill">uuid5</code> row ids make re-runs safe upserts; checkpoints each upserted <code class="pill">rowGUID</code> so an interrupted load resumes. <code class="pill">chunk_tsv</code> (full-text) is computed automatically as a generated column — no extra ingestion code needed.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">1.9</span></td>
+            <td><code class="pill">stage1_9_eda_verify_all_data.ipynb</code></td>
+            <td>Verify</td>
+            <td>Local JSON manifest + Supabase tables</td>
+            <td>Pass/fail integrity report</td>
+            <td>Recomputes expected rows from local files and compares row-for-row against Supabase (paginated fetch); checks embedding presence/dimension (1024‑d); cross-checks per-source counts; smoke-tests <code class="pill">match_rag11_child_chunks</code>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_examples1.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Grounded answer + page citations + short Yes/No summary</td>
+            <td>Embeds the question (<code class="pill">voyage-3</code>, <code class="pill">input_type=query</code>), calls the <code class="pill">match_rag11_child_chunks</code> RPC for top‑k child chunks, optionally expands to parent context via <code class="pill">get_rag11_parent</code>, then generates a grounded answer with Claude Sonnet strictly from retrieved text.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_examples2_rerank.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Reranked, grounded answer</td>
+            <td>Over-fetches a wide vector-search pool, then re-scores each (question, chunk) pair jointly with Voyage's <code class="pill">rerank-2</code> cross-encoder via <code class="pill">rerank_chunks()</code> / <code class="pill">ask_question(use_rerank=True)</code>.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Hybrid-retrieved, grounded answer</td>
+            <td>Runs dense (<code class="pill">match_rag11_child_chunks</code>) and keyword (<code class="pill">match_rag11_child_chunks_keyword</code>) search in parallel, merges via <code class="pill">reciprocal_rank_fusion()</code> / <code class="pill">ask_question(use_hybrid=True)</code>; composes with reranking.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Parent-expanded, grounded answer</td>
+            <td>Swaps each winning child chunk's text for its parent chunk's text via <code class="pill">expand_to_parent_chunks()</code> / <code class="pill">ask_question(expand_to_parents=True)</code>, deduping chunks that share one parent; composes with hybrid search and reranking.</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-blue">2</span></td>
+            <td><code class="pill">stage2_ask_examples5_hypothetical_document_embedding.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>HyDE-retrieved, grounded answer</td>
+            <td>Claude drafts a short hypothetical answer paragraph, which is embedded (<code class="pill">input_type=document</code>) and searched with instead of the bare question, via <code class="pill">retrieve_chunks_hyde()</code> / <code class="pill">ask_question(use_hyde=True)</code>; same dense RPC as plain retrieval, no schema change; composes with reranking and parent-chunk expansion (not with hybrid search).</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-v5">2 · NEW</span></td>
+            <td><code class="pill">stage2_ask_examples6_multi_query_question_splitting.ipynb</code></td>
+            <td>Ask &amp; answer</td>
+            <td>Natural-language nutrition question</td>
+            <td>Multi-query-fused, grounded answer</td>
+            <td>Claude splits a compound question into independent sub-questions, searches each one separately, and fuses every ranked list with the same Reciprocal Rank Fusion hybrid search uses, via <code class="pill">retrieve_chunks_multi_query()</code> / <code class="pill">ask_question(use_multi_query=True)</code>; zero schema change; composes with hybrid search, reranking, and parent-chunk expansion (not with HyDE).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="schema">
+    <div class="eyebrow">Reference</div>
+    <h2>Database schema</h2>
+    <p class="lede">
+      All three tables share one 5‑column shape — <code class="pill">rowGUID</code>,
+      <code class="pill">rowOwnerGUID</code>, <code class="pill">rowParentGUID</code>,
+      <code class="pill">orderInList</code>, <code class="pill">rowJSON</code> — so the
+      hierarchy (source → parent chunk → child chunk) is encoded the same way at every
+      level, with a few columns pulled out of <code class="pill">rowJSON</code> as
+      generated columns for cheap filtering. <code class="pill">rowJSON</code> itself
+      stays the single source of truth. The child table carries <em>two</em> parallel
+      search representations — <code class="pill">embedding</code> for dense search,
+      <code class="pill">chunk_tsv</code> for keyword search — both generated/computed, never
+      hand-maintained; its <code class="pill">rowParentGUID</code> foreign key is what
+      parent-chunk expansion follows back to <code class="pill">rag11_chunks_parent_table</code>,
+      with no schema change of its own.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+erDiagram
+    rag11_data_sources ||--o{ rag11_chunks_parent_table : "rowOwnerGUID"
+    rag11_chunks_parent_table ||--o{ rag11_chunks_child_table : "rowParentGUID"
+    rag11_data_sources ||--o{ rag11_chunks_child_table : "rowOwnerGUID (inherited)"
+
+    rag11_data_sources {
+      uuid rowGUID PK
+      uuid rowOwnerGUID "== rowGUID, self-owned"
+      uuid rowParentGUID "always null"
+      int orderInList
+      jsonb rowJSON
+    }
+    rag11_chunks_parent_table {
+      uuid rowGUID PK
+      uuid rowOwnerGUID FK "-> rag11_data_sources"
+      uuid rowParentGUID "reserved, null today"
+      int orderInList
+      jsonb rowJSON
+    }
+    rag11_chunks_child_table {
+      uuid rowGUID PK
+      uuid rowOwnerGUID FK "-> rag11_data_sources"
+      uuid rowParentGUID FK "-> parent_table (followed by parent-chunk expansion)"
+      int orderInList
+      jsonb rowJSON
+      vector embedding "1024-dim, Voyage-3 (dense search)"
+      tsvector chunk_tsv "generated, english (keyword search)"
+    }
+        </pre>
+      </div>
+      <p class="caption">
+        HNSW cosine index <code class="pill">idx_rag11_child_embedding_hnsw</code> (m=16, ef_construction=64) makes
+        <code class="pill">match_rag11_child_chunks(query_embedding, match_count=8, filter_owner=null)</code> a fast
+        approximate nearest-neighbor search; the GIN index <code class="pill">idx_rag11_child_chunk_tsv_gin</code>
+        makes <code class="pill">match_rag11_child_chunks_keyword(query_text, match_count=8, filter_owner=null)</code>
+        a fast full-text search. Both are capped at 50 results per call and are combined client-side via
+        <code class="pill">hybrid_search()</code>. Parent-chunk expansion reads
+        <code class="pill">rag11_chunks_parent_table</code> row-by-row via
+        <code class="pill">crud_chunks_parent.read_parent_row(rowParentGUID)</code> — the same foreign key
+        <code class="pill">get_rag11_parent(rowGUID)</code> was already built to follow, so no migration was
+        needed for it either. HyDE needs even less: it calls the very same
+        <code class="pill">match_rag11_child_chunks</code> RPC plain dense search already uses — the
+        only difference is <em>which text</em> gets embedded before that call. Multi-query
+        splitting needs nothing new either: it adds one Claude call up front (to split the
+        question) and then calls whichever of the RPCs above <code class="pill">retrieve_fn</code>
+        already points at — once per sub-question — merging the results entirely in Python
+        via <code class="pill">reciprocal_rank_fusion()</code>. Full write-ups:
+        <a href="HOW_IT_WORKS_Hybrid_Search.html">HOW_IT_WORKS_Hybrid_Search.html</a> ·
+        <a href="HOW_IT_WORKS_Parent_Chunk_Expansion.html">HOW_IT_WORKS_Parent_Chunk_Expansion.html</a> ·
+        <a href="HOW_IT_WORKS_Hypothetical_Document_Embedding.html">HOW_IT_WORKS_Hypothetical_Document_Embedding.html</a> ·
+        <a href="HOW_IT_WORKS_Multi_Query_Question_Splitting.html">HOW_IT_WORKS_Multi_Query_Question_Splitting.html</a>.
+      </p>
+    </div>
+
+    <div class="table-toolbar">
+      <input type="search" id="filter-schema" placeholder="Filter columns… (e.g. “embedding”, “tsv”, “generated”, “parent”)">
+      <span class="rowcount" data-count-for="table-schema"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-schema">
+        <thead>
+          <tr>
+            <th data-sort="text">Table<span class="arrow">▲</span></th>
+            <th data-sort="text">Column<span class="arrow">▲</span></th>
+            <th data-sort="text">Source<span class="arrow">▲</span></th>
+            <th data-sort="text">Meaning<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this source row.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored</td><td>Always equals <code class="pill">rowGUID</code> — a source owns itself (DB-enforced check constraint).</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowParentGUID</code></td><td>stored</td><td>Always null — a source has no parent (DB-enforced check constraint).</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position in the Drive folder listing.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">source_row-N.json</code> payload; single source of truth.</td></tr>
+          <tr><td><span class="tag tag-violet">sources</span></td><td><code class="pill">source_key</code>, <code class="pill">filename</code>, <code class="pill">drive_file_id</code>, <code class="pill">structure</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins.</td></tr>
+
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this section/parent chunk. What parent-chunk expansion fetches by, via <code class="pill">rowParentGUID</code>.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored (FK)</td><td>Owning source's <code class="pill">rag11_data_sources.rowGUID</code>.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowParentGUID</code></td><td>stored</td><td>Reserved for a future higher-level grouping; null for top-level sections.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position of this parent within its source.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">parent_chunk-N.json</code> payload — its <code class="pill">"text"</code> is what expansion swaps into an expanded row.</td></tr>
+          <tr><td><span class="tag tag-blue">parent chunks</span></td><td><code class="pill">source</code>, <code class="pill">source_key</code>, <code class="pill">title</code>, <code class="pill">start_page</code>, <code class="pill">end_page</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins; <code class="pill">start_page</code>/<code class="pill">end_page</code> are what <code class="pill">page_numbers_for_expanded_chunk()</code> reads directly for an expanded row's citations.</td></tr>
+
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowGUID</code></td><td>stored (PK)</td><td>Unique id for this embeddable chunk.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowOwnerGUID</code></td><td>stored (FK)</td><td>Owning source's row id, inherited down the tree.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowParentGUID</code></td><td>stored (FK)</td><td>Its parent chunk's <code class="pill">rowGUID</code> — the key parent-chunk expansion looks up.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">orderInList</code></td><td>stored</td><td>Position of this child within its parent.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">rowJSON</code></td><td>stored</td><td>Full <code class="pill">child_chunk-parentN-chunkM.json</code> payload.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">source_key</code>, <code class="pill">chunk_text</code>, <code class="pill">token_count</code></td><td>generated</td><td>Pulled out of <code class="pill">rowJSON</code> for cheap filtering/joins.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">embedding</code></td><td>stored</td><td>1024‑dim Voyage‑3 vector; indexed by <code class="pill">idx_rag11_child_embedding_hnsw</code> (cosine) — dense search.</td></tr>
+          <tr><td><span class="tag tag-aqua">child chunks</span></td><td><code class="pill">chunk_tsv</code></td><td>generated</td><td><code class="pill">to_tsvector('english', rowJSON-&gt;&gt;'text')</code> (reads <code class="pill">rowJSON</code> directly, not <code class="pill">chunk_text</code> — Postgres generated columns can't reference another generated column); indexed by <code class="pill">idx_rag11_child_chunk_tsv_gin</code> (GIN) — keyword search.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="samples">
+    <div class="eyebrow">Walkthrough</div>
+    <h2>Sample data — one question, start to finish</h2>
+    <p class="lede">Illustrative example data shaped to match the repo's actual file/row schema, tracing a single chunk and a single question through every stage.</p>
+
+    <div class="panel trace">
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">input · stage 1.1</span><h3>Source row</h3><p>Written once per source PDF</p></div>
+        <pre class="code">{
+  <span class="k">"rowGUID"</span>: <span class="s">"5e2a1c3e-9f2b-4a2a-8f7f-1a2b3c4d5e6f"</span>,
+  <span class="k">"rowOwnerGUID"</span>: <span class="s">"5e2a1c3e-9f2b-4a2a-8f7f-1a2b3c4d5e6f"</span>,
+  <span class="k">"rowParentGUID"</span>: <span class="m">null</span>,
+  <span class="k">"orderInList"</span>: <span class="m">1</span>,
+  <span class="k">"rowJSON"</span>: {
+    <span class="k">"source_key"</span>: <span class="s">"source1"</span>,
+    <span class="k">"filename"</span>: <span class="s">"Krause_Food_and_the_Nutrition_Care_Process.pdf"</span>,
+    <span class="k">"drive_file_id"</span>: <span class="s">"1AbCdEfGhIjKlMnOpQrStUvWxYz"</span>,
+    <span class="k">"structure"</span>: <span class="s">"native_outline"</span>
+  }
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">output · stage 1.1</span><h3>Child chunk</h3><p><code class="pill">child_chunk-parent12-chunk3.json</code></p></div>
+        <pre class="code">{
+  <span class="k">"child_id"</span>: <span class="s">"parent12-chunk3"</span>,
+  <span class="k">"parent_id"</span>: <span class="s">"parent12"</span>,
+  <span class="k">"source_key"</span>: <span class="s">"source1"</span>,
+  <span class="k">"start_page"</span>: <span class="m">212</span>,
+  <span class="k">"end_page"</span>: <span class="m">213</span>,
+  <span class="k">"token_count"</span>: <span class="m">412</span>,
+  <span class="k">"text"</span>: <span class="s">"[Krause's Food &amp; the Nutrition Care Process, p.212-213] Protein-energy malnutrition (PEM) is classified into marasmus, kwashiorkor, and mixed marasmic-kwashiorkor forms based on the balance of energy vs. protein deficit and presence of edema..."</span>
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-violet">output · stage 1.2</span><h3>Ingested row</h3><p><code class="pill">rag11_chunks_child_table</code>, embedding truncated for display</p></div>
+        <pre class="code">{
+  <span class="k">"rowGUID"</span>: <span class="s">"9c1d2e3f-...-parent12-chunk3"</span>,
+  <span class="k">"rowOwnerGUID"</span>: <span class="s">"5e2a1c3e-...-source1"</span>,
+  <span class="k">"rowParentGUID"</span>: <span class="s">"7b6a5c4d-...-parent12"</span>,
+  <span class="k">"orderInList"</span>: <span class="m">3</span>,
+  <span class="k">"embedding"</span>: [<span class="m">0.0123</span>, <span class="m">-0.0456</span>, <span class="m">0.0789</span>, <span class="s">"… 1024 dims total …"</span>],
+  <span class="k">"chunk_tsv"</span>: <span class="s">"'classifi':4 'edema':22 'energi':9 'kwashiorkor':6,8 'marasmus':5 'mix':7 …"</span>  <span class="k">// generated</span>
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">input · stage 2</span><h3>User question</h3><p>Embedded with <code class="pill">input_type=query</code> and tokenized for full-text</p></div>
+        <pre class="code"><span class="s">"How many grams of protein per kilogram of body weight does the RDA recommend?"</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-v5">split · stage 2 · NEW</span><h3>Multi-query split (optional, runs first)</h3><p><code class="pill">split_into_subquestions(question)</code></p></div>
+        <pre class="code"><span class="c">// the RDA question above is already atomic -- Claude leaves it unchanged:</span>
+[<span class="s">"How many grams of protein per kilogram of body weight does the RDA recommend?"</span>]
+
+<span class="c">// a compound question, by contrast, gets split into its independent parts:</span>
+<span class="s">"How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's effect?"</span>
+  <span class="k">-&gt;</span> [<span class="s">"What does soluble fiber do to LDL cholesterol?"</span>, <span class="s">"What does insoluble fiber do to LDL cholesterol?"</span>]
+  <span class="c">// each sub-question is searched separately (dense, +/- keyword), then every
+  // resulting ranked list is fused back into one with reciprocal_rank_fusion() --
+  // the same merge function hybrid_search() uses for dense + keyword, reused
+  // here across sub-questions instead</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">alt · stage 2</span><h3>HyDE draft (optional, instead of embedding the question)</h3><p><code class="pill">generate_hypothetical_document(question)</code></p></div>
+        <pre class="code"><span class="s">"The Recommended Dietary Allowance (RDA) for protein in a sedentary adult is 0.8 grams per kilogram of body weight per day, reflecting the minimum intake needed to maintain nitrogen balance and prevent progressive loss of lean tissue..."</span>  <span class="c">// Claude-drafted, embedded with input_type=document, then searched with instead of the question above</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">retrieval · stage 2</span><h3>Hybrid result</h3><p><code class="pill">hybrid_search(question, match_count=5)</code></p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>, <span class="k">"dense_rank"</span>: <span class="m">6</span>, <span class="k">"keyword_rank"</span>: <span class="m">1</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0316</span>, <span class="k">"snippet"</span>: <span class="s">"…recommended intake is 0.8 g/kg body weight/day…"</span> },
+  { <span class="k">"rowGUID"</span>: <span class="s">"a1b2...-athletes"</span>, <span class="k">"dense_rank"</span>: <span class="m">1</span>, <span class="k">"keyword_rank"</span>: <span class="m">null</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0164</span>, <span class="k">"snippet"</span>: <span class="s">"…protein timing for endurance athletes…"</span> }
+  <span class="s">"… up to 5 rows, fused ranking first …"</span>
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-newer">expand · stage 2 · NEW</span><h3>Parent-chunk expansion</h3><p><code class="pill">expand_to_parent_chunks(chunks)</code></p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0316</span>, <span class="k">"expanded_from_parent"</span>: <span class="k">true</span>,
+    <span class="k">"parent_row_guid"</span>: <span class="s">"7b6a5c4d-...-parent12"</span>, <span class="k">"matched_children"</span>: [<span class="s">"e5f6...-rda-08"</span>],
+    <span class="k">"rowJSON"</span>: { <span class="k">"title"</span>: <span class="s">"7.2 Protein Requirements"</span>, <span class="k">"start_page"</span>: <span class="m">210</span>, <span class="k">"end_page"</span>: <span class="m">215</span>,
+                 <span class="k">"text"</span>: <span class="s">"...full section: sedentary vs. athletic protein needs, the 0.8 g/kg RDA baseline, Table 7.1..."</span> } }
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">output · stage 2</span><h3>Final answer</h3><p>Claude Sonnet, grounded strictly in the fused, expanded text</p></div>
+        <div class="answer-box">
+          <div class="short">Short answer: Yes — 0.8 g/kg body weight/day.</div>
+          <p>The retrieved (and expanded) excerpt gives the RDA baseline as 0.8 g of protein per kilogram of body weight per day for a sedentary adult — the exact chunk that keyword search found instantly (rank 1) and that plain vector search alone had buried at rank 6 — with the full surrounding section (Table 7.1, athletic vs. sedentary comparison) now available rather than just the two-sentence match.</p>
+          <div class="cite">Citations: Krause's Food &amp; the Nutrition Care Process, p. 210–215 (full section 7.2, via parent-chunk expansion) · source1, parent 12</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Generated documentation for the RAG11 nutrition RAG pipeline — sourced from <code class="pill">README.md</code>, the
+  <code class="pill">stage1_0…stage2</code> notebooks, and <code class="pill">sql/create_sql_tables.sql</code> in this
+  repository. v5 adds multi-query / question-splitting retrieval on top of the v4 pipeline — see
+  <a href="HOW_IT_WORKS_Multi_Query_Question_Splitting.html">HOW_IT_WORKS_Multi_Query_Question_Splitting.html</a>
+  for the full write-up,
+  <a href="HOW_IT_WORKS_Hypothetical_Document_Embedding.html">HOW_IT_WORKS_Hypothetical_Document_Embedding.html</a>
+  for the v4 HyDE write-up,
+  <a href="HOW_IT_WORKS_Parent_Chunk_Expansion.html">HOW_IT_WORKS_Parent_Chunk_Expansion.html</a> for the v3
+  parent-chunk expansion write-up,
+  <a href="HOW_IT_WORKS_Hybrid_Search.html">HOW_IT_WORKS_Hybrid_Search.html</a> for the v2 hybrid-search write-up, or
+  <a href="versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html</a> /
+  <a href="versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v3.html">versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v3.html</a> /
+  <a href="versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v2.html">versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v2.html</a> /
+  <a href="versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v1.html">versions/RAG11_HOW_IT_WORKS_DATA_FLOW_v1.html</a> for earlier
+  versions of this page. Sample values in the "Sample Data" section are illustrative, shaped to the pipeline's real
+  schema.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      mainBkg: '#eef4fc',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#efedfa',
+      secondaryBorderColor: '#4a3aa7',
+      tertiaryColor: '#e6f7f0',
+      tertiaryBorderColor: '#1baf7a',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b',
+      gridColor: '#e1e0d9',
+      todayLineColor: '#e34948',
+      sectionBkgColor: '#eef4fc',
+      sectionBkgColor2: '#fdf1ea',
+      altSectionBkgColor: '#fcfcfb',
+      taskBkgColor: '#2a78d6',
+      taskBorderColor: '#184f95',
+      taskTextColor: '#ffffff',
+      taskTextOutsideColor: '#0b0b0b',
+      taskTextLightColor: '#ffffff',
+      activeTaskBkgColor: '#1baf7a',
+      activeTaskBorderColor: '#0e7d54',
+      doneTaskBkgColor: '#c3c2b7',
+      doneTaskBorderColor: '#898781',
+      critBkgColor: '#e34948',
+      critBorderColor: '#a52d2c'
+    },
+    gantt: { useWidth: 1000, barHeight: 22, topPadding: 46, leftPadding: 90 }
+  });
+
+  // ---- sticky-nav shadow on scroll ----
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  // ---- scroll-spy: reactivate the matching nav link as sections pass ----
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // ---- generic filter + sort for .data-table ----
+  function wireTable(tableId, filterId){
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var tbody = table.tBodies[0];
+    var rows = Array.prototype.slice.call(tbody.rows);
+    var countEl = document.querySelector('[data-count-for="' + tableId + '"]');
+
+    function updateCount(){
+      if (!countEl) return;
+      var visible = rows.filter(function(r){ return !r.classList.contains('is-hidden'); }).length;
+      countEl.textContent = visible + ' / ' + rows.length + ' rows';
+    }
+
+    var filterInput = document.getElementById(filterId);
+    if (filterInput) {
+      filterInput.addEventListener('input', function(){
+        var q = filterInput.value.trim().toLowerCase();
+        rows.forEach(function(r){
+          var hit = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+          r.classList.toggle('is-hidden', !hit);
+        });
+        updateCount();
+      });
+    }
+
+    var ths = Array.prototype.slice.call(table.tHead.rows[0].cells);
+    ths.forEach(function(th, colIndex){
+      th.addEventListener('click', function(){
+        var current = th.getAttribute('aria-sort');
+        var dir = current === 'ascending' ? 'descending' : 'ascending';
+        ths.forEach(function(t){ t.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', dir);
+
+        var sorted = rows.slice().sort(function(a, b){
+          var av = a.cells[colIndex].textContent.trim();
+          var bv = b.cells[colIndex].textContent.trim();
+          var an = parseFloat(av), bn = parseFloat(bv);
+          var cmp;
+          if (!isNaN(an) && !isNaN(bn) && /^[\d.\-]+$/.test(av) && /^[\d.\-]+$/.test(bv)) {
+            cmp = an - bn;
+          } else {
+            cmp = av.localeCompare(bv);
+          }
+          return dir === 'ascending' ? cmp : -cmp;
+        });
+        sorted.forEach(function(r){ tbody.appendChild(r); });
+        rows = sorted;
+      });
+    });
+
+    updateCount();
+  }
+
+  wireTable('table-stages', 'filter-stages');
+  wireTable('table-schema', 'filter-schema');
+</script>
+</body>
+</html>

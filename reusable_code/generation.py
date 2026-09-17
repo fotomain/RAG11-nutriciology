@@ -5,6 +5,10 @@ from typing import Optional
 from .clients import Clients, GENERATION_MODEL, RERANK_MODEL, get_clients
 from .hybrid_search import hybrid_search
 from .hypothetical_document_embedding import HYDE_MAX_TOKENS, retrieve_chunks_hyde
+from .multi_query_question_splitting import (
+    MAX_SUBQUESTIONS,
+    retrieve_chunks_multi_query,
+)
 from .parent_chunk_expansion import (
     DEFAULT_MAX_PARENT_CHARS,
     build_expanded_context_block,
@@ -124,6 +128,9 @@ def ask_question(
     use_hyde: bool = False,
     hyde_model: str = GENERATION_MODEL,
     hyde_max_tokens: int = HYDE_MAX_TOKENS,
+    use_multi_query: bool = False,
+    multi_query_model: str = GENERATION_MODEL,
+    multi_query_max_subquestions: int = MAX_SUBQUESTIONS,
     use_rerank: bool = False,
     rerank_top_n: Optional[int] = None,
     rerank_candidate_pool: Optional[int] = None,
@@ -138,12 +145,30 @@ def ask_question(
     call (if any), the array of source page numbers behind the answer, and
     the words the answer shares with those source excerpts.
 
-    ``use_hybrid``, ``use_hyde``, ``use_rerank``, and ``expand_to_parents``
-    are all optional and default to ``False`` -- existing calls like
-    ``ask_question("Is vitamin C water-soluble?")`` behave exactly as
-    before (plain vector search, ``match_count`` chunks straight to
-    Claude). They compose:
+    ``use_hybrid``, ``use_hyde``, ``use_multi_query``, ``use_rerank``, and
+    ``expand_to_parents`` are all optional and default to ``False`` --
+    existing calls like ``ask_question("Is vitamin C water-soluble?")``
+    behave exactly as before (plain vector search, ``match_count`` chunks
+    straight to Claude). They compose:
 
+        - ``use_multi_query=True`` replaces plain vector search with
+          ``multi_query_question_splitting.retrieve_chunks_multi_query()``:
+          Claude first splits ``question`` into its independent
+          sub-questions if it bundles more than one (e.g. a "how does X
+          differ from Y" comparison), runs the search once per sub-question,
+          and fuses all the resulting ranked lists with the same
+          Reciprocal Rank Fusion ``hybrid_search()`` uses --
+          ``multi_query_model``/``multi_query_max_subquestions`` control the
+          splitting call, and each sub-question's search itself uses
+          ``hybrid_search()`` if ``use_hybrid=True``, else plain
+          ``retrieve_chunks()``. Takes priority over ``use_hybrid`` (as the
+          top-level retrieval mode -- ``use_hybrid`` still shapes what runs
+          *per sub-question*) and ``use_hyde`` (ignored when
+          ``use_multi_query=True``, same reasoning as ``use_hybrid``
+          ignoring it: multi-query needs a single-question retrieval
+          function per sub-question, and HyDE-per-sub-question isn't wired
+          here). See
+          ``documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html``.
         - ``use_hybrid=True`` replaces plain vector search with
           ``hybrid_search()`` -- dense + keyword search merged via
           Reciprocal Rank Fusion -- as the source of candidate chunks.
@@ -157,8 +182,9 @@ def ask_question(
           control that draft call), and *that paragraph* is embedded and
           searched with instead of the bare question -- see
           ``documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html``.
-          Ignored when ``use_hybrid=True`` (hybrid's dense half already
-          embeds the raw question; combining the two isn't wired here).
+          Ignored when ``use_hybrid=True`` or ``use_multi_query=True``
+          (hybrid's dense half always embeds the raw question; multi-query
+          needs a single-question retrieval function per sub-question).
         - ``use_rerank=True`` adds Voyage's cross-encoder rerank pass on
           top of whichever candidates ``use_hybrid`` selected (hybrid pool
           if ``True``, plain vector pool if ``False``): a wider pool of raw
@@ -177,18 +203,33 @@ def ask_question(
           parent section is sent; pass ``None`` to disable truncation. See
           ``documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html``.
 
-    Returned dict keys (all present regardless of ``use_hybrid``/``use_hyde``/``use_rerank``/``expand_to_parents``):
+    Returned dict keys (all present regardless of
+    ``use_hybrid``/``use_hyde``/``use_multi_query``/``use_rerank``/``expand_to_parents``):
         question, short_answer, answer, chunks_used, source_pages,
         source_keys, grounding_words, used_hybrid, used_hyde,
-        hypothetical_document, used_rerank, rerank_model,
-        used_parent_expansion, candidates_considered
+        hypothetical_document, used_multi_query, subquestions,
+        used_rerank, rerank_model, used_parent_expansion,
+        candidates_considered
     """
     clients = clients or get_clients()
     final_n = rerank_top_n or match_count
     hypothetical_document = None
+    subquestions = None
 
     def fetch_candidates(n: int) -> list:
-        nonlocal hypothetical_document
+        nonlocal hypothetical_document, subquestions
+        if use_multi_query:
+            base_retrieve_fn = hybrid_search if use_hybrid else retrieve_chunks
+            rows, subquestions = retrieve_chunks_multi_query(
+                question,
+                match_count=n,
+                retrieve_fn=base_retrieve_fn,
+                max_subquestions=multi_query_max_subquestions,
+                split_model=multi_query_model,
+                return_subquestions=True,
+                clients=clients,
+            )
+            return rows
         if use_hybrid:
             return hybrid_search(
                 question,
@@ -252,6 +293,8 @@ def ask_question(
         "used_hybrid": use_hybrid,
         "used_hyde": use_hyde,
         "hypothetical_document": hypothetical_document,  # the HyDE paragraph used for retrieval, or None
+        "used_multi_query": use_multi_query,
+        "subquestions": subquestions,  # the sub-questions searched, or None if multi-query wasn't used
         "used_rerank": use_rerank,
         "rerank_model": rerank_model if use_rerank else None,
         "used_parent_expansion": expand_to_parents,
