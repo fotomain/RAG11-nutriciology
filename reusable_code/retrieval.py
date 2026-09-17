@@ -1,22 +1,31 @@
 """Retrieval + reranking helpers shared by every RAG11 Q&A notebook.
 
-Pipeline shape (see ``stage2_ask_examples2_rerank.ipynb`` for a worked, runnable
-example against real nutrition questions):
+Pipeline shape (see ``stage2_ask_examples2_rerank.ipynb`` and
+``stage2_ask_examples3_hybrid_search.ipynb`` for worked, runnable examples
+against real nutrition questions):
 
     1. ``embed_query()``       -- turn a question into a Voyage 'query' embedding
     2. ``retrieve_chunks()``   -- fast, approximate: cosine-similarity top-K
                                   via the ``match_rag11_child_chunks`` RPC
+                                  (dense/semantic retrieval)
+    2b. ``hybrid_search.hybrid_search()`` -- optional, complementary: fuses
+                                  this with Postgres full-text (keyword)
+                                  search via Reciprocal Rank Fusion -- see
+                                  ``hybrid_search.py``, the module this
+                                  functionality lives in
     3. ``rerank_chunks()``     -- optional, slow + precise: Voyage's
                                   cross-encoder reranker re-scores
                                   (question, chunk) pairs jointly and
-                                  reorders them
+                                  reorders them -- can run on top of either
+                                  2 or 2b's output
     4. ``update_rank_value()`` -- optional, manual: a person overrides one
                                   chunk's score by hand, entirely
                                   client-side, no schema change required
 
-Steps 1-2 alone are what every earlier stage2 notebook already did. Step 3
-is the new "rerank functionality"; step 4 is a manual escape hatch on top
-of either.
+Steps 1-2 alone are what every earlier stage2 notebook already did. Step 2b
+is the "hybrid search" functionality (in ``hybrid_search.py``); step 3 is
+the "rerank functionality"; step 4 is a manual escape hatch on top of
+either.
 """
 import re
 from typing import Optional

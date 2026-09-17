@@ -13,8 +13,11 @@ this repo can `import reusable_code` instead of re-defining the same
 | `env.py` | `require_env`, `optional_env` — read `.env` with clear errors |
 | `clients.py` | `init_clients()` / `get_clients()` — one Supabase + Voyage + Anthropic client per kernel, plus the model-id constants (`EMBEDDING_MODEL`, `RERANK_MODEL`, `GENERATION_MODEL`) |
 | `retry.py` | `with_retry()` — the exponential-backoff wrapper every notebook already had a copy of |
-| `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk`, **`rerank_chunks`**, **`update_rank_value`** |
-| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_rerank`) |
+| `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk`, `rerank_chunks`, `update_rank_value` |
+| `hybrid_search.py` | Dense + keyword search, fused: **`retrieve_chunks_keyword`**, **`reciprocal_rank_fusion`**, **`hybrid_search`** |
+| `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
+| `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
+| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_rerank`, and `expand_to_parents`) |
 | `crud_chunks_parent.py` | Row-level CRUD for `rag11_chunks_parent_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
 | `crud_chunks_child.py` | Row-level CRUD for `rag11_chunks_child_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
@@ -30,8 +33,25 @@ clients = init_clients()  # reads .env once; cached for the rest of the kernel
 # unchanged behavior -- exactly what stage2 always did
 result = ask_question("Is vitamin C a water-soluble vitamin?")
 
-# new: rerank pass on top of retrieval (use_rerank is optional, default False)
-result = ask_question("Is vitamin C a water-soluble vitamin?", use_rerank=True)
+# new: hybrid (dense + keyword) retrieval instead of plain vector search
+# (use_hybrid is optional, default False)
+result = ask_question("How many g/kg of protein does the RDA recommend?", use_hybrid=True)
+
+# rerank pass on top of retrieval (use_rerank is optional, default False) --
+# composes with use_hybrid: hybrid picks candidates, rerank re-scores them
+result = ask_question("Is vitamin C a water-soluble vitamin?", use_hybrid=True, use_rerank=True)
+
+# HyDE: embed a hypothetical answer paragraph instead of the bare question
+# (use_hyde is optional, default False; ignored when use_hybrid=True)
+result = ask_question("Does drinking coffee before exercise hurt performance?", use_hyde=True)
+
+# parent-chunk expansion (expand_to_parents is optional, default False) --
+# swaps each winning child chunk for its parent section before generation;
+# composes with both of the above
+result = ask_question(
+    "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?",
+    use_hybrid=True, use_rerank=True, expand_to_parents=True,
+)
 ```
 
 ## Row-level CRUD on the parent/child chunk tables
@@ -86,6 +106,101 @@ generate from the reranked top chunks instead of the raw vector-search
 order. See `../stage2_ask_examples2_rerank.ipynb` for three worked nutrition
 examples.
 
+## What "hybrid search" adds, in one paragraph
+
+`retrieve_chunks()` only compares meaning — it's great at "roughly the
+same topic" but can bury the one chunk that has the exact
+number/terminology a question needs (e.g. "0.8 g/kg RDA") under chunks
+that are merely thematically similar. `retrieve_chunks_keyword()` runs a
+Postgres full-text search instead — it matches actual words/numbers, so it
+finds that exact chunk instantly, because it's matching text, not meaning.
+`hybrid_search()` runs *both* over a wide candidate pool and merges the two
+rankings with **Reciprocal Rank Fusion** (`reciprocal_rank_fusion()`):
+each chunk's combined score is `sum over methods of 1 / (k + rank)`, so a
+chunk that scores well on *either* method still surfaces, and one both
+methods agree on rises to the top — without ever needing to compare cosine
+distance and `ts_rank_cd` on the same scale. `ask_question(...,
+use_hybrid=True)` wires this in as a drop-in replacement for plain vector
+search, and composes with `use_rerank=True` (hybrid picks the candidate
+pool, rerank re-scores it). See `../stage2_ask_examples3_hybrid_search.ipynb`
+for worked nutrition examples, and
+`../documentation/HOW_IT_WORKS_Hybrid_Search.html` for the full write-up
+of why this matters.
+
+Unlike reranking, hybrid search **does** need one additive, idempotent
+schema change — re-run `sql/create_sql_tables.sql` to pick up:
+- `rag11_chunks_child_table.chunk_tsv` — a generated `tsvector` column over
+  `rowJSON->>'text'` (the same source `chunk_text` reads from — a generated
+  column can't reference another generated column, so `chunk_tsv` reads
+  `rowJSON` directly rather than `chunk_text`), the keyword-search
+  counterpart to the `embedding` column.
+- `idx_rag11_child_chunk_tsv_gin` — a GIN index on `chunk_tsv`, the
+  keyword-search counterpart to the HNSW `embedding` index.
+- `match_rag11_child_chunks_keyword(query_text, match_count, filter_owner)`
+  — the RPC `retrieve_chunks_keyword()` calls, mirroring
+  `match_rag11_child_chunks()`'s shape exactly (same 5 identity columns
+  plus one score column, `text_rank` instead of `cosine_distance`).
+
+Every statement in that migration is `create table/index/function if not
+exists`, `alter table ... add column if not exists`, or `create or replace
+function`, so re-running it against a database that already has ingested
+data is safe — existing rows just pick up a computed `chunk_tsv` value for
+free from their already-populated `rowJSON`, no re-embedding or
+re-ingestion required.
+
+## What "HyDE" (hypothetical document embeddings) adds, in one paragraph
+
+A question and a textbook answer are written in different "shapes" of
+English — questions are short and interrogative, real chunks are long,
+declarative, technical prose — so embedding the bare question sometimes
+lands closer to a chunk that's merely thematically similar than to the one
+that actually answers it. `generate_hypothetical_document()` asks Claude to
+draft a short hypothetical textbook-style paragraph that *would* answer the
+question (it doesn't need to be correct — only to plausibly use the same
+vocabulary real chunks do), `embed_hypothetical_document()` embeds that
+paragraph with `input_type='document'` (matching how the real chunks were
+embedded, not `'query'`), and `retrieve_chunks_hyde()` searches with that
+embedding instead of the question's — via the *same*
+`match_rag11_child_chunks` RPC plain `retrieve_chunks()` already uses, so
+**zero** schema change is needed. `ask_question(..., use_hyde=True)` wires
+this in as a drop-in replacement for plain vector search (ignored if
+`use_hybrid=True` is also set — hybrid's dense half already embeds the raw
+question). See
+`../stage2_ask_examples5_hypothetical_document_embedding.ipynb` for worked
+nutrition examples, and
+`../documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html` for
+the full write-up.
+
+## What "parent-chunk expansion" adds, in one paragraph
+
+A child chunk is deliberately small (~300–500 tokens) so it matches a
+question *precisely* — but a small chunk sometimes doesn't carry enough
+surrounding context to answer the question *fully*. Example: "How does
+soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?"
+might retrieve, as its best-reranked chunk, two sentences about soluble
+fiber alone — a great match for half the question, but silent on insoluble
+fiber. Every child chunk's `rowParentGUID` already points at a bigger
+parent chunk from Stage 1.1 (the full section it was carved out of, which
+usually discusses both sides of a comparison together).
+`expand_to_parent_chunks()` swaps each winning child chunk's text for its
+parent's before generation — deduping when several winning chunks share one
+parent, so the parent is only sent once — and `ask_question(...,
+expand_to_parents=True)` wires this in as the last, optional step: hybrid
+and/or rerank pick the candidates, then expansion swaps in the surrounding
+context right before Claude sees it. See
+`../stage2_ask_examples4_parent_chunk_expansion.ipynb` for worked nutrition
+examples, and
+`../documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html` for the full
+write-up.
+
+Like reranking, this needs **zero** schema change — `rag11_chunks_parent_table`
+and the `rowParentGUID` foreign key from child to parent already exist
+(`sql/create_sql_tables.sql`); `expand_to_parent_chunks()` just reads them
+via `crud_chunks_parent.read_parent_row()`. The only thing to watch is
+size: a parent chunk is a whole book *section*, not token-budgeted the way
+a child chunk is, so `expand_to_parent_chunks(..., max_parent_chars=...)`
+truncates an unusually long one (default 6000 chars, `None` to disable).
+
 ## `update_rank_value` — manual overrides, no schema change required
 
 `update_rank_value(chunks, row_guid, new_value, ...)` lets a person
@@ -110,6 +225,17 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
   `retrieve_chunks()` already returns and adds two keys
   (`rerank_score`, `retrieval_rank`) to the *in-memory* Python dict only —
   those are query-time diagnostics, never written back to the database.
+- **HyDE (`retrieve_chunks_hyde`, `ask_question(use_hyde=True)`)** also
+  needs **zero** table/column changes — it calls the exact same
+  `match_rag11_child_chunks` RPC plain `retrieve_chunks()` already uses;
+  the only difference is *which text* gets embedded before that call
+  (a Claude-drafted hypothetical paragraph instead of the bare question).
+- **Parent-chunk expansion (`expand_to_parent_chunks`,
+  `ask_question(expand_to_parents=True)`)** also needs **zero** table/column
+  changes — `rag11_chunks_parent_table` and the child table's
+  `rowParentGUID` foreign key already exist. It only reads an existing
+  parent row (`crud_chunks_parent.read_parent_row()`) and swaps it into the
+  *in-memory* row dict; nothing is written back to Supabase.
 - **`update_rank_value(..., persist=False)`** (the default) is the same
   story: purely in-memory, nothing in Supabase changes.
 - **`update_rank_value(..., persist=True)`** *does* write to Supabase, but

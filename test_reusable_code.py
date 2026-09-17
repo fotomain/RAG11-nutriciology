@@ -13,7 +13,27 @@ sys.path.insert(0, ".")
 
 from reusable_code.clients import Clients  # noqa: E402
 from reusable_code.generation import ask_question, build_context_block  # noqa: E402
-from reusable_code.retrieval import rerank_chunks, retrieve_chunks, update_rank_value  # noqa: E402
+from reusable_code.hybrid_search import (  # noqa: E402
+    hybrid_search,
+    reciprocal_rank_fusion,
+    retrieve_chunks_keyword,
+)
+from reusable_code.hypothetical_document_embedding import (  # noqa: E402
+    embed_hypothetical_document,
+    generate_hypothetical_document,
+    retrieve_chunks_hyde,
+)
+from reusable_code.parent_chunk_expansion import (  # noqa: E402
+    build_expanded_context_block,
+    expand_to_parent_chunks,
+    page_numbers_for_expanded_chunk,
+)
+from reusable_code.retrieval import (  # noqa: E402
+    page_numbers_for_chunk,
+    rerank_chunks,
+    retrieve_chunks,
+    update_rank_value,
+)
 
 FAILURES = []
 
@@ -32,6 +52,17 @@ def make_row(guid, text, cosine_distance, source_key="source1"):
         "rowOwnerGUID": "owner-1",
         "orderInList": 0,
         "cosine_distance": cosine_distance,
+        "rowJSON": {"text": text, "source_key": source_key},
+    }
+
+
+def make_row_kw(guid, text, text_rank, source_key="source1"):
+    return {
+        "rowGUID": guid,
+        "rowParentGUID": "parent-1",
+        "rowOwnerGUID": "owner-1",
+        "orderInList": 0,
+        "text_rank": text_rank,
         "rowJSON": {"text": text, "source_key": source_key},
     }
 
@@ -65,6 +96,7 @@ class FakeSupabaseTableQuery:
         self._filters = {}
         self._select_cols = None
         self._update_payload = None
+        self._single = False
 
     def select(self, *_cols):
         self._select_cols = _cols
@@ -79,6 +111,7 @@ class FakeSupabaseTableQuery:
         return self
 
     def single(self):
+        self._single = True
         return self
 
     def execute(self):
@@ -88,21 +121,31 @@ class FakeSupabaseTableQuery:
             for r in matches:
                 r.update(self._update_payload)
             return FakeSupabaseTableRow({"status": "updated", "count": len(matches)})
-        if not matches:
-            raise RuntimeError("no matching row (fake supabase)")
-        return FakeSupabaseTableRow(matches[0])
+        if self._single:
+            if not matches:
+                raise RuntimeError("no matching row (fake supabase)")
+            return FakeSupabaseTableRow(matches[0])
+        # Plain (non-.single()) select -- e.g. crud_chunks_parent.read_parent_row()'s
+        # `.select("*").eq("rowGUID", row_guid).execute()`, which expects
+        # `resp.data` to be a *list* (possibly empty, not an error).
+        return FakeSupabaseTableRow(matches)
 
 
 class FakeSupabase:
     def __init__(self, rpc_data, table_rows=None):
-        self._rpc_data = rpc_data
+        # rpc_data may be a plain list (all calls, of any RPC name, get the
+        # same data -- the original shape this fake supported) or a dict of
+        # {rpc_name: data} for tests that need e.g. match_rag11_child_chunks
+        # and match_rag11_child_chunks_keyword to return different rows.
+        self._rpc_data = rpc_data if isinstance(rpc_data, dict) else {"match_rag11_child_chunks": rpc_data}
         self._tables = table_rows or {}
         self.rpc_calls = []
         self.update_calls = []
 
     def rpc(self, name, params):
         self.rpc_calls.append((name, params))
-        return FakeRPCBuilder(self._rpc_data[: params.get("match_count", len(self._rpc_data))])
+        data = self._rpc_data.get(name, [])
+        return FakeRPCBuilder(data[: params.get("match_count", len(data))])
 
     def table(self, name):
         return FakeSupabaseTableQuery(self._tables, name)
@@ -182,6 +225,93 @@ check("rerank_chunks respects top_n", len(top1) == 1 and top1[0]["rowGUID"] == "
 check("rerank_chunks([]) returns []", rerank_chunks("q", [], clients=fake_clients) == [])
 
 # ---------------------------------------------------------------------------
+# reciprocal_rank_fusion: merges two independently-ranked lists. g2 is the
+# chunk with the exact answer -- ranked #2 by dense search but #2 by
+# keyword search too (present in both), while g4 is a keyword-only hit
+# (an exact term dense search never surfaced at all) and g1 is a
+# dense-only hit -- mirroring the "chunk A was #1 in vector, #3 in
+# keyword" fusion scenario hybrid search exists for.
+# ---------------------------------------------------------------------------
+
+dense_ranked = [rows[0], rows[1], rows[2]]  # g1, g2, g3 -- dense ranks 1, 2, 3
+g4 = make_row_kw("g4", "Exact keyword match text only a lexical search would surface.", 0.9)
+keyword_ranked = [g4, rows[1], rows[2]]  # g4, g2, g3 -- keyword ranks 1, 2, 3 (g1 absent)
+
+fused = reciprocal_rank_fusion({"dense": dense_ranked, "keyword": keyword_ranked})
+check("reciprocal_rank_fusion returns every distinct chunk across both lists", len(fused) == 4)
+fused_by_guid = {row["rowGUID"]: row for row in fused}
+check("reciprocal_rank_fusion ranks the chunk present in both lists first", fused[0]["rowGUID"] == "g2")
+check("reciprocal_rank_fusion records per-list ranks on the fused chunk",
+      fused_by_guid["g2"]["dense_rank"] == 2 and fused_by_guid["g2"]["keyword_rank"] == 2)
+check("reciprocal_rank_fusion marks a dense-only chunk's keyword_rank as None",
+      fused_by_guid["g1"]["dense_rank"] == 1 and fused_by_guid["g1"]["keyword_rank"] is None)
+check("reciprocal_rank_fusion still surfaces a keyword-only chunk (dense never saw it)",
+      fused_by_guid["g4"]["dense_rank"] is None and fused_by_guid["g4"]["keyword_rank"] == 1)
+check("reciprocal_rank_fusion sorts by rrf_score descending",
+      all(fused[i]["rrf_score"] >= fused[i + 1]["rrf_score"] for i in range(len(fused) - 1)))
+
+# ---------------------------------------------------------------------------
+# retrieve_chunks_keyword: hits the keyword RPC, not the dense one
+# ---------------------------------------------------------------------------
+
+fake_supabase_hybrid = FakeSupabase(rpc_data={
+    "match_rag11_child_chunks": dense_ranked,
+    "match_rag11_child_chunks_keyword": keyword_ranked,
+})
+fake_clients_hybrid = Clients(supabase=fake_supabase_hybrid, voyage=fake_voyage, anthropic=fake_anthropic)
+
+kw_results = retrieve_chunks_keyword("What is the RDA for protein?", match_count=3, clients=fake_clients_hybrid)
+check("retrieve_chunks_keyword returns the keyword-ranked rows", [r["rowGUID"] for r in kw_results] == ["g4", "g2", "g3"])
+check("retrieve_chunks_keyword calls the keyword RPC, not the dense one",
+      fake_supabase_hybrid.rpc_calls[-1][0] == "match_rag11_child_chunks_keyword")
+
+# ---------------------------------------------------------------------------
+# hybrid_search: runs both searches and returns the fused, trimmed list
+# ---------------------------------------------------------------------------
+
+fake_supabase_hybrid2 = FakeSupabase(rpc_data={
+    "match_rag11_child_chunks": dense_ranked,
+    "match_rag11_child_chunks_keyword": keyword_ranked,
+})
+fake_clients_hybrid2 = Clients(supabase=fake_supabase_hybrid2, voyage=fake_voyage, anthropic=fake_anthropic)
+
+hybrid_results = hybrid_search("What is the RDA for protein?", match_count=2, clients=fake_clients_hybrid2)
+check("hybrid_search trims the fused list down to match_count", len(hybrid_results) == 2)
+check("hybrid_search's top result is the chunk both methods agree on", hybrid_results[0]["rowGUID"] == "g2")
+check("hybrid_search over-fetches a wider pool per method than match_count",
+      all(call[1]["match_count"] >= 15 for call in fake_supabase_hybrid2.rpc_calls))  # HYBRID_MIN_POOL
+
+# ---------------------------------------------------------------------------
+# HyDE (hypothetical document embeddings): generate_hypothetical_document /
+# embed_hypothetical_document / retrieve_chunks_hyde
+# ---------------------------------------------------------------------------
+
+fake_supabase_hyde = FakeSupabase(rpc_data=rows)
+fake_clients_hyde = Clients(supabase=fake_supabase_hyde, voyage=fake_voyage, anthropic=fake_anthropic)
+
+hyde_doc = generate_hypothetical_document("What is the RDA for protein?", clients=fake_clients_hyde)
+check("generate_hypothetical_document returns Claude's drafted text",
+      hyde_doc == fake_anthropic.messages._answer_text)
+
+hyde_embedding = embed_hypothetical_document(hyde_doc, clients=fake_clients_hyde)
+check("embed_hypothetical_document returns an embedding vector", hyde_embedding == [0.1, 0.2, 0.3])
+check("embed_hypothetical_document uses input_type='document' (matches how child chunks were embedded)",
+      fake_voyage.embed_calls[-1][2] == "document")
+
+hyde_rows, hyde_text = retrieve_chunks_hyde(
+    "What is the RDA for protein?", match_count=3, return_hypothetical_document=True, clients=fake_clients_hyde
+)
+check("retrieve_chunks_hyde returns the dense RPC rows", len(hyde_rows) == 3)
+check("retrieve_chunks_hyde also returns the hypothetical document used to retrieve them", hyde_text == hyde_doc)
+check("retrieve_chunks_hyde calls the same dense RPC retrieve_chunks() uses (no schema change needed)",
+      fake_supabase_hyde.rpc_calls[-1][0] == "match_rag11_child_chunks")
+check("retrieve_chunks_hyde embeds the hypothetical document, not the raw question",
+      fake_voyage.embed_calls[-1][0] == [hyde_doc] and fake_voyage.embed_calls[-1][2] == "document")
+
+check("retrieve_chunks_hyde without return_hypothetical_document returns a plain row list",
+      retrieve_chunks_hyde("What is the RDA for protein?", match_count=3, clients=fake_clients_hyde) == hyde_rows)
+
+# ---------------------------------------------------------------------------
 # build_context_block shows rerank_score when present, omits it otherwise
 # ---------------------------------------------------------------------------
 
@@ -189,6 +319,75 @@ block_plain = build_context_block(retrieved)
 block_reranked = build_context_block(reranked)
 check("build_context_block omits relevance label pre-rerank", "relevance" not in block_plain)
 check("build_context_block shows relevance label post-rerank", "relevance 0.95" in block_reranked)
+
+# ---------------------------------------------------------------------------
+# expand_to_parent_chunks / build_expanded_context_block /
+# page_numbers_for_expanded_chunk -- parent-chunk expansion ("small-to-big")
+# ---------------------------------------------------------------------------
+
+parent_fiber = {
+    "rowGUID": "parent-1",
+    "rowOwnerGUID": "owner-1",
+    "rowParentGUID": None,
+    "orderInList": 0,
+    "rowJSON": {
+        "parent_id": "p1",
+        "source_key": "source1",
+        "title": "Fiber and Cholesterol",
+        "start_page": 40,
+        "end_page": 42,
+        "text": (
+            "Soluble fiber binds bile acids in the gut, which forces the liver "
+            "to pull more LDL cholesterol from the blood to make more bile "
+            "acids. Insoluble fiber, by contrast, does not bind bile acids "
+            "and has little effect on LDL cholesterol; instead it adds bulk "
+            "to stool and speeds transit time through the gut."
+        ),
+    },
+}
+fake_supabase_expand = FakeSupabase(rpc_data=rows, table_rows={"rag11_chunks_parent_table": [parent_fiber]})
+fake_clients_expand = Clients(supabase=fake_supabase_expand, voyage=fake_voyage, anthropic=fake_anthropic)
+
+# g1 and g2 (from `rows` above) both carry rowParentGUID == "parent-1" --
+# they should collapse into ONE expanded row.
+expanded = expand_to_parent_chunks([rows[0], rows[1]], clients=fake_clients_expand)
+check("expand_to_parent_chunks dedups children sharing one parent", len(expanded) == 1)
+check("expand_to_parent_chunks swaps in the parent's text",
+      "insoluble fiber" in expanded[0]["rowJSON"]["text"].lower())
+check("expand_to_parent_chunks keeps the best (first) child's rowGUID", expanded[0]["rowGUID"] == "g1")
+check("expand_to_parent_chunks records every matched child",
+      [r["rowGUID"] for r in expanded[0]["matched_children"]] == ["g1", "g2"])
+check("expand_to_parent_chunks marks expanded_from_parent True", expanded[0]["expanded_from_parent"] is True)
+check("expand_to_parent_chunks records the parent's own rowGUID",
+      expanded[0]["parent_row_guid"] == "parent-1")
+check("expand_to_parent_chunks does not mutate its input", "expanded_from_parent" not in rows[0])
+
+short_expanded = expand_to_parent_chunks([rows[0]], max_parent_chars=20, clients=fake_clients_expand)
+check("expand_to_parent_chunks truncates long parent text when max_parent_chars is set",
+      short_expanded[0]["rowJSON"]["text"].startswith(parent_fiber["rowJSON"]["text"][:20].rstrip())
+      and "truncated" in short_expanded[0]["rowJSON"]["text"])
+
+orphan_child = make_row("g5", "An orphaned child chunk.", 0.5)
+orphan_child["rowParentGUID"] = "missing-parent"
+orphan_expanded = expand_to_parent_chunks([orphan_child], clients=fake_clients_expand)
+check("expand_to_parent_chunks keeps the child chunk as-is when its parent is missing",
+      orphan_expanded[0]["rowJSON"]["text"] == "An orphaned child chunk.")
+check("expand_to_parent_chunks marks expanded_from_parent False when the parent is missing",
+      orphan_expanded[0]["expanded_from_parent"] is False)
+
+check("expand_to_parent_chunks([]) returns []", expand_to_parent_chunks([], clients=fake_clients_expand) == [])
+
+expanded_block = build_expanded_context_block(expanded)
+check("build_expanded_context_block shows the parent's title", "Fiber and Cholesterol" in expanded_block)
+check("build_expanded_context_block shows how many child chunks it stands in for",
+      "expanded from 2 matched chunks" in expanded_block)
+check("build_expanded_context_block behaves like build_context_block for a plain (non-expanded) row",
+      build_expanded_context_block([rows[0]]) == build_context_block([rows[0]]))
+
+check("page_numbers_for_expanded_chunk reads a parent's own start_page/end_page",
+      page_numbers_for_expanded_chunk(expanded[0]) == [40, 41, 42])
+check("page_numbers_for_expanded_chunk falls back to the child text header otherwise",
+      page_numbers_for_expanded_chunk(rows[0]) == page_numbers_for_chunk(rows[0]))
 
 # ---------------------------------------------------------------------------
 # update_rank_value: manual override beats both rerank_score and cosine_distance
@@ -247,6 +446,83 @@ check("ask_question(use_rerank=True) candidates_considered reflects what came ba
 check("ask_question(use_rerank=True) records the rerank model", result_rerank["rerank_model"] == "rerank-2")
 check("ask_question(use_rerank=True) parses the Short answer line",
       result_rerank["short_answer"] == "Yes")
+
+# ---------------------------------------------------------------------------
+# ask_question: use_hybrid is optional, defaults to False, and composes
+# with use_rerank (hybrid picks candidates, rerank re-scores them)
+# ---------------------------------------------------------------------------
+
+check("ask_question() (no use_hybrid arg) marks used_hybrid False", result_plain["used_hybrid"] is False)
+
+fake_supabase_hybrid_ask = FakeSupabase(rpc_data={
+    "match_rag11_child_chunks": dense_ranked,
+    "match_rag11_child_chunks_keyword": keyword_ranked,
+})
+fake_clients_hybrid_ask = Clients(supabase=fake_supabase_hybrid_ask, voyage=fake_voyage, anthropic=fake_anthropic)
+
+result_hybrid = ask_question(
+    "What is the RDA for protein?", match_count=2, use_hybrid=True, clients=fake_clients_hybrid_ask
+)
+check("ask_question(use_hybrid=True) marks used_hybrid", result_hybrid["used_hybrid"] is True)
+check("ask_question(use_hybrid=True) uses the fused top result",
+      result_hybrid["chunks_used"] == 2)
+check("ask_question(use_hybrid=True) queried both the dense and keyword RPCs",
+      {"match_rag11_child_chunks", "match_rag11_child_chunks_keyword"}
+      == {name for name, _ in fake_supabase_hybrid_ask.rpc_calls})
+
+fake_supabase_hybrid_rerank = FakeSupabase(rpc_data={
+    "match_rag11_child_chunks": dense_ranked,
+    "match_rag11_child_chunks_keyword": keyword_ranked,
+})
+fake_clients_hybrid_rerank = Clients(supabase=fake_supabase_hybrid_rerank, voyage=fake_voyage, anthropic=fake_anthropic)
+result_hybrid_rerank = ask_question(
+    "What is the RDA for protein?", match_count=2,
+    use_hybrid=True, use_rerank=True, clients=fake_clients_hybrid_rerank,
+)
+check("ask_question(use_hybrid=True, use_rerank=True) marks both flags",
+      result_hybrid_rerank["used_hybrid"] is True and result_hybrid_rerank["used_rerank"] is True)
+check("ask_question(use_hybrid=True, use_rerank=True) still queried both hybrid RPCs before reranking",
+      {"match_rag11_child_chunks", "match_rag11_child_chunks_keyword"}
+      == {name for name, _ in fake_supabase_hybrid_rerank.rpc_calls})
+
+# ---------------------------------------------------------------------------
+# ask_question: use_hyde is optional and defaults to False
+# ---------------------------------------------------------------------------
+
+check("ask_question() (no use_hyde arg) marks used_hyde False and hypothetical_document None",
+      result_plain["used_hyde"] is False and result_plain["hypothetical_document"] is None)
+
+fake_supabase_hyde_ask = FakeSupabase(rpc_data=rows)
+fake_clients_hyde_ask = Clients(supabase=fake_supabase_hyde_ask, voyage=fake_voyage, anthropic=fake_anthropic)
+result_hyde = ask_question(
+    "What is the RDA for protein?", match_count=3, use_hyde=True, clients=fake_clients_hyde_ask
+)
+check("ask_question(use_hyde=True) marks used_hyde", result_hyde["used_hyde"] is True)
+check("ask_question(use_hyde=True) returns the hypothetical document used for retrieval",
+      result_hyde["hypothetical_document"] == fake_anthropic.messages._answer_text)
+check("ask_question(use_hyde=True) still uses match_count chunks", result_hyde["chunks_used"] == 3)
+check("ask_question(use_hyde=True) queried the dense RPC with an embedding derived from the hypothetical doc",
+      fake_supabase_hyde_ask.rpc_calls[-1][0] == "match_rag11_child_chunks")
+
+# ---------------------------------------------------------------------------
+# ask_question: expand_to_parents is optional, defaults to False, and runs
+# last -- on whatever use_hybrid/use_hyde/use_rerank already selected.
+# ---------------------------------------------------------------------------
+
+check("ask_question() (no expand_to_parents arg) marks used_parent_expansion False",
+      result_plain["used_parent_expansion"] is False)
+
+# rows[0..2] (g1, g2, g3) all share rowParentGUID == "parent-1" -- plain
+# retrieval should dedup them down to the one parent section.
+result_expand = ask_question(
+    "What is the RDA for protein?", match_count=3, expand_to_parents=True, clients=fake_clients_expand
+)
+check("ask_question(expand_to_parents=True) marks used_parent_expansion",
+      result_expand["used_parent_expansion"] is True)
+check("ask_question(expand_to_parents=True) dedups chunks sharing one parent",
+      result_expand["chunks_used"] == 1)
+check("ask_question(expand_to_parents=True) computes source_pages from the parent's start_page/end_page",
+      result_expand["source_pages"] == [40, 41, 42])
 
 print()
 if FAILURES:

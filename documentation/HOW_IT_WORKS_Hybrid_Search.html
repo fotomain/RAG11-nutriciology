@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — How Hybrid Search Works</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:70ch; margin:.35rem 0 1.4rem;}
+
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--aqua), var(--accent));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.25rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.86rem; font-weight:600;
+    padding:.45rem .75rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+  .navmeta a{color:var(--ink-muted); font-weight:600;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  .hero h1{font-size:2.1rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;}
+  .callout{
+    border-radius:var(--radius-md); padding:1.1rem 1.2rem; border:1px solid var(--border);
+  }
+  .callout h3{margin-bottom:.5rem; display:flex; align-items:center; gap:.5rem;}
+  .callout-dense{background:var(--accent-tint); border-color:rgba(42,120,214,.25);}
+  .callout-keyword{background:#e6f7f0; border-color:rgba(27,175,122,.3);}
+  .callout p{margin:.35rem 0; font-size:.9rem; color:var(--ink-2);}
+  .callout .example{
+    margin-top:.7rem; font-size:.82rem; background:var(--surface); border-radius:var(--radius-sm);
+    padding:.6rem .75rem; border:1px solid var(--border); color:var(--ink-2);
+  }
+
+  .problem-box{
+    background:#fdf1ea; border:1px solid rgba(235,104,52,.28); border-radius:var(--radius-lg);
+    padding:1.3rem 1.4rem; box-shadow:var(--shadow);
+  }
+  .problem-box h3{color:var(--orange);}
+  .problem-box p{margin:.5rem 0; color:var(--ink-2);}
+  .problem-box ul{margin:.6rem 0; padding-left:1.3rem; color:var(--ink-2);}
+  .problem-box li{margin:.45rem 0;}
+  .problem-box .q{
+    font-style:italic; background:var(--surface); border-radius:var(--radius-sm);
+    padding:.6rem .8rem; border:1px solid var(--border); margin:.7rem 0;
+  }
+  .neighborhood{
+    display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;
+  }
+  .neighborhood .half{
+    flex:1; min-width:220px; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; font-size:.86rem; color:var(--ink-2);
+  }
+  .neighborhood .half b{color:var(--ink); display:block; margin-bottom:.3rem;}
+
+  .table-toolbar{display:flex; gap:.6rem; align-items:center; margin:1rem 0 .75rem; flex-wrap:wrap;}
+  .table-toolbar input[type="search"]{
+    flex:1; min-width:220px; padding:.55rem .8rem; border-radius:var(--radius-sm);
+    border:1px solid var(--border); background:var(--surface-2); font-size:.86rem; color:var(--ink);
+  }
+  .table-toolbar input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .rowcount{font-size:.78rem; color:var(--ink-muted); white-space:nowrap;}
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table caption{display:none;}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); position:sticky; top:0; cursor:pointer; user-select:none;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  table.data-table thead th:hover{color:var(--accent-dark);}
+  table.data-table thead th .arrow{opacity:.35; margin-left:.25rem; font-size:.7rem;}
+  table.data-table thead th[aria-sort="ascending"] .arrow,
+  table.data-table thead th[aria-sort="descending"] .arrow{opacity:1; color:var(--accent);}
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+  table.data-table tbody tr.is-hidden{display:none;}
+  table.data-table td.num{font-variant-numeric:tabular-nums;}
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.78rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+  .tag-orange{background:#fdf1ea; color:#b04a20;}
+
+  pre.code{
+    margin:0; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.78rem; color:var(--ink);
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  pre.code .c{color:var(--ink-muted); font-style:italic;}
+
+  .trace{display:flex; flex-direction:column; gap:0;}
+  .trace-step{display:grid; grid-template-columns:190px 1fr; gap:1.1rem; padding:1.1rem 0; border-top:1px dashed var(--grid);}
+  .trace-step:first-child{border-top:none;}
+  .trace-meta{position:sticky; top:5rem; align-self:start;}
+  .trace-meta .tag{margin-bottom:.5rem;}
+  .trace-meta h3{margin-bottom:.2rem;}
+  .trace-meta p{margin:0; font-size:.82rem; color:var(--ink-muted);}
+
+  .formula{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:1rem 1.2rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.92rem;
+    text-align:center; margin:1rem 0;
+  }
+
+  .backlink{
+    display:inline-flex; align-items:center; gap:.4rem; font-size:.82rem; font-weight:600;
+    color:var(--accent-dark); text-decoration:none; margin-bottom:.4rem;
+  }
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 780px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .trace-step{grid-template-columns:1fr;}
+    .trace-meta{position:static;}
+    .two-col{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#problem">The Problem</a>
+    <a href="#howitworks">How It Works</a>
+    <a href="#rrf">Reciprocal Rank Fusion</a>
+    <a href="#schema">Schema &amp; API</a>
+    <a href="#walkthrough">Walkthrough</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">&larr; Back to full data flow</a></div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation · Retrieval upgrade</div>
+    <h1>Hybrid search: dense + keyword, fused</h1>
+    <p class="lede">
+      <strong>Hybrid search (dense + keyword/BM25-style, merged via Reciprocal Rank Fusion)</strong>
+      is the biggest bang-for-the-buck upgrade to RAG11's retrieval, because pure embeddings
+      often miss exact numeric/terminology matches — like <code class="pill">0.8 g/kg RDA</code> —
+      that a plain keyword search nails instantly. Postgres full-text search
+      (<code class="pill">tsvector</code>) pairs naturally with the pgvector table RAG11
+      already has, so no new database or search service is needed.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>2</b>&nbsp;search methods, 1 fused ranking</div>
+      <div class="chip"><b>RRF</b>&nbsp;k&nbsp;=&nbsp;60</div>
+      <div class="chip"><b>tsvector</b>&nbsp;+&nbsp;GIN index</div>
+      <div class="chip"><b>0</b>&nbsp;new services — same Postgres table</div>
+      <div class="chip">Composable with&nbsp;<b>rerank</b></div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="eyebrow">Motivation</div>
+    <h2>The problem in plain terms</h2>
+    <div class="problem-box">
+      <p>
+        Your current search only compares <strong>"meaning vectors."</strong> It's great at
+        "this is roughly about the same topic" but bad at "this contains the exact
+        number/word I need."
+      </p>
+      <p><strong>Example:</strong></p>
+      <div class="q">Question: "How many grams of protein per kilogram of body weight does the RDA recommend?"</div>
+      <ul>
+        <li>
+          Pure vector search might return chunks that are all about protein — muscle
+          building, protein sources, amino acids — but the one chunk that literally says
+          <strong>"0.8 g/kg/day"</strong> might rank 6th, because a paragraph about "protein
+          timing for athletes" sounds more similar overall.
+        </li>
+        <li>
+          A keyword search for <strong>"0.8"</strong> or <strong>"RDA"</strong> would instantly
+          find the exact chunk, because it's just matching text, not meaning.
+        </li>
+        <li>
+          Hybrid = do both searches, then combine the two ranked lists (e.g. "chunk A was
+          #1 in vector search and #3 in keyword search → give it a combined score"). This
+          catches cases where the right chunk scores well on one method but not the other.
+        </li>
+      </ul>
+      <div class="neighborhood">
+        <div class="half"><b>Vector search</b>"Find me something in the same neighborhood."</div>
+        <div class="half"><b>Keyword search</b>"Find me the exact house number."</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="howitworks">
+    <div class="eyebrow">Diagram</div>
+    <h2>How hybrid search fits the pipeline</h2>
+    <p class="lede">
+      One question triggers two independent, cheap searches over the same
+      <code class="pill">rag11_chunks_child_table</code> — one over
+      <code class="pill">embedding</code> (dense/semantic), one over
+      <code class="pill">chunk_tsv</code> (keyword/lexical). Their ranked lists are merged with
+      Reciprocal Rank Fusion before anything is shown to Claude — and, optionally, before
+      Voyage's reranker narrows the fused list further.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    Q["User question"] --> QE["Voyage-3 'query' embedding"]
+    Q --> QT["websearch_to_tsquery('english', question)"]
+
+    QE --> D["Dense search — match_rag11_child_chunks<br/>HNSW cosine distance over embedding"]
+    QT --> K["Keyword search — match_rag11_child_chunks_keyword<br/>ts_rank_cd over chunk_tsv (GIN index)"]
+
+    D --> R["Reciprocal Rank Fusion<br/>reciprocal_rank_fusion({dense, keyword})"]
+    K --> R
+
+    R --> H["hybrid_search() result<br/>top match_count chunks, dense_rank + keyword_rank + rrf_score"]
+    H -.->|"optional: use_rerank=True"| RR["rerank_chunks() — Voyage cross-encoder"]
+    H --> G["Claude Sonnet — grounded generation"]
+    RR --> G
+
+    classDef dense fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef kw fill:#e6f7f0,stroke:#1baf7a,color:#0b0b0b;
+    classDef fuse fill:#efedfa,stroke:#4a3aa7,color:#0b0b0b;
+    classDef ask fill:#fdf1ea,stroke:#eb6834,color:#0b0b0b;
+    class QE,D dense;
+    class QT,K kw;
+    class R,H fuse;
+    class RR,G,Q ask;
+        </pre>
+      </div>
+      <p class="caption">
+        Both searches over-fetch a wide pool first (<code class="pill">max(match_count × 4, 15)</code>
+        each — the same "cast a wide net cheaply" pattern rerank already uses) so a chunk only one
+        method would rank highly still gets counted before RRF trims down to <code class="pill">match_count</code>.
+      </p>
+    </div>
+
+    <div class="two-col" style="margin-top:1.2rem;">
+      <div class="callout callout-dense">
+        <h3>🔵 Dense (vector) search</h3>
+        <p>Embeds the question and every chunk into the same 1024-dim space, then ranks by cosine
+        distance. Fast, and great at "this is topically related" — but the question and each chunk
+        were embedded completely independently, so it's a rough proxy for "actually answers this."</p>
+        <div class="example"><code class="pill">retrieve_chunks(question)</code> → sorted by <code class="pill">cosine_distance</code> ascending</div>
+      </div>
+      <div class="callout callout-keyword">
+        <h3>🟢 Keyword (full-text) search</h3>
+        <p>Matches literal words/numbers in the text via Postgres' <code class="pill">tsvector</code>,
+        ranked by <code class="pill">ts_rank_cd</code>. Finds an exact term or figure reliably, but has
+        no notion of synonyms or paraphrase — "0.8 g/kg" and "0.8 grams per kilogram" don't automatically match.</p>
+        <div class="example"><code class="pill">retrieve_chunks_keyword(question)</code> → sorted by <code class="pill">text_rank</code> descending</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rrf">
+    <div class="eyebrow">Reference</div>
+    <h2>Reciprocal Rank Fusion — the merge step</h2>
+    <p class="lede">
+      RRF combines two independently-scaled rankings (cosine distance and <code class="pill">ts_rank_cd</code>
+      are not comparable numbers) without ever comparing their raw scores directly — it only looks at
+      each chunk's <em>position</em> in each list.
+    </p>
+    <div class="formula">rrf_score(chunk) = Σ<sub>method</sub> 1 / (k + rank<sub>method</sub>(chunk)) &nbsp;&nbsp;&nbsp; k = 60</div>
+    <p class="lede">
+      Worked example, using the RDA question above — the chunk with the literal <code class="pill">"0.8 g/kg/day"</code>
+      ranks #6 by embedding similarity but #1 by keyword match:
+    </p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Chunk</th><th>Dense rank</th><th>Keyword rank</th><th>RRF score</th><th>Fused rank</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>"…the RDA is 0.8 g/kg/day…"</td><td class="num">6</td><td class="num">1</td><td class="num">1/66 + 1/61 = 0.0316</td><td><span class="tag tag-aqua">#1</span></td></tr>
+          <tr><td>"…protein timing for athletes…"</td><td class="num">1</td><td class="num">—</td><td class="num">1/61 + 0 = 0.0164</td><td><span class="tag tag-blue">#2</span></td></tr>
+          <tr><td>"…protein food sources overview…"</td><td class="num">2</td><td class="num">—</td><td class="num">1/62 + 0 = 0.0161</td><td><span class="tag tag-blue">#3</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">
+      The chunk both methods can reach — even from very different ranks — still out-scores a chunk only
+      one method liked, which is exactly the "chunk A was #1 in vector search and #3 in keyword search →
+      combined score" behavior hybrid search is built for. Illustrative numbers; see
+      <code class="pill">reciprocal_rank_fusion()</code> in <code class="pill">reusable_code/retrieval.py</code>
+      for the real implementation.
+    </p>
+  </section>
+
+  <section id="schema">
+    <div class="eyebrow">Reference</div>
+    <h2>What changed in the schema and API</h2>
+    <p class="lede">
+      One additive, idempotent migration (<code class="pill">sql/create_sql_tables.sql</code>) adds
+      the keyword-search counterpart to every dense-search piece that already existed — same shape,
+      same table, nothing removed or renamed.
+    </p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Dense (already existed)</th><th>Keyword (new)</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="pill">embedding vector(1024)</code></td><td><code class="pill">chunk_tsv tsvector</code></td><td>Per-chunk search representation, both generated/stored so they can never drift from <code class="pill">rowJSON</code>.</td></tr>
+          <tr><td><code class="pill">idx_rag11_child_embedding_hnsw</code></td><td><code class="pill">idx_rag11_child_chunk_tsv_gin</code></td><td>Index making the search fast at scale.</td></tr>
+          <tr><td><code class="pill">match_rag11_child_chunks(query_embedding, match_count, filter_owner)</code></td><td><code class="pill">match_rag11_child_chunks_keyword(query_text, match_count, filter_owner)</code></td><td>RPC returning the same 5 identity columns + one score column (<code class="pill">cosine_distance</code> vs. <code class="pill">text_rank</code>).</td></tr>
+          <tr><td><code class="pill">retrieve_chunks()</code></td><td><code class="pill">retrieve_chunks_keyword()</code></td><td>Python wrapper in <code class="pill">reusable_code/retrieval.py</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:1.6rem;">Python API</h3>
+    <pre class="code"><span class="c"># low-level: run either search on its own</span>
+<span class="k">from</span> reusable_code <span class="k">import</span> retrieve_chunks, retrieve_chunks_keyword, reciprocal_rank_fusion, hybrid_search
+
+dense    = retrieve_chunks(<span class="s">"How many g/kg of protein does the RDA recommend?"</span>)
+keyword  = retrieve_chunks_keyword(<span class="s">"How many g/kg of protein does the RDA recommend?"</span>)
+
+<span class="c"># merge any number of ranked lists via RRF -- generic, not hybrid-search-specific</span>
+fused = reciprocal_rank_fusion({<span class="s">"dense"</span>: dense, <span class="s">"keyword"</span>: keyword})
+
+<span class="c"># or just do the whole thing in one call (what ask_question uses):</span>
+chunks = hybrid_search(<span class="s">"How many g/kg of protein does the RDA recommend?"</span>, match_count=<span class="m">5</span>)
+
+<span class="c"># end-to-end, composes with reranking:</span>
+<span class="k">from</span> reusable_code <span class="k">import</span> ask_question
+result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>)                    <span class="c"># hybrid retrieval only</span>
+result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>, use_rerank=<span class="k">True</span>)   <span class="c"># hybrid, then reranked</span></pre>
+    <p class="caption">
+      See <code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code> for worked nutrition examples,
+      and <code class="pill">reusable_code/README.md</code> for the full migration note.
+    </p>
+  </section>
+
+  <section id="walkthrough">
+    <div class="eyebrow">Walkthrough</div>
+    <h2>One question, start to finish</h2>
+    <p class="lede">Illustrative example data shaped to match the repo's real schema.</p>
+
+    <div class="panel trace">
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">input</span><h3>User question</h3><p>Embedded once, tokenized once</p></div>
+        <pre class="code"><span class="s">"How many grams of protein per kilogram of body weight does the RDA recommend?"</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">dense · match_rag11_child_chunks</span><h3>Vector search (top 15)</h3><p>Cosine distance, closest first</p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"a1b2...-athletes"</span>,  <span class="k">"cosine_distance"</span>: <span class="m">0.361</span>, <span class="k">"snippet"</span>: <span class="s">"…protein timing for endurance athletes…"</span> },
+  { <span class="k">"rowGUID"</span>: <span class="s">"c3d4...-sources"</span>,   <span class="k">"cosine_distance"</span>: <span class="m">0.374</span>, <span class="k">"snippet"</span>: <span class="s">"…dietary protein food sources overview…"</span> },
+  <span class="s">"… 4 more broadly-about-protein chunks …"</span>,
+  { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>,     <span class="k">"cosine_distance"</span>: <span class="m">0.417</span>, <span class="k">"snippet"</span>: <span class="s">"…recommended intake is 0.8 g/kg body weight/day…"</span> }  <span class="c">// rank 6</span>
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">keyword · match_rag11_child_chunks_keyword</span><h3>Full-text search (top 15)</h3><p><code class="pill">ts_rank_cd</code>, best match first</p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>, <span class="k">"text_rank"</span>: <span class="m">0.912</span>, <span class="k">"snippet"</span>: <span class="s">"…recommended intake is 0.8 g/kg body weight/day…"</span> },  <span class="c">// rank 1 -- exact term match</span>
+  { <span class="k">"rowGUID"</span>: <span class="s">"g7h8...-table71"</span>, <span class="k">"text_rank"</span>: <span class="m">0.744</span>, <span class="k">"snippet"</span>: <span class="s">"…Table 7.1: Sedentary adult 0.4 g/lb (0.8 g/kg)…"</span> },
+  <span class="s">"… fewer rows than the dense search -- keyword search only returns actual text matches …"</span>
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-violet">fused · reciprocal_rank_fusion</span><h3>Hybrid result</h3><p><code class="pill">hybrid_search(question, match_count=5)</code></p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>,   <span class="k">"dense_rank"</span>: <span class="m">6</span>, <span class="k">"keyword_rank"</span>: <span class="m">1</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0316</span> },  <span class="c">// was #6 dense-only -- now #1</span>
+  { <span class="k">"rowGUID"</span>: <span class="s">"a1b2...-athletes"</span>, <span class="k">"dense_rank"</span>: <span class="m">1</span>, <span class="k">"keyword_rank"</span>: <span class="m">null</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0164</span> },
+  { <span class="k">"rowGUID"</span>: <span class="s">"g7h8...-table71"</span>, <span class="k">"dense_rank"</span>: <span class="m">11</span>, <span class="k">"keyword_rank"</span>: <span class="m">2</span>, <span class="k">"rrf_score"</span>: <span class="m">0.0158</span> },
+  <span class="s">"… 2 more, filled out to match_count=5 …"</span>
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">output</span><h3>Final answer</h3><p>Claude Sonnet, grounded in the fused top-5</p></div>
+        <div class="panel" style="box-shadow:none; padding:1rem 1.1rem;">
+          <div style="font-weight:700; color:var(--accent-dark); margin-bottom:.4rem;">Short answer: Yes</div>
+          <p style="margin:0; font-size:.9rem; color:var(--ink-2);">
+            Excerpt 1 states the recommended intake is <strong>0.8 g/kg body weight/day</strong>, corroborated by
+            Excerpt 3's Table 7.1 figure for a sedentary adult (0.4 g/lb, 0.8 g/kg) — the exact chunk keyword
+            search found at rank 1 and dense search alone had buried at rank 6.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html</a><br>
+  Sourced from <code class="pill">reusable_code/retrieval.py</code>, <code class="pill">reusable_code/generation.py</code>,
+  <code class="pill">sql/create_sql_tables.sql</code>, and <code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code>
+  in this repository. Sample values in the walkthrough are illustrative, shaped to the pipeline's real schema.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#e6f7f0',
+      secondaryBorderColor: '#1baf7a',
+      tertiaryColor: '#efedfa',
+      tertiaryBorderColor: '#4a3aa7',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b'
+    }
+  });
+
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+</script>
+</body>
+</html>

@@ -141,6 +141,18 @@ create table if not exists public.rag11_chunks_child_table (
 
     embedding   extensions.vector(1024),         -- filled in by the embedding step (Stage 1.2, part 2)
 
+    -- Postgres full-text search vector over the chunk text, for
+    -- keyword/lexical retrieval -- the counterpart to `embedding` for
+    -- dense/semantic retrieval. Generated (not populated in Python) so
+    -- it's always in sync with rowJSON, exactly like every other generated
+    -- column on this table. Built straight from "rowJSON"->>'text' rather
+    -- than from chunk_text -- Postgres generated columns cannot reference
+    -- another generated column (42P17), even though chunk_text computes
+    -- the exact same value. Used by match_rag11_child_chunks_keyword()
+    -- below and combined with dense vector search via Reciprocal Rank
+    -- Fusion in reusable_code/hybrid_search.py (see hybrid_search()).
+    chunk_tsv   tsvector generated always as (to_tsvector('english', coalesce("rowJSON"->>'text', ''))) stored,
+
     created_at  timestamptz not null default timezone('utc', now())
 );
 
@@ -161,6 +173,15 @@ begin
     end if;
 end $$;
 
+-- "create table if not exists" above is a no-op against an
+-- already-existing table, so a database that had this table before
+-- chunk_tsv was added would never pick up the new column that way --
+-- add it explicitly, idempotently. Existing rows compute chunk_tsv for
+-- free from their already-populated rowJSON; no re-ingestion needed.
+alter table public.rag11_chunks_child_table
+    add column if not exists chunk_tsv tsvector
+    generated always as (to_tsvector('english', coalesce("rowJSON"->>'text', ''))) stored;
+
 create unique index if not exists uq_rag11_child_parent_order
     on public.rag11_chunks_child_table ("rowParentGUID", "orderInList");
 
@@ -175,6 +196,12 @@ create index if not exists idx_rag11_child_embedding_hnsw
     on public.rag11_chunks_child_table
     using hnsw (embedding vector_cosine_ops)
     with (m = 16, ef_construction = 64);
+
+-- GIN index for fast full-text (keyword) search over chunk_tsv -- the
+-- lexical-retrieval counterpart to the HNSW index above.
+create index if not exists idx_rag11_child_chunk_tsv_gin
+    on public.rag11_chunks_child_table
+    using gin (chunk_tsv);
 
 -- 5. Stored procedure: vector search over child chunks ---------------------
 -- Drop every prior overload by its exact signature first. "create or
@@ -214,6 +241,45 @@ as $$
     where c.embedding is not null
       and (filter_owner is null or c."rowOwnerGUID" = filter_owner)
     order by c.embedding <=> query_embedding asc
+    limit least(match_count, 50);
+$$;
+
+-- 5b. Stored procedure: keyword (full-text) search over child chunks ------
+-- The lexical counterpart to match_rag11_child_chunks() above -- ranks by
+-- Postgres full-text relevance (ts_rank_cd over chunk_tsv) instead of
+-- embedding distance, so exact terms/numbers a dense embedding can blur
+-- past (e.g. "0.8 g/kg") are found directly. Combined with the dense RPC
+-- via Reciprocal Rank Fusion in reusable_code/retrieval.py::hybrid_search().
+-- websearch_to_tsquery() accepts plain search-engine-style input (quoted
+-- phrases, "-" to exclude, "OR") rather than requiring tsquery syntax.
+drop function if exists public.match_rag11_child_chunks_keyword(text, int, uuid);
+
+create or replace function public.match_rag11_child_chunks_keyword(
+    query_text   text,
+    match_count  int  default 8,
+    filter_owner uuid default null   -- a rag11_data_sources.rowGUID
+)
+returns table (
+    "rowGUID"       uuid,
+    "rowParentGUID" uuid,
+    "rowOwnerGUID"  uuid,
+    "orderInList"   int,
+    "rowJSON"       jsonb,
+    text_rank       float
+)
+language sql stable
+as $$
+    select
+        c."rowGUID",
+        c."rowParentGUID",
+        c."rowOwnerGUID",
+        c."orderInList",
+        c."rowJSON",
+        ts_rank_cd(c.chunk_tsv, websearch_to_tsquery('english', query_text)) as text_rank
+    from public.rag11_chunks_child_table c
+    where c.chunk_tsv @@ websearch_to_tsquery('english', query_text)
+      and (filter_owner is null or c."rowOwnerGUID" = filter_owner)
+    order by text_rank desc
     limit least(match_count, 50);
 $$;
 
@@ -277,6 +343,10 @@ create policy "allow all - rag11 child"
 
 grant execute on function public.match_rag11_child_chunks(
     extensions.vector, int, uuid
+) to anon, authenticated, service_role;
+
+grant execute on function public.match_rag11_child_chunks_keyword(
+    text, int, uuid
 ) to anon, authenticated, service_role;
 
 grant execute on function public.get_rag11_parent(uuid)

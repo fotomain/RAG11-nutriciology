@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — How Parent-Chunk Expansion Works</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:70ch; margin:.35rem 0 1.4rem;}
+
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--yellow), var(--violet));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.25rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.86rem; font-weight:600;
+    padding:.45rem .75rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+  .navmeta a{color:var(--ink-muted); font-weight:600;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  .hero h1{font-size:2.1rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;}
+  .callout{
+    border-radius:var(--radius-md); padding:1.1rem 1.2rem; border:1px solid var(--border);
+  }
+  .callout h3{margin-bottom:.5rem; display:flex; align-items:center; gap:.5rem;}
+  .callout-child{background:var(--accent-tint); border-color:rgba(42,120,214,.25);}
+  .callout-parent{background:#fdf5e0; border-color:rgba(237,161,0,.32);}
+  .callout p{margin:.35rem 0; font-size:.9rem; color:var(--ink-2);}
+  .callout .example{
+    margin-top:.7rem; font-size:.82rem; background:var(--surface); border-radius:var(--radius-sm);
+    padding:.6rem .75rem; border:1px solid var(--border); color:var(--ink-2);
+  }
+
+  .problem-box{
+    background:#fdf1ea; border:1px solid rgba(235,104,52,.28); border-radius:var(--radius-lg);
+    padding:1.3rem 1.4rem; box-shadow:var(--shadow);
+  }
+  .problem-box h3{color:var(--orange);}
+  .problem-box p{margin:.5rem 0; color:var(--ink-2);}
+  .problem-box ul{margin:.6rem 0; padding-left:1.3rem; color:var(--ink-2);}
+  .problem-box li{margin:.45rem 0;}
+  .problem-box .q{
+    font-style:italic; background:var(--surface); border-radius:var(--radius-sm);
+    padding:.6rem .8rem; border:1px solid var(--border); margin:.7rem 0;
+  }
+  .neighborhood{
+    display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;
+  }
+  .neighborhood .half{
+    flex:1; min-width:220px; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; font-size:.86rem; color:var(--ink-2);
+  }
+  .neighborhood .half b{color:var(--ink); display:block; margin-bottom:.3rem;}
+
+  .table-toolbar{display:flex; gap:.6rem; align-items:center; margin:1rem 0 .75rem; flex-wrap:wrap;}
+  .table-toolbar input[type="search"]{
+    flex:1; min-width:220px; padding:.55rem .8rem; border-radius:var(--radius-sm);
+    border:1px solid var(--border); background:var(--surface-2); font-size:.86rem; color:var(--ink);
+  }
+  .table-toolbar input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .rowcount{font-size:.78rem; color:var(--ink-muted); white-space:nowrap;}
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table caption{display:none;}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); position:sticky; top:0; cursor:pointer; user-select:none;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  table.data-table thead th:hover{color:var(--accent-dark);}
+  table.data-table thead th .arrow{opacity:.35; margin-left:.25rem; font-size:.7rem;}
+  table.data-table thead th[aria-sort="ascending"] .arrow,
+  table.data-table thead th[aria-sort="descending"] .arrow{opacity:1; color:var(--accent);}
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+  table.data-table tbody tr.is-hidden{display:none;}
+  table.data-table td.num{font-variant-numeric:tabular-nums;}
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.78rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+  .tag-orange{background:#fdf1ea; color:#b04a20;}
+  .tag-yellow{background:#fdf5e0; color:#8a6200;}
+
+  pre.code{
+    margin:0; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.78rem; color:var(--ink);
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  pre.code .c{color:var(--ink-muted); font-style:italic;}
+
+  .trace{display:flex; flex-direction:column; gap:0;}
+  .trace-step{display:grid; grid-template-columns:190px 1fr; gap:1.1rem; padding:1.1rem 0; border-top:1px dashed var(--grid);}
+  .trace-step:first-child{border-top:none;}
+  .trace-meta{position:sticky; top:5rem; align-self:start;}
+  .trace-meta .tag{margin-bottom:.5rem;}
+  .trace-meta h3{margin-bottom:.2rem;}
+  .trace-meta p{margin:0; font-size:.82rem; color:var(--ink-muted);}
+
+  .backlink{
+    display:inline-flex; align-items:center; gap:.4rem; font-size:.82rem; font-weight:600;
+    color:var(--accent-dark); text-decoration:none; margin-bottom:.4rem;
+  }
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 780px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .trace-step{grid-template-columns:1fr;}
+    .trace-meta{position:static;}
+    .two-col{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#problem">The Problem</a>
+    <a href="#howitworks">How It Works</a>
+    <a href="#dedup">Dedup &amp; Sizing</a>
+    <a href="#api">API</a>
+    <a href="#walkthrough">Walkthrough</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">&larr; Back to full data flow</a></div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation · Retrieval upgrade</div>
+    <h1>Parent-chunk expansion: small-to-big context</h1>
+    <p class="lede">
+      <strong>Parent-chunk expansion</strong> swaps a winning <em>child</em> chunk (small, precise,
+      good for matching) for its <em>parent</em> chunk (the full section it was carved from, good
+      for answering) right before Claude sees it. It fixes the case where the best-matching
+      excerpt is too narrow to answer the whole question, even though it matched perfectly. No new
+      table, index, or migration is needed — <code class="pill">rag11_chunks_parent_table</code>
+      and the <code class="pill">rowParentGUID</code> foreign key already exist.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>1</b>&nbsp;lookup per distinct parent</div>
+      <div class="chip"><b>0</b>&nbsp;schema changes</div>
+      <div class="chip"><b>Dedup</b>&nbsp;built in</div>
+      <div class="chip"><b>6000 chars</b>&nbsp;default truncation cap</div>
+      <div class="chip">Composable with&nbsp;<b>hybrid</b>&nbsp;+&nbsp;<b>rerank</b></div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="eyebrow">Motivation</div>
+    <h2>The problem in plain terms</h2>
+    <div class="problem-box">
+      <p>
+        Child chunks are deliberately small (~300–500 tokens) so they match a question
+        <strong>precisely</strong>. That precision has a cost: a small chunk sometimes doesn't
+        carry enough surrounding context to answer the question <strong>fully</strong>.
+      </p>
+      <p><strong>Example:</strong></p>
+      <div class="q">Question: "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's effect?"</div>
+      <ul>
+        <li>
+          Say the winning child chunk (after rerank, or hybrid, or plain vector search) is just two
+          sentences: <em>"Soluble fiber binds bile acids in the gut, which forces the liver to pull
+          more LDL cholesterol from the blood to make more bile acids."</em>
+        </li>
+        <li>
+          That's a great match for the question — but it says <strong>nothing about insoluble
+          fiber</strong>. The comparison Claude needs is incomplete, even though retrieval "worked."
+        </li>
+        <li>
+          The data already has the fix on hand: every child chunk's <code class="pill">rowParentGUID</code>
+          points at a bigger parent chunk from Stage 1.1 — the full section it was carved out of,
+          which usually discusses both fiber types together.
+        </li>
+        <li>
+          The fix: after finding the best small chunk(s), swap them for their parent chunk(s)
+          before sending anything to Claude. The small chunk finds the needle; the parent chunk
+          gives the whole haystack around the needle, so the answer isn't cut off mid-thought.
+        </li>
+      </ul>
+      <div class="neighborhood">
+        <div class="half"><b>Child chunk</b>"Here's the exact sentence that matches."</div>
+        <div class="half"><b>Parent chunk</b>"Here's the whole section that sentence lives in."</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="howitworks">
+    <div class="eyebrow">Diagram</div>
+    <h2>How parent-chunk expansion fits the pipeline</h2>
+    <p class="lede">
+      Expansion runs <strong>last</strong>, after retrieval has already picked its winners —
+      plain vector search, hybrid search, and/or rerank can all feed it, since they share the same
+      row shape. For every retrieved child chunk, it looks up that chunk's parent by
+      <code class="pill">rowParentGUID</code> and swaps the parent's text in — deduping when two
+      winning child chunks point at the same parent.
+    </p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    Q["User question"] --> S["retrieve_chunks() / hybrid_search() / rerank_chunks()"]
+    S --> C["Winning child chunks<br/>(small, precise, ranked best-first)"]
+    C --> E["expand_to_parent_chunks()<br/>read_parent_row(rowParentGUID) per distinct parent"]
+    E --> D{"Two children share<br/>one parent?"}
+    D -->|yes| M["Dedup -- parent fetched &amp; sent once<br/>matched_children keeps both"]
+    D -->|no| P["One expanded row per child"]
+    M --> X["Expanded rows<br/>(full parent text, truncated if very long)"]
+    P --> X
+    X --> B["build_expanded_context_block()"]
+    B --> G["Claude Sonnet -- grounded generation"]
+
+    classDef child fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef expand fill:#fdf5e0,stroke:#eda100,color:#0b0b0b;
+    classDef ask fill:#fdf1ea,stroke:#eb6834,color:#0b0b0b;
+    class Q,S,C child;
+    class E,D,M,P,X expand;
+    class B,G ask;
+        </pre>
+      </div>
+      <p class="caption">
+        Expansion never changes ranking or drops a chunk — it only swaps what text is attached to
+        each row before <code class="pill">build_expanded_context_block()</code> renders the
+        numbered excerpts Claude sees. If a parent row is somehow missing (shouldn't happen --
+        <code class="pill">rowParentGUID</code> is a foreign key), the original child chunk is kept
+        as-is rather than silently dropped.
+      </p>
+    </div>
+
+    <div class="two-col" style="margin-top:1.2rem;">
+      <div class="callout callout-child">
+        <h3>🔵 Child chunk (input)</h3>
+        <p>~300–500 tokens, 10–15% overlap, built for embedding/keyword precision. Exactly what
+        <code class="pill">retrieve_chunks()</code>, <code class="pill">hybrid_search()</code>, and
+        <code class="pill">rerank_chunks()</code> already return.</p>
+        <div class="example"><code class="pill">row["rowJSON"]["text"]</code> → the two-sentence soluble-fiber snippet</div>
+      </div>
+      <div class="callout callout-parent">
+        <h3>🟡 Parent chunk (after expansion)</h3>
+        <p>The full section (built once in Stage 1.1, stored in <code class="pill">rag11_chunks_parent_table</code>),
+        fetched by <code class="pill">crud_chunks_parent.read_parent_row(rowParentGUID)</code> and
+        swapped into the same row shape — same keys, same ranking metadata, bigger <code class="pill">text</code>.</p>
+        <div class="example"><code class="pill">row["rowJSON"]["text"]</code> → the whole "Fiber" section, both fiber types included</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="dedup">
+    <div class="eyebrow">Reference</div>
+    <h2>Dedup and sizing — the two things expansion has to get right</h2>
+    <p class="lede">
+      Comparison questions ("how does X differ from Y") routinely retrieve <em>several</em> winning
+      child chunks from the very same section. Expanding each one independently would send Claude
+      the same parent section two or three times over — wasteful, and confusing in the numbered
+      excerpt list. Expansion fetches and sends each distinct parent exactly once.
+    </p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Input (best-first)</th><th>rowParentGUID</th><th>Expanded output</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Child A — "…soluble fiber binds bile acids…"</td><td class="num">parent-42</td><td rowspan="2"><span class="tag tag-yellow">1 expanded row</span> — parent-42's full text, <code class="pill">matched_children = [A, B]</code></td></tr>
+          <tr><td>Child B — "…insoluble fiber adds bulk to stool…"</td><td class="num">parent-42</td></tr>
+          <tr><td>Child C — "…fiber recommendations by age…"</td><td class="num">parent-9</td><td><span class="tag tag-blue">1 expanded row</span> — parent-9's full text, <code class="pill">matched_children = [C]</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">
+      The surviving row for a deduped parent keeps Child A's ranking metadata (whatever it carried
+      in — <code class="pill">rerank_score</code>, <code class="pill">rrf_score</code>,
+      <code class="pill">cosine_distance</code>, ...), since A is the best-ranked of the two —
+      the same "first occurrence wins" rule <code class="pill">reciprocal_rank_fusion()</code>
+      already uses when several ranked lists share a row.
+    </p>
+
+    <h3 style="margin-top:1.6rem;">Sizing: a parent chunk is a whole section, not a token budget</h3>
+    <p class="lede">
+      Child chunks are capped at ~300–500 tokens by design (<code class="pill">stage1_1_extract_and_chunk.ipynb</code>).
+      Parent chunks aren't — a parent is <em>one whole book section</em>, which can run from a
+      paragraph to several thousand words. Sending an oversized parent unchecked could quietly
+      consume the entire context budget <code class="pill">build_expanded_context_block()</code>
+      has to share across every excerpt.
+    </p>
+    <div class="panel" style="padding:1.1rem 1.2rem;">
+      <p style="margin:0; font-size:.9rem; color:var(--ink-2);">
+        <code class="pill">expand_to_parent_chunks(chunks, max_parent_chars=6000)</code> — the default —
+        truncates a parent's text at 6000 characters (~1500 tokens) and appends a
+        <code class="pill">"...[parent chunk truncated for length]"</code> marker. Pass
+        <code class="pill">max_parent_chars=None</code> to disable truncation entirely.
+      </p>
+    </div>
+  </section>
+
+  <section id="api">
+    <div class="eyebrow">Reference</div>
+    <h2>Python API</h2>
+    <p class="lede">
+      No SQL migration needed — <code class="pill">rag11_chunks_parent_table</code>, its
+      <code class="pill">rowParentGUID</code> foreign key on the child table, and
+      <code class="pill">crud_chunks_parent.read_parent_row()</code> already exist. This is purely
+      a query-time Python step.
+    </p>
+    <pre class="code"><span class="c"># low-level: expand whatever a prior retrieval step already returned</span>
+<span class="k">from</span> reusable_code <span class="k">import</span> retrieve_chunks, rerank_chunks, expand_to_parent_chunks, build_expanded_context_block
+
+candidates = retrieve_chunks(<span class="s">"How does soluble fiber's effect on LDL differ from insoluble fiber's?"</span>, match_count=<span class="m">15</span>)
+top        = rerank_chunks(<span class="s">"..."</span>, candidates, top_n=<span class="m">5</span>)
+expanded   = expand_to_parent_chunks(top)                    <span class="c"># dedup + swap in parent text</span>
+context    = build_expanded_context_block(expanded)          <span class="c"># same numbered-excerpt shape, + parent title</span>
+
+<span class="c"># end-to-end, composes with hybrid search and reranking (runs last, after both):</span>
+<span class="k">from</span> reusable_code <span class="k">import</span> ask_question
+result = ask_question(<span class="s">"..."</span>, expand_to_parents=<span class="k">True</span>)                                    <span class="c"># plain retrieval, then expand</span>
+result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>, use_rerank=<span class="k">True</span>, expand_to_parents=<span class="k">True</span>)   <span class="c"># hybrid + rerank + expand</span>
+result = ask_question(<span class="s">"..."</span>, expand_to_parents=<span class="k">True</span>, max_parent_chars=<span class="k">None</span>)                    <span class="c"># disable truncation</span></pre>
+    <p class="caption">
+      See <code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code> for worked nutrition
+      examples, and <code class="pill">reusable_code/README.md</code> for the one-paragraph summary.
+    </p>
+  </section>
+
+  <section id="walkthrough">
+    <div class="eyebrow">Walkthrough</div>
+    <h2>One question, start to finish</h2>
+    <p class="lede">Illustrative example data shaped to match the repo's real schema.</p>
+
+    <div class="panel trace">
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">input</span><h3>User question</h3><p>A comparison question -- exactly the shape expansion helps most</p></div>
+        <pre class="code"><span class="s">"How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's effect?"</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">retrieval · rerank_chunks</span><h3>Winning child chunks (top 2)</h3><p>Small, precise -- one per fiber type, same parent section</p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"c1a2...-soluble"</span>,   <span class="k">"rowParentGUID"</span>: <span class="s">"p9f0...-fiber-section"</span>, <span class="k">"rerank_score"</span>: <span class="m">0.94</span>,
+    <span class="k">"snippet"</span>: <span class="s">"Soluble fiber binds bile acids in the gut, which forces the liver to pull more LDL cholesterol..."</span> },
+  { <span class="k">"rowGUID"</span>: <span class="s">"d3b4...-insoluble"</span>, <span class="k">"rowParentGUID"</span>: <span class="s">"p9f0...-fiber-section"</span>, <span class="k">"rerank_score"</span>: <span class="m">0.81</span>,
+    <span class="k">"snippet"</span>: <span class="s">"Insoluble fiber does not bind bile acids and has little effect on LDL cholesterol..."</span> }
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-yellow">expand · expand_to_parent_chunks</span><h3>Expanded (deduped) result</h3><p>Both children share <code class="pill">rowParentGUID</code> -- one parent fetched, sent once</p></div>
+        <pre class="code">[
+  { <span class="k">"rowGUID"</span>: <span class="s">"c1a2...-soluble"</span>,  <span class="k">"rerank_score"</span>: <span class="m">0.94</span>,  <span class="k">"expanded_from_parent"</span>: <span class="k">true</span>,
+    <span class="k">"parent_row_guid"</span>: <span class="s">"p9f0...-fiber-section"</span>,
+    <span class="k">"matched_children"</span>: [<span class="s">"c1a2...-soluble"</span>, <span class="s">"d3b4...-insoluble"</span>],  <span class="c">// both children, one row</span>
+    <span class="k">"rowJSON"</span>: { <span class="k">"title"</span>: <span class="s">"Dietary Fiber: Soluble vs. Insoluble"</span>,
+                 <span class="k">"text"</span>: <span class="s">"...full section covering both soluble and insoluble fiber, bile-acid binding, LDL mechanism, stool bulk, transit time..."</span> } }
+]</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-yellow">context · build_expanded_context_block</span><h3>What Claude actually sees</h3><p>One excerpt, not two -- labeled with title + dedup count</p></div>
+        <pre class="code">[Excerpt 1 -- source1 | Dietary Fiber: Soluble vs. Insoluble | expanded from 2 matched chunks | relevance 0.94]
+...full section covering both soluble and insoluble fiber, bile-acid binding, LDL mechanism, stool bulk, transit time...</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">output</span><h3>Final answer</h3><p>Claude Sonnet, now able to answer the full comparison</p></div>
+        <div class="panel" style="box-shadow:none; padding:1rem 1.1rem;">
+          <p style="margin:0; font-size:.9rem; color:var(--ink-2);">
+            Soluble fiber lowers LDL cholesterol by binding bile acids in the gut, forcing the
+            liver to pull more cholesterol from the blood to synthesize replacement bile acids.
+            Insoluble fiber has little to no effect on LDL — instead it adds bulk to stool and
+            speeds transit time. Without expansion, only the first mechanism would have been
+            available to Claude; the swapped-in parent section carries both.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html</a><br>
+  Sourced from <code class="pill">reusable_code/parent_chunk_expansion.py</code>,
+  <code class="pill">reusable_code/crud_chunks_parent.py</code>,
+  <code class="pill">reusable_code/crud_chunks_child.py</code>,
+  <code class="pill">reusable_code/generation.py</code>,
+  <code class="pill">sql/create_sql_tables.sql</code>, and
+  <code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code> in this repository.
+  Sample values in the walkthrough are illustrative, shaped to the pipeline's real schema.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#fdf5e0',
+      secondaryBorderColor: '#eda100',
+      tertiaryColor: '#fdf1ea',
+      tertiaryBorderColor: '#eb6834',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b'
+    }
+  });
+
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+</script>
+</body>
+</html>
