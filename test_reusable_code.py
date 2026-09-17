@@ -28,11 +28,10 @@ from reusable_code.parent_chunk_expansion import (  # noqa: E402
     expand_to_parent_chunks,
     page_numbers_for_expanded_chunk,
 )
+from reusable_code.rerunk_code import rerank_chunks, update_rank_value  # noqa: E402
 from reusable_code.retrieval import (  # noqa: E402
     page_numbers_for_chunk,
-    rerank_chunks,
     retrieve_chunks,
-    update_rank_value,
 )
 
 FAILURES = []

@@ -1,6 +1,6 @@
 """Parent-chunk expansion ("small-to-big") for ``rag11_chunks_child_table``
 results -- the retrieval-stage counterpart to ``hybrid_search.py`` and
-``retrieval.py``'s ``rerank_chunks()``, living in its own module the same
+``rerunk_code.py``'s ``rerank_chunks()``, living in its own module the same
 way those do, instead of being folded into ``retrieval.py``/``generation.py``
 themselves.
 

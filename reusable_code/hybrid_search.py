@@ -32,7 +32,7 @@ from .clients import Clients, get_clients
 from .retrieval import NUM_CONTEXT_CHUNKS, retrieve_chunks
 from .retry import with_retry
 
-# Same "cast a wide net cheaply" idea retrieval.py's RERANK_POOL_MULTIPLIER/
+# Same "cast a wide net cheaply" idea rerunk_code.py's RERANK_POOL_MULTIPLIER/
 # RERANK_MIN_POOL use for rerank_chunks(), but for the two hybrid_search()
 # inputs: each of the dense and keyword searches over-fetches
 # max(final_n * HYBRID_POOL_MULTIPLIER, HYBRID_MIN_POOL) candidates *before*
@@ -199,7 +199,7 @@ def hybrid_search(
     Think of it like: dense search = "find me something in the same
     neighborhood," keyword search = "find me the exact house number."
 
-    Like ``retrieval.rerank_chunks()``'s over-fetch pattern, each underlying
+    Like ``rerunk_code.rerank_chunks()``'s over-fetch pattern, each underlying
     search is deliberately given a wider pool than ``match_count`` --
     ``max(match_count * HYBRID_POOL_MULTIPLIER, HYBRID_MIN_POOL)`` by
     default for each of ``dense_pool``/``keyword_pool`` -- *before*
@@ -211,7 +211,7 @@ def hybrid_search(
     may be ``None``, if that method didn't return the row at all) and
     ``"rrf_score"`` -- see ``reciprocal_rank_fusion()`` for exactly what
     they mean. These are query-time diagnostics only, same as
-    ``retrieval.rerank_chunks()``'s ``rerank_score``/``retrieval_rank`` --
+    ``rerunk_code.rerank_chunks()``'s ``rerank_score``/``retrieval_rank`` --
     nothing is written back to Supabase.
     """
     clients = clients or get_clients()

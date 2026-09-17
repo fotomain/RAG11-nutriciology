@@ -11,12 +11,10 @@ from .parent_chunk_expansion import (
     expand_to_parent_chunks,
     page_numbers_for_expanded_chunk,
 )
+from .rerunk_code import RERANK_MIN_POOL, RERANK_POOL_MULTIPLIER, rerank_chunks
 from .retrieval import (
     MIN_CONTEXT_CHUNKS,
     NUM_CONTEXT_CHUNKS,
-    RERANK_MIN_POOL,
-    RERANK_POOL_MULTIPLIER,
-    rerank_chunks,
     retrieve_chunks,
 )
 from .retry import with_retry

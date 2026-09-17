@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — How to Run From Scratch</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --red:#c0392b; --red-tint:#fbeceb;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:70ch; margin:.35rem 0 1.4rem;}
+
+  /* ---- Nav ---- */
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--accent), var(--violet));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.2rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.84rem; font-weight:600;
+    padding:.45rem .7rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  /* ---- Hero ---- */
+  .hero h1{font-size:2.05rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+  .chip.danger{border-color:rgba(192,57,43,.35); background:var(--red-tint); color:#7a2318;}
+  .chip.danger b{color:#7a2318;}
+
+  /* ---- Cards / panels ---- */
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  /* ---- Warning / note callouts ---- */
+  .callout{
+    border-radius:var(--radius-md); padding:.9rem 1.1rem; font-size:.87rem;
+    margin:.9rem 0; border:1px solid var(--border); background:var(--surface-2); color:var(--ink-2);
+  }
+  .callout b.label{
+    display:inline-block; text-transform:uppercase; letter-spacing:.05em; font-size:.7rem;
+    font-weight:800; margin-right:.5rem; padding:.1rem .5rem; border-radius:999px;
+  }
+  .callout.warn{border-color:rgba(192,57,43,.35); background:var(--red-tint); color:#7a2318;}
+  .callout.warn b.label{background:var(--red); color:#fff;}
+  .callout.info{border-color:rgba(42,120,214,.3); background:var(--accent-tint); color:var(--accent-dark);}
+  .callout.info b.label{background:var(--accent); color:#fff;}
+  .callout.good{border-color:rgba(27,175,122,.35); background:#e6f7f0; color:#0e7d54;}
+  .callout.good b.label{background:var(--aqua); color:#fff;}
+
+  /* ---- Steps ---- */
+  .steplist{display:flex; flex-direction:column; gap:1.1rem;}
+  .step{
+    display:grid; grid-template-columns:56px 1fr; gap:1rem;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.2rem 1.3rem;
+  }
+  .step-num{
+    width:40px; height:40px; border-radius:999px; background:var(--accent-tint); color:var(--accent-dark);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem;
+  }
+  .step.destructive .step-num{background:var(--red-tint); color:var(--red);}
+  .step h3{display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;}
+  .step p{margin:.35rem 0; color:var(--ink-2); font-size:.92rem;}
+  .step .where{font-size:.76rem; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
+
+  pre.code{
+    margin:.6rem 0 0; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.8rem; color:var(--ink);
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  pre.code .c{color:var(--ink-muted); font-style:italic;}
+
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+  .tag-orange{background:#fdf1ea; color:#b04a20;}
+  .tag-red{background:var(--red-tint); color:var(--red);}
+
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.8rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  /* ---- Tables (filter + sort) ---- */
+  .table-toolbar{display:flex; gap:.6rem; align-items:center; margin:1rem 0 .75rem; flex-wrap:wrap;}
+  .table-toolbar input[type="search"]{
+    flex:1; min-width:220px; padding:.55rem .8rem; border-radius:var(--radius-sm);
+    border:1px solid var(--border); background:var(--surface-2); font-size:.86rem; color:var(--ink);
+  }
+  .table-toolbar input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .rowcount{font-size:.78rem; color:var(--ink-muted); white-space:nowrap;}
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); position:sticky; top:0; cursor:pointer; user-select:none;
+    font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-2);
+    white-space:nowrap;
+  }
+  table.data-table thead th:hover{color:var(--accent-dark);}
+  table.data-table thead th .arrow{opacity:.35; margin-left:.25rem; font-size:.7rem;}
+  table.data-table thead th[aria-sort="ascending"] .arrow,
+  table.data-table thead th[aria-sort="descending"] .arrow{opacity:1; color:var(--accent);}
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+  table.data-table tbody tr.is-hidden{display:none;}
+
+  /* ---- Sample trace ---- */
+  .trace{display:flex; flex-direction:column; gap:0;}
+  .trace-step{display:grid; grid-template-columns:190px 1fr; gap:1.1rem; padding:1.1rem 0; border-top:1px dashed var(--grid);}
+  .trace-step:first-child{border-top:none;}
+  .trace-meta{position:sticky; top:5rem; align-self:start;}
+  .trace-meta .tag{margin-bottom:.5rem;}
+  .trace-meta h3{margin-bottom:.2rem;}
+  .trace-meta p{margin:0; font-size:.82rem; color:var(--ink-muted);}
+  .answer-box{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
+    padding:1rem 1.1rem; font-size:.9rem;
+  }
+  .answer-box .short{font-weight:700; color:var(--accent-dark); margin-bottom:.4rem;}
+  .answer-box .cite{margin-top:.6rem; font-size:.8rem; color:var(--ink-muted);}
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 720px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .step{grid-template-columns:1fr;}
+    .trace-step{grid-template-columns:1fr;}
+    .trace-meta{position:static;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#database">1–2 · Database</a>
+    <a href="#terminal">3 · Mac Settings</a>
+    <a href="#clean">4 · Clean Slate</a>
+    <a href="#rebuild">5–6 · Rebuild</a>
+    <a href="#ask">7 · Ask</a>
+    <a href="#samples">Sample Data</a>
+    <a href="#reference">Reference</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta">Run-from-scratch playbook</div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation · Run playbook</div>
+    <h1>Run RAG11 from scratch</h1>
+    <p class="lede">
+      This page is the full teardown-and-rebuild checklist for RAG11: wipe the Supabase schema,
+      wipe the locally cached source PDFs and generated chunk files, then re-run the pipeline
+      from an empty database and an empty disk cache — ending with live question answering
+      against freshly ingested textbooks. Use it when you want a guaranteed-clean rebuild rather
+      than an incremental re-run; for first-time environment setup (Python venv, <code class="pill">.env</code>
+      API keys), see <a href="../README.md">README.md</a> instead.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>7</b>&nbsp;steps</div>
+      <div class="chip danger"><b>2</b>&nbsp;irreversible steps</div>
+      <div class="chip"><b>17</b>&nbsp;source textbooks re-fetched</div>
+      <div class="chip"><b>2</b>&nbsp;SQL scripts</div>
+      <div class="chip"><b>2</b>&nbsp;notebooks rebuild the store</div>
+      <div class="chip"><b>5</b>&nbsp;stage 2 notebooks to ask questions with</div>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="eyebrow">Diagram</div>
+    <h2>The 7-step checklist, in order</h2>
+    <p class="lede">Each step depends on the one before it. Red nodes are destructive and cannot be undone — read their warnings before running them.</p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    A["1. sql/drop_all_tables.sql — Supabase SQL Editor"] --> B["2. sql/create_sql_tables.sql — Supabase SQL Editor"]
+    B --> C["3. ./stage1_0_run_mac_settings.command — Terminal"]
+    C --> D["4. Delete stage1_eda_input/ and stage1_eda_output/"]
+    D --> E["5. stage1_1_extract_and_chunk.ipynb — re-fetch PDFs, re-chunk"]
+    E --> F["6. stage1_2_eda_load_chunks.ipynb — embed and ingest"]
+    F --> G["7. stage2_ask_examples*.ipynb — ask questions, check answers"]
+
+    classDef destructive fill:#fbeceb,stroke:#c0392b,color:#0b0b0b;
+    classDef setup fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef rebuild fill:#efedfa,stroke:#4a3aa7,color:#0b0b0b;
+    classDef ask fill:#e6f7f0,stroke:#1baf7a,color:#0b0b0b;
+    class A,D destructive;
+    class B,C setup;
+    class E,F rebuild;
+    class G ask;
+        </pre>
+      </div>
+      <p class="caption">Step 3 (Mac file-descriptor limit) is independent of the database/folder steps around it — it is a one-time, system-wide macOS setting, not a per-run cleanup step. It is placed here because it is the natural point to confirm it before a long ingestion run, and it is safe to re-run.</p>
+    </div>
+  </section>
+
+  <section id="database">
+    <div class="eyebrow">Steps 1–2</div>
+    <h2>Reset the database</h2>
+    <p class="lede">Both scripts run in the Supabase Dashboard → <b>SQL Editor</b> for your project. Paste the full file contents and click <b>Run</b>.</p>
+
+    <div class="steplist">
+      <div class="step destructive">
+        <div class="step-num">1</div>
+        <div>
+          <h3><code class="pill">sql/drop_all_tables.sql</code> <span class="tag tag-red">destructive</span></h3>
+          <div class="where">Supabase Dashboard → SQL Editor</div>
+          <p>Drops <code class="pill">rag11_data_sources</code>, <code class="pill">rag11_chunks_parent_table</code>, <code class="pill">rag11_chunks_child_table</code> (cascading their indexes, RLS policies, and foreign keys) and both RPC functions, <code class="pill">match_rag11_child_chunks</code> and <code class="pill">get_rag11_parent</code>. Nothing is left behind for <code class="pill">create table if not exists</code> to guard around, so step 2 becomes a completely clean rebuild.</p>
+          <div class="callout warn"><b class="label">Warning</b>This is unrecoverable — every ingested row (all embeddings) is gone. If you only want to clear rows and keep the schema for a fresh <code class="pill">stage1_2_eda_load_chunks.ipynb</code> run, use <code class="pill">sql/delete_chunks_data.sql</code> instead and skip straight to step 4.</div>
+          <pre class="code"><span class="c">-- paste the full contents of sql/drop_all_tables.sql, then Run</span>
+<span class="k">drop</span> <span class="k">function</span> if exists public.match_rag11_child_chunks(...);
+<span class="k">drop</span> <span class="k">table</span> if exists public.rag11_chunks_child_table <span class="k">cascade</span>;
+<span class="k">drop</span> <span class="k">table</span> if exists public.rag11_chunks_parent_table <span class="k">cascade</span>;
+<span class="k">drop</span> <span class="k">table</span> if exists public.rag11_data_sources <span class="k">cascade</span>;
+<span class="c">-- sanity check at the bottom of the file should return zero rows</span></pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3><code class="pill">sql/create_sql_tables.sql</code></h3>
+          <div class="where">Supabase Dashboard → SQL Editor</div>
+          <p>Recreates the schema from an empty database: enables <code class="pill">pgvector</code>, creates all three tables (the shared <code class="pill">rowGUID</code> / <code class="pill">rowOwnerGUID</code> / <code class="pill">rowParentGUID</code> / <code class="pill">orderInList</code> / <code class="pill">rowJSON</code> shape), the HNSW cosine vector index and GIN full-text index on the child table, the <code class="pill">match_rag11_child_chunks</code> / <code class="pill">match_rag11_child_chunks_keyword</code> / <code class="pill">get_rag11_parent</code> RPCs, and permissive POC-stage RLS policies/grants. Safe to re-run — every statement is idempotent (<code class="pill">create ... if not exists</code>, <code class="pill">create or replace function</code>).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="terminal">
+    <div class="eyebrow">Step 3</div>
+    <h2>Run the Mac settings script in Terminal</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3><code class="pill">stage1_0_run_mac_settings.command</code></h3>
+          <div class="where">Terminal, from the project root (or double-click in Finder)</div>
+          <p>Raises macOS's system-wide open-file ceiling (default often 256 per process) to <b>65536 soft / 200000 hard</b> via a LaunchDaemon, permanently and for every app — not just this project — so a long, highly-parallel ingestion run doesn't fail with <code class="pill">[Errno 35] Resource temporarily unavailable</code>. It re-launches itself with <code class="pill">sudo</code>, so you'll be asked for your Mac password.</p>
+          <pre class="code">cd /Users/mgtimber/CV26/RAG11
+./stage1_0_run_mac_settings.command</pre>
+          <div class="callout info"><b class="label">Note</b>One-time and idempotent — safe to re-run. It touches only this Mac's system-wide file-descriptor limit; it never touches the venv, <code class="pill">.env</code>, or Jupyter. If Terminal/PyCharm/Jupyter were already running, restart them afterwards so they pick up the new limit.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clean">
+    <div class="eyebrow">Step 4</div>
+    <h2>Delete the local cache folders</h2>
+    <div class="steplist">
+      <div class="step destructive">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Delete <code class="pill">stage1_eda_input/</code> and <code class="pill">stage1_eda_output/</code> <span class="tag tag-red">destructive</span></h3>
+          <div class="where">Finder, or Terminal from the project root</div>
+          <p>Both stage 1.1 (download) and stage 1.2 (ingest) are idempotent by design — they skip any PDF already cached in <code class="pill">stage1_eda_input/</code> and resume from checkpoints in <code class="pill">stage1_eda_output/_checkpoints/</code>. Deleting both folders is what forces a truly clean rebuild: every one of the 17 source PDFs (~650 MB) is re-downloaded from Google Drive, and every parent/child chunk JSON file (~38 MB) is regenerated from scratch rather than reused.</p>
+          <pre class="code">cd /Users/mgtimber/CV26/RAG11
+rm -rf stage1_eda_input stage1_eda_output</pre>
+          <div class="callout warn"><b class="label">Warning</b>This deletes local files only — it does not touch Supabase — but it is unrecoverable for anything not already committed. If either folder holds work you haven't pushed with <code class="pill">save_to_github.command</code>, back it up first.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rebuild">
+    <div class="eyebrow">Steps 5–6</div>
+    <h2>Rebuild the knowledge base</h2>
+    <p class="lede">Open each notebook in Jupyter/PyCharm and run every cell top to bottom.</p>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3><code class="pill">stage1_1_extract_and_chunk.ipynb</code></h3>
+          <div class="where">Jupyter / PyCharm, run all cells</div>
+          <p>Lists the 17 source PDFs from <code class="pill">GOOGLE_DRIVE_SOURCES_FOLDER</code>, downloads any missing ones into <code class="pill">stage1_eda_input/source&lt;N&gt;/</code> concurrently via <code class="pill">gdown</code>, extracts per-page text, detects sections with a per-source algorithm (<code class="pill">stage1_1_eda_packages/</code>, one module per PDF), and writes hierarchical <code class="pill">parent_chunk-N.json</code> / <code class="pill">child_chunk-parentN-chunkM.json</code> files plus a <code class="pill">source_row-N.json</code> manifest per source to <code class="pill">stage1_eda_output/</code>. Runs against a fresh cache after step 4, so every source downloads and re-chunks from zero.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div>
+          <h3><code class="pill">stage1_2_eda_load_chunks.ipynb</code></h3>
+          <div class="where">Jupyter / PyCharm, run all cells</div>
+          <p>Loads the chunk JSON files written in step 5, embeds every child chunk with Voyage AI (<code class="pill">voyage-3</code>, <code class="pill">input_type="document"</code>) in parallel batches with retries, and upserts source/parent/child rows into the tables step 2 created. Deterministic <code class="pill">uuid5</code> row ids and per-row checkpointing mean this is a safe, resumable upsert even against the empty schema from step 1–2.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout good"><b class="label">Recommended</b>Run <code class="pill">stage1_9_eda_verify_all_data.ipynb</code> next (optional, not one of the 7 core steps) to confirm zero missing/orphaned rows and that every child chunk has a valid 1024‑dim embedding before moving on to step 7.</div>
+  </section>
+
+  <section id="ask">
+    <div class="eyebrow">Step 7</div>
+    <h2>Ask questions and check the answers</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">7</div>
+        <div>
+          <h3>Run a <code class="pill">stage2_ask_examples*.ipynb</code> notebook</h3>
+          <div class="where">Jupyter / PyCharm, run all cells</div>
+          <p>Each notebook embeds a small set of hand-picked nutrition questions with Voyage AI (<code class="pill">input_type="query"</code>), retrieves matching child chunks from the freshly rebuilt tables, and asks Claude Sonnet to answer strictly from that retrieved text — printing a short Yes/No summary, the full explanation, and page citations per question. Pick whichever retrieval mode you want to exercise:</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-toolbar">
+      <input type="search" id="filter-stage2" placeholder="Filter notebooks… (e.g. “rerank”, “hybrid”, “hyde”)">
+      <span class="rowcount" data-count-for="table-stage2"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-stage2">
+        <thead>
+          <tr>
+            <th data-sort="text">Notebook<span class="arrow">▲</span></th>
+            <th data-sort="text">Retrieval mode<span class="arrow">▲</span></th>
+            <th data-sort="text">What it demonstrates<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="pill">stage2_ask_examples1.ipynb</code></td><td>Plain dense</td><td>Baseline: vector search only, straight through to a grounded answer.</td></tr>
+          <tr><td><code class="pill">stage2_ask_examples2_rerank.ipynb</code></td><td>Dense + rerank</td><td>Over-fetches a wide pool, then re-scores with Voyage's <code class="pill">rerank-2</code> cross-encoder.</td></tr>
+          <tr><td><code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code></td><td>Hybrid (dense + keyword)</td><td>Fuses dense and full-text keyword search via Reciprocal Rank Fusion.</td></tr>
+          <tr><td><code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code></td><td>Dense + parent expansion</td><td>Swaps each winning child chunk for its full parent section before generation ("small-to-big").</td></tr>
+          <tr><td><code class="pill">stage2_ask_examples5_hypothetical_document_embedding.ipynb</code></td><td>HyDE</td><td>Embeds a Claude-drafted hypothetical answer instead of the bare question, then searches with that.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">A working rebuild should reproduce the sample question/answer trace in the <a href="#samples">Sample Data</a> section below — if <code class="pill">stage2_ask_examples1.ipynb</code>'s first sample question returns a confident, cited "Short answer: Yes" for vitamin C, steps 1–6 succeeded.</p>
+  </section>
+
+  <section id="samples">
+    <div class="eyebrow">Walkthrough</div>
+    <h2>Sample data — proving the rebuild worked</h2>
+    <p class="lede">Real values pulled from this repository: one input sample from before the pipeline runs, one output sample it produces, and the actual question/answer pair <code class="pill">stage2_ask_examples1.ipynb</code> returns against a correctly rebuilt store.</p>
+
+    <div class="panel trace">
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-blue">input · before step 5</span><h3>Source manifest row</h3><p><code class="pill">stage1_eda_output/sources/source_row-1.json</code></p></div>
+        <pre class="code">{
+  <span class="k">"rowGUID"</span>: <span class="s">"2b8f8480-5b57-5811-83b4-e808c7221d53"</span>,
+  <span class="k">"rowOwnerGUID"</span>: <span class="s">"2b8f8480-5b57-5811-83b4-e808c7221d53"</span>,
+  <span class="k">"rowParentGUID"</span>: <span class="m">null</span>,
+  <span class="k">"orderInList"</span>: <span class="m">1</span>,
+  <span class="k">"rowJSON"</span>: {
+    <span class="k">"source_key"</span>: <span class="s">"source1"</span>,
+    <span class="k">"filename"</span>: <span class="s">"human-nutrition-text.pdf"</span>,
+    <span class="k">"structure"</span>: <span class="s">"native_outline"</span>,
+    <span class="k">"local_path"</span>: <span class="s">"stage1_eda_input/source1/human-nutrition-text.pdf"</span>,
+    <span class="k">"expected_pages"</span>: <span class="m">1208</span>,
+    <span class="k">"actual_page_count"</span>: <span class="m">1208</span>
+  }
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-aqua">output · step 5</span><h3>Child chunk</h3><p><code class="pill">stage1_eda_output/source8/child_chunk-parent1-chunk9.json</code></p></div>
+        <pre class="code">{
+  <span class="k">"child_id"</span>: <span class="s">"source8-p1-c9"</span>,
+  <span class="k">"parent_id"</span>: <span class="s">"source8-p1"</span>,
+  <span class="k">"source_key"</span>: <span class="s">"source8"</span>,
+  <span class="k">"chunk_type"</span>: <span class="s">"prose"</span>,
+  <span class="k">"token_count"</span>: <span class="m">400</span>,
+  <span class="k">"text"</span>: <span class="s">"[Source: Krauses_Food_and_the_Nutrition_Care_Process.pdf | Section: 1 Intake: Digestion, absorption, transport, and excretion of nutrients | Pages 24-38]\n\n ...Autonomic innervation is supplied by the sympathetic fibers that run along blood vessels..."</span>
+}</pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-violet">input · step 7</span><h3>Sample question</h3><p>First entry of <code class="pill">SAMPLE_QUESTIONS</code> in <code class="pill">stage2_ask_examples1.ipynb</code></p></div>
+        <pre class="code"><span class="s">"Is vitamin C a water-soluble vitamin?"</span></pre>
+      </div>
+
+      <div class="trace-step">
+        <div class="trace-meta"><span class="tag tag-orange">output · step 7</span><h3>Actual answer</h3><p>Captured output from this repository's notebook run</p></div>
+        <div class="answer-box">
+          <div class="short">Short answer: Yes</div>
+          <p>Excerpt 1 explicitly states that "Ascorbic acid is a water-soluble vitamin commonly known as vitamin C." This is further supported by Excerpt 2, which lists "Vitamin C (ascorbic acid)" under the category of water-soluble vitamins alongside the B-complex vitamins, and Excerpt 3, which states there are 10 water-soluble vitamins and includes "Vitamin C, also known as ascorbic acid" among them.</p>
+          <div class="cite">chunks used: 5 (source13, source17, source2, source4) · established on: states, ascorbic, acid, water, soluble, vitamin, commonly, known, vitamins, complex, also</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="reference">
+    <div class="eyebrow">Reference</div>
+    <h2>All 7 steps at a glance</h2>
+    <p class="lede">Filter or sort to find a step by file, location, or whether it's destructive.</p>
+    <div class="table-toolbar">
+      <input type="search" id="filter-steps" placeholder="Filter steps… (e.g. “sql”, “terminal”, "notebook", “destructive”)">
+      <span class="rowcount" data-count-for="table-steps"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="data-table" id="table-steps">
+        <thead>
+          <tr>
+            <th data-sort="text">#<span class="arrow">▲</span></th>
+            <th data-sort="text">File / command<span class="arrow">▲</span></th>
+            <th data-sort="text">Runs in<span class="arrow">▲</span></th>
+            <th data-sort="text">Destructive?<span class="arrow">▲</span></th>
+            <th data-sort="text">What it does<span class="arrow">▲</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><code class="pill">sql/drop_all_tables.sql</code></td><td>Supabase SQL Editor</td><td><span class="tag tag-red">Yes</span></td><td>Drops all 3 tables, their indexes/policies/FKs, and both RPC functions.</td></tr>
+          <tr><td>2</td><td><code class="pill">sql/create_sql_tables.sql</code></td><td>Supabase SQL Editor</td><td><span class="tag tag-aqua">No</span></td><td>Recreates schema, HNSW + GIN indexes, RPCs, and RLS policies from empty.</td></tr>
+          <tr><td>3</td><td><code class="pill">stage1_0_run_mac_settings.command</code></td><td>Terminal / Finder</td><td><span class="tag tag-aqua">No</span></td><td>Raises the macOS open-file limit system-wide (one-time, idempotent).</td></tr>
+          <tr><td>4</td><td><code class="pill">rm -rf stage1_eda_input stage1_eda_output</code></td><td>Terminal / Finder</td><td><span class="tag tag-red">Yes</span></td><td>Deletes cached source PDFs and every generated chunk JSON file.</td></tr>
+          <tr><td>5</td><td><code class="pill">stage1_1_extract_and_chunk.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Re-downloads the 17 source PDFs and rebuilds parent/child chunk JSON.</td></tr>
+          <tr><td>6</td><td><code class="pill">stage1_2_eda_load_chunks.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Embeds every child chunk (Voyage-3) and upserts all rows into Supabase.</td></tr>
+          <tr><td>7</td><td><code class="pill">stage2_ask_examples*.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Asks sample questions end to end and prints grounded, cited answers.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Generated documentation for the RAG11 nutrition RAG pipeline's from-scratch rebuild playbook — sourced from
+  <a href="../README.md">README.md</a>, <code class="pill">sql/drop_all_tables.sql</code>, <code class="pill">sql/create_sql_tables.sql</code>,
+  <code class="pill">stage1_0_run_mac_settings.command</code>, and the <code class="pill">stage1_0…stage2</code> notebooks in this
+  repository. For how the pipeline works end to end (not just how to rebuild it), see
+  <a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html">RAG11_HOW_IT_WORKS_DATA_FLOW_v4.html</a>. Sample data in this page is
+  real, captured from an actual run of this repository's notebooks.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      mainBkg: '#eef4fc',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#efedfa',
+      secondaryBorderColor: '#4a3aa7',
+      tertiaryColor: '#e6f7f0',
+      tertiaryBorderColor: '#1baf7a',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b',
+      gridColor: '#e1e0d9'
+    }
+  });
+
+  // ---- sticky-nav shadow on scroll ----
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  // ---- scroll-spy: reactivate the matching nav link as sections pass ----
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // ---- generic filter + sort for .data-table ----
+  function wireTable(tableId, filterId){
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var tbody = table.tBodies[0];
+    var rows = Array.prototype.slice.call(tbody.rows);
+    var countEl = document.querySelector('[data-count-for="' + tableId + '"]');
+
+    function updateCount(){
+      if (!countEl) return;
+      var visible = rows.filter(function(r){ return !r.classList.contains('is-hidden'); }).length;
+      countEl.textContent = visible + ' / ' + rows.length + ' rows';
+    }
+
+    var filterInput = document.getElementById(filterId);
+    if (filterInput) {
+      filterInput.addEventListener('input', function(){
+        var q = filterInput.value.trim().toLowerCase();
+        rows.forEach(function(r){
+          var hit = !q || r.textContent.toLowerCase().indexOf(q) !== -1;
+          r.classList.toggle('is-hidden', !hit);
+        });
+        updateCount();
+      });
+    }
+
+    var ths = Array.prototype.slice.call(table.tHead.rows[0].cells);
+    ths.forEach(function(th, colIndex){
+      th.addEventListener('click', function(){
+        var current = th.getAttribute('aria-sort');
+        var dir = current === 'ascending' ? 'descending' : 'ascending';
+        ths.forEach(function(t){ t.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', dir);
+
+        var sorted = rows.slice().sort(function(a, b){
+          var av = a.cells[colIndex].textContent.trim();
+          var bv = b.cells[colIndex].textContent.trim();
+          var an = parseFloat(av), bn = parseFloat(bv);
+          var cmp;
+          if (!isNaN(an) && !isNaN(bn) && /^[\d.\-]+$/.test(av) && /^[\d.\-]+$/.test(bv)) {
+            cmp = an - bn;
+          } else {
+            cmp = av.localeCompare(bv);
+          }
+          return dir === 'ascending' ? cmp : -cmp;
+        });
+        sorted.forEach(function(r){ tbody.appendChild(r); });
+        rows = sorted;
+      });
+    });
+
+    updateCount();
+  }
+
+  wireTable('table-stage2', 'filter-stage2');
+  wireTable('table-steps', 'filter-steps');
+</script>
+</body>
+</html>

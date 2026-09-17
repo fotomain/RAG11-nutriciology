@@ -13,7 +13,8 @@ this repo can `import reusable_code` instead of re-defining the same
 | `env.py` | `require_env`, `optional_env` — read `.env` with clear errors |
 | `clients.py` | `init_clients()` / `get_clients()` — one Supabase + Voyage + Anthropic client per kernel, plus the model-id constants (`EMBEDDING_MODEL`, `RERANK_MODEL`, `GENERATION_MODEL`) |
 | `retry.py` | `with_retry()` — the exponential-backoff wrapper every notebook already had a copy of |
-| `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk`, `rerank_chunks`, `update_rank_value` |
+| `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk` |
+| `rerunk_code.py` | Reranking + manual overrides: **`rerank_chunks`**, `update_rank_value` |
 | `hybrid_search.py` | Dense + keyword search, fused: **`retrieve_chunks_keyword`**, **`reciprocal_rank_fusion`**, **`hybrid_search`** |
 | `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
