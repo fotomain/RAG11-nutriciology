@@ -22,8 +22,6 @@ flowchart TD
     J --> K[Final Answer with Page Citations<br/>& Short Yes/No Summary]
 ```
 
----
-
 ## Step 1: Environment & Dependencies Setup
 
 ### 1.1 Clone & Enter Workspace
