@@ -15,6 +15,8 @@ this repo can `import reusable_code` instead of re-defining the same
 | `retry.py` | `with_retry()` — the exponential-backoff wrapper every notebook already had a copy of |
 | `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk`, **`rerank_chunks`**, **`update_rank_value`** |
 | `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_rerank`) |
+| `crud_chunks_parent.py` | Row-level CRUD for `rag11_chunks_parent_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
+| `crud_chunks_child.py` | Row-level CRUD for `rag11_chunks_child_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
 
 ## Using it from a notebook
@@ -31,6 +33,38 @@ result = ask_question("Is vitamin C a water-soluble vitamin?")
 # new: rerank pass on top of retrieval (use_rerank is optional, default False)
 result = ask_question("Is vitamin C a water-soluble vitamin?", use_rerank=True)
 ```
+
+## Row-level CRUD on the parent/child chunk tables
+
+`stage1_2_eda_load_chunks.ipynb` writes parent/child rows in bulk, once, as
+part of ingestion. `crud_chunks_parent.py`/`crud_chunks_child.py` are for
+everything else: creating, reading, updating, or deleting *one* (or a
+handful of) parent/child row(s) from a notebook or script, without
+re-running Stage 1.2. Same row shape and deterministic-`uuid5` id scheme as
+Stage 1.2, so a row created here is upsert-safe against a later full
+Stage 1.2 re-run, and vice versa.
+
+```python
+from reusable_code import (
+    create_parent_row, read_parent_row, update_parent_rowjson, delete_parent_row,
+    create_child_row, read_child_rows_by_parent, update_child_rowjson, delete_child_row,
+)
+
+parent = create_parent_row({"parent_id": "source1-p1", "title": "Vitamins", "source_row_guid": owner_guid}, order=0)
+children = read_child_rows_by_parent(parent["rowGUID"])
+update_parent_rowjson(parent["rowGUID"], {"reviewed": True})
+delete_child_row(children[0]["rowGUID"])
+```
+
+Every public function name is prefixed `create_` / `read_` / `update_` /
+`delete_`, naming exactly which CRUD operation it performs.
+
+`update_*_rowjson` merges a patch into the existing `rowJSON` (an ordinary
+`UPDATE`, no `ALTER TABLE`) — the same pattern `update_rank_value(...,
+persist=True)` already uses in `retrieval.py`. `delete_parent_row`/
+`delete_parent_rows_by_owner` cascade to child rows via the foreign key in
+`sql/create_sql_tables.sql`, so deleting a parent is enough to also remove
+its children.
 
 Every function also accepts an explicit `clients=` argument instead of
 relying on the cached one from `init_clients()` — that's what makes them
