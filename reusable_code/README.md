@@ -16,6 +16,7 @@ this repo can `import reusable_code` instead of re-defining the same
 | `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk` |
 | `rerunk_code.py` | Reranking + manual overrides: **`rerank_chunks`**, `update_rank_value` |
 | `hybrid_search.py` | Dense + keyword search, fused: **`retrieve_chunks_keyword`**, **`reciprocal_rank_fusion`**, **`hybrid_search`** |
+| `deduplication.py` | Order-preserving "rows that share a key collapse into one" dedup shared by `reciprocal_rank_fusion` and `expand_to_parent_chunks`: `group_by_key`, `first_occurrence_map` |
 | `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
 | `multi_query_question_splitting.py` | Multi-query / question splitting: **`split_into_subquestions`**, **`retrieve_chunks_multi_query`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |

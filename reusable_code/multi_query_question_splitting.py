@@ -201,17 +201,23 @@ def retrieve_chunks_multi_query(
     retrieved), as ``(rows, subquestions)``.
     """
     clients = clients or get_clients()
+    # multi-query-step: split the question into its independent sub-questions
+    # (a single-element list if it's already atomic).
     subquestions = split_into_subquestions(
         question, model=split_model, max_subquestions=max_subquestions, clients=clients
     )
     pool = per_query_pool or max(match_count * MULTI_QUERY_POOL_MULTIPLIER, MULTI_QUERY_MIN_POOL)
 
+    # retrieval-step: run retrieve_fn (plain or hybrid) once per sub-question
+    # over a wide pool.
     ranked_lists = {}
     for i, sub_question in enumerate(subquestions, start=1):
         ranked_lists[f"sub{i}"] = retrieve_fn(
             sub_question, match_count=pool, filter_owner=filter_owner, clients=clients
         )
 
+    # fusion-step: merge every sub-question's ranked list into one combined
+    # ranking via the same Reciprocal Rank Fusion hybrid_search() uses.
     fused = reciprocal_rank_fusion(ranked_lists, k=rrf_k)
     rows = fused[:match_count]
 

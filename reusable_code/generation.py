@@ -219,6 +219,9 @@ def ask_question(
     def fetch_candidates(n: int) -> list:
         nonlocal hypothetical_document, subquestions
         if use_multi_query:
+            # multi-query-step: split the question into sub-questions (if it
+            # bundles more than one) and search+fuse once per sub-question,
+            # instead of a single top-level retrieval call.
             base_retrieve_fn = hybrid_search if use_hybrid else retrieve_chunks
             rows, subquestions = retrieve_chunks_multi_query(
                 question,
@@ -231,6 +234,8 @@ def ask_question(
             )
             return rows
         if use_hybrid:
+            # hybrid-step: dense + keyword search, fused via Reciprocal Rank
+            # Fusion, instead of plain vector search.
             return hybrid_search(
                 question,
                 match_count=n,
@@ -239,6 +244,8 @@ def ask_question(
                 clients=clients,
             )
         if use_hyde:
+            # hyde-step: search with a Claude-drafted hypothetical answer
+            # paragraph's embedding instead of the bare question's.
             rows, hypothetical_document = retrieve_chunks_hyde(
                 question,
                 match_count=n,
@@ -248,9 +255,15 @@ def ask_question(
                 clients=clients,
             )
             return rows
+        # retrieval-step: plain vector (embedding) search, the default when
+        # none of the above modes are enabled.
         return retrieve_chunks(question, match_count=n, clients=clients)
 
     if use_rerank:
+        # rerank-step: over-fetch a wider candidate pool above, then have
+        # Voyage's cross-encoder re-score (question, chunk) pairs jointly
+        # and keep only the best final_n -- more precise than the raw
+        # embedding-distance/RRF ranking fetch_candidates() already applied.
         pool_size = rerank_candidate_pool or max(final_n * RERANK_POOL_MULTIPLIER, RERANK_MIN_POOL)
         candidates = fetch_candidates(pool_size)
         chunks = rerank_chunks(question, candidates, top_n=final_n, model=rerank_model, clients=clients)
@@ -258,6 +271,9 @@ def ask_question(
         candidates = chunks = fetch_candidates(final_n)
 
     if expand_to_parents:
+        # parent-expansion-step: swap each winning child chunk's text for
+        # its parent section's text (deduplicating chunks that share one
+        # parent -- see deduplication.py) so Claude sees fuller context.
         chunks = expand_to_parent_chunks(chunks, max_parent_chars=max_parent_chars, clients=clients)
 
     if len(chunks) < MIN_CONTEXT_CHUNKS:
@@ -269,6 +285,8 @@ def ask_question(
     context_block = build_expanded_context_block(chunks) if expand_to_parents else build_context_block(chunks)
     user_message = f"{context_block}\n\nQuestion: {question}"
 
+    # generation-step: the only step that actually calls the LLM to answer
+    # the question -- everything above only selected/shaped its context.
     resp = with_retry(
         lambda: clients.anthropic.messages.create(
             model=generation_model,

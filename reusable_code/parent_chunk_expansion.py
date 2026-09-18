@@ -27,12 +27,14 @@ text before building the context block Claude sees. The small chunk finds
 the needle; the parent chunk gives the whole haystack around the needle so
 the comparison isn't cut off mid-thought.
 
-    - ``expand_to_parent_chunks()`` -- the swap itself: fetches each input
-      chunk's parent row (via ``crud_chunks_parent.read_parent_row()``,
-      keyed off ``rowParentGUID``), dedupes when several winning child
-      chunks share the same parent (a very common case for a "compare X and
-      Y" question, whose best-matching child chunks often come from the
-      same section), and keeps each surviving row's original ranking
+    - ``expand_to_parent_chunks()`` -- the swap itself: groups input chunks
+      by ``rowParentGUID`` via ``deduplication.group_by_key()`` (the same
+      "first occurrence wins" dedup ``hybrid_search.reciprocal_rank_fusion()``
+      uses) so several winning child chunks sharing the same parent (a very
+      common case for a "compare X and Y" question, whose best-matching
+      child chunks often come from the same section) collapse into one
+      fetch (via ``crud_chunks_parent.read_parent_row()``) and one row, and
+      keeps each surviving row's original ranking
       metadata (``rerank_score`` / ``rrf_score`` / ``cosine_distance`` /
       ``dense_rank`` / ... -- whatever the input already carried) so it
       still sorts and prints the same way downstream.
@@ -60,6 +62,7 @@ from typing import List, Optional
 
 from .clients import Clients, get_clients
 from .crud_chunks_parent import read_parent_row
+from .deduplication import group_by_key
 from .retrieval import page_numbers_for_chunk
 
 # A parent chunk is a whole book *section* (stage1_1_extract_and_chunk.ipynb
@@ -133,22 +136,16 @@ def expand_to_parent_chunks(
         return []
     clients = clients or get_clients()
 
-    expanded_by_parent: dict = {}
-    order: List[str] = []
-    parent_row_cache: dict = {}
+    # deduplication-step: collapse child chunks that share a rowParentGUID
+    # into one group each, so their parent is fetched/sent only once.
+    groups = group_by_key(chunks, key="rowParentGUID")
 
-    for row in chunks:
-        parent_guid = row["rowParentGUID"]
-        if parent_guid in expanded_by_parent:
-            expanded_by_parent[parent_guid]["matched_children"].append(row)
-            continue
+    expanded = []
+    for parent_guid, matched_children in groups.items():
+        parent_row = read_parent_row(parent_guid, clients=clients)
 
-        if parent_guid not in parent_row_cache:
-            parent_row_cache[parent_guid] = read_parent_row(parent_guid, clients=clients)
-        parent_row = parent_row_cache[parent_guid]
-
-        expanded_row = dict(row)
-        expanded_row["matched_children"] = [row]
+        expanded_row = dict(matched_children[0])
+        expanded_row["matched_children"] = matched_children
         if parent_row is None:
             expanded_row["expanded_from_parent"] = False
         else:
@@ -157,10 +154,9 @@ def expand_to_parent_chunks(
             expanded_row["parent_row_guid"] = parent_row["rowGUID"]
             expanded_row["expanded_from_parent"] = True
 
-        expanded_by_parent[parent_guid] = expanded_row
-        order.append(parent_guid)
+        expanded.append(expanded_row)
 
-    return [expanded_by_parent[guid] for guid in order]
+    return expanded
 
 
 def build_expanded_context_block(chunks: List[dict]) -> str:

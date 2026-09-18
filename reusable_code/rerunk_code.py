@@ -71,6 +71,9 @@ def rerank_chunks(
     clients = clients or get_clients()
     documents = [row["rowJSON"]["text"] for row in chunks]
     n = top_n if top_n is not None else len(chunks)
+    # rerank-step: Voyage's cross-encoder scores (question, chunk) jointly,
+    # unlike the independent embeddings retrieve_chunks()/hybrid_search()
+    # ranked by -- the actual re-scoring this whole module exists to do.
     resp = with_retry(
         clients.voyage.rerank,
         query=question,

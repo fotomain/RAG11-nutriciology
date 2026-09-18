@@ -152,10 +152,14 @@ def retrieve_chunks_hyde(
     ``(rows, hypothetical_document)``.
     """
     clients = clients or get_clients()
+    # hyde-step: draft the hypothetical answer paragraph, then embed it --
+    # this pair is what stands in for embedding the bare question.
     hypothetical_document = generate_hypothetical_document(
         question, model=hyde_model, max_tokens=hyde_max_tokens, clients=clients
     )
     hyde_embedding = embed_hypothetical_document(hypothetical_document, clients=clients)
+    # retrieval-step: the same match_rag11_child_chunks RPC retrieve_chunks()
+    # calls, just searched with the HyDE embedding instead of the question's.
     params = {"query_embedding": hyde_embedding, "match_count": match_count}
     if filter_owner is not None:
         params["filter_owner"] = filter_owner

@@ -29,6 +29,7 @@ import string
 from typing import Dict, List, Optional
 
 from .clients import Clients, get_clients
+from .deduplication import first_occurrence_map
 from .retrieval import NUM_CONTEXT_CHUNKS, retrieve_chunks
 from .retry import with_retry
 
@@ -147,20 +148,27 @@ def reciprocal_rank_fusion(
     distance vs. ``ts_rank_cd``) ever needing to be compared directly.
 
     Each row in the returned list is a **shallow copy** of its first
-    occurrence across ``ranked_lists``, plus one new ``"<name>_rank"`` key
-    per input list (``None`` if that method didn't return this row at all)
-    and the combined ``"rrf_score"``. Returned rows are sorted by
-    ``rrf_score`` descending (most cross-method agreement / highest
-    combined rank first).
+    occurrence across ``ranked_lists`` (via ``deduplication.
+    first_occurrence_map()`` -- the same "first occurrence wins" dedup
+    ``parent_chunk_expansion.expand_to_parent_chunks()`` uses for chunks
+    sharing a parent), plus one new ``"<name>_rank"`` key per input list
+    (``None`` if that method didn't return this row at all) and the
+    combined ``"rrf_score"``. Returned rows are sorted by ``rrf_score``
+    descending (most cross-method agreement / highest combined rank first).
     """
+    # deduplication-step: a row that appears in more than one ranked list
+    # (e.g. both "dense" and "keyword") keeps just one representative copy,
+    # whichever list saw it first.
+    rows_by_key = first_occurrence_map(
+        (row for ranked in ranked_lists.values() for row in ranked), key=key
+    )
+
     scores: Dict[object, float] = {}
     per_list_rank: Dict[str, Dict[object, int]] = {name: {} for name in ranked_lists}
-    rows_by_key: Dict[object, dict] = {}
 
     for name, ranked in ranked_lists.items():
         for rank, row in enumerate(ranked, start=1):
             row_key = row[key]
-            rows_by_key.setdefault(row_key, row)
             per_list_rank[name][row_key] = rank
             scores[row_key] = scores.get(row_key, 0.0) + 1.0 / (k + rank)
 
@@ -216,11 +224,18 @@ def hybrid_search(
     """
     clients = clients or get_clients()
     pool = max(match_count * HYBRID_POOL_MULTIPLIER, HYBRID_MIN_POOL)
+    # retrieval-step (dense half): the same embedding search retrieve_chunks()
+    # always does, over a wider pool than match_count so fusion has room to work.
     dense_rows = retrieve_chunks(
         question, match_count=dense_pool or pool, filter_owner=filter_owner, clients=clients
     )
+    # retrieval-step (keyword half): Postgres full-text search, over the same
+    # kind of wide pool.
     keyword_rows = retrieve_chunks_keyword(
         question, match_count=keyword_pool or pool, filter_owner=filter_owner, clients=clients
     )
+    # fusion-step: merge both ranked pools into one via Reciprocal Rank
+    # Fusion (reciprocal_rank_fusion() does its own dedup-step internally --
+    # see deduplication.py -- for rows both methods returned).
     fused = reciprocal_rank_fusion({"dense": dense_rows, "keyword": keyword_rows}, k=rrf_k)
     return fused[:match_count]

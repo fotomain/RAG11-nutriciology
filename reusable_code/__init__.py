@@ -60,6 +60,10 @@ from .crud_chunks_parent import (
     read_parent_rows_by_owner,
     update_parent_rowjson,
 )
+from .deduplication import (
+    first_occurrence_map,
+    group_by_key,
+)
 from .generation import (
     MAX_ANSWER_TOKENS,
     SYSTEM_PROMPT,
@@ -185,4 +189,6 @@ __all__ = [
     "delete_child_row",
     "delete_child_rows_by_parent",
     "delete_child_rows_by_owner",
+    "group_by_key",
+    "first_occurrence_map",
 ]
