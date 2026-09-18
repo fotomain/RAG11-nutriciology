@@ -10,7 +10,8 @@ this repo can `import reusable_code` instead of re-defining the same
 
 | File | What's in it |
 | --- | --- |
-| `env.py` | `require_env`, `optional_env` — read `.env` with clear errors |
+| `env.py` | `require_env`, `optional_env`, `optional_env_bool` — read `.env` with clear errors |
+| `config.py` | RAG technique feature flags read from `.env` at import time: `USE_HYBRID_SEARCH`, `USE_PARENT_CHUNK_EXPANSION`, `USE_MULTI_QUERY_QUESTION_SPLITTING`, `USE_HYPOTHETICAL_DOCUMENT_EMBEDDING` (each `True` if unset) — these are `ask_question()`'s defaults for the matching keyword |
 | `clients.py` | `init_clients()` / `get_clients()` — one Supabase + Voyage + Anthropic client per kernel, plus the model-id constants (`EMBEDDING_MODEL`, `RERANK_MODEL`, `GENERATION_MODEL`) |
 | `retry.py` | `with_retry()` — the exponential-backoff wrapper every notebook already had a copy of |
 | `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk` |
@@ -33,40 +34,42 @@ from reusable_code import init_clients, ask_question, retrieve_chunks, rerank_ch
 
 clients = init_clients()  # reads .env once; cached for the rest of the kernel
 
-# unchanged behavior -- exactly what stage2 always did
+# ask_question() runs the full pipeline by default -- hybrid search, HyDE-vs-
+# multi-query retrieval, and parent-chunk expansion are all on unless config.py
+# reads a False for them from .env (see "Feature flags" below). use_rerank is
+# the one technique that isn't .env-configurable -- it stays opt-in (default
+# False) on every call.
 result = ask_question("Is vitamin C a water-soluble vitamin?")
 
-# new: hybrid (dense + keyword) retrieval instead of plain vector search
-# (use_hybrid is optional, default False)
-result = ask_question("How many g/kg of protein does the RDA recommend?", use_hybrid=True)
-
-# rerank pass on top of retrieval (use_rerank is optional, default False) --
-# composes with use_hybrid: hybrid picks candidates, rerank re-scores them
-result = ask_question("Is vitamin C a water-soluble vitamin?", use_hybrid=True, use_rerank=True)
-
-# HyDE: embed a hypothetical answer paragraph instead of the bare question
-# (use_hyde is optional, default False; ignored when use_hybrid=True)
-result = ask_question("Does drinking coffee before exercise hurt performance?", use_hyde=True)
-
-# parent-chunk expansion (expand_to_parents is optional, default False) --
-# swaps each winning child chunk for its parent section before generation;
-# composes with both of the above
-result = ask_question(
-    "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?",
-    use_hybrid=True, use_rerank=True, expand_to_parents=True,
-)
-
-# multi-query / question splitting (use_multi_query is optional, default False) --
-# a compound question ("how does X differ from Y") is secretly two searches;
-# Claude splits it into its independent sub-questions, each is searched
-# separately, and the results are fused with Reciprocal Rank Fusion before
-# reranking -- composes with use_hybrid (each sub-question is itself
-# searched with hybrid_search()) and expand_to_parents; ignores use_hyde
+# every technique can still be forced on/off per call regardless of .env, by
+# passing the keyword explicitly -- this is how stage2_ask_examples2..6
+# isolate one technique at a time for a worked example:
 result = ask_question(
     "How does soluble fiber's effect on LDL cholesterol differ from insoluble fiber's?",
     use_multi_query=True, use_hybrid=True, use_rerank=True, expand_to_parents=True,
+    use_hyde=False,  # ignored anyway once use_multi_query/use_hybrid win, but explicit for clarity
 )
 ```
+
+### Feature flags (`config.py` / `.env`)
+
+Four of the five retrieval techniques `ask_question()` composes are toggled
+by a `USE_*` flag in `.env` (see `.env.sample`) -- each defaults to `True`
+if left unset, so a fresh checkout demonstrates the full pipeline with no
+setup:
+
+| `.env` variable | `ask_question()` keyword | `False` falls back to |
+| --- | --- | --- |
+| `USE_HYBRID_SEARCH` | `use_hybrid` | plain vector search |
+| `USE_HYPOTHETICAL_DOCUMENT_EMBEDDING` | `use_hyde` | search embeds the bare question |
+| `USE_MULTI_QUERY_QUESTION_SPLITTING` | `use_multi_query` | the question is searched as-is, not split |
+| `USE_PARENT_CHUNK_EXPANSION` | `expand_to_parents` | child chunks only, no expansion |
+
+`use_rerank` isn't in this table -- it has no `.env` flag and always
+defaults to plain `False`. Flip any of the four in `.env` and rerun a cell
+to see that technique's simplest variant, with no code changes; an
+explicit keyword on a given `ask_question()` call always overrides
+whatever `.env` says, for just that call.
 
 ## Row-level CRUD on the parent/child chunk tables
 

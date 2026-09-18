@@ -6,12 +6,16 @@ Supabase/Voyage/Anthropic clients -- no network access required. Run with:
 This exercises the exact code that will import into stage2/stage3
 notebooks, so a bug here is a bug there.
 """
+import inspect
+import os
 import sys
 from types import SimpleNamespace
 
 sys.path.insert(0, ".")
 
+from reusable_code import config as config_module  # noqa: E402
 from reusable_code.clients import Clients  # noqa: E402
+from reusable_code.env import optional_env_bool  # noqa: E402
 from reusable_code.generation import ask_question, build_context_block  # noqa: E402
 from reusable_code.hybrid_search import (  # noqa: E402
     hybrid_search,
@@ -521,7 +525,10 @@ check("update_rank_value(persist=True) leaves the original rowJSON keys intact",
 # ask_question: use_rerank is optional and defaults to False
 # ---------------------------------------------------------------------------
 
-result_plain = ask_question("What is the RDA for protein?", match_count=3, clients=fake_clients)
+result_plain = ask_question(
+    "What is the RDA for protein?", match_count=3, clients=fake_clients,
+    use_hybrid=False, use_hyde=False, use_multi_query=False, expand_to_parents=False,
+)
 check("ask_question() works with no use_rerank arg at all", result_plain["used_rerank"] is False)
 check("ask_question() (no rerank) uses match_count chunks directly", result_plain["chunks_used"] == 3)
 check("ask_question() (no rerank) candidates_considered == chunks_used", result_plain["candidates_considered"] == 3)
@@ -530,7 +537,8 @@ check("ask_question() rerank_model is None when unused", result_plain["rerank_mo
 fake_supabase2 = FakeSupabase(rpc_data=rows)
 fake_clients2 = Clients(supabase=fake_supabase2, voyage=fake_voyage, anthropic=fake_anthropic)
 result_rerank = ask_question(
-    "What is the RDA for protein?", match_count=2, use_rerank=True, clients=fake_clients2
+    "What is the RDA for protein?", match_count=2, use_rerank=True, clients=fake_clients2,
+    use_hybrid=False, use_hyde=False, use_multi_query=False, expand_to_parents=False,
 )
 check("ask_question(use_rerank=True) marks used_rerank", result_rerank["used_rerank"] is True)
 check("ask_question(use_rerank=True) returns rerank_top_n (default match_count) chunks",
@@ -557,7 +565,8 @@ fake_supabase_hybrid_ask = FakeSupabase(rpc_data={
 fake_clients_hybrid_ask = Clients(supabase=fake_supabase_hybrid_ask, voyage=fake_voyage, anthropic=fake_anthropic)
 
 result_hybrid = ask_question(
-    "What is the RDA for protein?", match_count=2, use_hybrid=True, clients=fake_clients_hybrid_ask
+    "What is the RDA for protein?", match_count=2, use_hybrid=True, clients=fake_clients_hybrid_ask,
+    use_hyde=False, use_multi_query=False, expand_to_parents=False,
 )
 check("ask_question(use_hybrid=True) marks used_hybrid", result_hybrid["used_hybrid"] is True)
 check("ask_question(use_hybrid=True) uses the fused top result",
@@ -574,6 +583,7 @@ fake_clients_hybrid_rerank = Clients(supabase=fake_supabase_hybrid_rerank, voyag
 result_hybrid_rerank = ask_question(
     "What is the RDA for protein?", match_count=2,
     use_hybrid=True, use_rerank=True, clients=fake_clients_hybrid_rerank,
+    use_hyde=False, use_multi_query=False, expand_to_parents=False,
 )
 check("ask_question(use_hybrid=True, use_rerank=True) marks both flags",
       result_hybrid_rerank["used_hybrid"] is True and result_hybrid_rerank["used_rerank"] is True)
@@ -591,7 +601,8 @@ check("ask_question() (no use_hyde arg) marks used_hyde False and hypothetical_d
 fake_supabase_hyde_ask = FakeSupabase(rpc_data=rows)
 fake_clients_hyde_ask = Clients(supabase=fake_supabase_hyde_ask, voyage=fake_voyage, anthropic=fake_anthropic)
 result_hyde = ask_question(
-    "What is the RDA for protein?", match_count=3, use_hyde=True, clients=fake_clients_hyde_ask
+    "What is the RDA for protein?", match_count=3, use_hyde=True, clients=fake_clients_hyde_ask,
+    use_hybrid=False, use_multi_query=False, expand_to_parents=False,
 )
 check("ask_question(use_hyde=True) marks used_hyde", result_hyde["used_hyde"] is True)
 check("ask_question(use_hyde=True) returns the hypothetical document used for retrieval",
@@ -619,7 +630,10 @@ fake_anthropic_mq = FakeAnthropicRouted(
 )
 fake_clients_mq = Clients(supabase=fake_supabase_mq, voyage=fake_voyage, anthropic=fake_anthropic_mq)
 
-result_multi_query = ask_question(MULTI_Q, match_count=3, use_multi_query=True, clients=fake_clients_mq)
+result_multi_query = ask_question(
+    MULTI_Q, match_count=3, use_multi_query=True, clients=fake_clients_mq,
+    use_hybrid=False, use_hyde=False, expand_to_parents=False,
+)
 check("ask_question(use_multi_query=True) marks used_multi_query", result_multi_query["used_multi_query"] is True)
 check("ask_question(use_multi_query=True) records the sub-questions searched",
       result_multi_query["subquestions"] == [
@@ -631,6 +645,7 @@ check("ask_question(use_multi_query=True) queried the dense RPC once per sub-que
 
 result_multi_query_hyde_ignored = ask_question(
     MULTI_Q, match_count=3, use_multi_query=True, use_hyde=True, clients=fake_clients_mq,
+    use_hybrid=False, expand_to_parents=False,
 )
 check("ask_question(use_multi_query=True, use_hyde=True) ignores use_hyde (hypothetical_document stays None)",
       result_multi_query_hyde_ignored["hypothetical_document"] is None
@@ -643,6 +658,7 @@ fake_supabase_mq_hybrid = FakeSupabase(rpc_data={
 fake_clients_mq_hybrid = Clients(supabase=fake_supabase_mq_hybrid, voyage=fake_voyage, anthropic=fake_anthropic_mq)
 result_multi_query_hybrid = ask_question(
     MULTI_Q, match_count=2, use_multi_query=True, use_hybrid=True, clients=fake_clients_mq_hybrid,
+    use_hyde=False, expand_to_parents=False,
 )
 check("ask_question(use_multi_query=True, use_hybrid=True) marks both flags",
       result_multi_query_hybrid["used_multi_query"] is True and result_multi_query_hybrid["used_hybrid"] is True)
@@ -661,7 +677,8 @@ check("ask_question() (no expand_to_parents arg) marks used_parent_expansion Fal
 # rows[0..2] (g1, g2, g3) all share rowParentGUID == "parent-1" -- plain
 # retrieval should dedup them down to the one parent section.
 result_expand = ask_question(
-    "What is the RDA for protein?", match_count=3, expand_to_parents=True, clients=fake_clients_expand
+    "What is the RDA for protein?", match_count=3, expand_to_parents=True, clients=fake_clients_expand,
+    use_hybrid=False, use_hyde=False, use_multi_query=False,
 )
 check("ask_question(expand_to_parents=True) marks used_parent_expansion",
       result_expand["used_parent_expansion"] is True)
@@ -669,6 +686,50 @@ check("ask_question(expand_to_parents=True) dedups chunks sharing one parent",
       result_expand["chunks_used"] == 1)
 check("ask_question(expand_to_parents=True) computes source_pages from the parent's start_page/end_page",
       result_expand["source_pages"] == [40, 41, 42])
+
+# ---------------------------------------------------------------------------
+# env.optional_env_bool: parses the USE_* feature flags read by config.py
+# ---------------------------------------------------------------------------
+
+_BOOL_VAR = "RAG11_TEST_BOOL_FLAG_XYZ"
+os.environ.pop(_BOOL_VAR, None)
+check("optional_env_bool() falls back to default when the var is unset",
+      optional_env_bool(_BOOL_VAR, True) is True)
+check("optional_env_bool() falls back to default (False) when the var is unset",
+      optional_env_bool(_BOOL_VAR, False) is False)
+
+os.environ[_BOOL_VAR] = "False"
+check("optional_env_bool() parses 'False'", optional_env_bool(_BOOL_VAR, True) is False)
+
+os.environ[_BOOL_VAR] = "true"
+check("optional_env_bool() parses 'true' case-insensitively", optional_env_bool(_BOOL_VAR, False) is True)
+
+os.environ[_BOOL_VAR] = "not-a-bool"
+try:
+    optional_env_bool(_BOOL_VAR, True)
+    check("optional_env_bool() raises on an unrecognized value", False)
+except RuntimeError:
+    check("optional_env_bool() raises on an unrecognized value", True)
+os.environ.pop(_BOOL_VAR, None)
+
+# ---------------------------------------------------------------------------
+# config.py: ask_question()'s use_hybrid/use_hyde/use_multi_query/
+# expand_to_parents keywords default to the matching config.py constant
+# (each read once from .env, True if unset) -- so config.py is the single
+# place that governs "simplest variant vs. full technique" repo-wide.
+# ---------------------------------------------------------------------------
+
+_ask_question_defaults = {
+    name: param.default for name, param in inspect.signature(ask_question).parameters.items()
+}
+check("ask_question()'s use_hybrid default matches config.USE_HYBRID_SEARCH",
+      _ask_question_defaults["use_hybrid"] == config_module.USE_HYBRID_SEARCH)
+check("ask_question()'s use_hyde default matches config.USE_HYPOTHETICAL_DOCUMENT_EMBEDDING",
+      _ask_question_defaults["use_hyde"] == config_module.USE_HYPOTHETICAL_DOCUMENT_EMBEDDING)
+check("ask_question()'s use_multi_query default matches config.USE_MULTI_QUERY_QUESTION_SPLITTING",
+      _ask_question_defaults["use_multi_query"] == config_module.USE_MULTI_QUERY_QUESTION_SPLITTING)
+check("ask_question()'s expand_to_parents default matches config.USE_PARENT_CHUNK_EXPANSION",
+      _ask_question_defaults["expand_to_parents"] == config_module.USE_PARENT_CHUNK_EXPANSION)
 
 print()
 if FAILURES:

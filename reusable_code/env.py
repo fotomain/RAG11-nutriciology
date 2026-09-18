@@ -42,3 +42,25 @@ def optional_env(name: str, default: str = "") -> str:
     fallback (e.g. SUPABASE_SERVICE_ROLE_KEY falling back to the anon key)."""
     ensure_env_loaded()
     return os.environ.get(name, default).strip()
+
+
+_TRUE_VALUES = {"true", "1", "yes", "on"}
+_FALSE_VALUES = {"false", "0", "no", "off"}
+
+
+def optional_env_bool(name: str, default: bool) -> bool:
+    """Same as optional_env, but parsed as a boolean feature flag (e.g.
+    ``USE_HYBRID_SEARCH=True`` in .env) -- returns `default` when the
+    variable is missing/blank, and raises on an unrecognized value rather
+    than silently treating a typo as falsy."""
+    raw = optional_env(name, "").lower()
+    if not raw:
+        return default
+    if raw in _TRUE_VALUES:
+        return True
+    if raw in _FALSE_VALUES:
+        return False
+    raise RuntimeError(
+        f"{name} in your .env file is {raw!r}, which isn't a recognized "
+        f"boolean -- use True/False (or 1/0, yes/no, on/off)."
+    )

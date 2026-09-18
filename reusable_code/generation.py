@@ -3,6 +3,12 @@ import re
 from typing import Optional
 
 from .clients import Clients, GENERATION_MODEL, RERANK_MODEL, get_clients
+from .config import (
+    USE_HYBRID_SEARCH,
+    USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
+    USE_MULTI_QUERY_QUESTION_SPLITTING,
+    USE_PARENT_CHUNK_EXPANSION,
+)
 from .hybrid_search import hybrid_search
 from .hypothetical_document_embedding import HYDE_MAX_TOKENS, retrieve_chunks_hyde
 from .multi_query_question_splitting import (
@@ -122,20 +128,20 @@ def ask_question(
     question: str,
     match_count: int = NUM_CONTEXT_CHUNKS,
     *,
-    use_hybrid: bool = False,
+    use_hybrid: bool = USE_HYBRID_SEARCH,
     hybrid_dense_pool: Optional[int] = None,
     hybrid_keyword_pool: Optional[int] = None,
-    use_hyde: bool = False,
+    use_hyde: bool = USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
     hyde_model: str = GENERATION_MODEL,
     hyde_max_tokens: int = HYDE_MAX_TOKENS,
-    use_multi_query: bool = False,
+    use_multi_query: bool = USE_MULTI_QUERY_QUESTION_SPLITTING,
     multi_query_model: str = GENERATION_MODEL,
     multi_query_max_subquestions: int = MAX_SUBQUESTIONS,
     use_rerank: bool = False,
     rerank_top_n: Optional[int] = None,
     rerank_candidate_pool: Optional[int] = None,
     rerank_model: str = RERANK_MODEL,
-    expand_to_parents: bool = False,
+    expand_to_parents: bool = USE_PARENT_CHUNK_EXPANSION,
     max_parent_chars: Optional[int] = DEFAULT_MAX_PARENT_CHARS,
     generation_model: str = GENERATION_MODEL,
     clients: Optional[Clients] = None,
@@ -145,11 +151,19 @@ def ask_question(
     call (if any), the array of source page numbers behind the answer, and
     the words the answer shares with those source excerpts.
 
-    ``use_hybrid``, ``use_hyde``, ``use_multi_query``, ``use_rerank``, and
-    ``expand_to_parents`` are all optional and default to ``False`` --
-    existing calls like ``ask_question("Is vitamin C water-soluble?")``
-    behave exactly as before (plain vector search, ``match_count`` chunks
-    straight to Claude). They compose:
+    ``use_hybrid``, ``use_hyde``, ``use_multi_query``, and
+    ``expand_to_parents`` default to the ``USE_HYBRID_SEARCH`` /
+    ``USE_HYPOTHETICAL_DOCUMENT_EMBEDDING`` / ``USE_MULTI_QUERY_QUESTION_SPLITTING``
+    / ``USE_PARENT_CHUNK_EXPANSION`` flags in config.py (each read once from
+    .env at import time, ``True`` if unset) -- so a bare
+    ``ask_question("Is vitamin C water-soluble?")`` runs the full pipeline
+    out of the box, and flipping one of those four to ``False`` in .env
+    falls back to that technique's simplest variant with no code changes.
+    ``use_rerank`` still defaults to plain ``False`` (rerank isn't one of
+    the four .env-configurable techniques). Every flag can still be
+    overridden per call with an explicit keyword, which is how
+    stage2_ask_examples2..6 demonstrate each technique in isolation
+    regardless of what .env is set to. They compose:
 
         - ``use_multi_query=True`` replaces plain vector search with
           ``multi_query_question_splitting.retrieve_chunks_multi_query()``:

@@ -8,10 +8,16 @@ Usage from any notebook, right after its own ``%pip install`` cell::
     from reusable_code import init_clients, ask_question
 
     clients = init_clients()
-    result = ask_question(
-        "Is vitamin C a water-soluble vitamin?",
-        use_hybrid=True, use_rerank=True, expand_to_parents=True,
-    )
+    result = ask_question("Is vitamin C a water-soluble vitamin?")
+
+``ask_question()`` runs hybrid search, HyDE-vs-multi-query retrieval, and
+parent-chunk expansion by default -- each is controlled by a
+USE_HYBRID_SEARCH / USE_HYPOTHETICAL_DOCUMENT_EMBEDDING /
+USE_MULTI_QUERY_QUESTION_SPLITTING / USE_PARENT_CHUNK_EXPANSION flag in
+.env (see config.py), all ``True`` if left unset. Set any of them to
+``False`` in .env to fall back to that technique's simplest variant with
+no code changes, or override per call with an explicit keyword (e.g.
+``use_hybrid=False``) regardless of what .env says.
 
 See ``reusable_code/README.md`` for the full guide (including exactly how
 -- and whether -- you need to touch the Supabase tables),
@@ -30,6 +36,12 @@ from .clients import (
     RERANK_MODEL,
     get_clients,
     init_clients,
+)
+from .config import (
+    USE_HYBRID_SEARCH,
+    USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
+    USE_MULTI_QUERY_QUESTION_SPLITTING,
+    USE_PARENT_CHUNK_EXPANSION,
 )
 from .crud_chunks_child import (
     CHILD_TABLE,
@@ -125,6 +137,10 @@ __all__ = [
     "EMBEDDING_MODEL",
     "RERANK_MODEL",
     "GENERATION_MODEL",
+    "USE_HYBRID_SEARCH",
+    "USE_PARENT_CHUNK_EXPANSION",
+    "USE_MULTI_QUERY_QUESTION_SPLITTING",
+    "USE_HYPOTHETICAL_DOCUMENT_EMBEDDING",
     "with_retry",
     "MIN_CONTEXT_CHUNKS",
     "NUM_CONTEXT_CHUNKS",
