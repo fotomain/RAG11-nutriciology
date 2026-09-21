@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p26-c8",
+  "parent_id": "source16-p26",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Folate/folic acid | Pages 266-277]\n\n. Reprinted\nwith permission from Field et al. (2018).\n250\nFolate/folic acid\n\n\nhistidine, formiminoglutamic acid. The third mode of entry at the formate level of oxidation involves the formation of 5-formylTHF\nfrom 5,10-methenylTHF by the enzyme serine hydroxymethyltransferase (SHMT) (EC 2.1.2.1). The 5-formylTHF may be rapidly\nconverted to other forms of folate.\nThe enzyme SHMT is also involved in the entry of one-carbon units at the formaldehyde level of oxidation by catalyzing the\ntransfer of the ß-carbon of serine to form glycine and 5,10-methyleneTHF. Other sources of one-carbon entry at this level of oxida-\ntion include the glycine cleavage system and the choline-dependent pathway; both enzyme systems generate 5,10-methyleneTHF in\nthe mitochondria of the cell.\nRemoval of one-carbon units\nOne-carbon units are removed from folate by a number of reactions. The enzyme 10-formylTHF dehydrogenase (EC 1.5.1.6)\nprovides a mechanism for disposing of excess one-carbon units as carbon dioxide. (Folate administration to animals enhances\nthe conversion of ingested methanol and formate to carbon dioxide, diminishing methanol toxicity.) Additionally, single-\ncarbon units from 10-formylTHF are used for the biosynthesis of purines (Fig. 2).\nThe one-carbon unit of 5,10-methyleneTHF is transferred in two ways. Reversal of the SHMT reaction produces serine from\nglycine, but as serine is also produced from glycolysis via phosphoglycerate, this reaction is unlikely to be important. However,\none-carbon transfer from",
+  "token_count": 400
+}

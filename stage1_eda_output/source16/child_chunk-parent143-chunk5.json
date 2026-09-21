@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p143-c5",
+  "parent_id": "source16-p143",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Celiac disease | Pages 1505-1513]\n\n antigen presenting cells. There may be up to 50 peptides in wheat, 60 in rye and 35 in barley that can bind to HLA-DQ2 or -DQ8.\nCD4þ T lymphocytes in the lamina propria of the small intestine are activated when these peptides bind to HLA molecules. The\nrelease of tissue transglutaminase into the inﬂamed gut also results in a strong autoimmune response to tissue transglutaminase\nwith high levels of circulating IgA speciﬁc for tissue transglutaminase (tTG-IgA) present in untreated celiac patients. Thus, the\nmain characteristics of celiac disease are the DQ2/DQ8 restricted responses to gliadin peptides, the strong intestinal T cell response\nto deamidated gliadin peptides, and the production of tTG-IgA (Kagnoff, 2007).\nGluten peptides reach the lamina propria of the intestine through paracellular and transcellular pathways (Kagnoff, 2007). After\nbinding to and presentation by the HLA-DQ2 or DQ8 proteins, they activate gluten-speciﬁc CD4þ T helper 1 cells in the lamina\npropria which secrete the cytokines and chemokines necessary to induce inﬂammation with crypt hyperplasia and villus atrophy\nthat are characteristic of the disease. Apart from the adaptive immune response involving T helper 1 cells, it is likely that there is\nalso an innate immune response to certain proteins from wheat that results in epithelial cell activation and increased intraepithelial\nlymphocytes (IEL). The innate immune activation of IEL results in the expression of MICA (MHC Class I Chain-related A protein),\nwhich binds to and activates a receptor found on NK cells, gd T cells and on some CD4þ and CD",
+  "token_count": 400
+}

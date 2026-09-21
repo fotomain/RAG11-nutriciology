@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p53-c7",
+  "parent_id": "source16-p53",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Vitamin B6 | Pages 508-522]\n\n produced in the liver is exported into the circulation bound to lysine 190 of albumin. Studies have also shown\n(Albersen et al., 2013) that B6 vitamers can be converted to PLP by a Caco-2 cell line, an in vitro intestinal model derived from\na colon carcinoma, with PL being the predominant vitamer excreted.\nPK and PNPO are both inhibited by PLP. Regulation of enzyme activities also occurs at the transcriptional level (at least in exper-\nimental animals). Three transcription factors, DBP (albumin D-site-binding protein), HLF (hepatic leukemia factor), and TEF (thy-\nrotroph embryonic factor), increase transcription of PK leading to a circadian rhythm of PK expression and PLP levels in mice\n(Gachon et al., 2004). Knockout of these 3 transcription factors leads to brain PLP deﬁciency and epilepsy. Transcription of\nPNPO can be affected by knockout of a non-coding microRNA, miR324 and this also leads to increased hippocampal excitability\n(Hayman et al., 2021).\nWhen the intake of B6 vitamers exceeds the body requirement, PLP is catabolized, mainly in the liver, by phosphatases with\nsubsequent conversion of the pyridoxal to pyridoxic acid which is excreted in the urine. It is not certain whether the oxidation\nof pyridoxal to pyridoxic acid is catalyzed by an aldehyde dehydrogenase or an aldehyde oxidase.\nThe main form of B6 in plasma is PLP bound to albumin. To supply B6 to the brain, PLP must dissociate from albumin, and\nundergo dephosphorylation to pyridoxal which then crosses the blood brain barrier and or the blood CSF barrier of the choroid\n",
+  "token_count": 400
+}

@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c24",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n\nLiver, adipose, lactating mammary gland\nSubcellular location\nMitochondria\nCytoplasm\nRedox cofactors\nNAD, FAD\nNADPH\nAcyl group carrier\nCoA\nEnzyme-bound acyl carrier protein\nStereochemistry of 3-hydroxy intermediate\nL-\nD-\n324\nFatty acids: Metabolism\n\n\ndonor of the added carbon atoms is also malonyl-CoA, indicating that an active acetyl-CoA carboxylase is required for elongation.\nWhereas the four primary reactions of FA synthesis are found within the FASN multienzyme complex, individual proteins catalyze\nthese reactions in FA elongation. Like FA synthesis, both reduction steps in FA elongation require NADPH.\nThe condensation reaction is thought to be rate-limiting, and is catalyzed by a family of very long-chain elongase enzymes\n(ELOVL1-7). ELOVL1, 3, 6, and 7 have been associated with elongation of saturated and monounsaturated FAs, whereas ELOVL2,\n4, and 5 seem to prefer polyunsaturated FAs. The second reaction is catalyzed by 3-ketoacyl-CoA reductase (HSD17B12). No speciﬁc\nenzyme has been associated with the third (dehydratase) reaction. The last step is catalyzed by trans-2,3-enoyl-CoA reductase\n(TECR).\nA minor pathway (in eukaryotes) for FA elongation is found in mitochondria. The donor of elongation units is acetyl-CoA, not\nmalonyl-CoA, and the reduction reactions utilize NADH rather than NADPH. There is little knowledge of how FA elongation in\neither endoplasmic reticulum or mitochondria is",
+  "token_count": 400
+}

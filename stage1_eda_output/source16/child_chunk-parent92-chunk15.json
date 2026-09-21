@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p92-c15",
+  "parent_id": "source16-p92",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\n of [FATCE]\nCarbohydrates, available by difference\ng\n¼100 \u0002 (water þ protein þ fat þ ash þ dietary\nﬁber þ alcohol)\nCHOAVLDF\nFiber, total dietary or [crude ﬁber]\ng\nAOAC Prosky method (AOAC 991.43) or [Weende\nmethod]\nFIBTG or [FIBC]\nAlcohol\ng\nGLC or distillation\nALC\nAsh\ng\nGravimetric methods\nASH\nCalcium\nmg\nAAS, ICP-MS\nCA\nIron\nmg\nAAS, ICP-MS\nFE\nMagnesium\nmg\nAAS, ICP-MS\nMG\nPhosphorous\nmg\nAAS, ICP-MS\nP\nPotassium\nmg\nAAS, ICP-MS\nK\nSodium\nmg\nAAS, ICP-MS\nNA\nZinc\nmg\nAAS, ICP-MS\nZN\nCopper\nmg\nAAS, ICP-MS\nCU\nVitamin A (expressed in retinol equivalents)\nmg\n¼Retinol þ 1/6 beta-carotene equivalent\nVITA\nVitamin A (expressed in retinol activity equivalents)\nmg\n¼Retinol þ 1/12 beta-carotene equivalent\nVITA_RAE\nRetinol\nmg\nHPLC\nRETOL\nBeta-carotene equivalents or [beta-carotene]\nmg\n¼Beta-carotene þ 1/2 alpha-carotene þ 1/2\nbeta-cryptoxanthin\nCARTBEQ or [CARTB]\nAlpha-carotene\nmg\nHPLC\nCARTA\nBeta-carotene\nmg\nHPLC\nCARTB\nBeta-cryptoxanthin\n",
+  "token_count": 400
+}

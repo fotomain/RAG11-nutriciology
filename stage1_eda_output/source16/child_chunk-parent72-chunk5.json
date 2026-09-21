@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p72-c5",
+  "parent_id": "source16-p72",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Electrolytes: Acid–base balance | Pages 736-744]\n\n of formation of carbonic acid is dependent on the concentration of carbon dioxide and the rate\nconstant of reaction [i]; the dissociation of carbonic acid to generate H+ and HCO3−is governed by the rate constant of reaction [ii].\nIn practice, these two reactions can be combined, and the relationship between pH ([H+]), carbon dioxide, and bicarbonate is\ndescribed by a single equation – the Henderson–Hasselbalch eqn [5]:\n[i]\nCO2 + H2O ↔  H2CO3 ↔ H+ + HCO3\n−\n[ii]\n[4]\npH¼6:1þlog10ð½HCO3−\u0002=K:S:PCO2Þ\n[5]\npH reﬂects −log [H+]; 6.1 is the value of –log (1/K), K being the equilibrium constant describing the overall eqn [4]; PCO2 is the\npartial pressure of carbon dioxide; S is the solubility constant for carbon dioxide. K.S. is constant and equal to 0.225 (when PCO2 is\nmeasured in kPa, 0.03 when PCO2 is measured in mmHg). Table 1 shows the normal range for these parameters in humans.\nFrom eqn [5] the principles of acid–base balance can be appreciated. Acidiﬁcation may occur in two ways: either by production\nof CO2 or by the consumption of bicarbonate (as part of buffering of ﬁxed acid). The excretion of CO2 is controlled by the lungs,\nand excretion of ﬁxed acid takes place in the kidney.\nTable 1\nNormal ranges\nVariable\nNormal range\npH\n7.36–7.44\nHydrogen ion (H+)\n37–44 nmol l−1\nPartial pressure CO2 (PCO2",
+  "token_count": 400
+}

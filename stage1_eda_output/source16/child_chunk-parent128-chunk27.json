@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p128-c27",
+  "parent_id": "source16-p128",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Body composition | Pages 1363-1377]\n\n) (organ metabolic rate) is the metabolic rate constant (in kJ per kg per day) for each organ-tissue component (Table 3)\nand M is the mass of the corresponding organ/tissue (kg). Whole-body REE (in kJ per day) is calculated as the sum of the seven\nindividual organ-tissue REE:\nREEc ¼\nX\n7\ni¼1\nðREEiÞ\n(2)\n28\nBody composition\n\n\nThe whole-body REE equation is\nREEC ¼ 1008Mbrain þ 840Mliver þ 1848Mheart þ 1848Mkidneys þ 55MSM þ 19MAT þ 50Mresidual\nThis approach has allowed for the hypothesis to be tested that the proportion of FFM as certain high metabolic rate organs,\nspeciﬁcally liver and brain, is greater in children compared to young adults (Fig. 4). Findings thus far have shown that after\naccounting for this disproportion, the speciﬁc organ/tissue metabolic constants available in the literature (Table 3) are not adequate\nto account for REE in children. These results therefore imply that the decline in REE per kilogram body weight (or per kilogram FFM)\nduring the growth years is likely due to both changes in body composition and changes in the metabolic rate of individual organs/\ntissues. When this approach was applied to young adults (31.2 \u0005 7.2 years), REEc and REEm were highly correlated, with no signif-\nicant differences between them. When this approach was applied to persons over 70 years, both older men and women had signif-\nicantly lower REEm compared to REEc, and the magnitude of the differences were 13% and 9.5%, respectively, for men and women.\nThese ﬁndings suggest that even after adjustment for age",
+  "token_count": 400
+}

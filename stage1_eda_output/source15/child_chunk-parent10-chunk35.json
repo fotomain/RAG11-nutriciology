@@ -1,0 +1,9 @@
+{
+  "child_id": "source15-p10-c35",
+  "parent_id": "source15-p10",
+  "source_key": "source15",
+  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 10 Nutritional Genomics | Pages 224-248]\n\n.33\nTh us, dietary adequacy plays a role in maintaining appropriate \nDNA methylation.28, 33 A deﬁ ciency of methyl groups related\nto lack of the previously listed nutrients means that as cells\nGCA\nDNA Sequence Variation in a Gene Can Change\nthe Protein Produced by the Genetic Code\nAla\nGene A from\nPerson 1\nAGA\nArg\nGAT\nAsp\nAAT\nAsn\nTGT\nCys\n...\n...\n1\n2\n3\n4\n5\nGCG\nAla\nGene A from\nPerson 2\nCodon change made no\ndifference in amino acid\nsequence\nAGA\nArg\nGAT\nAsp\nAAT\nAsn\nTGT\nCys\n...\n...\n1\n2\n3\n4\n5\nGCA\nAla\nGene A from\nPerson 3\nCodon change resulted in\na difference amino acid\nat position 2\nAAA\nAAA\nLys\nGAT\nAsp\nAAT\nAsn\nTGT\nCys\n...\n...\n1\n2\n3\n4\n5\nProtein Products\nOR\nFigure 10.7 DNA Sequence Variation in a Gene\nSpeciﬁ c codons direct the cell’s protein-synthesizing machinery to add \nspeciﬁ c amino acids. For example, the base sequence ATG codes for the \namino acid methionine. Since 3 bases code for 1 amino acid, the protein coded \nby an average-sized gene (3000 bp) will contain 1000 amino acids. The DNA \ncode is thus a series of codons that specify which amino acids are required \nto make up speciﬁ c proteins. Some variations in a person’s genetic code will \nhave no effect on the protein that is produced; others can lead to disease or \nan increased susceptibility to",
+  "token_count": 400
+}

@@ -1,0 +1,9 @@
+{
+  "child_id": "source13-p14-c12",
+  "parent_id": "source13-p14",
+  "source_key": "source13",
+  "source_row_guid": "6086c4da-24b6-53d8-bf9c-f789780400e5",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_medical-nutrition-and-disease-a-case-based-approach.pdf | Section: 13: Parenteral Nutrition Support | Pages 504-520]\n\nB6 (pyridoxine)\n4 mg\n6 mg\n4 mg\n6 mg\nB12 (cyanocobalamin)\n5 μg\n5 μg\n5 μg\n5 μg\nC\n100 mg\n200 mg\n100 mg\n200 mg\nBiotin\n60 μg\n60 μg\n60 μg\n60 μg\nFolic acid\n400 μg\n600 μg\n400 μg\n600 μg\nK\n150 μg\n0\n150 μg\nSource:  National Advisory Group; American Medical Association; U.S. Food and Drug Administration; MVI-12 and MVI-13, \nmultivitamin injections.\nTable 13-5  Predictive Equations\nMifflin–St Jeor\nMen: Energy expenditure = 5 + 10 (wt in kg) + 6.25 (ht in cm) − 5 (age)\nWomen: Energy expenditure = −161 + 10 (wt in kg) + 6.25 (ht in cm) − 5 \n(age)\nIreton–Jones\nSpontaneous breathing\nIJEE (s) = 629 − 11(A) + 25(W) − 609(O)\nVentilator-dependent\nIJEE (v) = 1784 − 11(A) + 5(W) + 244(S) + 239(T) + 804(B)\nwhere IJEE = kcal/day; s = spontaneously breathing; v = ventilatory-dependent; \n",
+  "token_count": 400
+}

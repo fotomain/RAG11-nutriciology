@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p92-c21",
+  "parent_id": "source16-p92",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\nCalculated from FA proﬁle\nFAPU\nLinoleic acid\ng\nCalculated from FA proﬁle\nF18D2CN6\nAlpha-linolenic acid\ng\nCalculated from FA proﬁle\nF18D3CN3\nPhytate, total\nmg\nPhytate, total, calculated from phytate phosphorus by\nanion exchange method (AOAC 986.11) or [phytate,\ndetermined by direct precipitation] or [phytate,\ndetermined by indirect precipitation]\nPHYTCPP or\n[PHYTCPPD] or\n[PHYTCPPI]\nInositol triphosphate (IP3)\nmg\nHPLC\nIP3\nInositol tetraphosphate (IP4)\nmg\nHPLC\nIP4\nInositol pentaphosphate (IP5)\nmg\nHPLC\nIP5\nInositol hexaphosphate (IP6)\nmg\nHPLC\nIP6\nNitrogen conversion factor\n–\nFrom literature sources\nXN\nAAS ¼ Atomic absorption spectrophotometry, GLC ¼ Gas liquid chromatography, HPLC ¼ High performance liquid chromatography, ICP-MS ¼ Inductively coupled plasma-mass\nspectrometry. Components were assigned to a secondary tagname if the preferred one was not available for a given food and the values was presented between square brackets ([ ]).\nFood composition data 2021\n335\n\n\nFCTs/FCDBs should include as few missing values as possible for nutrients of interest. If values are missing, the user should esti-\nmate or borrow the missing datadthis task demands a higher level of expertize. If this is not done and missing values are treated as\nzero, nutrient intakes will be underestimated.\nIn recent years, documentation at value and food levels, also called meta data",
+  "token_count": 400
+}

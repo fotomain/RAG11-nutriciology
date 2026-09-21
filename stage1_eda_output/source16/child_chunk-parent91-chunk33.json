@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c33",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n, 2-AG is rapidly inactivated\nin vivo. Monoacylglycerol lipase (MGLL) and other lipases cleave 2-AG, releasing AA from the glycerol backbone.\nFatty acylation of proteins\nCovalent modiﬁcation of proteins is a more recently discovered role of FAs (reviewed in Resh, 2016). Fatty acylation of proteins\nfrequently serves as a means of targeting or anchoring a protein to a membrane. Before attachment, all FAs must be activated to\ntheir CoA derivatives. Myristoylation, the addition of 14:0 to a protein, occurs at N-terminal glycine residues after removal of\nthe initiator methionine. The consensus sequence for this modiﬁcation is H2N-Met-Gly-X-X-X-Ser/Thr. The reaction, catalyzed by\nN-myristoyltransferase\n(NMT1,\nNMT2),\nis\nco-translational\nand\nirreversible.\nN-myristoyl-proteins\ninclude\nmany\nsignal\ntransduction-associated proteins, for example, src and ADP-ribosylation factors (Arfs).\nPalmitoylation, the addition of 16:0 to a protein, is also commonly observed. This modiﬁcation occurs post-translationally and\nis reversible. Most often, palmitic acid is bound to the sulfhydryl side chain of cysteine residues. Both membrane-associated proteins\nand integral membrane proteins can be palmitoylated; examples include ion channels, caveolin, neurotransmitter receptors, wnt,\nand sonic hedgehog. Palmitoylation is catalyzed by members of the large family of palmitoyltransferases (ZDHHC1-22). Three\nprotein palmitoylthioesterases (PPT1, PPT2, and",
+  "token_count": 400
+}

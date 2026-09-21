@@ -1,0 +1,9 @@
+{
+  "child_id": "source15-p18-c56",
+  "parent_id": "source15-p18",
+  "source_key": "source15",
+  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 18 Diseases of the Renal System | Pages 561-602]\n\nematically identical to the\nprotein catabolic rate or PCR). PNA is a\nvalid and clinically useful measurement \nof net protein degradation and protein\nintake in a stable dialysis patient. PNA\nis expressed in terms of grams of pro-\ntein per day (g/day). It should be noted\nthat PNA may be affected by protein\nintake and anabolic and catabolic fac-\ntors. If the patient is catabolic, PNA\nwill be overestimated, and in anabo-\nlism, PNA will underestimate actual\nprotein intake.\nBecause protein needs are determined\nby edema-free and fat-free body mass,\nPNA is typically normalized (nPNA) to\nsome function of body weight. Normal-\nized protein equivalent of total nitrogen\nappearance (nPNA) is a measure of\nprotein nitrogen appearance and is\nexpressed in terms of grams of protein\nper kilogram per day (g/kg/day). nPNA\ncan be used to estimate dietary protein\nintake and can be calculated using\nthe formula below. nPNA is closely\ncorrelated to dietary protein intake in\nthe steady state or when protein and\nenergy intake are relatively constant\n(<10% variance). PNA is calculated\nautomatically as part of routine urea\nkinetic modeling results. nPNA re-\nquires a 24-hour urine collection.3\nProtein Equivalent\nof Total Nitrogen \nAppearance (PNA),\nPreviously Referred\nto as Protein Catabolic\nRate (PCR):\nnPNA (g/day) \u0002 (6.25 \u0004 (urinary urea \nN (g/day) \u0004 0.031 weight (kg)) \u0004\nurinary protein losses (g/day)\nReferences\n1. de Mutsert R, Grootendorst DC, Indemans\nFleur, Boeschoten EW, Krediet RT, Dekker FW, \n",
+  "token_count": 400
+}

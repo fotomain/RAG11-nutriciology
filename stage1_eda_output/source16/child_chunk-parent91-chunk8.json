@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c8",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n does not preclude subsequent degradation by b-oxidation.\n318\nFatty acids: Metabolism\n\n\nCPT2, located inside the mitochondrion, then catalyzes the reversal of the CPT1 reaction. Thus the concerted actions of CPT1,\nCACT, and CPT2 effectively translocate fatty acyl-CoA across the inner mitochondrial membrane. Entry of FAs into the mitochon-\ndrion is tightly regulated primarily at the CPT1 step by malonyl-CoA. This intermediate in FA synthesis (see Fatty acid de novo\nsynthesis, below) is a potent inhibitor of CPT1.\nThe entry of medium-chain FAs into the mitochondrial matrix does not utilize the carnitine pathway (Papamandjaris et al.,\n1998). These FAs can “ﬂip-ﬂop” across the inner mitochondrial membrane by simple diffusion, Medium-chain ACSs located in\nthe matrix then activate them intramitochondrially. Thus, the subcellular location of the ACS responsible for activation of long-\nchain FAs (outer mitochondrial membrane) versus medium-chain FAs (mitochondrial matrix) dictates whether entry into the b-\noxidation pathway is regulated (long-chain FA) or unregulated (medium-chain FA). The latter is of particular nutritional\nsigniﬁcance for newborns, as breast milk is rich in medium-chain FAs. Bypassing the regulated carnitine transport pathway allows\nfor more rapid energy production.\nThe four primary enzyme activities of mitochondrial b-oxidation act on intramitochondrial fatty acyl-CoA by: (1) dehydroge-\nnation\n(acyl-CoA\ndehydrogenase),\n(2)\nhydration\n(enoyl-CoA\nhydratase),\n(3)\ndehydrogenation\n(3-hydroxyacyl-CoA\ndehydrogenase), and (4)",
+  "token_count": 400
+}

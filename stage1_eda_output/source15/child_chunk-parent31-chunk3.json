@@ -1,0 +1,9 @@
+{
+  "child_id": "source15-p31-c3",
+  "parent_id": "source15-p31",
+  "source_key": "source15",
+  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: Appendix E—Anthropometric Assessment | Pages 954-972]\n\n Th ese examples assume that AC is 30 cm and TSF is\n35 mm (2.5 cm). (It is essential to convert TSF to centimeters \nfor the following computations.)\n1. Determine total upper arm area (TAA):\nTAA (cm2) \u0002 AC2/4 \u0003 π\nTAA \u0002 302/12.57 \u0002 71.6 cm2\n2. Determine Uncorrected AMA:\nAMA (cm2) \u0002 [AC \u0004 (TSF \u0003 π)]2/4 \u0003 π\nAMA \u0002 [30 \u0004 (2.5 \u0003 3.1416)]2/12.57\nAMA \u0002 490.44/12.57\nAMA \u0002 39 cm2\n3. Determine corrected AMA (AMAC):\nMales \u0002 AMAC \u0004 10 cm2 \u0002 29.0 cm2\nFemales \u0002 AMAC \u0004 6.5 cm2 \u0002 32.5 cm2\n4. Determine the AFA as the diﬀ erence between TAA and \nuncorrected AMA:\nAFA (cm2) \u0002 TAA \u0004 AMA\nAFA \u0002 71.6 \u0004 39.0 \u0002 32.6 cm2\nNote: Arm fat index (AFI) or percent fat area (%FA) can be\ndetermined as follows:\nAFI or %FA \u0002 (AFA/TAA) \u0003 100\nAFI or %FA \u0002 (32.6/71.6) \u0003 100 \u0002 45.5%\nANTHROPOMETRIC PARAMETERS\nMEASUREMENT PROCEDURES\nMid-Upper Arm Circumference (AC)\n1. Keeping the subject’s right arm parallel to the body, bend \nthe elbow 90 degrees.\n2. Using either a metallic tape or",
+  "token_count": 400
+}

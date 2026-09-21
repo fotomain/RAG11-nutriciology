@@ -1,0 +1,9 @@
+{
+  "child_id": "source15-p10-c49",
+  "parent_id": "source15-p10",
+  "source_key": "source15",
+  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 10 Nutritional Genomics | Pages 224-248]\n\n a long association with cancer risk,\nincluding cancer of the colon, and this risk appears to escalate \nin the presence of high alcohol intake. However, results are \nnot always consistent, suggesting individual eﬀ ects may vary \nbased on genomic characteristics. Polymorphisms in the\nmethylenetetrahydrofolate reductase gene, primarily [MTHFR \n667C>T (ala>val)], can reduce MTHFR activity.32 As men-\ntioned previously, MTHFR plays a critical role in metaboliz-\ning 5,10-methylenetetrahydrofolate (5,10-methylene THF) to\n5-methyl-tetrahydrofolate (5-methyl THF), which is necessary \nfor remethylation of homocysteine to methionine, formation\nof S-adenosylmethionine, and, therefore, DNA methyla-\ntion. Because 5,10-methylene THF itself is also necessary for\nproduction of thymine, both forms of folate are needed in \nadequate quantities for genome health. Folate deﬁ ciency and \nreduced activity of MTHFR can thus contribute to both com-\npromised genome integrity and the risk of acquiring genetic \ndamage and cancer.32, 33 But it is possible high folate intake \nand consequent hypermethylation of tumor suppressors could\nincrease cancer risk as well. Examples of both are present in \nthe research literature.\nTh e interaction between folate status and MTHFR polymor-\nphisms in carcinogenesis is illustrated by ﬁ ndings from the\nHealth Professional Follow-Up Study.61 Th at study showed that \nindividuals homozygous for the TT mutation at nucleotide 667 \n(thus encoding valine from both copies of the gene) tend to\naccumulate 5,10-methyl THF intracellularly.",
+  "token_count": 400
+}

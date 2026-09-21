@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p85-c11",
+  "parent_id": "source16-p85",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Alcohol: Absorption, metabolism, and physiological effects | Pages 882-897]\n\n This may explain some (but not all) of the differences\nbetween the effects of alcohol on men and women.\nCatalase\nPeroxisomal catalase, which requires the presence of hydrogen peroxide (H2O2), is usually of little signiﬁcance in the metabolism of\nethanol (Lieber, 2005). Metabolism of ethanol by ADH inhibits catalase activity because H2O2 production is inhibited by the\nreducing equivalents (NADH) produced by ADH (Lieber, 2005). However, metabolism of ethanol by catalase may be more signif-\nicant if the other pathways for ethanol metabolism are inhibited, for example, by mitochondrial damage in a chronic alcoholic.\nMicrosomal ethanol oxidizing system\nChronic administration of ethanol with nutritionally adequate diets increases clearance of ethanol from the blood. The MEOS has\na higher Km for ethanol (8–10 mmol L\u00021) than ADH (0.2–2.0 mmol L\u00021) so at low BEC, ADH is more important (Lieber, 2005).\nCYTOSOL\nEthanol\nAcetaldehyde\nNAD+\nNADH + H+\nAlcohol\nDehydrogenase\nHepatocyte\nPEROXISOME\nEthanol\nAcetaldehyde\nCatalase\nH2O2\n2 H2O\nENDOPLASMIC RETICULUM\nEthanol\nAcetaldehyde\nNADP+\nNADPH + H+\nMicrosomal Ethanol Oxidizing System\nCYP2E1\nOxidised\nReduced\nO2\nH2O\nNADPH\nCytochrome P450\nReductase\nAcetaldehyde\nAcetate\nAldehyde\nDehydrogenase\nNAD+\nNADH + H+\nMITOCHONDRIA\n",
+  "token_count": 400
+}

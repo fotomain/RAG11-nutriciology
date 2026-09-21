@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p82-c20",
+  "parent_id": "source16-p82",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Nutrigenomics | Pages 829-840]\n\nase; FATP, fatty acid\ntransport protein.\n202\nNutrigenomics\n\n\nFree fatty acids bound to FABP, acyl-CoA or some fatty acid metabolites, such as eicosanoids, can:\n-\nInduce a cascade of events leading to a covalent modiﬁcation of a transcription factor, e.g., phosphorylation, altering its\ntransactivation capacity.\n-\nDirectly bind and activate a transcription factor.\n-\nInﬂuence the transcription rate of a transcription factor and its synthesis.\n-\nModify the mRNA stability of both transcription factors and other target genes.\nSpeciﬁc transcription factors have been identiﬁed in mammals that respond to dietary lipids. These include at least seven major\nfamilies of factors: PPAR (PPAR-a, PPAR-b, PPAR-d and PPAR-g), three variants of SREBP (SREBP-1a, SREBP-1c and SREBP-2),\nHNF-4, LXR-a and LXR-b, ChREBP, nuclear factor enhancer of activated B-cell kappa light chains (NF-kB) and Toll-like receptors\n(TLRs) (Contreras et al., 2013).\nThe effects of fatty acids are mediated either directly by their speciﬁc binding to various nuclear receptors (PPAR, LXR, HNF-4a),\nproducing changes in the trans activation of these transcription factors, or indirectly by changes in the abundance of transcription\nregulatory factors (SREBP-1c, ChREBP). On the other hand, fatty acid-responsive transcription factors bind to a fatty acid recogni-\ntion sequence or response element in the promoter of a target gene region, as monomers, as homodimers or as heterodimers with\nother transcription factors, e.g., retinoid receptors (RXR). Fig. 3 shows the main effects on",
+  "token_count": 400
+}

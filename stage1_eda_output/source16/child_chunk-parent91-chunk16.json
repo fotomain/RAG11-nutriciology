@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c16",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n the 24-carbon primary bile acids chenodeoxycholate and cholate, respectively.\nFurthermore, peroxisomal b-oxidation is required for synthesis of docosahexaenoic acid (DHA 22:6u3) (see Fatty acid unsaturation\nand the essential FAs, below).\nFatty acid a-oxidation and u-oxidation\nOther important FA catabolic pathways include a-oxidation (reviewed in Wanders, 2014) and u-oxidation (reviewed in Miura,\n2013). 3-Methyl-branched FAs, for example, phytanic acid (3,7,11,15-tetramethyl-16:0; Fig. 1), present in ruminant meats, fats,\ndairy products, and certain ﬁsh consumed in the diet, cannot be degraded by b-oxidation due to the methyl group on carbon-3.\nShortening the FA chain by one-carbon (a-oxidation; Fig. 5) effectively shifts the position of the methyl group to carbon-2, thereby\nallowing subsequent degradation via b-oxidation. Phytanic acid is ﬁrst activated to phytanoyl-CoA,translocated into peroxisomes\nvia ABCD3, and is then hydroxylated on the 2-carbon by phytanoyl-CoA 2-hydroxylase (PHYH). 2-Hydroxyphytanoyl-CoA lyase\n(HACL1) cleaves a one-carbon CoA derivative, formyl-CoA, yielding an aldehyde, pristanal. A spice variant of fatty aldehyde dehy-\ndrogenase (ALDH3H2) is thought to oxidize pristanal to pristanic acid (2,6,10,14-tetramethyl-15:0",
+  "token_count": 400
+}

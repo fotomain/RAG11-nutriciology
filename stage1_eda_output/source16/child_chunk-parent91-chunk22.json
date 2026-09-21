@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c22",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\nPþ to NADPH in the process. Two reactions in the pentose phosphate pathway, glucose-6-phosphate dehy-\ndrogenase (G6PD) and 6-phosphogluconate dehydrogenase (PGD), also yield NADPH.\nMitochondrial fatty acid synthesis\nWhile the function of the cytoplasmic pathway for de novo synthesis of FAs is well-deﬁned, the presence of a similar pathway in\nmitochondria remains somewhat enigmatic. Typically, metabolic pathways for the synthesis and degradation of a compounddin\nthis case, FAdare not found in the same subcellular compartment. Nevertheless, there is ample evidence for a mitochondrial FA\nsynthesis pathway (reviewed in Kastaniotis et al., 2017). Acetyl-CoA is abundant in mitochondria, but no acetyl-CoA carboxylase\nenzyme has been found in this organelle in humans. It has been speculated that mitochondrial propionyl-CoA carboxylase (PCC)\ncan also accept acetyl-CoA as substrate, yielding malonyl-CoA. Alternatively, malonate entering mitochondria can be activated to\nmalonyl-CoA via the acyl-CoA synthetase ACSF3.\nUnlike cytoplasmic FA synthesis, most enzymes of the mitochondrial pathway are individual proteins rather than a multienzyme\ncomplex. The growing acyl chain is tethered to acyl carrier protein (ACP). A molecule of malonyl-CoA condenses with a primer\nacetyl-CoA via 3-ketoacyl-ACP synthase (OXSM), forming the 4-carbon 3-ketoacid. Subsequent reduction, dehydration, and second\nreduction steps are catalyzed by oxoacyl-ACP reductase (CBR4), 3-oxoacyl-ACP reductase (HDT",
+  "token_count": 400
+}

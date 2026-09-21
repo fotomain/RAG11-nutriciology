@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p131-c8",
+  "parent_id": "source16-p131",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Doubly labeled water | Pages 1395-1404]\n\nO dilution space and kO is the fractional turnover rate of H2\n18O. However, note that provides us with two\nequations and two unknowns, which when combined allows us to solve for rCO2:\nrCO2 ¼ 1\n2 ðNOkO \u0002 NDkDÞ\nFig. 2\nSchematic image of the doubly labeled water method. (A) After ingesting the dose of DLW, the labeled compounds dilute in the body water\npool and then equilibrate with the H2O and CO2. The washout kinetics of both isotopes and their concentrations decrease exponentially toward\nnatural abundance levels due to the elimination of water and CO2. (B) The difference in the turnover rates of 2H and 18O is proportional to CO2\nproduction.\n54\nDoubly labeled water\n\n\nHowever, this equation is not exact because it does not take into account isotope fractionation. Fractionation occurs when one\nisotope is discriminated against during a change in state (liquid to water vapor) or exchange between molecules (water to CO2). The\nfractionation factor is <1 when the heavy isotope is discriminated against, ¼1 when there is no discrimination, or >1 when the light\nisotope is discriminated against. At 37 \u0005C, the isotope fractionation factors are as follows: 0.946 for 2H and 0.991 for 18O between\nliquid to water vapor and 1.038 for 18O between water and CO2.\nIn addition, to further increase the accuracy, this equation needs to take into account the difference between dilution spaces (ND\nand NO) and TBW (N) across the lifespan. With regard to the former, a small amount, which can vary slightly particularly during the\nﬁrst few years after birth, of both 2H (",
+  "token_count": 400
+}

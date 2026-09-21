@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c9",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n-CoA\ndehydrogenase),\n(2)\nhydration\n(enoyl-CoA\nhydratase),\n(3)\ndehydrogenation\n(3-hydroxyacyl-CoA\ndehydrogenase), and (4) cleavage (3-oxoacyl-CoA thiolase). The products are fatty acyl-CoA that has been shortened by 2 carbons,\nacetyl-CoA, FADH2 (from reaction 1) and NADH (from reaction 3). FADH2 and NADH directly enter the electron transport\nchain, yielding approximately 5 ATP molecules. Acetyl-CoA can be further degraded to CO2 and water by the tricarboxylic acid cycle,\nyielding additional ATP molecules. Importantly, the entire b-oxidation process can be repeated multiple times using the shortened\nfatty acyl-CoA as substrate until the entire carbon skeleton of the FA has been degraded to 2-carbon acetyl-CoA units. Complete\noxidation of one molecule of 16:0 (b-oxidation þ tricarboxylic acid cycle) yields more than 160 ATP molecules.\nFig. 2\nMitochondrial fatty acid b-oxidation pathway. Long-chain FAs are activated, converted to carnitine esters, transported across the inner\nmitochondrial membrane, and re-converted to their CoA thioester once in the mitochondrial matrix. Four sequential mitochondrial enzyme reactions\nshorten the fatty acyl-CoA by two carbons, which are released as acetyl-CoA. The shortened fatty acyl-CoA can undergo additional cycles of\ndegradation until the entire carbon chain has been converted to acetyl-CoA units. FADH2 and NADH, produced in reactions 1 and 3, respectively, can\nenter the electron transport chain for ATP production. Acetyl-CoA enters the tric",
+  "token_count": 400
+}

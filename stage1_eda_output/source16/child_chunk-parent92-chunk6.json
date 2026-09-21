@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p92-c6",
+  "parent_id": "source16-p92",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\nBeef meat, lean, ca. 5% fat, raw” is\n22.5 g per 100 g edible portion on fresh weight basis (EP) while for “Beef meat, lean, ca. 5% fat, boiled (without salt), drained”\nit is 37.5 g per 100 g EP. For cassava, the part of the plant, cooking method and color affect the composition. In the same FCT,\nwhen we compare different plant parts, we can ﬁnd that the dietary ﬁber content for “Cassava, tuber, white ﬂesh, raw” is 3.7 g\nper 100 g EP while for “Cassava, leaves, fresh, raw” it is 7.9 g per 100 g EP. Moreover, the vitamin A content in retinol equivalents\n(RE) is very different due to tuber color: white raw cassava tuber contains 4 mg RE per 100 g EP while the yellow ﬂeshed raw cassava\ncontains 75 mg RE per 100 g EP. These examples demonstrate the importance of detailed food description. as the nutritional\ncontents change drastically depending on their characteristics. An ambiguous food description is likely to introduce errors into\nfood matching and therefore into nutrient intake estimations.\nSome food description systems include the food grouping and/or food coding, such as the food classiﬁcation and description\nsystem (FoodEx2) (European Food Safety Authority, 2015) or the LanguaL food classiﬁcation system (Møller and Ireland, 2018).\nFood groups help to ﬁnd the foods easily and to deﬁne certain quality checks at the food group level. Common food groups used are\nin Table 1.\nIn an FCT/FCDB, each food entry should have their own unique food code. Often, it is a combination of",
+  "token_count": 400
+}

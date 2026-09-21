@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p82-c13",
+  "parent_id": "source16-p82",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Nutrigenomics | Pages 829-840]\n\n glucose and lipid metabolism in the liver. Post-translational modiﬁcations by protein acetylation and O-GlcNAcylation\nactivate ChREBP in response to glucose in liver cells. ACC, acetyl CoA carboxylase; CBP/p300, ChREBP coactivators; ChoRE, carbohydrate response\nelement; ChREBP, carbohydrate response element-binding protein; Elovl6, fatty acid elongase; FAS, fatty acid synthase; F2,6-BP, fructose 2,6-\nbisphosphate; G6P, Glucose-6-phosphate; GK, Glucokinase; HAT, Histone acetyltransferase; HBP, Hepatic pyruvate kinase; LPK, Hepatic pyruvate kinase;\nOGT, O-GlcNAc transferase; PEP, Phosphoenol pyruvate; SCD1, Stearoyl-CoA desaturase; X-5P, Xylulose-5-phosphate.\n200\nNutrigenomics\n\n\nthe synthesis of ChREBPa, which in turn will bind to the speciﬁc promoter of ChREBPb and that increased transcription of the latter\nis responsible for many of the effects of carbohydrates in adipose tissue (Benhamed et al., 2015).\nAlthough ChREBP responds to circulating levels of glucose, it was established early on that glucose metabolization was necessary\nfor regulation to occur. In most tissues, glucose enters by diffusion mediated by speciﬁc transporters called GLUT and once inside\nthe cell, it must be metabolized in order to exert its transcriptional regulatory activity. Since in liver the ﬁrst stage of glucose metab-\nolism produces glucose-6-phosphate (G6P), this was initially proposed as the molecule responsible for glucose-mediated signaling\neffects, particularly in lipogenesis-related genes",
+  "token_count": 400
+}

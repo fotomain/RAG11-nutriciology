@@ -1,0 +1,9 @@
+{
+  "child_id": "source15-p18-c15",
+  "parent_id": "source15-p18",
+  "source_key": "source15",
+  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 18 Diseases of the Renal System | Pages 561-602]\n\n that approximation of GFR through calculations\nis the method of choice to evaluate an individual’s kidney func-\ntion. Th e National Kidney Foundation (NKF) K/DOQI (Kidney \nDisease Outcomes Quality Initiative) Guideline recommends \nusing equations based on serum creatinine but adjusted for \nethnicity, gender, and age.11 Th e two equations most frequently \ncited are the Modiﬁ cation of Diet in Renal Disease (MDRD)\nStudy equation and the Cockcroft-Gault equation.\nTh e Cockcroft-Gault equation considers the eﬀ ects of age, \nsex, and body weight on creatinine generation, thereby adjust-\ning serum creatinine values to accurately reﬂ ect creatinine \nclearance:\nGFR \u0002  [(140 \u0003 age) \u0004 body weight (kg) \u0004 0.85 if female] \n÷ [72 \u0004 serum creatinine (mg/dL)]\nMore recently, the Modiﬁ cation of Diet in Renal Disease\n(MDRD) modiﬁ ed GFR equation is considered to be the “gold \nstandard” of measurement (in addition to incorporating the \ninﬂ uence of age and gender, and the eﬀ ects of race, three bio-\nchemical measures are included):12\nGFR \u0002  170 \u0004 serum creatinine\u00030.999 \u0004 age\u00030.176 \u0004 (0.762 if female) \n\u0004 (1.20 if black race) \u0004 BUN–0.17 \u0004 serum albumin0.320\nWeb-based GFR calculators, such as the one on the NKF web-\nsite (http://www.kidney.org), are also available.\nPlasma creatinine concentration varies inversely with GFR. Th e \nnormal range of serum creatinine is 0.8 to 1.",
+  "token_count": 400
+}

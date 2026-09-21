@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p45-c12",
+  "parent_id": "source16-p45",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Selenium | Pages 431-438]\n\n to selenophosphate by the selenoprotein selenophosphate synthetase 2 (SPHS2)\nwhich is the main precursor for selenocysteine synthesis. In fact, the amino acid selenocysteine is the only amino acid that does\nnot have its own tRNA synthetase. Instead, this amino acid is synthesized on its cognate tRNA in a three step process. First, the\ntRNA[Ser/Sec] is loaded with serine which becomes phosphorylated. In the third step of the process, the synthesis of\nselenocysteinyl-tRNA[Ser/Sec] is catalyzed by selenocysteine synthase (SEPSECS).\nThe selenocysteinyl residue is then incorporated into selenoproteins by the UGA codon, which has the dual function of seleno-\ncysteine insertion and termination of protein synthesis. An RNA stem–loop structure, designated the selenocysteine insertion\nsequence (SECIS) element in the 30 untranslated region of eukaryotic mRNAs, directs incorporation of selenocysteine into proteins\nby stabilizing the ribosome and selenoprotein mRNAs. Additional factors including the SECIS binding protein 2 (SECISBP2) are\nneeded to support these processes. The turnover of selenoproteins results in the release of selenocysteine which is again degraded\nto selenide by selenocysteine b-lyase. In the liver, the highest expression levels are observed for the selenoproteins SELENOP and\nGPX1. While SELENOP ensures the selenium transport from the liver to other organs, high GPX1 levels within the liver might serve\nas an indirect selenium storage which can be immediately released upon limited selenium supply.\nFig. 1\nIngest",
+  "token_count": 400
+}

@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c10",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n chain has been converted to acetyl-CoA units. FADH2 and NADH, produced in reactions 1 and 3, respectively, can\nenter the electron transport chain for ATP production. Acetyl-CoA enters the tricarboxylic acid (TCA) cycle, yielding additional NADH and FADH2 for\nATP production. Mitochondrial b-oxidation is the primary pathway for recovering the energy stored as triacylglycerol, or “fat”.\nFatty acids: Metabolism\n319\n\n\nDepending on the acyl chain length, the ﬁrst enzymatic step of mitochondrial b-oxidation is carried out by either short-,\nmedium-, or very long-chain acyl-CoA dehydrogenase (ACADS, ACADM, and ACADVL, respectively). Long-chain acyl-CoA dehy-\ndrogenase (ACADL) functions in rodents but not in humans. Instead, VLCAD acts on long-chain acyl-CoAs in most human tissues\nwhereas another dehydrogenase, ACAD9, performs this function in brain. For medium-to long-chain fatty acyl-CoAs, the three\nsubsequent b-oxidation reactions are catalyzed by mitochondrial trifunctional protein (HADHA), whereas three separate enzymes\n(ECHS1, HADH, and ACAA2) are needed for oxidation of short-chain acyl-CoAs. Genetic defects in essentially all of the mitochon-\ndrial b-oxidation enzymes, as well as the carnitine transport system, are known. If unrecognized, these FA oxidation disorders are\noften fatal, and are a recognized cause of sudden infant death syndrome (SIDS).\nFAs with an odd number of carbons in their acyl chain are degraded in the same manner as even-chain FAs by the normal b-\noxidation pathway. However, the ﬁnal degradation product is",
+  "token_count": 400
+}

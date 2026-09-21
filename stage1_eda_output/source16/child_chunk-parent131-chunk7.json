@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p131-c7",
+  "parent_id": "source16-p131",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Doubly labeled water | Pages 1395-1404]\n\n of the CO2 ﬂux through the body (Fig. 2A). Because CO2 is an end product of energy metabolism, one can\nuse the difference between the two turnover rates to measure CO2 production (Fig. 2B), and from that to calculate energy\nexpenditure.\nThe DLW method is, therefore, a form of indirect calorimetry because it measures a product produced during the oxidation of\nfuel in the body and not a direct measure of the heat released during that oxidation. This form of indirect calorimetry has become\nthe method of choice for the measurement of energy metabolism in free-living animals including humans. The isotope dilution\nallows for the dynamic measurement of each of the water isotopes over time. Because 2H exits the body almost exclusively as water,\nit is possible to calculate the water elimination rate (rH2O):\nrH2O ¼ NDkD\nwhere ND is the deuterium dilution space and kD is the fractional turnover rate of 2H2O, which equals:\nkD ¼ ðLn½D\u00042 \u0002 Ln½D\u00041Þ\nðt2 \u0002 t1Þ\nwhere the slope of deuterium enrichment is calculated by the difference between isotopic abundances (Ln½D\u00042 and Ln½D\u00041) in the\nsamples across the time interval after the dose administration (t2 and t1). Similarly, 18O’s elimination rate ðrH2O þ2rCO2Þ can be\ncalculated:\nrH2O þ 2rCO2 ¼ NOkO\nwhere NO is the 18O dilution space and kO is the fractional turnover rate of H2\n18O. However, note that provides us with two\nequations and two unknowns, which when combined allows us to solve for rCO2:\nrCO2",
+  "token_count": 400
+}

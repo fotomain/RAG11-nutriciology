@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p29-c6",
+  "parent_id": "source16-p29",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Iodine: Physiology, dietary sources, and requirements | Pages 292-300]\n\nes the iodination of tyrosyl residues of thyroglobulin (Tg)\nproducing either monoiodotyrosine (MIT) or diiodotyrosine (DIT), the precursors of thyroid hormones (Dunn, 1995). TPO\nthen catalyzes the coupling of the phenyl groups of the iodotyrosines through a diether bridge to form the thyroid hormones.\nTwo residues of DIT couple within Tg to form thyroxine (T4), or one DIT and one MIT to form triiodothyronine (T3). In the thyroid,\nmature Tg, containing 0.1–1.0% of its weight as iodine, is stored extracellularly in the luminal colloid of the thyroid follicle. Approx-\nimately one-third of Tg’s iodine is in T4 and T3, the remainder being stored in the inactive precursors DIT and MIT. The iodine in the\ninactive precursors is not released into circulation, but instead is removed from the tyrosine moiety by a speciﬁc deiodinase and then\nrecycled within the thyroid gland. This process is particularly important for iodine conservation in situations of iodine deprivation\n(Fig. 1).\nBefore secretion from the thyroid, T4 and T3 must be released from peptide linkage within Tg. Tg retrieved by micropinocytosis\npasses ﬁrst through the endosomal system, where proteolysis and hormone release is initiated, then into lysosomes, where the\nprocess is completed and T4 and T3 are released into the circulation. T4 is secreted in higher quantities from the thyroid compared\nwith T3. Once in the circulation, T4 and T3 rapidly attach to several binding proteins synthesized in the liver, including thyroxine-\nbinding globulin, transthyretin, and albumin.",
+  "token_count": 400
+}

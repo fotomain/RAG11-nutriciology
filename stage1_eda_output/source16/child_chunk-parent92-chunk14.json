@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p92-c14",
+  "parent_id": "source16-p92",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\nwater content ¼ 54.4 g/100 g EP)\n75\n%\nOf dry matter (34.2 g fat/45.6 g DM)\n75\n%\nFat in dry matter\nAdapted from FAO/INFOODS e-Learning Course on Food Composition Data (FAO, 2013).\nFood composition data 2021\n333\n\n\nTable 4\nComponents, units, analytical/determination method/deﬁnition and corresponding INFOODS component identiﬁer listed in the FAO/\nINFOODS Food Composition Table for Western Africa (WAFCT 2019), expressed per 100 g edible portion.\nComponent\nUnit\nAnalytical/determination method/deﬁnition\nINFOODS component\nidentiﬁer (tagname)\nEdible portion 1\n–\nEdible portion coefﬁcient: from as purchased to as\ndescribed\nEDIBLE1\nEdible portion 2\n–\nEdible portion coefﬁcient: from as described to as\neaten\nEDIBLE2\nSum of proximates (SOP)\nG\n¼Water þ protein þ fat þ available\ncarbohydrates þ ash þ dietary ﬁber þ alcohol\nSOP\nEnergy\nkJ, kcal\nCalculated (see formula below)\nENERC\nWater\ng\nDrying\nWATER\nProtein, total\ng\nCalculated by multiplying the nitrogen conversion\nfactor (XN) times the analyzed total nitrogen\n(mainly Kjeldahl method)\nPROTCNT\nFat, total or [fat by Soxhlet]\ng\nMixed solvent extraction or [Soxhlet method with\ncontinuous extraction]\nFAT of [FATCE]\nCarbohydrates, available by difference\ng\n¼100 \u0002 (water þ protein þ fat þ ash þ dietary\nﬁber þ alcohol)\nCHOAVLDF\nFiber, total dietary or [",
+  "token_count": 400
+}

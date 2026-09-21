@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p168-c13",
+  "parent_id": "source16-p168",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Ketosis | Pages 1775-1783]\n\nochondrial acetyl-CoA pool and hence energy production. Some of the acetyl-CoA can be transported to the cytosol in the form\nof citrate to act as a precursor for lipogenesis (Figure 6).\nCytosolic Pathway\nThe cytosol of tissues where active lipogenesis occurs (adipose tissue, developing brain, lactating mammary gland, and liver)\ncontains an enzyme, acetoacetyl-CoA synthetase, which converts acetoacetate to acetoacetyl-CoA (Figure 6):\nacetoacetateþATPþCoA→acetoacetyl \u0002 CoAþAMPþpyrophosphate\nIts activity is at least an order of magnitude lower than that of the mitochondrial 3-oxoacid-CoA transferase, whereas its afﬁnity\nfor acetoacetate is appreciably higher. The presence of acetoacetyl-CoA thiolase in the cytosol allows the conversion of acetoacetate\nto acetyl-CoA and then to lipids without the involvement of the mitochondria.\nBrain cytosol also contains 3-hydroxy-3-methylglutaryl-CoA synthase, allowing acetoacetate to act as a direct precursor for sterol\nsynthesis. Evidence from in vivo experiments with 14C-labeled acetoacetate has conﬁrmed the existence of this pathway in devel-\noping brain and liver. The cytosolic route for acetoacetate utilization can be seen as a mechanism for directing this substrate to lipid\nor sterol synthesis rather than to oxidation.\nKetosis\nThe concentration of ketone bodies in the blood at any time represents a balance between the rate of hepatic ketogenesis and the\nrate of utilization by peripheral tissues. It is generally assumed that an increase in ketogenesis leads to a rise in blood ketone bodies,\nwhich",
+  "token_count": 400
+}

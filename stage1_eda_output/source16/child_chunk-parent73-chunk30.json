@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p73-c30",
+  "parent_id": "source16-p73",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Energy metabolism | Pages 745-758]\n\n the inner membrane of the mitochondria (Fig. 8).\nNADH enters at complex 1 where it is oxidized to NADþ with the Hþ transferring to FADH to yield FADH2. At this step a number\nof protons are pumped from the mitochondrial matrix into the inter-membrane space. The FADH2, both from NADH oxidation and\npathways such as b-oxidation and the TCA cycle, is oxidized at Complex II by reduction of ubiquinone (coenzyme Q), and then on\nto the cytochromes each one being reduced and then re-oxidized as it reduces the next one. At complexes III and IV more protons are\npumped into the inter-membrane space. The cytochromes, named because of their coloration, contain a reactive ferric ion that\nbecomes reduced to ferrous and then ﬁnally is re-oxidized at Complex IV by cytochrome oxidase (a copper containing enzyme)\nwith the electrons passed along to the ﬁnal acceptor oxygen to yield water. Thus the oxidative metabolism of acetyl CoA yields\nCO2 and water as the end products. The result of this process is a buildup of protons in the intermembrane space (crista space)\nforming a what is known as the proton-motive force. These protons then re-enter the matrix via complex V, the ATP synthase. In\nso doing they drive a “motor” subunit in the matrix that powers the formation of ATP from ADP and Pi (Berdanier and Berdanier,\n2015; Bronk, 1999; Frayn and Evans, 2019; Salway, 2004). The number of protons pumped per NADH oxidized is commonly\naccepted as 10. From this textbooks usually state that total oxidation of glucose will yield",
+  "token_count": 400
+}

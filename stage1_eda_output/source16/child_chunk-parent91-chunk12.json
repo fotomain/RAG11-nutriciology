@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c12",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\noxidation of FAs that yield a chain-shortened FA-CoA, acetyl-CoA (or\npropionyl-CoA), NADH, and FADH2 (Fig. 4) (reviewed in Wanders, 2014, and Wanders et al., 2020). Unlike mitochondria, perox-\nisomes do not contain an electron transport chain or tricarboxylic acid cycle and thus FA degradation is not directly coupled to\nenergy production. Typically, peroxisomes degrade FA substrates that cannot be catabolized in mitochondria. Peroxisomes are\nindispensable for the degradation of saturated very long-chain FAs (VLCFA; containing more than 22 carbon atoms), which are\nneurotoxic if allowed to accumulate. Detoxiﬁcation via several cycles of peroxisomal b-oxidation decreases VLCFA chain-length\nto 8–10 carbons, after which they are converted to carnitine derivatives, exit peroxisomes, and translocate to the mitochondrion\nFig. 3\nKetone body synthesis. In the mitochondrion of liver hepatocytes, acetyl-CoA derived from b-oxidation is converted to “ketone bodies”,\nprimarily acetoacetate and b-hydroxybutyrate, rather than enter the tricarboxylic acid cycle. Two molecules of acetyl-CoA condense in a reversal of\nthe last b-oxidation reaction (3-oxoacyl-CoA thiolase). The product, acetoacetyl-CoA, condenses with another molecule of acetyl-CoA, yielding b-\nhydroxy, b-methyl-glutaryl-CoA (HMG-CoA), a reaction catalyzed by HMG-CoA synthase. Cleavage of HMG-CoA by HMG-CoA lyase yields\nacetoacetate",
+  "token_count": 400
+}

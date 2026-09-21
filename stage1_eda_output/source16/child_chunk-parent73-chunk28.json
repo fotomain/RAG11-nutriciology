@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p73-c28",
+  "parent_id": "source16-p73",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Energy metabolism | Pages 745-758]\n\n2 and NADH and yields succinyl CoA. The CoASH from\nsuccinyl CoA is released involving a substrate level phosphorylation of GDP to GTP (an ATP equivalent) to produce succinate\n(4 carbons). Further metabolism to fumarate yields FADH2, and then to malate followed by another dehydrogenase yielding\nanother NADH and regeneration of the OAA. The TCA rotates twice for each glucose molecule (Berdanier and Berdanier, 2015;\nBronk, 1999; Frayn and Evans, 2019; Salway, 2004).\nACETYL CoA   +   ACETYL CoA\nBETA HYDROXYBUTYRATE\nNADH\nCoASH\nNAD\nACET0ACETYL CoA\nACETOACETATE\nACETYL CoA\nSUCCINYL CoA\nCoASH\nSUCCINATE\nHMG CoA\nACETOACETYL CoA\nCoASH\nAcetyl CoA \nACETOACETATE\nACETYL CoA + ACETYL CoA\nNADH\nNAD\nBETA HYROXYBUTYATE\nKETONE BODY SYNTHESIS\nKETONE BODY UTLIZATION\n+\n+\nSuccinyl CoA 3-ketoacid\ntransferase\nFig. 6\nKetone body metabolism. In the liver the end products of fatty acid b-oxidation, acetyl CoA, are joined to make Acetoacetyl CoA. An\nadditional Acetyl CoA is added to form HMG CoA when then cleaved to release acetyl CoA and form acetoacetate. Acetoacetate can be reduced using\nNADH to form b-hydroxybutyrate. Acetoacetate and b-hydroxybut",
+  "token_count": 400
+}

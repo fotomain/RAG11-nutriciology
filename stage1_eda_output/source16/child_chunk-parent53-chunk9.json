@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p53-c9",
+  "parent_id": "source16-p53",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Vitamin B6 | Pages 508-522]\n\nridoxine.\nVitamin B6\n491\n\n\nsecreted into the CSF bound to albumin. Uptake of B6 from the CSF requires dephosphorylation by TNSALP. Supply of B6 to other\ntissues of the body from plasma PLP is also dependent on TNSALP.\nThe body conserves B6 by means of a salvage pathway. PMP generated when PLP-dependent enzymes catalyze a partial reaction\n(e.g., the ﬁrst half reaction of a transamination) or when they are catabolized can be converted back to PLP by PNPO. Free vitamers\ncan be rephosphorylated by pyridoxal kinase (Wilson et al., 2019).\nCellular homeostasis\nAll cells in the body require PLP bound to their PLP-dependent enzymes, however, concentrations of free PLP over 10 mM can\ninhibit enzymes (Christmann-Franck et al., 2007) and to avoid unwanted reactions of PLP the free PLP is maintained at 1 mM\n(di Salvo et al., 2011). Mechanisms for controlling the free PLP concentration are thought to include: (i) inhibition of pyridoxal\nkinase and PNPO by PLP; (ii) transfer of newly formed PLP from either enzyme to apo-B6-enzymes by direct channeling; (iii) hydro-\nlysis of excess PLP by phosphatases; (iv) binding of PLP to abundant intracellular proteins e.g., glycogen phosphorylase in muscle\nand hemoglobin in red cells; (v) binding of PLP to the pyridoxal phosphate homeostatic protein (PLPHP aka PLP-binding protein,\nPLPBP, PROSC). Deﬁciency of the latter was found to be a cause of impaired cellular PLP homeostasis and B6-dependent",
+  "token_count": 400
+}

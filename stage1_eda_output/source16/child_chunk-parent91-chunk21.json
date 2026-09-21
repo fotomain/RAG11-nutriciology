@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c21",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n two isoforms of acetyl-CoA carboxylase. ACC1 is found in the\nabove-named lipogenic tissues. ACC2 is found in many tissues that are not capable of synthesizing FAs, for example, heart. It is\nthought that the primary role of the second isozyme is to regulate mitochondrial FA b-oxidation by synthesizing malonyl-CoA\nwhen cellular energy needs are being met by carbohydrate metabolism.\nThe subsequent reactions of cytoplasmic FA synthesis in humans are catalyzed by a multienzyme complex, fatty acid synthase\n(FASN). After binding of one molecule each of acetyl-CoA and malonyl-CoA to unique binding sites, a condensation reaction occurs\nin which CO2 is released, and an enzyme-bound 4-carbon3-ketoacid is formed. Subsequent reactions include reduction, dehydra-\ntion, and a second reduction. The intermediates produced in these reactions are similar to those seen in b-oxidation (Fig. 2), in\nreverse order. The product (enzyme-bound) is the saturated FA 4:0, which can then condense with another molecule of\nmalonyl-CoA to start the process anew. After seven such cycles, the ultimate product, 16:0, is released from the complex.\nThe reductive steps in FA synthesis require NADPH, derived from two sources. Oxaloacetate produced by the ACLY reaction is\nconverted to malate (via cytoplasmic malate dehydrogenase). Malic enzyme (ME1) then catalyzes the decarboxylation of malate to\npyruvate, reducing NADPþ to NADPH in the process. Two reactions in the pentose phosphate pathway, glucose-6-phosphate dehy-\ndrogenase (G6PD) and 6-phosphogluconate dehydrogenase (",
+  "token_count": 400
+}

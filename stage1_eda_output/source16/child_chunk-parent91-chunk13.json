@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p91-c13",
+  "parent_id": "source16-p91",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\nhydroxy, b-methyl-glutaryl-CoA (HMG-CoA), a reaction catalyzed by HMG-CoA synthase. Cleavage of HMG-CoA by HMG-CoA lyase yields\nacetoacetate, regenerating one molecule of acetyl-CoA. Acetoacetate is reversibly reduced to b-hydroxybutyrate via the NAD-dependent enzyme b-\nhydroxybutyrate dehydrogenase. These ketone bodies can traverse the inner mitochondrial membrane, eventually reaching the bloodstream for\nultimate utilization by brain and other tissues.\n320\nFatty acids: Metabolism\n\n\nfor further catabolism. Degradation of xenobiotic fatty acyl-like compounds (e.g., sulfur-substituted FAs and many nonsteroidal\nanti-inﬂammatory drugs) also takes place in peroxisomes. Oxidation of dicarboxylic acids (from the diet or from u-oxidation)\nor 2-methyl-branched-chain FAs (from the diet or from a-oxidation of phytanic acid) also occurs in peroxisomes.\nFAs enter peroxisomes via a mechanism that is distinct from the mitochondrial CPT1/CACT/CPT2 pathway. Long- and very-\nlong-chain ACSs are associated with peroxisomes, and it is currently thought that FAs are activated to their CoA derivatives before\nentry into the peroxisomal matrix. Homodimers of peroxisomal membrane transporter proteins ABCD1 and ABCD2 are believed to\ntransport saturated and unsaturated VLCFA-CoAs, respectively, into the matrix, while ABCD3 homodimers are responsible for the\ntranslocation of CoA derivatives of phytanic acid, pristanic acid, dicarboxylic FAs, and bile acid precursors (Wanders et al., 2020).\nThe",
+  "token_count": 400
+}

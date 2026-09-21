@@ -1,0 +1,9 @@
+{
+  "child_id": "source13-p8-c67",
+  "parent_id": "source13-p8",
+  "source_key": "source13",
+  "source_row_guid": "6086c4da-24b6-53d8-bf9c-f789780400e5",
+  "chunk_type": "prose",
+  "text": "[Source: vdoc.pub_medical-nutrition-and-disease-a-case-based-approach.pdf | Section: 7: Gastrointestinal Disease | Pages 304-347]\n\n\nA serum albumin level of 2.1 to 2.7 g/dL is an indication of a moderate degree of visceral protein \ndepletion caused by decreased protein absorption. Muscle wasting and weakness are signs of skel­\netal protein depletion.\n\n\n318 \nChapter 7  Gastrointestinal Disease\nCalcium JR’s value: 5.5 mg/dL\nNormal value: 8.7–10.2 mg/dL\nBecause calcium is bound to albumin, it is always important to determine the serum calcium cor­\nrected for the patient’s albumin level to account for the ionized calcium in serum, which is deter­\nmined by equilibrium between free calcium and calcium bound to serum protein. We use the \nfollowing equation to determine the corrected calcium:\n(Normal albumin\nserum albumin\n(correction factor)+serum c\n−\n×\n)\nalcium\nCorrection factor = 0.8 normal albumin = 4.0 g/dL\nTherefore, in JR’s case\nCorrected calcium =(4.0\n2.5)(0.8)+5.5 = 6.7 mg/dL\n−\nThis calcium value of 6.7 mg/dL, corrected for JR’s albumin level, still is not in the normal range \nof 8.7 to 10.2 mg/dL. The recommended calcium intake for 19 to 30 years of age is 1000 mg/day. \nMost calcium absorption occurs in the duodenum, but all small intestinal segments absorb calcium. \nWhen adjustments are made for transit time and the relative lengths of the different intestinal seg­\nments, both the jejunum and ileum contribute substantially to overall calcium absorption. JR’s \nresection has reduced the available absorptive surface area of the small intestine and this accounts, \nin",
+  "token_count": 400
+}

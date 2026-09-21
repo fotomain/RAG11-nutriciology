@@ -1,0 +1,9 @@
+{
+  "child_id": "source16-p84-c62",
+  "parent_id": "source16-p84",
+  "source_key": "source16",
+  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
+  "chunk_type": "prose",
+  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Organic: Biochemical mechanisms and regulation of vitamins and vitamin-like cofactors | Pages 847-881]\n\nlated forms: thiamin\nmonophosphate (TMP), thiamin diphosphate (TDP), and thiamin triphosphate (TTP).\nThe thiazole moiety acts as a ylid (a neutral dipolar molecule containing a negatively charged atom attached to a heteroatom\nwith a formal positive charge). The carbanion character of TPP’s thiazole ring is retained in transition state intermediates. Examples\nof enzymes in which TPP is used for this purpose are pyruvate, a-ketoglutarate, or branched-chain amino acid dehydrogenase\ncomplexes and 2-hydroxyphytanoyl-CoA lyases. The relationship of the subunits essential for converting pyruvate to acetyl-CoA\nis shown in Fig. 12 (Patel et al., 2014). TPP catalyzes the reversible cleavage of the carbon-carbon bond connecting a carbonyl group\nto an adjacent reactive group (usually a carboxylic acid or an alcohol). The TPP-substrate bond is broken in reverse reactions,\nreforming the thiamin ylid and substrate carbonyl.\nTPP is also a cofactor for transketolases, enzymes associated with the pentose phosphate pathway and photosynthesis. In trans-\nketolases, TPP accepts a 2-carbon fragment from a 5-carbon ketose (e.g., D-xylulose-5-P) and then transfers the fragment to\na 5-carbon aldose (e.g., D-ribose-5-P) to form a 7-carbon ketose (e.g., sedoheptulose-7-P). The second reaction catalyzed by\ntransketolase in the pentose phosphate pathway involves the transfer of a 2-carbon fragment from D-xylulose-5-P to erythrose-4-\nphosphate, which results",
+  "token_count": 400
+}
