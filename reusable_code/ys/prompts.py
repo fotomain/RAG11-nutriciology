@@ -32,3 +32,14 @@ YS_CORPUS_HINT = (
     "a French scholarly edition of the Yoga-Sutra and Yoga-Bhasya (Michel Angot) whose text is "
     "French prose with Sanskrit terms in IAST transliteration"
 )
+
+
+def prompt_message(prompt: str) -> str:
+    """One line about the prompt in use, and a hint if it drops the Yes/No protocol the badge relies on."""
+    if prompt == YS_SYSTEM_PROMPT:
+        return "System prompt: built-in default (pass system_prompt=... to change it)."
+    msg = f"System prompt: your own ({len(prompt)} characters)."
+    if "Short answer" not in prompt:
+        msg += (' Note: it does not mention the "Short answer: Yes|No" first line, '
+                "so yes/no questions will not get the Yes/No badge.")
+    return msg

@@ -98,6 +98,11 @@ ys = YogaSutraQA(speaking_language="EN")   # connects, finds the book, warns if 
 answers = ys.ask_all(QUESTIONS)            # understand -> retrieve (this book only) -> answer -> cards + table
 ```
 
+Your own system prompt: `YogaSutraQA(speaking_language="RU", system_prompt=MY_PROMPT)` (blank or `None` keeps the
+built-in `YS_SYSTEM_PROMPT`), or for a single run `ys.ask_all(QUESTIONS, system_prompt=...)`. Do not write the answer
+language into it (`answer_language` appends that); keep the `Short answer: Yes|No` protocol if you want the Yes/No
+badge. `stage2_ask_examples7_ys_RU.ipynb` has the full prompt in an editable cell.
+
 Everything else lives in the package: `book.py` (find the book, readiness check), `prompts.py` (system prompt, corpus
 hint), `qa.py` (`YogaSutraQA`). Card labels follow `speaking_language` (`display.UI`: English and Russian so far; add
 a dict entry for another language).

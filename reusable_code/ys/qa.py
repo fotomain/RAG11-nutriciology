@@ -2,6 +2,7 @@
 
     from reusable_code.ys import YogaSutraQA
     ys = YogaSutraQA(speaking_language="EN")   # connects, finds the book, checks it is loaded
+    ys = YogaSutraQA("RU", system_prompt=MY_PROMPT)   # ...or with your own system prompt
     ys.ask_all(QUESTIONS)                      # understands, answers and displays every question
 
 Per question it (1) understands the question (``prepare_question``: language, translation, a clean
@@ -18,7 +19,7 @@ from ..display import show_qa, show_summary, ui
 from ..generation import ask_question
 from ..language import PreparedQuestion, prepare_question
 from .book import BookStatus, find_book, readiness_message
-from .prompts import YS_CORPUS_HINT, YS_SYSTEM_PROMPT
+from .prompts import YS_CORPUS_HINT, YS_SYSTEM_PROMPT, prompt_message
 
 
 @dataclass(frozen=True)
@@ -37,13 +38,19 @@ class YogaSutraQA:
         clients: Optional[Clients] = None,
         check_book: bool = True,
         verbose: bool = True,
+        system_prompt: Optional[str] = None,
     ):
         self.language = speaking_language.upper()
         self.match_count = match_count
         self.clients = clients or init_clients()
         self.book: BookStatus = find_book(self.clients)
+        # Your own system prompt replaces the built-in one; blank/None keeps the default. The answer
+        # language is appended automatically (answer_language), so do not write it into the prompt.
+        self.system_prompt = (system_prompt or "").strip() or YS_SYSTEM_PROMPT
         if verbose and check_book:
             print(readiness_message(self.book))
+        if verbose:
+            print(prompt_message(self.system_prompt))
 
     def prepare(self, question: str) -> PreparedQuestion:
         return prepare_question(question, language=self.language, corpus_hint=YS_CORPUS_HINT, clients=self.clients)
@@ -59,7 +66,7 @@ class YogaSutraQA:
             use_rerank=True,           # cross-encoder re-scores the wide candidate pool
             expand_to_parents=False,   # a parent here is a whole sutra + commentary; keep the precise chunks
             filter_owner=self.book.owner_guid,
-            system_prompt=YS_SYSTEM_PROMPT,
+            system_prompt=self.system_prompt,
             answer_language=self.language,
             retrieval_query=prepared.retrieval_query,
             clients=self.clients,
@@ -67,11 +74,14 @@ class YogaSutraQA:
         options.update(overrides)
         return YSAnswer(question, prepared, ask_question(prepared.llm_question, **options))
 
-    def ask_all(self, questions: List[str], *, show_table: bool = True) -> List[YSAnswer]:
-        """Answer every question, displaying one Question / Answer card each, then a summary table."""
+    def ask_all(self, questions: List[str], *, show_table: bool = True,
+                system_prompt: Optional[str] = None) -> List[YSAnswer]:
+        """Answer every question, displaying one Question / Answer card each, then a summary table.
+        ``system_prompt`` overrides the object's prompt for this call only."""
         answers = []
+        overrides = {"system_prompt": system_prompt.strip()} if (system_prompt or "").strip() else {}
         for number, question in enumerate(questions, start=1):
-            answer = self.ask(question)
+            answer = self.ask(question, **overrides)
             answers.append(answer)
             show_qa(number, question, answer.result, answer.prepared, self.language)
         if show_table:

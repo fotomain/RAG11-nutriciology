@@ -136,6 +136,31 @@ shown.clear()
 ys_en.ask_all(["Is Ishvara a creator?"], show_table=False)
 check("EN notebook: English labels, no table when show_table=False", "Question 1:" in shown[0] and len(shown) == 1)
 
+# ---- custom system prompt
+from reusable_code.ys import YS_SYSTEM_PROMPT, prompt_message  # noqa: E402
+
+anth_c = FakeAnthropic(yes_no=True)
+ys_c = YogaSutraQA("RU", clients=Clients(supabase=FakeSupabase(), voyage=FakeVoyage(), anthropic=anth_c),
+                   system_prompt="  MY OWN PROMPT: answer in two sentences. Short answer: Yes|No  ", verbose=False)
+ys_c.ask("Что такое ниродха?")
+check("custom system_prompt (stripped) is what the final call uses, plus the answer-language directive",
+      anth_c.calls[-1]["system"].startswith("MY OWN PROMPT: answer in two sentences.") and "Russian" in anth_c.calls[-1]["system"]
+      and "Yoga-Sutra of" not in anth_c.calls[-1]["system"])
+ys_c.ask_all(["Что такое ниродха?"], show_table=False, system_prompt="PER-CALL PROMPT")
+check("ask_all(system_prompt=) overrides for that call only",
+      anth_c.calls[-1]["system"].startswith("PER-CALL PROMPT"))
+ys_c.ask("Что такое ниродха?")
+check("...and the object's own prompt is back afterwards", anth_c.calls[-1]["system"].startswith("MY OWN PROMPT"))
+ys_d, *_ = make(lang="EN")
+for blank in (None, "", "   \n "):
+    y = YogaSutraQA("EN", clients=ys_d.clients, system_prompt=blank, verbose=False)
+    check(f"blank system_prompt {blank!r} keeps the built-in default", y.system_prompt == YS_SYSTEM_PROMPT)
+check("prompt_message: default", "built-in default" in prompt_message(YS_SYSTEM_PROMPT))
+check("prompt_message: custom prompt without the Yes/No protocol warns about the badge",
+      "your own" in prompt_message("be brief") and "Yes/No badge" in prompt_message("be brief"))
+check("prompt_message: custom prompt with the protocol does not warn",
+      "badge" not in prompt_message("be brief. Short answer: Yes"))
+
 print()
 if FAILURES:
     print(f"{len(FAILURES)} check(s) FAILED:")
