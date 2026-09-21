@@ -28,6 +28,7 @@ this repo can `import reusable_code` instead of re-defining the same
 | `language.py` | Speaking language: `prepare_question()` (one Claude call: detect language, translate, rewrite jokes/slang/emoji into a clean search query in the corpus language; falls back to the original question), `answer_language_directive()`, `language_name()` |
 | `display.py` | Notebook Question/Answer cards: `show_qa()`, `show_summary()`, `answer_html()`, `format_pages()` |
 | `ys/` | Everything behind the Yoga-Sūtra notebooks: `YogaSutraQA(speaking_language)` (`ask()`, `ask_all()`, `compare_retrieval()`), `find_book()` / `readiness_message()`, `YS_SYSTEM_PROMPT` |
+| `stage1/` | The whole of stage 1 as code: `extract_chunk.py` (1.1), `load.py` (1.2), `verify.py` (1.9), `common.py` (paths, local loaders, row builders shared by 1.2 and 1.9), `pipeline.py` + `__main__.py` (`python -m reusable_code.stage1`, wrapped by `run_stage1_all.command`) |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
 
 ## Using it from a notebook

@@ -35,6 +35,18 @@ class Clients:
 _cache: Dict[str, Clients] = {}
 
 
+def make_supabase_client() -> SupabaseClient:
+    """Supabase client from .env. Prefers the service_role key (bypasses RLS cleanly); falls back to the
+    anon key, which only works with the permissive policies sql/create_sql_tables.sql sets up."""
+    url = require_env("PUBLIC_SUPABASE_URL")
+    key = optional_env("SUPABASE_SERVICE_ROLE_KEY") or require_env("PUBLIC_SUPABASE_ANON_KEY")
+    return create_client(url, key)
+
+
+def make_voyage_client() -> voyageai.Client:
+    return voyageai.Client(api_key=require_env("VOYAGE_API_KEY"))
+
+
 def init_clients(*, force: bool = False) -> Clients:
     """Build (or return the already-cached) Supabase/Voyage/Anthropic
     clients for this kernel.
@@ -49,22 +61,10 @@ def init_clients(*, force: bool = False) -> Clients:
     if not force and "bundle" in _cache:
         return _cache["bundle"]
 
-    supabase_url = require_env("PUBLIC_SUPABASE_URL")
-    # Prefer the service_role key (bypasses RLS cleanly); falls back to the
-    # anon key, which only works with the permissive "allow all" policies
-    # sql/create_sql_tables.sql already sets up. A notebook that only ever
-    # calls ask_question()/retrieve_chunks()/rerank_chunks() (read + RPC
-    # only) is fine with the anon key; update_rank_value(..., persist=True)
-    # writes a row, so use the service_role key in .env if you plan to call
-    # it that way.
-    supabase_key = optional_env("SUPABASE_SERVICE_ROLE_KEY") or require_env("PUBLIC_SUPABASE_ANON_KEY")
-    voyage_key = require_env("VOYAGE_API_KEY")
-    anthropic_key = require_env("ANTHROPIC_API_KEY")
-
     bundle = Clients(
-        supabase=create_client(supabase_url, supabase_key),
-        voyage=voyageai.Client(api_key=voyage_key),
-        anthropic=anthropic.Anthropic(api_key=anthropic_key),
+        supabase=make_supabase_client(),
+        voyage=make_voyage_client(),
+        anthropic=anthropic.Anthropic(api_key=require_env("ANTHROPIC_API_KEY")),
     )
     _cache["bundle"] = bundle
     return bundle

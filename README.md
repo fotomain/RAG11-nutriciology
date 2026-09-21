@@ -97,7 +97,22 @@ Every statement in this script is `create ... if not exists` / `create or replac
 
 ## Step 4: Step-by-Step Pipeline Execution
 
-Execute the notebooks in sequence to run the entire RAG lifecycle:
+### Fastest: run the whole of stage 1 with one command
+
+```bash
+./run_stage1_all.command                  # 1.1 extract & chunk -> 1.2 embed & load -> 1.9 verify
+./run_stage1_all.command --from 1.2       # reuse the chunks already on disk
+./run_stage1_all.command --only 1.9       # just verify
+./run_stage1_all.command --prune-orphans  # also delete Supabase rows that have no local file
+```
+
+(or double-click it in Finder). It needs `.env`; `MAX_NUMBER_OF_PAGES_TO_USE` there controls the smoke-test cap (unset = 100,
+`NONE` = full run). Exit code `0` = PASS, `1` = ran but verification found issues, `2` = a stage crashed. Every stage is
+idempotent and resumable, so after a failure fix the cause and run it again. The code lives in `reusable_code/stage1/`
+(`extract_chunk.py`, `load.py`, `verify.py`, `pipeline.py`); the notebooks below are thin, step-by-step views of it, and
+`python -m reusable_code.stage1` is the same entry point.
+
+Or execute the notebooks in sequence to run the entire RAG lifecycle:
 
 ```
 stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1_9  ──▶  stage2
