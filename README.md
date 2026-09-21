@@ -143,6 +143,7 @@ All Stage 2 notebooks import the shared [`reusable_code`](reusable_code/) packag
 | [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
 | [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
 | [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
+| [`stage2_ask_examples7_ys.ipynb`](stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only (`filter_owner`, custom `system_prompt`): five questions, some in Devanagari that is romanized to IAST for retrieval |
 
 `ask_question()` composes all of these techniques by default (see [`reusable_code/README.md`](reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
 
