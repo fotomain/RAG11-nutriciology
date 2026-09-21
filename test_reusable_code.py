@@ -833,6 +833,39 @@ check("qa_card_html: Question/Answer labels, badge (no duplicate 'Short answer' 
       and "IAST: kyā yoga hai?" in _card and "overflow:visible" in __import__("reusable_code.display", fromlist=["CSS"]).CSS.replace(" ", ""))
 check("summary_table_html escapes cells", "&lt;b&gt;" in summary_table_html([["<b>"]], ["h"]))
 
+# ---------------------------------------------------------------------------
+# env.optional_env_limit (MAX_NUMBER_OF_PAGES_TO_USE) and display localisation
+# ---------------------------------------------------------------------------
+
+from reusable_code.env import optional_env_limit  # noqa: E402
+
+_LIM = "RAG11_TEST_LIMIT_VAR"
+os.environ.pop(_LIM, None)
+check("optional_env_limit: unset -> default", optional_env_limit(_LIM, 100) == 100)
+os.environ[_LIM] = "  "
+check("optional_env_limit: blank -> default", optional_env_limit(_LIM, 100) == 100)
+os.environ[_LIM] = "250"
+check("optional_env_limit: integer", optional_env_limit(_LIM, 100) == 250)
+for _v in ("NONE", "all", "Full", "0", "unlimited"):
+    os.environ[_LIM] = _v
+    check(f"optional_env_limit: {_v!r} -> None (no limit)", optional_env_limit(_LIM, 100) is None)
+for _v in ("-5", "ten", "1.5"):
+    os.environ[_LIM] = _v
+    try:
+        optional_env_limit(_LIM, 100)
+        check(f"optional_env_limit: {_v!r} raises", False)
+    except RuntimeError:
+        check(f"optional_env_limit: {_v!r} raises", True)
+os.environ.pop(_LIM, None)
+
+check("answer_html: markdown headings become <h4>", answer_html("# Title **x**\n\ntext") == "<h4>Title <b>x</b></h4><p>text</p>")
+_ru = qa_card_html(2, "Вопрос?", {"answer": "Short answer: Yes\n\nТекст", "short_answer": "Yes", "chunks_used": 3,
+                   "candidates_considered": 9, "source_pages": [1, 2], "subquestions": ["a", "b"], "grounding_words": []}, None, "RU")
+check("qa_card_html(language='RU'): Russian labels and a localised Yes badge",
+      "Вопрос 2:" in _ru and "Ответ:" in _ru and "Краткий ответ: Да" in _ru and "подвопросы" in _ru and "Short answer" not in _ru)
+check("qa_card_html: unknown language falls back to English", "Question 1:" in qa_card_html(
+    1, "q", {"answer": "a", "short_answer": None, "chunks_used": 1, "candidates_considered": 1, "source_pages": []}, None, "XX"))
+
 print()
 if FAILURES:
     print(f"{len(FAILURES)} check(s) FAILED:")

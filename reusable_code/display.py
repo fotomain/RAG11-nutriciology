@@ -23,6 +23,7 @@ CSS = """<style>
 .ys-iast{font-size:12.5px;opacity:.7;margin:4px 0 0 17px;overflow-wrap:anywhere}
 .ys-a{margin-top:14px;overflow-wrap:anywhere}
 .ys-a p{margin:0 0 .85em}
+.ys-a h4{margin:1em 0 .4em;font-size:1em}
 .ys-a ul{margin:0 0 .85em 1.3em;padding:0}
 .ys-a li{margin:.2em 0}
 .ys-a code{background:rgba(128,128,128,.18);border-radius:4px;padding:0 4px}
@@ -35,6 +36,29 @@ table.ys-tbl{border-collapse:collapse;font-size:13px;margin:10px 0}
 table.ys-tbl th,table.ys-tbl td{border-bottom:1px solid rgba(128,128,128,.35);padding:5px 12px;text-align:left;vertical-align:top}
 table.ys-tbl th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
 </style>"""
+
+UI = {
+    "EN": {
+        "question": "Question", "answer": "Answer", "short": "Short answer", "Yes": "Yes", "No": "No",
+        "excerpts": "{n} excerpts (best of {c} candidates)", "pages": "pages", "subq": "sub-questions",
+        "grounding": "established on", "understood": "Understood as", "search": "Search query",
+        "col_no": "#", "col_lang": "question language", "col_short": "short answer", "col_subq": "sub-Qs",
+        "col_excerpts": "excerpts", "col_question": "question",
+    },
+    "RU": {
+        "question": "Вопрос", "answer": "Ответ", "short": "Краткий ответ", "Yes": "Да", "No": "Нет",
+        "excerpts": "{n} фрагментов (лучшие из {c} кандидатов)", "pages": "страницы", "subq": "подвопросы",
+        "grounding": "опирается на", "understood": "Понято как", "search": "Поисковый запрос",
+        "col_no": "№", "col_lang": "язык вопроса", "col_short": "краткий ответ", "col_subq": "подвопросов",
+        "col_excerpts": "фрагментов", "col_question": "вопрос",
+    },
+}
+
+
+def ui(language: str = "EN") -> dict:
+    """UI strings for ``language`` (an ISO code); languages without a translation use English."""
+    return UI.get((language or "EN").upper(), UI["EN"])
+
 
 _SHORT_ANSWER_LINE = re.compile(r"^\s*Short answer:\s*(Yes|No)\s*\n*", re.IGNORECASE)
 
@@ -60,7 +84,7 @@ def _inline(text: str) -> str:
 
 
 def answer_html(text: str) -> str:
-    """Tiny Markdown -> HTML: paragraphs, '-'/'*' bullet lists, **bold**, *italic*, `code`."""
+    """Tiny Markdown -> HTML: headings, paragraphs, '-'/'*' bullet lists, **bold**, *italic*, `code`."""
     out, para, items = [], [], []
 
     def flush():
@@ -76,6 +100,11 @@ def answer_html(text: str) -> str:
         if not stripped:
             flush()
             continue
+        heading = re.match(r"^#{1,6}\s+(.*)", stripped)
+        if heading:
+            flush()
+            out.append(f"<h4>{_inline(heading.group(1))}</h4>")
+            continue
         bullet = re.match(r"^[-*•]\s+(.*)", stripped)
         if bullet:
             if para:
@@ -89,45 +118,46 @@ def answer_html(text: str) -> str:
     return "".join(out)
 
 
-def qa_card_html(number: int, question: str, result: dict, prepared=None) -> str:
+def qa_card_html(number: int, question: str, result: dict, prepared=None, language: str = "EN") -> str:
     """HTML for one Question/Answer card. ``prepared`` is an optional ``language.PreparedQuestion`` whose
     detected language, translation and search query are shown under the question."""
+    t = ui(language)
     answer = _SHORT_ANSWER_LINE.sub("", result["answer"], count=1).strip()
     badge = ""
     if result.get("short_answer"):
         cls = "ys-yes" if result["short_answer"] == "Yes" else "ys-no"
-        badge = f'<div class="ys-badge {cls}">Short answer: {result["short_answer"]}</div>'
+        badge = f'<div class="ys-badge {cls}">{t["short"]}: {t[result["short_answer"]]}</div>'
 
     lang_chip = f'<span class="ys-lang">{html.escape(prepared.language)}</span>' if prepared and prepared.language else ""
     under = []
     if contains_devanagari(question):
         under.append(f"IAST: {html.escape(romanize_devanagari(question))}")
     if prepared is not None and prepared.translation:
-        under.append(f"Understood as: {html.escape(prepared.translation)}")
+        under.append(f"{t['understood']}: {html.escape(prepared.translation)}")
     if prepared is not None and prepared.used_llm:
-        under.append(f"Search query: {html.escape(prepared.retrieval_query)}")
+        under.append(f"{t['search']}: {html.escape(prepared.retrieval_query)}")
     under_html = "".join(f'<div class="ys-iast">{u}</div>' for u in under)
 
     meta = [
-        f"{result['chunks_used']} excerpts (best of {result['candidates_considered']} candidates)",
-        f"pages {format_pages(result['source_pages'])}",
+        t["excerpts"].format(n=result["chunks_used"], c=result["candidates_considered"]),
+        f"{t['pages']} {format_pages(result['source_pages'])}",
     ]
     if result.get("subquestions") and len(result["subquestions"]) > 1:
-        meta.append("sub-questions: " + " &#124; ".join(html.escape(q) for q in result["subquestions"]))
+        meta.append(f"{t['subq']}: " + " &#124; ".join(html.escape(q) for q in result["subquestions"]))
     if result.get("grounding_words"):
-        meta.append("established on: " + html.escape(", ".join(result["grounding_words"])))
+        meta.append(f"{t['grounding']}: " + html.escape(", ".join(result["grounding_words"])))
 
     return (
         '<div class="ys-card">'
-        f'<div class="ys-label">Question {number}:{lang_chip}</div><div class="ys-q">{html.escape(question)}</div>{under_html}'
-        '<div class="ys-a"><div class="ys-label">Answer:</div>' + badge + answer_html(answer) + "</div>"
+        f'<div class="ys-label">{t["question"]} {number}:{lang_chip}</div><div class="ys-q">{html.escape(question)}</div>{under_html}'
+        '<div class="ys-a"><div class="ys-label">' + t["answer"] + ':</div>' + badge + answer_html(answer) + "</div>"
         '<div class="ys-meta">' + "<br>".join(meta) + "</div></div>"
     )
 
 
-def show_qa(number: int, question: str, result: dict, prepared=None) -> None:
+def show_qa(number: int, question: str, result: dict, prepared=None, language: str = "EN") -> None:
     from IPython.display import HTML, display
-    display(HTML(CSS + qa_card_html(number, question, result, prepared)))
+    display(HTML(CSS + qa_card_html(number, question, result, prepared, language)))
 
 
 def summary_table_html(rows: Iterable[Iterable], headers: Iterable[str]) -> str:

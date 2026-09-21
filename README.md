@@ -68,6 +68,8 @@ Open `.env` and fill in the required credentials obtained from the official dash
 | **`VOYAGE_API_KEY`** | Voyage AI API key (`voyage-3` embeddings) | [Voyage AI Dashboard > API Keys](https://dash.voyageai.com/api-keys) |
 | **`ANTHROPIC_API_KEY`** | Anthropic Claude API key (answer generation) | [Anthropic Console > API Keys](https://console.anthropic.com/settings/keys) |
 | **`GOOGLE_AI_KEY`** | Google Gemini API key (optional / deep fetching) | [Google AI Studio > Get API Key](https://aistudio.google.com/app/apikey) |
+| **`MAX_NUMBER_OF_PAGES_TO_USE`** | Stage 1.1: pages of text extracted per PDF. Unset = `100` (fast smoke test); `NONE` = no cap (full run) | — |
+| **`SPEAKING_LANGUAGE`** | Language of every answer (`EN`, `RU`, `FR`, `HI`, ...). Default `EN` | — |
 
 > [!IMPORTANT]
 > Never commit your `.env` file to version control. It is protected and excluded by `.gitignore`.
@@ -143,7 +145,9 @@ All Stage 2 notebooks import the shared [`reusable_code`](reusable_code/) packag
 | [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
 | [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
 | [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
-| [`stage2_ask_examples7_ys.ipynb`](stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only (`filter_owner`, custom `system_prompt`): five questions, some in Devanagari that is romanized to IAST for retrieval |
+| [`stage2_ask_examples7_ys.ipynb`](stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only, questions and answers only (all service code in `reusable_code/ys/`): five questions, some in Devanagari; answers in `speaking_language` |
+| [`stage2_ask_examples7_ys_RU.ipynb`](stage2_ask_examples7_ys_RU.ipynb) | The same five Yoga-Sūtra questions in Russian, with Russian answers and Russian card labels (`speaking_language="RU"`) |
+| [`stage2_ask_examples8_nutriciology.ipynb`](stage2_ask_examples8_nutriciology.ipynb) | Five funny nutrition questions (jokes, slang, emoji, French): question understanding (`prepare_question()`) + `speaking_language = "EN"` answers, same card design as example 7 |
 
 `ask_question()` composes all of these techniques by default (see [`reusable_code/README.md`](reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
 

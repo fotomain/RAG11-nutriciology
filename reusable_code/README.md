@@ -21,10 +21,13 @@ this repo can `import reusable_code` instead of re-defining the same
 | `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
 | `multi_query_question_splitting.py` | Multi-query / question splitting: **`split_into_subquestions`**, **`retrieve_chunks_multi_query`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
-| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, `expand_to_parents`, plus `filter_owner` to search a single source and `system_prompt` to replace the nutrition prompt) |
+| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, `expand_to_parents`, plus `filter_owner` to search a single source, `system_prompt` to replace the nutrition prompt, `retrieval_query` to search with different text than the question shown to the model, and `answer_language` to force the answer's language) |
 | `crud_chunks_parent.py` | Row-level CRUD for `rag11_chunks_parent_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
 | `crud_chunks_child.py` | Row-level CRUD for `rag11_chunks_child_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
 | `devanagari.py` | `romanize_devanagari`, `contains_devanagari` — Devanagari to IAST, so a question typed in Devanagari can match IAST-transliterated chunks (used by `stage2_ask_examples7_ys.ipynb`) |
+| `language.py` | Speaking language: `prepare_question()` (one Claude call: detect language, translate, rewrite jokes/slang/emoji into a clean search query in the corpus language; falls back to the original question), `answer_language_directive()`, `language_name()` |
+| `display.py` | Notebook Question/Answer cards: `show_qa()`, `show_summary()`, `answer_html()`, `format_pages()` |
+| `ys/` | Everything behind the Yoga-Sūtra notebooks: `YogaSutraQA(speaking_language)` (`ask()`, `ask_all()`, `compare_retrieval()`), `find_book()` / `readiness_message()`, `YS_SYSTEM_PROMPT` |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
 
 ## Using it from a notebook
@@ -71,6 +74,38 @@ defaults to plain `False`. Flip any of the four in `.env` and rerun a cell
 to see that technique's simplest variant, with no code changes; an
 explicit keyword on a given `ask_question()` call always overrides
 whatever `.env` says, for just that call.
+
+## Speaking language (`SPEAKING_LANGUAGE` / `language.py`)
+
+`SPEAKING_LANGUAGE` in `.env` (default `EN`) is the language every answer is written in, whatever language or
+script the question uses. Two steps make it smooth (used by `stage2_ask_examples7_ys.ipynb` and
+`stage2_ask_examples8_nutriciology.ipynb`, each with a `speaking_language = "EN"` variable):
+
+1. `prepare_question(question, language=..., corpus_hint=...)` -- one small Claude call *before* retrieval detects the
+   question's language, translates it, and rewrites it as a neutral keyword-rich **search query** in the corpus's language.
+   Retrieval uses that query (`ask_question(retrieval_query=...)`); the answering model sees the original question plus its
+   translation (`PreparedQuestion.llm_question`). If the call fails the original question is used, never lost.
+2. `ask_question(answer_language="EN")` -- appends an explicit language directive to the system prompt **and** repeats the
+   rule at the end of the user turn (a model tends to mirror the question's language otherwise).
+
+## Yoga-Sūtra notebooks (`ys/`)
+
+`stage2_ask_examples7_ys.ipynb` and `stage2_ask_examples7_ys_RU.ipynb` contain only the questions and the answers:
+
+```python
+from reusable_code.ys import YogaSutraQA
+ys = YogaSutraQA(speaking_language="EN")   # connects, finds the book, warns if the sutra text isn't loaded
+answers = ys.ask_all(QUESTIONS)            # understand -> retrieve (this book only) -> answer -> cards + table
+```
+
+Everything else lives in the package: `book.py` (find the book, readiness check), `prompts.py` (system prompt, corpus
+hint), `qa.py` (`YogaSutraQA`). Card labels follow `speaking_language` (`display.UI`: English and Russian so far; add
+a dict entry for another language).
+
+## Stage 1.1 page cap (`MAX_NUMBER_OF_PAGES_TO_USE`)
+
+Read from `.env` by `env.optional_env_limit()`: a number caps the pages of text extracted per PDF, unset means `100`
+(fast smoke test), `NONE` / `ALL` / `0` means no cap (the real run). Restart the kernel after editing `.env`.
 
 ## Row-level CRUD on the parent/child chunk tables
 

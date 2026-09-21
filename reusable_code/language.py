@@ -34,7 +34,8 @@ LANGUAGE_NAMES = {
     "KO": "Korean", "TR": "Turkish",
 }
 
-UNDERSTAND_MAX_TOKENS = 400
+# Devanagari and Cyrillic cost several tokens per character, so leave generous room for the JSON reply.
+UNDERSTAND_MAX_TOKENS = 1500
 
 _UNDERSTAND_SYSTEM = """You prepare user questions for a retrieval-augmented question-answering system.
 
@@ -45,7 +46,7 @@ The question may be in any language or script and may contain slang, emoji, typo
 Return ONLY one JSON object with exactly these keys:
   "language":     the ISO 639-1 code of the language the question is written in (e.g. "en", "fr", "hi").
   "translation":  the question translated into {language}, faithful to its meaning and tone but without emoji; \
-identical to the question if it is already in {language}.
+the empty string "" if the question is already written in {language}.
   "search_query": ONE neutral, self-contained, keyword-rich question for searching the corpus, written in the \
 language of the corpus. Remove jokes, slang, emoji and references that need context; keep every distinct \
 information need in the question; use the technical terms the corpus would use; transliterate Sanskrit to IAST.
@@ -109,23 +110,29 @@ def prepare_question(
 
     if use_llm:
         clients = clients or get_clients()
-        try:
-            resp = with_retry(lambda: clients.anthropic.messages.create(
-                model=model, max_tokens=UNDERSTAND_MAX_TOKENS,
-                system=_UNDERSTAND_SYSTEM.format(corpus_hint=corpus_hint, language=language_name(language)),
-                messages=[{"role": "user", "content": question}],
-            ), max_attempts=3)
-            raw = "".join(b.text for b in resp.content if b.type == "text")
-            data = _parse_understanding(raw)
+        system = _UNDERSTAND_SYSTEM.format(corpus_hint=corpus_hint, language=language_name(language))
+        data = None
+        for attempt in (1, 2):  # a malformed reply is rare and cheap to redo
+            try:
+                resp = with_retry(lambda: clients.anthropic.messages.create(
+                    model=model, max_tokens=UNDERSTAND_MAX_TOKENS, system=system,
+                    messages=[{"role": "user", "content": question}],
+                ), max_attempts=3)
+            except Exception as e:  # noqa: BLE001 -- never lose a question because preparation failed
+                print(f"[warn] question understanding failed ({e}); using the question as-is")
+                break
+            data = _parse_understanding("".join(b.text for b in resp.content if b.type == "text"))
             if data:
-                used_llm = True
-                search_query = str(data["search_query"]).strip()
-                detected = (str(data.get("language") or "").strip().upper() or None)
-                t = str(data.get("translation") or "").strip()
-                if t and t != question.strip():
-                    translation = t
-        except Exception as e:  # noqa: BLE001 -- never lose a question because preparation failed
-            print(f"[warn] question understanding failed ({e}); using the question as-is")
+                break
+        else:
+            print("[warn] question understanding returned no usable JSON twice; using the question as-is")
+        if data:
+            used_llm = True
+            search_query = str(data["search_query"]).strip()
+            detected = (str(data.get("language") or "").strip().upper() or None)
+            t = str(data.get("translation") or "").strip()
+            if t and t != question.strip():
+                translation = t
 
     parts = [question]
     if translation and (detected or "").upper() != language.upper():

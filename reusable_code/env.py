@@ -6,6 +6,7 @@ typo in one notebook's copy-pasted ``require_env`` can't quietly drift from
 the others -- there's exactly one copy of this logic now.
 """
 import os
+from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -64,3 +65,28 @@ def optional_env_bool(name: str, default: bool) -> bool:
         f"{name} in your .env file is {raw!r}, which isn't a recognized "
         f"boolean -- use True/False (or 1/0, yes/no, on/off)."
     )
+
+
+_UNLIMITED_VALUES = {"none", "all", "full", "unlimited", "no", "0"}
+
+
+def optional_env_limit(name: str, default: Optional[int]) -> Optional[int]:
+    """A positive integer limit from .env, or ``None`` meaning "no limit".
+
+    Unset/blank -> ``default``; ``NONE`` / ``ALL`` / ``FULL`` / ``UNLIMITED`` / ``0`` -> ``None``;
+    an integer -> that integer. Anything else raises (a typo must not silently become "no limit").
+    """
+    raw = optional_env(name, "").lower()
+    if not raw:
+        return default
+    if raw in _UNLIMITED_VALUES:
+        return None
+    try:
+        value = int(raw)
+    except ValueError:
+        value = 0
+    if value < 1:
+        raise RuntimeError(
+            f"{name} in your .env file is {raw!r}: use a positive number of pages, or NONE for no limit."
+        )
+    return value
