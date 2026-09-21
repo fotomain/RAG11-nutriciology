@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>stage2_ask_examples7_ys_RU.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #8c8c8c; font-style: italic;}
+.s2 { color: #067d17;}
+.s3 { color: #0033b3;}
+.ls0 { height: 1px; border-width: 0; color: #dfe1e5; background-color:#dfe1e5}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+stage2_ask_examples7_ys_RU.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+**Cell #01** 
+ 
+# Йога-сутра: пять вопросов и ответы по изданию Мишеля Анго 
+ 
+Задавайте вопросы о **Йога-сутре Патанджали и Йога-бхашье** и получайте ответы, опирающиеся на книгу 
+(Мишель Анго, французское издание, 2021), с указанием страниц. Вопросы можно задавать на любом языке и в любой 
+письменности, включая деванагари; ответы всегда пишутся на языке, выбранном в следующей ячейке (здесь: русский). 
+ 
+За кулисами (весь код в `reusable_code/ys/`): каждый вопрос понимается и превращается в чистый поисковый запрос, 
+ищется только в этой книге, а ответ строится строго по найденным фрагментам. 
+ 
+*Нужна книга, загруженная в базу данных. Если она загружена не полностью, ячейка настройки подскажет, что делать.* 
+ 
+**Системный промпт можно редактировать** (ячейка ниже): это инструкция, по которой модель отвечает. Измените её, 
+запустите ячейки снова и сравните ответы. <hr class="ls0">#%% md 
+**Cell #02** 
+ 
+## Системный промпт (можно править) 
+ 
+Так модель получает свою роль и правила: отвечать только по найденным фрагментам, указывать номер сутры, различать 
+Сутру, Бхашью и комментарий Анго, ставить строку `Short answer: Yes|No` только у настоящих вопросов «да/нет». 
+ 
+- **Язык ответа** (русский) добавляется автоматически из `speaking_language`, в промпт его писать не нужно. 
+- Строку `Short answer: Yes|No` лучше сохранить: по ней рисуется значок «Да/Нет» у вопросов «да/нет». 
+- Чтобы вернуться к исходному тексту, поставьте `SYSTEM_PROMPT = None` (или удалите параметр `system_prompt=`). <hr class="ls0">#%% 
+</span><span class="s1"># Cell #03</span>
+<span class="s1"># Системный промпт: правьте текст между тройными кавычками</span>
+<span class="s0">SYSTEM_PROMPT = </span><span class="s2">&quot;&quot;&quot;You are a research assistant for a French scholarly edition of the Yoga-Sutra of Patanjali and the Yoga-Bhasya of Vyasa (Michel Angot, 3rd edition 2021). Answer strictly using the numbered excerpts in the user message -- do not rely on outside knowledge, and say plainly if the excerpts don't contain enough information to answer. 
+ 
+The excerpts are mostly French; Sanskrit appears in IAST transliteration. The question may be written in any language or script; lines such as &quot;[English: ...]&quot; or &quot;[IAST: ...]&quot; after it are its translation and transliteration, added to help you. 
+ 
+Whenever the excerpts allow it: give the sutra reference (e.g. II.35), quote the key Sanskrit term in IAST, and say whether a claim comes from the Sutra itself, from the Bhasya, or from Angot's own commentary. 
+ 
+First decide whether the question is a Yes/No question, i.e. it is worded as a yes/no question in its own language (&quot;is/does/can/are ...?&quot;, &quot;क्या ...?&quot;, &quot;... ли ...?&quot;, &quot;est-ce que ...?&quot;) and a plain yes or no truly answers it. Questions that ask &quot;what&quot;, &quot;how&quot;, &quot;why&quot;, &quot;who&quot;, &quot;which&quot;, or &quot;what happens&quot; are NEVER Yes/No questions, however the excerpts turn out. 
+  - If it is a Yes/No question, begin your reply with exactly this one line: 
+        Short answer: Yes 
+    or 
+        Short answer: No 
+    then a blank line, then the full explanation. 
+  - Otherwise skip the &quot;Short answer&quot; line and give the full explanation. 
+  - If the excerpts do not contain enough to answer, never write a &quot;Short answer&quot; line: say what is missing. 
+ 
+Keep the explanation grounded in the excerpts.&quot;&quot;&quot;</span><hr class="ls0"><span class="s0">#%% md 
+**Cell #04** 
+ 
+## Настройка <hr class="ls0">#%% 
+</span><span class="s1"># Cell #05</span>
+<span class="s3">from </span><span class="s0">reusable_code.ys </span><span class="s3">import </span><span class="s0">YogaSutraQA</span>
+
+<span class="s0">ys = YogaSutraQA(</span>
+    <span class="s0">speaking_language=</span><span class="s2">&quot;RU&quot;</span><span class="s0">,         </span><span class="s1"># ответы пишутся на этом языке: RU, EN, FR, HI, ...</span>
+    <span class="s0">system_prompt=SYSTEM_PROMPT,    </span><span class="s1"># ваш системный промпт (None = исходный)</span>
+<span class="s0">)</span><hr class="ls0"><span class="s0">#%% md 
+**Cell #06** 
+ 
+## Вопросы 
+ 
+Вопросы можно свободно менять, добавлять и удалять. В двух цитируется сутра на деванагари, один — сравнение 
+нескольких сутр, один — вопрос «да/нет». <hr class="ls0">#%% 
+</span><span class="s1"># Cell #07</span>
+<span class="s0">QUESTIONS = [</span>
+    <span class="s2">&quot;योगश्चित्तवृत्तिनिरोधः — что определяет Йога-сутра I.2 как йогу и как Бхашья объясняет слово ниродха?&quot;</span><span class="s0">,</span>
+    <span class="s2">&quot;Почему Анго читает первое слово «атха» в Йога-сутре I.1 как адхикару и кто предполагаемые адресаты текста?&quot;</span><span class="s0">,</span>
+    <span class="s2">&quot;अहिंसाप्रतिष्ठायां तत्सन्निधौ वैरत्यागः — что, согласно II.35, происходит в присутствии того, кто твёрдо утвердился в ахимсе?&quot;</span><span class="s0">,</span>
+    <span class="s2">&quot;Чем отличаются друг от друга пять вритти (прамана, випарьяя, викальпа, нидра, смрити) и какие из них могут быть клишта или аклишта?&quot;</span><span class="s0">,</span>
+    <span class="s2">&quot;Является ли Ишвара в Йога-сутре творцом мира?&quot;</span><span class="s0">,</span>
+<span class="s0">]</span><hr class="ls0"><span class="s0">#%% md 
+**Cell #08** 
+ 
+## Ответы <hr class="ls0">#%% 
+</span><span class="s1"># Cell #09</span>
+<span class="s0">answers = ys.ask_all(QUESTIONS)</span><hr class="ls0"><span class="s0">#%% md 
+**Cell #10** 
+ 
+## Сохранить рабочую папку на GitHub <hr class="ls0">#%% 
+</span><span class="s1"># Cell #11</span>
+<span class="s3">from </span><span class="s0">reusable_code </span><span class="s3">import </span><span class="s0">save_to_github</span>
+
+<span class="s0">save_to_github(</span><span class="s2">&quot;stage2_ask_examples7_ys_RU.ipynb - Yoga-Sutra questions and answers in Russian&quot;</span><span class="s0">)</span></pre>
+</body>
+</html>
