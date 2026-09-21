@@ -24,7 +24,7 @@ from .retry import with_retry
 
 PARENT_TABLE = "rag11_chunks_parent_table"
 
-# Same namespace/seed as stage1_1_extract_and_chunk.ipynb, stage1_2, and
+# Same namespace/seed as stage1_1_eda_extract_and_chunk.ipynb, stage1_2, and
 # stage1_9 -- must stay identical everywhere, or "the same" business key
 # (e.g. a given parent_id) would deterministically hash to a different
 # rowGUID depending on which code created it.
@@ -55,7 +55,7 @@ def create_parent_payload(data: dict, order: int, *, owner_guid: Optional[str] =
     ``data`` must contain ``"parent_id"`` (the stable business key its
     ``rowGUID`` is derived from). ``owner_guid`` is the owning source's
     ``rag11_data_sources.rowGUID``; if omitted, it's read from
-    ``data["source_row_guid"]`` (the field stage1_1_extract_and_chunk.ipynb
+    ``data["source_row_guid"]`` (the field stage1_1_eda_extract_and_chunk.ipynb
     writes into every chunk file).
     """
     resolved_owner = owner_guid or data.get("source_row_guid")

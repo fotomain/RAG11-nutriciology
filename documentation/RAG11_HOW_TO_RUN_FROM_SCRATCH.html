@@ -254,7 +254,7 @@ flowchart TD
     A["1. sql/drop_all_tables.sql — Supabase SQL Editor"] --> B["2. sql/create_sql_tables.sql — Supabase SQL Editor"]
     B --> C["3. ./stage1_0_run_mac_settings.command — Terminal"]
     C --> D["4. Delete stage1_eda_input/ and stage1_eda_output/"]
-    D --> E["5. stage1_1_extract_and_chunk.ipynb — re-fetch PDFs, re-chunk"]
+    D --> E["5. stage1_1_eda_extract_and_chunk.ipynb — re-fetch PDFs, re-chunk"]
     E --> F["6. stage1_2_eda_load_chunks.ipynb — embed and ingest"]
     F --> G["7. stage2_ask_examples*.ipynb — ask questions, check answers"]
 
@@ -349,7 +349,7 @@ rm -rf stage1_eda_input stage1_eda_output</pre>
       <div class="step">
         <div class="step-num">5</div>
         <div>
-          <h3><code class="pill">stage1_1_extract_and_chunk.ipynb</code></h3>
+          <h3><code class="pill">stage1_1_eda_extract_and_chunk.ipynb</code></h3>
           <div class="where">Jupyter / PyCharm, run all cells</div>
           <p>Lists the 17 source PDFs from <code class="pill">GOOGLE_DRIVE_SOURCES_FOLDER</code>, downloads any missing ones into <code class="pill">stage1_eda_input/source&lt;N&gt;/</code> concurrently via <code class="pill">gdown</code>, extracts per-page text, detects sections with a per-source algorithm (<code class="pill">stage1_1_eda_packages/</code>, one module per PDF), and writes hierarchical <code class="pill">parent_chunk-N.json</code> / <code class="pill">child_chunk-parentN-chunkM.json</code> files plus a <code class="pill">source_row-N.json</code> manifest per source to <code class="pill">stage1_eda_output/</code>. Runs against a fresh cache after step 4, so every source downloads and re-chunks from zero.</p>
         </div>
@@ -484,7 +484,7 @@ rm -rf stage1_eda_input stage1_eda_output</pre>
           <tr><td>2</td><td><code class="pill">sql/create_sql_tables.sql</code></td><td>Supabase SQL Editor</td><td><span class="tag tag-aqua">No</span></td><td>Recreates schema, HNSW + GIN indexes, RPCs, and RLS policies from empty.</td></tr>
           <tr><td>3</td><td><code class="pill">stage1_0_run_mac_settings.command</code></td><td>Terminal / Finder</td><td><span class="tag tag-aqua">No</span></td><td>Raises the macOS open-file limit system-wide (one-time, idempotent).</td></tr>
           <tr><td>4</td><td><code class="pill">rm -rf stage1_eda_input stage1_eda_output</code></td><td>Terminal / Finder</td><td><span class="tag tag-red">Yes</span></td><td>Deletes cached source PDFs and every generated chunk JSON file.</td></tr>
-          <tr><td>5</td><td><code class="pill">stage1_1_extract_and_chunk.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Re-downloads the 17 source PDFs and rebuilds parent/child chunk JSON.</td></tr>
+          <tr><td>5</td><td><code class="pill">stage1_1_eda_extract_and_chunk.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Re-downloads the 17 source PDFs and rebuilds parent/child chunk JSON.</td></tr>
           <tr><td>6</td><td><code class="pill">stage1_2_eda_load_chunks.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Embeds every child chunk (Voyage-3) and upserts all rows into Supabase.</td></tr>
           <tr><td>7</td><td><code class="pill">stage2_ask_examples*.ipynb</code></td><td>Jupyter / PyCharm</td><td><span class="tag tag-aqua">No</span></td><td>Asks sample questions end to end and prints grounded, cited answers.</td></tr>
         </tbody>

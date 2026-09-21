@@ -363,7 +363,7 @@ flowchart TD
 
     <h3 style="margin-top:1.6rem;">Sizing: a parent chunk is a whole section, not a token budget</h3>
     <p class="lede">
-      Child chunks are capped at ~300–500 tokens by design (<code class="pill">stage1_1_extract_and_chunk.ipynb</code>).
+      Child chunks are capped at ~300–500 tokens by design (<code class="pill">stage1_1_eda_extract_and_chunk.ipynb</code>).
       Parent chunks aren't — a parent is <em>one whole book section</em>, which can run from a
       paragraph to several thousand words. Sending an oversized parent unchecked could quietly
       consume the entire context budget <code class="pill">build_expanded_context_block()</code>

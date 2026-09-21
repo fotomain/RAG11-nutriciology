@@ -28,7 +28,7 @@ def find_book(clients: Optional[Clients] = None) -> BookStatus:
             .ilike("filename", BOOK_FILENAME_LIKE).execute().data)
     if not rows:
         raise RuntimeError(
-            "The Yoga-Sutra book is not in the database. Run stage1_1_extract_and_chunk.ipynb and "
+            "The Yoga-Sutra book is not in the database. Run stage1_1_eda_extract_and_chunk.ipynb and "
             "stage1_2_eda_load_chunks.ipynb first."
         )
     guid = rows[0]["rowGUID"]
@@ -49,7 +49,7 @@ def readiness_message(status: BookStatus) -> str:
         line + "\nWARNING: the sutra text is not fully loaded, so questions about individual sutras will be "
         "answered with 'the excerpts do not contain ...'. To load it:\n"
         "  1. in .env set MAX_NUMBER_OF_PAGES_TO_USE=NONE (and restart the notebook kernel)\n"
-        "  2. re-run stage1_1_extract_and_chunk.ipynb, then stage1_2_eda_load_chunks.ipynb "
+        "  2. re-run stage1_1_eda_extract_and_chunk.ipynb, then stage1_2_eda_load_chunks.ipynb "
         "(only new/changed chunks are embedded)\n"
         "  3. stage1_9_eda_verify_all_data.ipynb should print PASS"
     )

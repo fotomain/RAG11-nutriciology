@@ -5,7 +5,7 @@ way those do, instead of being folded into ``retrieval.py``/``generation.py``
 themselves.
 
 The problem this solves: child chunks are deliberately small (~300-500
-tokens, see ``stage1_1_extract_and_chunk.ipynb``) so they match a question
+tokens, see ``stage1_1_eda_extract_and_chunk.ipynb``) so they match a question
 precisely, but a small chunk sometimes doesn't carry enough surrounding
 context to answer the question fully.
 
@@ -46,7 +46,7 @@ the comparison isn't cut off mid-thought.
     - ``page_numbers_for_expanded_chunk()`` --
       ``retrieval.page_numbers_for_chunk()``'s counterpart: a parent
       chunk's ``rowJSON`` carries its own ``start_page``/``end_page``
-      fields directly (``stage1_1_extract_and_chunk.ipynb``), rather than
+      fields directly (``stage1_1_eda_extract_and_chunk.ipynb``), rather than
       the ``"[... | Pages N-M]"`` header ``contextual_header()`` only
       stamps onto child chunk text, so it can't be found by that regex.
 
@@ -65,7 +65,7 @@ from .crud_chunks_parent import read_parent_row
 from .deduplication import group_by_key
 from .retrieval import page_numbers_for_chunk
 
-# A parent chunk is a whole book *section* (stage1_1_extract_and_chunk.ipynb
+# A parent chunk is a whole book *section* (stage1_1_eda_extract_and_chunk.ipynb
 # builds parent chunks by section, not by a fixed token budget the way
 # child chunks are), so a section can run to several thousand words --
 # dwarfing the ~300-500 tokens a child chunk is capped at. Truncating keeps
@@ -192,7 +192,7 @@ def page_numbers_for_expanded_chunk(row: dict) -> list:
 
     A parent chunk's ``rowJSON`` already carries its own
     ``start_page``/``end_page`` fields, set directly by
-    ``stage1_1_extract_and_chunk.ipynb`` (see
+    ``stage1_1_eda_extract_and_chunk.ipynb`` (see
     ``rag11_chunks_parent_table``'s generated columns in
     ``sql/create_sql_tables.sql``) -- unlike a child chunk, whose page range
     only exists inside its ``"[Source: ... | Pages N-M]"`` text header

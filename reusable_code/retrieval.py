@@ -78,7 +78,7 @@ def page_numbers_for_chunk(row: dict) -> list:
     """Parse the inclusive page range out of a child row's contextual
     header, e.g. ``'[Source: foo.pdf | Section: Bar | Pages 12-14]'`` ->
     ``[12, 13, 14]``. Every child chunk carries this header (see
-    ``contextual_header()`` in ``stage1_1_extract_and_chunk.ipynb``), so
+    ``contextual_header()`` in ``stage1_1_eda_extract_and_chunk.ipynb``), so
     this needs no extra DB lookup against the parent row."""
     text = row.get("rowJSON", {}).get("text", "")
     match = _PAGE_RANGE_RE.search(text)

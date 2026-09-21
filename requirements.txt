@@ -2,7 +2,7 @@
 # Install with (inside your .venv):
 #   pip install -r requirements.txt
 
-# --- Stage 1.1: Extract & Chunk (stage1_1_extract_and_chunk.ipynb) ---
+# --- Stage 1.1: Extract & Chunk (stage1_1_eda_extract_and_chunk.ipynb) ---
 gdown>=6.1     # lists the public GOOGLE_DRIVE_SOURCES_FOLDER (needs skip_download=)
                # and downloads the source PDFs from Google Drive
 pymupdf        # NOTE: package name is "pymupdf" but it's imported as `import fitz`

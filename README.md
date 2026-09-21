@@ -111,7 +111,7 @@ stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1
   `GOOGLE_DRIVE_SOURCES_FOLDER`: [Google Drive Nutrition Textbooks Folder](https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link)
 
 ### Stage 1.1: Extract Text & Hierarchical Chunking
-- **Notebook**: [`stage1_1_extract_and_chunk.ipynb`](stage1_1_extract_and_chunk.ipynb)
+- **Notebook**: [`stage1_1_eda_extract_and_chunk.ipynb`](stage1_1_eda_extract_and_chunk.ipynb)
 - **Action**:
   - Pulls source PDFs directly from the Google Drive source folder or local directory.
   - Extracts text, headings, and tables (using `pymupdf` and `pdfplumber`).

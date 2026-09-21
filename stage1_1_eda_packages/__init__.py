@@ -1,10 +1,10 @@
 """
-Per-source section-detection algorithms for stage1_1_extract_and_chunk.ipynb.
+Per-source section-detection algorithms for stage1_1_eda_extract_and_chunk.ipynb.
 
 Each sibling module handles exactly one source PDF, matched by its exact
 FILENAME (not by its source1/2/.../sourceN slot -- that slot depends on the
 Drive folder's own listing order and on new files being added, see
-stage1_1_extract_and_chunk.ipynb's config cell). Every normal module
+stage1_1_eda_extract_and_chunk.ipynb's config cell). Every normal module
 exports:
 
     FILENAME        -- exact filename as it appears in the Drive folder
