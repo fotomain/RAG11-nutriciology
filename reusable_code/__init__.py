@@ -38,6 +38,7 @@ from .clients import (
     init_clients,
 )
 from .config import (
+    SPEAKING_LANGUAGE,
     USE_HYBRID_SEARCH,
     USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
     USE_MULTI_QUERY_QUESTION_SPLITTING,
@@ -85,6 +86,20 @@ from .generation import (
     grounding_words,
 )
 from .devanagari import contains_devanagari, romanize_devanagari
+from .display import (
+    answer_html,
+    format_pages,
+    qa_card_html,
+    show_qa,
+    show_summary,
+    summary_table_html,
+)
+from .language import (
+    PreparedQuestion,
+    answer_language_directive,
+    language_name,
+    prepare_question,
+)
 from .git_sync import save_to_github
 from .hybrid_search import (
     HYBRID_MIN_POOL,
@@ -183,6 +198,17 @@ __all__ = [
     "save_to_github",
     "contains_devanagari",
     "romanize_devanagari",
+    "SPEAKING_LANGUAGE",
+    "PreparedQuestion",
+    "answer_language_directive",
+    "language_name",
+    "prepare_question",
+    "answer_html",
+    "format_pages",
+    "qa_card_html",
+    "show_qa",
+    "show_summary",
+    "summary_table_html",
     "PARENT_TABLE",
     "RAG11_UUID_NAMESPACE",
     "deterministic_uuid",

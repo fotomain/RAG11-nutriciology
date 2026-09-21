@@ -204,5 +204,6 @@ def page_numbers_for_expanded_chunk(row: dict) -> list:
     row_json = row.get("rowJSON", {})
     start_page, end_page = row_json.get("start_page"), row_json.get("end_page")
     if start_page is not None and end_page is not None:
-        return list(range(start_page, end_page + 1))
+        # Parent JSON stores 0-based pages; child headers (and every citation) are 1-based.
+        return list(range(start_page + 1, end_page + 2))
     return page_numbers_for_chunk(row)

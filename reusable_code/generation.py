@@ -10,6 +10,7 @@ from .config import (
     USE_PARENT_CHUNK_EXPANSION,
 )
 from .hybrid_search import hybrid_search
+from .language import answer_language_directive, language_name
 from .hypothetical_document_embedding import HYDE_MAX_TOKENS, retrieve_chunks_hyde
 from .multi_query_question_splitting import (
     MAX_SUBQUESTIONS,
@@ -146,6 +147,8 @@ def ask_question(
     generation_model: str = GENERATION_MODEL,
     filter_owner: Optional[str] = None,
     system_prompt: str = SYSTEM_PROMPT,
+    retrieval_query: Optional[str] = None,
+    answer_language: Optional[str] = None,
     clients: Optional[Clients] = None,
 ) -> dict:
     """Retrieve chunks for ``question``, ask Claude to answer from them
@@ -223,6 +226,13 @@ def ask_question(
     ``rag11_data_sources.rowGUID``); ``None`` searches all sources.
     ``system_prompt`` replaces the default nutrition ``SYSTEM_PROMPT`` for the
     final answer only (e.g. for a non-nutrition source such as the Yoga-Sutra).
+    ``retrieval_query`` is the text used for every retrieval step (splitting,
+    HyDE, hybrid/dense search, rerank) while ``question`` is what the model
+    sees and answers -- see ``language.prepare_question()``, which produces a
+    clean search query from a question in any language or register.
+    ``answer_language`` (an ISO code such as "EN") appends an instruction to
+    write the whole answer in that language, whatever language the question
+    or the excerpts are in.
 
     Returned dict keys (all present regardless of
     ``use_hybrid``/``use_hyde``/``use_multi_query``/``use_rerank``/``expand_to_parents``):
@@ -234,6 +244,7 @@ def ask_question(
     """
     clients = clients or get_clients()
     final_n = rerank_top_n or match_count
+    search_question = retrieval_query or question
     hypothetical_document = None
     subquestions = None
 
@@ -245,7 +256,7 @@ def ask_question(
             # instead of a single top-level retrieval call.
             base_retrieve_fn = hybrid_search if use_hybrid else retrieve_chunks
             rows, subquestions = retrieve_chunks_multi_query(
-                question,
+                search_question,
                 match_count=n,
                 retrieve_fn=base_retrieve_fn,
                 max_subquestions=multi_query_max_subquestions,
@@ -259,7 +270,7 @@ def ask_question(
             # hybrid-step: dense + keyword search, fused via Reciprocal Rank
             # Fusion, instead of plain vector search.
             return hybrid_search(
-                question,
+                search_question,
                 match_count=n,
                 dense_pool=hybrid_dense_pool,
                 keyword_pool=hybrid_keyword_pool,
@@ -270,7 +281,7 @@ def ask_question(
             # hyde-step: search with a Claude-drafted hypothetical answer
             # paragraph's embedding instead of the bare question's.
             rows, hypothetical_document = retrieve_chunks_hyde(
-                question,
+                search_question,
                 match_count=n,
                 hyde_model=hyde_model,
                 hyde_max_tokens=hyde_max_tokens,
@@ -281,7 +292,7 @@ def ask_question(
             return rows
         # retrieval-step: plain vector (embedding) search, the default when
         # none of the above modes are enabled.
-        return retrieve_chunks(question, match_count=n, filter_owner=filter_owner, clients=clients)
+        return retrieve_chunks(search_question, match_count=n, filter_owner=filter_owner, clients=clients)
 
     if use_rerank:
         # rerank-step: over-fetch a wider candidate pool above, then have
@@ -290,7 +301,7 @@ def ask_question(
         # embedding-distance/RRF ranking fetch_candidates() already applied.
         pool_size = rerank_candidate_pool or max(final_n * RERANK_POOL_MULTIPLIER, RERANK_MIN_POOL)
         candidates = fetch_candidates(pool_size)
-        chunks = rerank_chunks(question, candidates, top_n=final_n, model=rerank_model, clients=clients)
+        chunks = rerank_chunks(search_question, candidates, top_n=final_n, model=rerank_model, clients=clients)
     else:
         candidates = chunks = fetch_candidates(final_n)
 
@@ -306,8 +317,15 @@ def ask_question(
             f"(< {MIN_CONTEXT_CHUNKS}) -- answer may be under-supported."
         )
 
+    system_text = (
+        f"{system_prompt}\n\n{answer_language_directive(answer_language)}" if answer_language else system_prompt
+    )
     context_block = build_expanded_context_block(chunks) if expand_to_parents else build_context_block(chunks)
     user_message = f"{context_block}\n\nQuestion: {question}"
+    if answer_language:
+        # Repeat the language rule in the last turn: a model tends to mirror the language of the question
+        # even when the system prompt says otherwise, and the end of the user turn is what it weights most.
+        user_message += f"\n\n(Write your answer in {language_name(answer_language)}, not in the language of the question.)"
 
     # generation-step: the only step that actually calls the LLM to answer
     # the question -- everything above only selected/shaped its context.
@@ -315,7 +333,7 @@ def ask_question(
         lambda: clients.anthropic.messages.create(
             model=generation_model,
             max_tokens=MAX_ANSWER_TOKENS,
-            system=system_prompt,
+            system=system_text,
             messages=[{"role": "user", "content": user_message}],
         )
     )
@@ -326,6 +344,7 @@ def ask_question(
 
     return {
         "question": question,
+        "retrieval_query": search_question,
         "short_answer": extract_short_answer(answer_text),  # "Yes" / "No" / None
         "answer": answer_text,
         "chunks_used": len(chunks),

@@ -485,8 +485,8 @@ check("build_expanded_context_block shows how many child chunks it stands in for
 check("build_expanded_context_block behaves like build_context_block for a plain (non-expanded) row",
       build_expanded_context_block([rows[0]]) == build_context_block([rows[0]]))
 
-check("page_numbers_for_expanded_chunk reads a parent's own start_page/end_page",
-      page_numbers_for_expanded_chunk(expanded[0]) == [40, 41, 42])
+check("page_numbers_for_expanded_chunk converts a parent's 0-based start_page/end_page to 1-based pages",
+      page_numbers_for_expanded_chunk(expanded[0]) == [41, 42, 43])
 check("page_numbers_for_expanded_chunk falls back to the child text header otherwise",
       page_numbers_for_expanded_chunk(rows[0]) == page_numbers_for_chunk(rows[0]))
 
@@ -685,8 +685,8 @@ check("ask_question(expand_to_parents=True) marks used_parent_expansion",
       result_expand["used_parent_expansion"] is True)
 check("ask_question(expand_to_parents=True) dedups chunks sharing one parent",
       result_expand["chunks_used"] == 1)
-check("ask_question(expand_to_parents=True) computes source_pages from the parent's start_page/end_page",
-      result_expand["source_pages"] == [40, 41, 42])
+check("ask_question(expand_to_parents=True) computes 1-based source_pages from the parent's start_page/end_page",
+      result_expand["source_pages"] == [41, 42, 43])
 
 # ---------------------------------------------------------------------------
 # env.optional_env_bool: parses the USE_* feature flags read by config.py
@@ -764,6 +764,74 @@ ask_question("q?", match_count=3, use_hybrid=True, use_hyde=False, use_multi_que
 _new_calls = fake_supabase_hybrid.rpc_calls[_n_before:]
 check("ask_question(use_hybrid=True, filter_owner=) filters BOTH the dense and keyword RPCs",
       len(_new_calls) == 2 and all(c[1].get("filter_owner") == "owner-Y" for c in _new_calls))
+
+# ---------------------------------------------------------------------------
+# language.py (question understanding + answer language) and display.py
+# ---------------------------------------------------------------------------
+
+from reusable_code.display import answer_html, format_pages, qa_card_html, summary_table_html  # noqa: E402
+from reusable_code.language import (  # noqa: E402
+    answer_language_directive,
+    language_name,
+    prepare_question,
+)
+
+check("language_name maps codes case-insensitively", language_name("en") == "English" and language_name("HI") == "Hindi")
+check("answer_language_directive names the language and keeps the Short answer line English",
+      "in English" in answer_language_directive("EN") and "Short answer: Yes" in answer_language_directive("EN"))
+
+_understood = (
+    'Sure! {"language": "fr", "translation": "Does dark chocolate count as a vegetable?", '
+    '"search_query": "Is cocoa a vegetable? Classification of plant foods and vegetable servings"} Done.'
+)
+_anth = FakeAnthropic(answer_text=_understood)
+_clients_lang = Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=_anth)
+_prep = prepare_question("Le chocolat noir compte-t-il comme un légume ?", clients=_clients_lang)
+check("prepare_question: JSON is extracted from a chatty reply", _prep.used_llm and _prep.language == "FR")
+check("prepare_question: retrieval query is the model's clean search query",
+      _prep.retrieval_query.startswith("Is cocoa a vegetable?"))
+check("prepare_question: LLM sees original + translation when the language differs",
+      _prep.llm_question.startswith("Le chocolat noir") and "[English: Does dark chocolate count as a vegetable?]" in _prep.llm_question)
+check("prepare_question: system prompt names the speaking language and the corpus",
+      "English" in _anth.messages.calls[-1]["system"] and "nutrition textbooks" in _anth.messages.calls[-1]["system"])
+
+_en = FakeAnthropic(answer_text='{"language": "en", "translation": "Can I live on pizza?", "search_query": "Can a diet of only pizza meet nutrient needs?"}')
+_prep_en = prepare_question("Can I live on pizza?", clients=Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=_en))
+check("prepare_question: an English question is not annotated with a translation",
+      _prep_en.llm_question == "Can I live on pizza?" and _prep_en.retrieval_query.startswith("Can a diet"))
+
+_bad = FakeAnthropic(answer_text="I cannot help with that.")
+_prep_bad = prepare_question("क्या योग है?", clients=Clients(supabase=fake_supabase, voyage=fake_voyage, anthropic=_bad))
+check("prepare_question: garbage reply falls back to the question + IAST (never lost)",
+      not _prep_bad.used_llm and "kyā yoga hai?" in _prep_bad.retrieval_query and "[IAST:" in _prep_bad.llm_question)
+check("prepare_question(use_llm=False) makes no model call",
+      prepare_question("x?", use_llm=False).retrieval_query == "x?")
+
+_voy_before = len(fake_voyage.embed_calls)
+_res_lang = ask_question("Le chocolat noir compte-t-il comme un légume ?", match_count=3,
+                         retrieval_query="Is cocoa a vegetable?", answer_language="EN",
+                         clients=fake_clients, **_plain_flags)
+check("ask_question(retrieval_query=) embeds the search query, not the original question",
+      fake_voyage.embed_calls[_voy_before][0] == ["Is cocoa a vegetable?"])
+check("ask_question(retrieval_query=) still shows the model the original question",
+      "Le chocolat noir" in fake_anthropic.messages.calls[-1]["messages"][0]["content"])
+check("ask_question(answer_language=) appends the language directive to the system prompt",
+      fake_anthropic.messages.calls[-1]["system"].endswith(answer_language_directive("EN")))
+check("ask_question(answer_language=) repeats the language rule at the end of the user turn",
+      fake_anthropic.messages.calls[-1]["messages"][0]["content"].endswith("not in the language of the question.)")
+      and "Write your answer in English" in fake_anthropic.messages.calls[-1]["messages"][0]["content"])
+check("ask_question() reports the retrieval query used", _res_lang["retrieval_query"] == "Is cocoa a vegetable?")
+
+check("format_pages compresses ranges", format_pages([3, 4, 5, 13, 14, 20]) == "3-5, 13-14, 20" and format_pages([]) == "-")
+_html = answer_html("**Bold** intro with *emph* & <tag>\n\n- one\n- two\n\nLast para")
+check("answer_html: paragraphs, lists, inline styles, and escaping",
+      "<p><b>Bold</b> intro with <i>emph</i> &amp; &lt;tag&gt;</p>" in _html and "<ul><li>one</li><li>two</li></ul>" in _html and "<p>Last para</p>" in _html)
+_card = qa_card_html(1, "क्या योग है?", {"answer": "Short answer: No\n\nBody **x**", "short_answer": "No", "chunks_used": 3,
+                     "candidates_considered": 9, "source_pages": [1, 2, 3], "subquestions": None, "grounding_words": ["yoga"]}, _prep_bad)
+check("qa_card_html: Question/Answer labels, badge (no duplicate 'Short answer' line), IAST line, auto height",
+      "Question 1:" in _card and "Answer:" in _card and 'ys-badge ys-no' in _card and _card.count("Short answer") == 1
+      and "IAST: kyā yoga hai?" in _card and "overflow:visible" in __import__("reusable_code.display", fromlist=["CSS"]).CSS.replace(" ", ""))
+check("summary_table_html escapes cells", "&lt;b&gt;" in summary_table_html([["<b>"]], ["h"]))
 
 print()
 if FAILURES:

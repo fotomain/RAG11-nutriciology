@@ -17,9 +17,13 @@ etc. keyword passed to ``ask_question()`` still overrides them, which is how
 stage2_ask_examples2..6 demonstrate each technique in isolation regardless
 of what .env is set to.
 """
-from .env import optional_env_bool
+from .env import optional_env, optional_env_bool
 
 USE_HYBRID_SEARCH = optional_env_bool("USE_HYBRID_SEARCH", True)
 USE_PARENT_CHUNK_EXPANSION = optional_env_bool("USE_PARENT_CHUNK_EXPANSION", True)
 USE_MULTI_QUERY_QUESTION_SPLITTING = optional_env_bool("USE_MULTI_QUERY_QUESTION_SPLITTING", True)
 USE_HYPOTHETICAL_DOCUMENT_EMBEDDING = optional_env_bool("USE_HYPOTHETICAL_DOCUMENT_EMBEDDING", True)
+
+# Language every answer is written in, whatever language/script the question uses
+# (ISO 639-1 code, e.g. EN, FR, DE, HI). See language.py.
+SPEAKING_LANGUAGE = (optional_env("SPEAKING_LANGUAGE", "EN") or "EN").upper()
