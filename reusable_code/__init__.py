@@ -84,6 +84,7 @@ from .generation import (
     extract_short_answer,
     grounding_words,
 )
+from .devanagari import contains_devanagari, romanize_devanagari
 from .git_sync import save_to_github
 from .hybrid_search import (
     HYBRID_MIN_POOL,
@@ -180,6 +181,8 @@ __all__ = [
     "grounding_words",
     "ask_question",
     "save_to_github",
+    "contains_devanagari",
+    "romanize_devanagari",
     "PARENT_TABLE",
     "RAG11_UUID_NAMESPACE",
     "deterministic_uuid",

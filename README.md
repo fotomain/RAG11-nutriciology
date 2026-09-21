@@ -1,9 +1,8 @@
 # RAG11 Nutrition — Evidence-Based Clinical Nutrition RAG Pipeline
-# V62 improved features
 
-A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system built on foundational medical and clinical nutrition textbooks. 
+A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system built on foundational medical and clinical nutrition textbooks.
 
-The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations.
+The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations. Retrieval quality is built up from five composable techniques — **reranking**, **hybrid (vector + keyword) search**, **parent-chunk expansion**, **HyDE**, and **multi-query question splitting** — implemented once in [`reusable_code/`](reusable_code/) and demonstrated one at a time in the `stage2_ask_examples*` notebooks.
 
 ---
 
@@ -14,12 +13,13 @@ flowchart TD
     A[Textbook PDFs<br/>Google Drive] --> B[Stage 1.1: Extract & Chunk<br/>Hierarchical Parent & Child Chunks]
     B --> C[stage1_eda_output/ JSON Chunks]
     C --> D[Stage 1.2: Ingestion & Embeddings<br/>Voyage-3 'document' embeddings]
-    D --> E[(Supabase PostgreSQL + pgvector<br/>HNSW Vector Index)]
+    D --> E[(Supabase PostgreSQL + pgvector<br/>HNSW Vector Index + GIN tsvector index)]
     E --> F[Stage 1.9: Data Verification<br/>Integrity & Parity Audit]
-    E --> G[Stage 2: Question Answering<br/>match_rag11_child_chunks RPC]
-    H[User Nutrition Question] --> I[Voyage-3 'query' Embedding]
+    E --> G[Stage 2: Question Answering<br/>reusable_code.ask_question]
+    H[User Nutrition Question] --> I[Voyage-3 'query' Embedding /<br/>HyDE / Multi-Query / Hybrid Retrieval]
     I --> G
-    G --> J[Claude Sonnet 3.5 / 5<br/>Evidence-backed Generation]
+    G --> R[Optional: Rerank + Parent-Chunk Expansion]
+    R --> J[Claude Sonnet<br/>Evidence-backed Generation]
     J --> K[Final Answer with Page Citations<br/>& Short Yes/No Summary]
 ```
 
@@ -87,6 +87,9 @@ Open `.env` and fill in the required credentials obtained from the official dash
    - `rag11_chunks_child_table` table with 1024-dimension `embedding vector(1024)`
    - Cosine distance HNSW vector index (`idx_rag11_child_hnsw`)
    - Vector search RPC function: `match_rag11_child_chunks`
+   - Generated `tsvector` column + GIN index (`idx_rag11_child_chunk_tsv_gin`) and the `match_rag11_child_chunks_keyword` RPC, used by hybrid search
+
+Every statement in this script is `create ... if not exists` / `create or replace function`, so it's also safe to re-run later against a database that already has ingested data (e.g. after pulling an update that adds the hybrid-search columns).
 
 ---
 
@@ -114,6 +117,7 @@ stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1
     - **Parent chunks**: Larger semantic context chunks.
     - **Child chunks**: Target retrieval chunks sized with `tiktoken` (`cl100k_base`).
   - Writes structured metadata manifests to `./stage1_eda_output/`.
+  - **New PDFs need no code**: a file without its own `stage1_1_eda_packages/sourceN_<slug>.py` module is chunked by `generic_fallback.py` (PDF outline, else larger-font headings, else 10-page windows). Add a dedicated module later for better boundaries; it takes precedence automatically.
 
 ### Stage 1.2: Embeddings & Supabase Ingestion
 - **Notebook**: [`stage1_2_eda_load_chunks.ipynb`](stage1_2_eda_load_chunks.ipynb)
@@ -129,13 +133,47 @@ stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1
   - Verifies zero missing rows, zero orphaned rows, and that every child chunk has a valid 1024-dim embedding.
 
 ### Stage 2: Question Answering & Evaluation
-- **Notebook**: [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb)
-- **Action**:
-  1. Embeds sample clinical nutrition questions using Voyage AI (`input_type="query"`).
-  2. Queries Supabase using the `match_rag11_child_chunks` RPC.
-  3. Synthesizes answers using Claude Sonnet strictly from retrieved context.
-  4. Formats concise short answers (`Short answer: Yes/No`), in-depth explanations, and verifiable textbook page citations.
-  5. Displays a summary performance table.
+All Stage 2 notebooks import the shared [`reusable_code`](reusable_code/) package (`init_clients`, `ask_question`, ...) instead of redefining retrieval/generation logic per notebook. Each notebook embeds sample clinical nutrition questions, retrieves context from Supabase, synthesizes an answer with Claude strictly from that context, and formats a concise `Short answer: Yes/No`, an in-depth explanation, and verifiable textbook page citations.
+
+| Notebook | Technique demonstrated |
+| --- | --- |
+| [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb) | Baseline: plain vector search via `match_rag11_child_chunks` |
+| [`stage2_ask_examples2_rerank.ipynb`](stage2_ask_examples2_rerank.ipynb) | Cross-encoder reranking (`use_rerank=True`) |
+| [`stage2_ask_examples3_hybrid_search.ipynb`](stage2_ask_examples3_hybrid_search.ipynb) | Hybrid vector + keyword search fused with Reciprocal Rank Fusion (`use_hybrid=True`) |
+| [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
+| [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
+| [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
+
+`ask_question()` composes all of these techniques by default (see [`reusable_code/README.md`](reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
+
+For the mechanics and rationale behind each technique, see the write-ups in [`documentation/`](documentation/):
+- [`HOW_IT_WORKS_Hybrid_Search.html`](documentation/HOW_IT_WORKS_Hybrid_Search.html)
+- [`HOW_IT_WORKS_Hypothetical_Document_Embedding.html`](documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html)
+- [`HOW_IT_WORKS_Multi_Query_Question_Splitting.html`](documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html)
+- [`HOW_IT_WORKS_Parent_Chunk_Expansion.html`](documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html)
+- [`RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html`](documentation/RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html) — end-to-end data flow
+- [`RAG11_HOW_TO_RUN_FROM_SCRATCH.html`](documentation/RAG11_HOW_TO_RUN_FROM_SCRATCH.html) — full from-scratch run guide
+
+---
+
+## `reusable_code/` — the shared retrieval & generation package
+
+Every Stage 2 notebook imports from [`reusable_code/`](reusable_code/) rather than redefining `require_env`, `ask_question`, retrieval, or reranking logic per notebook:
+
+```python
+from reusable_code import init_clients, ask_question
+
+clients = init_clients()  # reads .env once; cached for the rest of the kernel
+result = ask_question("Is vitamin C a water-soluble vitamin?")
+```
+
+It covers client setup (`clients.py`), retrieval (`retrieval.py`, `hybrid_search.py`, `hypothetical_document_embedding.py`, `multi_query_question_splitting.py`, `parent_chunk_expansion.py`), reranking and manual overrides (`rerunk_code.py`), generation (`generation.py`), and row-level CRUD helpers for the parent/child chunk tables (`crud_chunks_parent.py`, `crud_chunks_child.py`). See [`reusable_code/README.md`](reusable_code/README.md) for the full module map and how each retrieval technique composes with the others.
+
+### Running the test suite
+[`test_reusable_code.py`](test_reusable_code.py) exercises `reusable_code` against fully faked Supabase/Voyage/Anthropic clients — no network access or `.env` required:
+```bash
+python3 test_reusable_code.py
+```
 
 ---
 

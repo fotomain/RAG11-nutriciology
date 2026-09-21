@@ -16,6 +16,7 @@ sys.path.insert(0, ".")
 from reusable_code import config as config_module  # noqa: E402
 from reusable_code.clients import Clients  # noqa: E402
 from reusable_code.env import optional_env_bool  # noqa: E402
+from reusable_code.generation import SYSTEM_PROMPT as SYSTEM_PROMPT_DEFAULT  # noqa: E402
 from reusable_code.generation import ask_question, build_context_block  # noqa: E402
 from reusable_code.hybrid_search import (  # noqa: E402
     hybrid_search,
@@ -730,6 +731,39 @@ check("ask_question()'s use_multi_query default matches config.USE_MULTI_QUERY_Q
       _ask_question_defaults["use_multi_query"] == config_module.USE_MULTI_QUERY_QUESTION_SPLITTING)
 check("ask_question()'s expand_to_parents default matches config.USE_PARENT_CHUNK_EXPANSION",
       _ask_question_defaults["expand_to_parents"] == config_module.USE_PARENT_CHUNK_EXPANSION)
+
+# ---------------------------------------------------------------------------
+# devanagari.py: Devanagari -> IAST, and ask_question(filter_owner=, system_prompt=)
+# ---------------------------------------------------------------------------
+
+from reusable_code.devanagari import contains_devanagari, romanize_devanagari  # noqa: E402
+
+check("romanize: Yoga-Sutra I.2", romanize_devanagari("योगश्चित्तवृत्तिनिरोधः") == "yogaścittavṛttinirodhaḥ")
+check("romanize: anusvara + long vowel", romanize_devanagari("अहिंसा") == "ahiṃsā")
+check("romanize: jñ and kṣ conjuncts", romanize_devanagari("ज्ञान क्षण") == "jñāna kṣaṇa")
+check("romanize: Om, danda, digits", romanize_devanagari("ॐ । १२") == "oṃ . 12")
+check("romanize: Latin/French text is left untouched",
+      romanize_devanagari("Que dit योगः ? (I.2)") == "Que dit yogaḥ ? (I.2)")
+check("contains_devanagari", contains_devanagari("what is योग") and not contains_devanagari("what is yoga"))
+
+_plain_flags = dict(use_hybrid=False, use_hyde=False, use_multi_query=False, expand_to_parents=False)
+ask_question("q?", match_count=3, filter_owner="owner-X", system_prompt="CUSTOM SYSTEM", clients=fake_clients, **_plain_flags)
+check("ask_question(filter_owner=) reaches the dense RPC",
+      fake_supabase.rpc_calls[-1][0] == "match_rag11_child_chunks" and fake_supabase.rpc_calls[-1][1].get("filter_owner") == "owner-X")
+check("ask_question(system_prompt=) replaces the default system prompt",
+      fake_anthropic.messages.calls[-1]["system"] == "CUSTOM SYSTEM")
+ask_question("q?", match_count=3, clients=fake_clients, **_plain_flags)
+check("ask_question() default: no filter_owner param sent",
+      "filter_owner" not in fake_supabase.rpc_calls[-1][1])
+check("ask_question() default system prompt is the nutrition one",
+      fake_anthropic.messages.calls[-1]["system"] == SYSTEM_PROMPT_DEFAULT)
+
+_n_before = len(fake_supabase_hybrid.rpc_calls)
+ask_question("q?", match_count=3, use_hybrid=True, use_hyde=False, use_multi_query=False, expand_to_parents=False,
+             filter_owner="owner-Y", clients=fake_clients_hybrid)
+_new_calls = fake_supabase_hybrid.rpc_calls[_n_before:]
+check("ask_question(use_hybrid=True, filter_owner=) filters BOTH the dense and keyword RPCs",
+      len(_new_calls) == 2 and all(c[1].get("filter_owner") == "owner-Y" for c in _new_calls))
 
 print()
 if FAILURES:

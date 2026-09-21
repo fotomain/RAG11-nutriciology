@@ -144,6 +144,8 @@ def ask_question(
     expand_to_parents: bool = USE_PARENT_CHUNK_EXPANSION,
     max_parent_chars: Optional[int] = DEFAULT_MAX_PARENT_CHARS,
     generation_model: str = GENERATION_MODEL,
+    filter_owner: Optional[str] = None,
+    system_prompt: str = SYSTEM_PROMPT,
     clients: Optional[Clients] = None,
 ) -> dict:
     """Retrieve chunks for ``question``, ask Claude to answer from them
@@ -217,6 +219,11 @@ def ask_question(
           parent section is sent; pass ``None`` to disable truncation. See
           ``documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html``.
 
+    ``filter_owner`` restricts every retrieval step to one source (a
+    ``rag11_data_sources.rowGUID``); ``None`` searches all sources.
+    ``system_prompt`` replaces the default nutrition ``SYSTEM_PROMPT`` for the
+    final answer only (e.g. for a non-nutrition source such as the Yoga-Sutra).
+
     Returned dict keys (all present regardless of
     ``use_hybrid``/``use_hyde``/``use_multi_query``/``use_rerank``/``expand_to_parents``):
         question, short_answer, answer, chunks_used, source_pages,
@@ -244,6 +251,7 @@ def ask_question(
                 max_subquestions=multi_query_max_subquestions,
                 split_model=multi_query_model,
                 return_subquestions=True,
+                filter_owner=filter_owner,
                 clients=clients,
             )
             return rows
@@ -255,6 +263,7 @@ def ask_question(
                 match_count=n,
                 dense_pool=hybrid_dense_pool,
                 keyword_pool=hybrid_keyword_pool,
+                filter_owner=filter_owner,
                 clients=clients,
             )
         if use_hyde:
@@ -266,12 +275,13 @@ def ask_question(
                 hyde_model=hyde_model,
                 hyde_max_tokens=hyde_max_tokens,
                 return_hypothetical_document=True,
+                filter_owner=filter_owner,
                 clients=clients,
             )
             return rows
         # retrieval-step: plain vector (embedding) search, the default when
         # none of the above modes are enabled.
-        return retrieve_chunks(question, match_count=n, clients=clients)
+        return retrieve_chunks(question, match_count=n, filter_owner=filter_owner, clients=clients)
 
     if use_rerank:
         # rerank-step: over-fetch a wider candidate pool above, then have
@@ -305,7 +315,7 @@ def ask_question(
         lambda: clients.anthropic.messages.create(
             model=generation_model,
             max_tokens=MAX_ANSWER_TOKENS,
-            system=SYSTEM_PROMPT,
+            system=system_prompt,
             messages=[{"role": "user", "content": user_message}],
         )
     )
