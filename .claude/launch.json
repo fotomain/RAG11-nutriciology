@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lrm-fastapi",
+      "runtimeExecutable": ".venv/bin/python3",
+      "runtimeArgs": ["-m", "uvicorn", "stage8_fastapi.main:app", "--port", "8000"],
+      "port": 8000
+    },
+    {
+      "name": "lrm-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "stage9_frontend", "run", "web", "--", "--port", "8081"],
+      "port": 8081
+    }
+  ]
+}

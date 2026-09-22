@@ -4,7 +4,11 @@ A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system bui
 
 The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations. Retrieval quality is built up from five composable techniques — **reranking**, **hybrid (vector + keyword) search**, **parent-chunk expansion**, **HyDE**, and **multi-query question splitting** — implemented once in [`reusable_code/`](reusable_code/) and demonstrated one at a time in the `stage2_ask_examples*` notebooks.
 
+--- git total size
+find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs -n 1 du -sh -c | tail -n 1
 ---
+find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs du -sh -c
+
 
 ## Architecture Overview
 
@@ -69,6 +73,7 @@ Open `.env` and fill in the required credentials obtained from the official dash
 | **`ANTHROPIC_API_KEY`** | Anthropic Claude API key (answer generation) | [Anthropic Console > API Keys](https://console.anthropic.com/settings/keys) |
 | **`GOOGLE_AI_KEY`** | Google Gemini API key (optional / deep fetching) | [Google AI Studio > Get API Key](https://aistudio.google.com/app/apikey) |
 | **`MAX_NUMBER_OF_PAGES_TO_USE`** | Stage 1.1: pages of text extracted per PDF. Unset = `100` (fast smoke test); `NONE` = no cap (full run) | — |
+| **`START_PAGE_NUMBER`** | Stage 1.1: 1-based page to start extracting text from. Unset = `1`. Combine with `MAX_NUMBER_OF_PAGES_TO_USE` to select one page window, e.g. `303` + `10` extracts pages 303-312 | — |
 | **`SPEAKING_LANGUAGE`** | Language of every answer (`EN`, `RU`, `FR`, `HI`, ...). Default `EN` | — |
 
 > [!IMPORTANT]
@@ -107,7 +112,9 @@ Every statement in this script is `create ... if not exists` / `create or replac
 ```
 
 (or double-click it in Finder). It needs `.env`; `MAX_NUMBER_OF_PAGES_TO_USE` there controls the smoke-test cap (unset = 100,
-`NONE` = full run). Exit code `0` = PASS, `1` = ran but verification found issues, `2` = a stage crashed. Every stage is
+`NONE` = full run), and `START_PAGE_NUMBER` (unset = 1) shifts where that cap starts -- together they select a page
+window, e.g. `START_PAGE_NUMBER=303` + `MAX_NUMBER_OF_PAGES_TO_USE=10` extracts only pages 303-312 of each PDF.
+Exit code `0` = PASS, `1` = ran but verification found issues, `2` = a stage crashed. Every stage is
 idempotent and resumable, so after a failure fix the cause and run it again. The code lives in `reusable_code/stage1/`
 (`extract_chunk.py`, `load.py`, `verify.py`, `pipeline.py`); the notebooks below are thin, step-by-step views of it, and
 `python -m reusable_code.stage1` is the same entry point.

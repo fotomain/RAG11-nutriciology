@@ -7,9 +7,13 @@ Each step is a function so the notebook can show them one by one; ``run_stage1_1
 Every step is idempotent: the Drive listing is cheap, downloads skip files already on disk, page text is cached.
 
 Config (``.env``):
-    MAX_NUMBER_OF_PAGES_TO_USE   pages of text extracted per PDF. Unset = 100 (smoke test), NONE = no cap (real run).
-                                 Section boundaries still come from the whole PDF; sections starting past the cap
-                                 just have empty text.
+    MAX_NUMBER_OF_PAGES_TO_USE   pages of text extracted per PDF, STARTING AT START_PAGE_NUMBER. Unset = 100
+                                 (smoke test), NONE = no cap (real run, to the end of the document).
+    START_PAGE_NUMBER            1-based page to start extracting text from. Unset = 1 (the start of the PDF).
+                                 Together with MAX_NUMBER_OF_PAGES_TO_USE this selects one page WINDOW per PDF,
+                                 e.g. START_PAGE_NUMBER=303 + MAX_NUMBER_OF_PAGES_TO_USE=10 extracts pages 303-312.
+                                 Section boundaries still come from the whole PDF; pages outside the window just
+                                 have empty text.
     GOOGLE_DRIVE_SOURCES_FOLDER  public "anyone with the link" Drive folder holding the PDFs.
 """
 import json
@@ -22,10 +26,11 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from ..env import optional_env, optional_env_limit
+from ..env import optional_env, optional_env_int, optional_env_limit
 from .common import Paths, banner, deterministic_uuid, get_paths
 
 DEFAULT_MAX_PAGES = 100
+DEFAULT_START_PAGE_NUMBER = 1
 DEFAULT_DRIVE_FOLDER = "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link"
 CHILD_TARGET_TOKENS = 400
 CHILD_OVERLAP_PCT = 0.125
@@ -37,22 +42,37 @@ CHILD_OVERLAP_PCT = 0.125
 @dataclass(frozen=True)
 class Config:
     paths: Paths
-    max_pages: Optional[int]      # None = extract text for every page
+    max_pages: Optional[int]      # None = extract text to the end of the document
+    start_page_number: int        # 1-based page to start extracting text from
     drive_folder_url: str
 
     @property
     def drive_folder_id(self) -> str:
         return drive_folder_id(self.drive_folder_url)
 
+    @property
+    def start_page_index(self) -> int:
+        """0-based equivalent of ``start_page_number``, for indexing into a 0-based page list."""
+        return self.start_page_number - 1
+
+    def page_window_desc(self) -> str:
+        if self.max_pages is None:
+            return f"page {self.start_page_number} to the end of the document"
+        last = self.start_page_number + self.max_pages - 1
+        return f"pages {self.start_page_number}-{last}"
+
 
 def load_config(root=None, *, verbose: bool = True) -> Config:
     cfg = Config(
         paths=get_paths(root),
         max_pages=optional_env_limit("MAX_NUMBER_OF_PAGES_TO_USE", DEFAULT_MAX_PAGES),
+        start_page_number=optional_env_int("START_PAGE_NUMBER", DEFAULT_START_PAGE_NUMBER),
         drive_folder_url=optional_env("GOOGLE_DRIVE_SOURCES_FOLDER", DEFAULT_DRIVE_FOLDER) or DEFAULT_DRIVE_FOLDER,
     )
     if verbose:
         print("MAX_NUMBER_OF_PAGES_TO_USE =", cfg.max_pages if cfg.max_pages else "NONE (full run)")
+        print("START_PAGE_NUMBER =", cfg.start_page_number)
+        print("-> text will be extracted for", cfg.page_window_desc())
         print("Drive folder:", cfg.drive_folder_url)
     return cfg
 
@@ -252,27 +272,34 @@ def write_source_manifests(cfg: Config, sources: Dict[str, dict], fetch_info: Di
 
 
 def extract_pages(cfg: Config, source_key: str, pdf_path: Path) -> List[str]:
-    """Per-page plain text (index 0 = page 1), one entry per REAL page regardless of the cap (so page-number
-    arithmetic is never off), cached. With a cap only that many leading pages go through ``get_text()``; later
-    pages are "". The cache file name carries the cap so a capped and a full run never reuse each other's cache.
+    """Per-page plain text (index 0 = page 1), one entry per REAL page regardless of the page window (so
+    page-number arithmetic is never off), cached. Only the window [START_PAGE_NUMBER, START_PAGE_NUMBER +
+    MAX_NUMBER_OF_PAGES_TO_USE) actually goes through ``get_text()``; pages before or after it are "". The cache
+    file name carries the window (start + cap) so different windows never reuse each other's cache -- but a
+    default, unwindowed run (start page 1) keeps its original cache name, so existing caches stay valid.
     NUL characters are stripped here: Postgres text/jsonb cannot store them, and stripping only at upsert time
     would leave a permanent local-vs-database mismatch (stage 1.9) on every affected chunk.
     """
     import fitz
-    suffix = f"_max{cfg.max_pages}" if cfg.max_pages is not None else ""
+    suffix = f"_from{cfg.start_page_number}" if cfg.start_page_number != 1 else ""
+    suffix += f"_max{cfg.max_pages}" if cfg.max_pages is not None else ""
     cache_path = cfg.paths.output_root / source_key / f"_cache_pages{suffix}.json"
     if cache_path.exists():
         return json.loads(cache_path.read_text(encoding="utf-8"))
 
-    limit = float("inf") if cfg.max_pages is None else cfg.max_pages
+    start = cfg.start_page_index
+    end = float("inf") if cfg.max_pages is None else start + cfg.max_pages
     pages = []
     with fitz.open(pdf_path) as doc:
         for i, page in enumerate(doc):
-            pages.append((page.get_text("text") if i < limit else "").replace("\x00", ""))
+            in_window = start <= i < end
+            pages.append((page.get_text("text") if in_window else "").replace("\x00", ""))
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps(pages, ensure_ascii=False), encoding="utf-8")
-    n_extracted = len(pages) if limit == float("inf") else min(len(pages), int(limit))
-    print(f"[{source_key}] cached {len(pages)} page(s), text extracted for {n_extracted} of them -> {cache_path}")
+    n_extracted = max(0, min(len(pages), int(end) if end != float("inf") else len(pages)) - start)
+    last_page = min(len(pages), int(end)) if end != float("inf") else len(pages)
+    window_desc = f"pages {start + 1}-{last_page}" if n_extracted else "no pages (window is past the end of the document)"
+    print(f"[{source_key}] cached {len(pages)} page(s), text extracted for {window_desc} -> {cache_path}")
     return pages
 
 

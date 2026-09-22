@@ -9,7 +9,8 @@
 #   ./run_stage1_all.command --from 1.2         # load + verify (reuse chunks on disk)
 #   ./run_stage1_all.command --prune-orphans    # also delete Supabase rows with no local file
 #
-# Settings live in .env (see .env.sample), e.g. MAX_NUMBER_OF_PAGES_TO_USE=NONE for a full run.
+# Settings live in .env (see .env.sample), e.g. MAX_NUMBER_OF_PAGES_TO_USE=NONE for a full run, or
+# START_PAGE_NUMBER=303 + MAX_NUMBER_OF_PAGES_TO_USE=10 to extract just pages 303-312 of each PDF.
 # Every stage is idempotent and resumable, so if something fails: fix it and run again.
 # Exit code: 0 = PASS, 1 = ran but verification found issues, 2 = a stage crashed.
 # =========================================================================

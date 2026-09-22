@@ -108,10 +108,16 @@ Everything else lives in the package: `book.py` (find the book, readiness check)
 hint), `qa.py` (`YogaSutraQA`). Card labels follow `speaking_language` (`display.UI`: English and Russian so far; add
 a dict entry for another language).
 
-## Stage 1.1 page cap (`MAX_NUMBER_OF_PAGES_TO_USE`)
+## Stage 1.1 page window (`START_PAGE_NUMBER` / `MAX_NUMBER_OF_PAGES_TO_USE`)
 
-Read from `.env` by `env.optional_env_limit()`: a number caps the pages of text extracted per PDF, unset means `100`
-(fast smoke test), `NONE` / `ALL` / `0` means no cap (the real run). Restart the kernel after editing `.env`.
+Read from `.env` by `env.optional_env_int()` / `env.optional_env_limit()`: `MAX_NUMBER_OF_PAGES_TO_USE` caps how many
+pages of text are extracted per PDF (unset = `100`, a fast smoke test; `NONE`/`ALL`/`0` = no cap, the real run) and
+`START_PAGE_NUMBER` (unset = `1`) is the 1-based page that cap starts counting from. Together they select one page
+window per PDF -- `START_PAGE_NUMBER=303` + `MAX_NUMBER_OF_PAGES_TO_USE=10` extracts only pages 303-312 -- which is
+handy for iterating on a section-detection module against just the pages that matter, without re-extracting the whole
+book. Pages outside the window are `""`; section *boundaries* still come from the whole PDF. Restart the kernel (or
+re-run `run_stage1_all.command`) after editing `.env`. `extract_chunk.Config.page_window_desc()` prints the window in
+human terms, and the page-text cache file name encodes the window so different windows never share a stale cache.
 
 ## Row-level CRUD on the parent/child chunk tables
 

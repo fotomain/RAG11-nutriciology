@@ -1,0 +1,26 @@
+{
+  "name": "lrm-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web",
+    "ios": "expo start --ios",
+    "android": "expo start --android"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~55.0.12",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@types/react": "~19.2.10",
+    "expo": "~55.0.31",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "0.83.10",
+    "react-native-paper": "^5.15.3",
+    "react-native-safe-area-context": "~5.6.2",
+    "react-native-vector-icons": "^10.3.0",
+    "react-native-web": "^0.21.0",
+    "typescript": "~5.9.2"
+  }
+}

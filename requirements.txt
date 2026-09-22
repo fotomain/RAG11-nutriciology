@@ -32,3 +32,10 @@ python-dotenv  # loads secrets from .env
 # --- Notebook UX ---
 ipywidgets     # silences "TqdmWarning: IProgress not found" from tqdm.auto,
                # used internally by supabase/voyageai's progress bars
+fastapi
+uvicorn
+psycopg[binary]
+google-genai>=1.0
+pypdf
+tenacity
+boto3          # stage3_1_lrm_data/recognize.py: OCR_PROVIDER_NAME=ocr_with_aws (Claude via AWS Bedrock)

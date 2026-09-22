@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG11 — AWS Start Actions (Bedrock OCR Setup)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<style>
+  :root{
+    --page-bg:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f3ef;
+    --ink:#0b0b0b; --ink-2:#52514e; --ink-muted:#898781;
+    --border:rgba(11,11,11,.10); --grid:#e1e0d9;
+    --accent:#2a78d6; --accent-dark:#184f95; --accent-tint:#eef4fc;
+    --violet:#4a3aa7; --violet-tint:#efedfa;
+    --aqua:#1baf7a; --orange:#eb6834; --yellow:#eda100; --magenta:#e87ba4;
+    --red:#c0392b; --red-tint:#fbeceb;
+    --good:#0ca30c;
+    --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+    --shadow:0 1px 2px rgba(11,11,11,.06), 0 8px 24px rgba(11,11,11,.06);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--page-bg); color:var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  h1,h2,h3{line-height:1.2; letter-spacing:-0.01em;}
+  h2{font-size:1.5rem; margin:0 0 .35rem;}
+  h3{font-size:1.05rem; margin:0 0 .5rem;}
+  .eyebrow{
+    text-transform:uppercase; letter-spacing:.08em; font-size:.72rem;
+    font-weight:700; color:var(--accent-dark);
+  }
+  p.lede{color:var(--ink-2); max-width:70ch; margin:.35rem 0 1.4rem;}
+
+  header.topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:1rem;
+    padding:.85rem 1.5rem; background:rgba(252,252,251,.88);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid transparent;
+    transition:box-shadow .18s ease, border-color .18s ease, background .18s ease;
+  }
+  header.topnav.scrolled{
+    box-shadow:0 1px 0 rgba(11,11,11,.04), 0 8px 20px rgba(11,11,11,.06);
+    border-bottom-color:var(--border);
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; margin-right:.5rem;}
+  .brand-mark{
+    width:26px; height:26px; border-radius:8px;
+    background:linear-gradient(135deg, var(--orange), var(--yellow));
+    flex:none;
+  }
+  nav.navlinks{display:flex; gap:.2rem; flex-wrap:wrap;}
+  nav.navlinks a{
+    text-decoration:none; color:var(--ink-2); font-size:.84rem; font-weight:600;
+    padding:.45rem .7rem; border-radius:999px; transition:background .15s, color .15s;
+    white-space:nowrap;
+  }
+  nav.navlinks a:hover{background:var(--surface-2); color:var(--ink);}
+  nav.navlinks a.active{background:var(--accent-tint); color:var(--accent-dark);}
+  .navspacer{flex:1;}
+  .navmeta{font-size:.76rem; color:var(--ink-muted); white-space:nowrap;}
+
+  main{max-width:1080px; margin:0 auto; padding:0 1.5rem 4rem;}
+  section{padding-top:3rem; scroll-margin-top:5rem;}
+  section:first-of-type{padding-top:2.25rem;}
+
+  .hero h1{font-size:2.05rem; margin:.4rem 0 .6rem;}
+  .chipbar{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.1rem;}
+  .chip{
+    background:var(--surface); border:1px solid var(--border); border-radius:999px;
+    padding:.5rem .9rem; font-size:.8rem; color:var(--ink-2); box-shadow:var(--shadow);
+    display:flex; gap:.4rem; align-items:baseline;
+  }
+  .chip b{color:var(--ink); font-size:.92rem;}
+  .chip.danger{border-color:rgba(192,57,43,.35); background:var(--red-tint); color:#7a2318;}
+  .chip.danger b{color:#7a2318;}
+
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.4rem;
+  }
+  .mermaid-wrap{overflow-x:auto; padding-top:.25rem;}
+  .caption{font-size:.82rem; color:var(--ink-muted); margin-top:.9rem;}
+
+  .callout{
+    border-radius:var(--radius-md); padding:.9rem 1.1rem; font-size:.87rem;
+    margin:.9rem 0; border:1px solid var(--border); background:var(--surface-2); color:var(--ink-2);
+  }
+  .callout b.label{
+    display:inline-block; text-transform:uppercase; letter-spacing:.05em; font-size:.7rem;
+    font-weight:800; margin-right:.5rem; padding:.1rem .5rem; border-radius:999px;
+  }
+  .callout.warn{border-color:rgba(192,57,43,.35); background:var(--red-tint); color:#7a2318;}
+  .callout.warn b.label{background:var(--red); color:#fff;}
+  .callout.info{border-color:rgba(42,120,214,.3); background:var(--accent-tint); color:var(--accent-dark);}
+  .callout.info b.label{background:var(--accent); color:#fff;}
+  .callout.good{border-color:rgba(27,175,122,.35); background:#e6f7f0; color:#0e7d54;}
+  .callout.good b.label{background:var(--aqua); color:#fff;}
+
+  .steplist{display:flex; flex-direction:column; gap:1.1rem;}
+  .step{
+    display:grid; grid-template-columns:56px 1fr; gap:1rem;
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    box-shadow:var(--shadow); padding:1.2rem 1.3rem;
+  }
+  .step-num{
+    width:40px; height:40px; border-radius:999px; background:var(--accent-tint); color:var(--accent-dark);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.05rem;
+  }
+  .step.destructive .step-num{background:var(--red-tint); color:var(--red);}
+  .step.console-only .step-num{background:var(--violet-tint); color:var(--violet);}
+  .step h3{display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;}
+  .step p{margin:.35rem 0; color:var(--ink-2); font-size:.92rem;}
+  .step .where{font-size:.76rem; color:var(--ink-muted); text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
+
+  pre.code{
+    margin:.6rem 0 0; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:var(--radius-md); padding:.9rem 1rem; overflow-x:auto;
+    font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.8rem; color:var(--ink);
+    position:relative;
+  }
+  pre.code .k{color:var(--accent-dark);}
+  pre.code .s{color:#0e7d54;}
+  pre.code .m{color:var(--violet);}
+  pre.code .c{color:var(--ink-muted); font-style:italic;}
+  .copy-btn{
+    position:absolute; top:.5rem; right:.5rem; font-size:.68rem; font-weight:700;
+    border:1px solid var(--border); background:var(--surface); color:var(--ink-2);
+    border-radius:999px; padding:.25rem .6rem; cursor:pointer; transition:background .15s, color .15s;
+  }
+  .copy-btn:hover{background:var(--accent-tint); color:var(--accent-dark);}
+  .copy-btn.copied{background:#e6f7f0; color:#0e7d54; border-color:rgba(27,175,122,.35);}
+
+  .tag{
+    display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.03em;
+    padding:.15rem .5rem; border-radius:999px; text-transform:uppercase;
+  }
+  .tag-blue{background:var(--accent-tint); color:var(--accent-dark);}
+  .tag-violet{background:var(--violet-tint); color:var(--violet);}
+  .tag-aqua{background:#e6f7f0; color:#0e7d54;}
+  .tag-orange{background:#fdf1ea; color:#b04a20;}
+  .tag-red{background:var(--red-tint); color:var(--red);}
+
+  code.pill{
+    background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
+    padding:.05rem .4rem; font-size:.8rem; font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .table-scroll{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
+  table.data-table{width:100%; border-collapse:collapse; font-size:.84rem; background:var(--surface);}
+  table.data-table th, table.data-table td{
+    text-align:left; padding:.6rem .8rem; border-bottom:1px solid var(--grid); vertical-align:top;
+  }
+  table.data-table thead th{
+    background:var(--surface-2); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-2); white-space:nowrap;
+  }
+  table.data-table tbody tr:hover{background:var(--accent-tint);}
+
+  footer{
+    max-width:1080px; margin:2rem auto 0; padding:1.5rem; color:var(--ink-muted); font-size:.8rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width: 720px){
+    header.topnav{flex-wrap:wrap;}
+    nav.navlinks{order:3; width:100%;}
+    .step{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topnav" id="topnav">
+  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <nav class="navlinks" id="navlinks">
+    <a href="#overview">Overview</a>
+    <a href="#flow">Flow</a>
+    <a href="#console">1–2 · Console</a>
+    <a href="#cli">3 · CLI</a>
+    <a href="#iam">4–5 · IAM User</a>
+    <a href="#model">6 · Model ID</a>
+    <a href="#env">7 · .env</a>
+    <a href="#verify">8 · Verify</a>
+    <a href="#cleanup">Cleanup</a>
+    <a href="#reference">Reference</a>
+  </nav>
+  <div class="navspacer"></div>
+  <div class="navmeta">OCR_PROVIDER_NAME=ocr_with_aws setup</div>
+</header>
+
+<main>
+
+  <section id="overview" class="hero">
+    <div class="eyebrow">Internal documentation · AWS setup playbook</div>
+    <h1>AWS start actions — Bedrock OCR credentials</h1>
+    <p class="lede">
+      This page is the full sequence to get <code class="pill">stage3_1_lrm_data/recognize.py</code> running with
+      <code class="pill">OCR_PROVIDER_NAME=ocr_with_aws</code> — page recognition via Claude on
+      <b>AWS Bedrock</b> instead of Gemini. AWS has no single "OCR API key": you need an IAM access-key
+      pair scoped to Bedrock, plus a one-time console invocation that auto-enables the Claude model in your
+      account. Everything below either runs in the AWS Console (no CLI equivalent for that first invocation) or is a copy-paste <code class="pill">aws</code> CLI
+      command.
+    </p>
+    <div class="chipbar">
+      <div class="chip"><b>8</b>&nbsp;steps</div>
+      <div class="chip"><b>2</b>&nbsp;console-only steps</div>
+      <div class="chip"><b>4</b>&nbsp;env vars produced</div>
+      <div class="chip danger"><b>1</b>&nbsp;credential to keep secret</div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="eyebrow">Diagram</div>
+    <h2>The 8-step sequence, in order</h2>
+    <p class="lede">Steps 1–2 and the cleanup step happen in the AWS Console only. Steps 3–8 are terminal commands you can copy-paste in order.</p>
+    <div class="panel">
+      <div class="mermaid-wrap">
+        <pre class="mermaid">
+flowchart TD
+    A["1. Sign up / log in to AWS Console (root)"] --> B["2. Bedrock Playground: invoke Claude once to auto-enable it"]
+    B --> C["3. Install + configure AWS CLI (bootstrap-admin creds)"]
+    C --> D["4. aws iam create-user + create-policy + attach-user-policy"]
+    D --> E["5. aws iam create-access-key — copy AccessKeyId/SecretAccessKey"]
+    E --> F["6. aws bedrock list-foundation-models — copy BEDROCK_MODEL_ID"]
+    F --> G["7. Fill in .env"]
+    G --> H["8. aws sts get-caller-identity + run recognize.py"]
+    H -.optional.-> I["Delete bootstrap-admin access key"]
+
+    classDef console fill:#efedfa,stroke:#4a3aa7,color:#0b0b0b;
+    classDef cli fill:#eef4fc,stroke:#2a78d6,color:#0b0b0b;
+    classDef verify fill:#e6f7f0,stroke:#1baf7a,color:#0b0b0b;
+    classDef cleanup fill:#fdf1ea,stroke:#b04a20,color:#0b0b0b;
+    class A,B console;
+    class C,D,E,F,G cli;
+    class H verify;
+    class I cleanup;
+        </pre>
+      </div>
+      <p class="caption">Full credential/region details for every field: <a href="../.env.sample">.env.sample</a>. Code that reads these values: <a href="../stage3_1_lrm_data/recognize_aws.py">recognize_aws.py</a>.</p>
+    </div>
+  </section>
+
+  <section id="console">
+    <div class="eyebrow">Steps 1–2</div>
+    <h2>AWS Console: account + model access</h2>
+    <p class="lede">Both of these are console-only — there is no <code class="pill">aws</code> CLI command that grants Bedrock model access.</p>
+
+    <div class="steplist">
+      <div class="step console-only">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Sign up / log in <span class="tag tag-violet">console only</span></h3>
+          <div class="where">console.aws.amazon.com</div>
+          <p>If you don't have an AWS account yet, create one at <a href="https://aws.amazon.com" target="_blank" rel="noopener">aws.amazon.com</a> (needs a card on file; Bedrock is pay-per-token, no separate OCR free tier). Log in to the <a href="https://console.aws.amazon.com/" target="_blank" rel="noopener">AWS Console</a> as the root user — root is only used for this one-time setup.</p>
+        </div>
+      </div>
+
+      <div class="step console-only">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Invoke the Claude model once, from the Playground <span class="tag tag-violet">console only</span></h3>
+          <div class="where">Console → Bedrock → Model catalog → Playground</div>
+          <p>AWS retired the old "Model access" checkbox page — serverless models like Claude now auto-enable account-wide, per region, on their <b>first invocation</b>. Don't make that first call from the CLI cold, though: Anthropic models can still prompt a one-time "use case details" form on first use — often before you've even picked a specific model — and a raw CLI call just fails with an opaque error instead of showing it. Do the first call here instead: <b>Bedrock → Model catalog</b> → select the Claude model you want → <b>Open in Playground</b> → send one test message (e.g. "hello"). If the use-case form appears, fill it in right there.</p>
+          <div class="callout warn"><b class="label">Region-scoped</b>This enables the model only in the region you did it in. Do this in the exact region you'll put in <code class="pill">AWS_REGION</code> later (e.g. <code class="pill">us-east-1</code>).</div>
+          <div class="callout info"><b class="label">Marketplace note</b>A few Bedrock models are served via AWS Marketplace, where the first invocation must come from a user with Marketplace subscribe permissions. Doing this step as the root user sidesteps that entirely — it always has full permissions.</div>
+          <div class="callout warn"><b class="label">Not always instant</b>The use-case form can show "Your account is not authorized to perform this action" and refuse to submit from the console. If that happens, open an AWS Support case at <a href="https://console.aws.amazon.com/support/home" target="_blank" rel="noopener">console.aws.amazon.com/support/home</a> (an "Account and billing" case is free, no paid Support plan needed) with the same use-case details, and wait for manual review — this can take minutes to a business day, not always instant. You can still do steps 3–5 (CLI + IAM user) while waiting; only step 2's own test message and step 8's real run need the approval to land first.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cli">
+    <div class="eyebrow">Step 3</div>
+    <h2>Install and bootstrap the AWS CLI</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Install the CLI, then bootstrap one admin credential</h3>
+          <div class="where">Terminal, once</div>
+          <p>Install (macOS):</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>brew install awscli</pre>
+          <p>Verify:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws --version</pre>
+          <p>The CLI needs <i>some</i> credential before it can create your app's own credential. Cleanest bootstrap: <b>Console → IAM → IAM Users</b> (may just say "Users" in older console versions) <b>→ Create user</b> → name it <code class="pill">bootstrap-admin</code> → attach policy <code class="pill">AdministratorAccess</code> → <b>Security credentials</b> tab → <b>Create access key</b> → choose "Command Line Interface (CLI)" → copy the Access Key ID + Secret. Then:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws configure</pre>
+          <p>Paste the bootstrap admin's Access Key ID, Secret, region (e.g. <code class="pill">us-east-1</code>), and output format <code class="pill">json</code> when prompted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iam">
+    <div class="eyebrow">Steps 4–5</div>
+    <h2>Create the app's real IAM user (copy-paste)</h2>
+    <p class="lede">This is the credential that actually ends up in <code class="pill">.env</code> — scoped to just Bedrock invocation, not full admin.</p>
+
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3><code class="pill">rag11-bedrock</code> IAM user + scoped policy</h3>
+          <div class="where">Terminal, using the bootstrap-admin credentials from step 3</div>
+          <p>Create the user:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-user --user-name rag11-bedrock</pre>
+          <p>Create a policy limited to invoking Bedrock models:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-policy --policy-name RAG11BedrockInvoke --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["bedrock:InvokeModel","bedrock:InvokeModelWithResponseStream","bedrock:ListFoundationModels"],"Resource":"*"}]}'</pre>
+          <p>This prints an ARN like <code class="pill">arn:aws:iam::123456789012:policy/RAG11BedrockInvoke</code> — copy your account ID from it for the next command.</p>
+          <p>Attach the policy (replace <code class="pill">&lt;ACCOUNT_ID&gt;</code>):</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam attach-user-policy --user-name rag11-bedrock --policy-arn arn:aws:iam::&lt;ACCOUNT_ID&gt;:policy/RAG11BedrockInvoke</pre>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>Create the access key <span class="tag tag-red">secret shown once</span></h3>
+          <div class="where">Terminal</div>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-access-key --user-name rag11-bedrock</pre>
+          <div class="callout warn"><b class="label">Copy now</b>The output's <code class="pill">SecretAccessKey</code> is shown exactly once. Copy both <code class="pill">AccessKeyId</code> and <code class="pill">SecretAccessKey</code> somewhere safe immediately — you cannot retrieve the secret again later, only rotate it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="model">
+    <div class="eyebrow">Step 6</div>
+    <h2>Find the exact Bedrock model ID</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">6</div>
+        <div>
+          <h3>List available Anthropic models instead of guessing the ID</h3>
+          <div class="where">Terminal, still using bootstrap-admin credentials</div>
+          <p>Model ID strings vary by region and change over time — don't hand-type one. List them:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws bedrock list-foundation-models --region us-east-1 --by-provider anthropic --query "modelSummaries[].modelId" --output table</pre>
+          <p>Copy the ID of the Claude model you invoked in the Playground in step 2 — that exact string is your <code class="pill">BEDROCK_MODEL_ID</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="env">
+    <div class="eyebrow">Step 7</div>
+    <h2>Fill in <code class="pill">.env</code></h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">7</div>
+        <div>
+          <h3>Four new variables, from steps 5 and 6</h3>
+          <div class="where">Project root → <code class="pill">.env</code> (see <code class="pill">.env.sample</code>)</div>
+          <pre class="code">OCR_PROVIDER_NAME=ocr_with_aws
+AWS_ACCESS_KEY_ID=&lt;AccessKeyId from step 5&gt;
+AWS_SECRET_ACCESS_KEY=&lt;SecretAccessKey from step 5&gt;
+AWS_REGION=us-east-1
+BEDROCK_MODEL_ID=&lt;modelId from step 6&gt;</pre>
+          <div class="callout info"><b class="label">Note</b><code class="pill">GOOGLE_AI_API_KEY</code> stays set too — <code class="pill">translate.py</code> always uses Gemini for translation regardless of <code class="pill">OCR_PROVIDER_NAME</code>; only page recognition in <code class="pill">recognize.py</code> switches provider.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="verify">
+    <div class="eyebrow">Step 8</div>
+    <h2>Verify before a full run</h2>
+    <div class="steplist">
+      <div class="step">
+        <div class="step-num">8</div>
+        <div>
+          <h3>Confirm the credential works, then test one page</h3>
+          <div class="where">Terminal</div>
+          <p>Confirm the new (scoped) credential authenticates:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>AWS_ACCESS_KEY_ID=&lt;AccessKeyId&gt; AWS_SECRET_ACCESS_KEY=&lt;SecretAccessKey&gt; AWS_REGION=us-east-1 aws sts get-caller-identity</pre>
+          <p>If that returns your account/user info rather than an error, the credential is live. Then run the real pipeline against a single page:</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>python stage3_1_lrm_data/recognize.py --pdf stage3_1_lrm_data/input/fr/&lt;yourbook&gt;.pdf --lang fr --start 1 --end 1</pre>
+        </div>
+      </div>
+    </div>
+    <div class="callout good"><b class="label">Working</b>A successful run prints <code class="pill">ok  page 1: N blocks, M words</code> and writes <code class="pill">output/fr/&lt;book&gt;/json/page_0001.json</code> with the same schema Gemini would have produced.</div>
+  </section>
+
+  <section id="cleanup">
+    <div class="eyebrow">Recommended, not required</div>
+    <h2>Delete the bootstrap admin key</h2>
+    <div class="steplist">
+      <div class="step destructive">
+        <div class="step-num">✓</div>
+        <div>
+          <h3>Retire <code class="pill">bootstrap-admin</code> <span class="tag tag-red">do this yourself in the console</span></h3>
+          <div class="where">Console → IAM → IAM Users → bootstrap-admin → Security credentials</div>
+          <p>Once step 4–5 succeeded, the <code class="pill">bootstrap-admin</code> user with full <code class="pill">AdministratorAccess</code> is no longer needed and is a standing risk if its key ever leaks. Deactivate or delete its access key in the console. <code class="pill">rag11-bedrock</code>'s narrow policy is all the app actually needs going forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reference">
+    <div class="eyebrow">Reference</div>
+    <h2>Env vars this setup produces</h2>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>Variable</th><th>Comes from</th><th>Used by</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code class="pill">OCR_PROVIDER_NAME</code></td><td>you set it to <code class="pill">ocr_with_aws</code></td><td><code class="pill">recognize.py</code> provider dispatch</td></tr>
+          <tr><td><code class="pill">AWS_ACCESS_KEY_ID</code></td><td>step 5 output</td><td><code class="pill">recognize_aws.py</code> → <code class="pill">boto3.client("bedrock-runtime")</code></td></tr>
+          <tr><td><code class="pill">AWS_SECRET_ACCESS_KEY</code></td><td>step 5 output</td><td>same as above</td></tr>
+          <tr><td><code class="pill">AWS_REGION</code></td><td>the region you used in steps 2, 4, 6</td><td>same as above</td></tr>
+          <tr><td><code class="pill">BEDROCK_MODEL_ID</code></td><td>step 6 output</td><td><code class="pill">recognize_aws.py</code> <code class="pill">converse()</code> call</td></tr>
+          <tr><td><code class="pill">BEDROCK_MAX_TOKENS</code></td><td>optional, defaults to <code class="pill">8192</code></td><td>caps output size per page recognised</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">Full code paths: <a href="../stage3_1_lrm_data/recognize.py">recognize.py</a> (dispatcher), <a href="../stage3_1_lrm_data/recognize_google.py">recognize_google.py</a>, <a href="../stage3_1_lrm_data/recognize_aws.py">recognize_aws.py</a>, shared schema in <a href="../stage3_1_lrm_data/ocr_schema.py">ocr_schema.py</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  Internal setup playbook for switching <code class="pill">stage3_1_lrm_data/recognize.py</code> from
+  <code class="pill">OCR_PROVIDER_NAME=ocr_with_google</code> (Gemini) to <code class="pill">ocr_with_aws</code>
+  (Claude on AWS Bedrock). AWS CLI commands here assume AWS CLI v2 and an already-authenticated
+  <code class="pill">bootstrap-admin</code> session (step 3). Never commit real key values from this page's
+  output into <code class="pill">.env</code> to git — see <a href="../.env.sample">.env.sample</a>.
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
+      background: '#fcfcfb',
+      mainBkg: '#eef4fc',
+      primaryColor: '#eef4fc',
+      primaryBorderColor: '#2a78d6',
+      primaryTextColor: '#0b0b0b',
+      secondaryColor: '#efedfa',
+      secondaryBorderColor: '#4a3aa7',
+      tertiaryColor: '#e6f7f0',
+      tertiaryBorderColor: '#1baf7a',
+      lineColor: '#898781',
+      textColor: '#0b0b0b',
+      nodeTextColor: '#0b0b0b',
+      gridColor: '#e1e0d9'
+    }
+  });
+
+  var topnav = document.getElementById('topnav');
+  window.addEventListener('scroll', function(){
+    topnav.classList.toggle('scrolled', window.scrollY > 4);
+  });
+
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  var sections = navlinks
+    .map(function(a){ return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var byId = {};
+  navlinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navlinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // ---- copy-to-clipboard for every command block (falls back for file:// / non-secure contexts) ----
+  function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy') ? resolve() : reject();
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(ta);
+      }
+    });
+  }
+
+  Array.prototype.slice.call(document.querySelectorAll('.copy-btn')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.closest('pre.code');
+      var text = pre.textContent.replace(/^Copy/, '').trim();
+      copyText(text).then(function(){
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      }).catch(function(){
+        btn.textContent = 'Select text';
+        setTimeout(function(){ btn.textContent = 'Copy'; }, 1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>

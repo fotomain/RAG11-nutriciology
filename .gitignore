@@ -9,3 +9,31 @@ __pycache__/
 stage1_eda_input/
 stage1_eda_output/_checkpoints/
 
+#====== AWS
+
+AWSCLIV2.pkg
+.aws/
+*.pem
+*.ppk
+aws-exports.js
+
+#====== react
+
+stage9_frontend/node_modules/
+/.pnp
+.pnp.js
+
+# Expo
+.expo/
+dist/
+web-build/
+build/
+
+#====== AWS
+
+AWSCLIV2.pkg
+.aws/
+*.pem
+*.ppk
+aws-exports.js
+

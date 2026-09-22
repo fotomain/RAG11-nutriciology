@@ -1,6 +1,7 @@
 """Offline tests for reusable_code/stage1 (extract & chunk, load, verify, pipeline) with fake clients and
 temporary folders. Run: .venv/bin/python test_stage1.py"""
 import json
+import os
 import sys
 import tempfile
 from pathlib import Path
@@ -8,6 +9,7 @@ from types import SimpleNamespace
 
 sys.path.insert(0, ".")
 
+from reusable_code.env import optional_env_int  # noqa: E402
 from reusable_code.stage1 import common, extract_chunk as ec, load, pipeline, verify  # noqa: E402
 
 FAILURES = []
@@ -120,6 +122,34 @@ with tempfile.TemporaryDirectory() as tmp:
     check("child rowParentGUID == the parent row's rowGUID (FK always satisfied)", crow["rowParentGUID"] == prow["rowGUID"])
     check("LocalData.counts", "1 source row(s), 2 parent row(s), 2 child row(s)" in local.counts())
 
+# ---------------------------------------------------------------------------------------------- env helper
+
+_VAR = "RAG11_TEST_START_PAGE"
+os.environ.pop(_VAR, None)
+check("optional_env_int: unset -> default", optional_env_int(_VAR, 1) == 1)
+os.environ[_VAR] = "  "
+check("optional_env_int: blank -> default", optional_env_int(_VAR, 1) == 1)
+os.environ[_VAR] = "303"
+check("optional_env_int: a plain integer", optional_env_int(_VAR, 1) == 303)
+for _v in ("0", "-5", "one"):
+    os.environ[_VAR] = _v
+    try:
+        optional_env_int(_VAR, 1)
+        check(f"optional_env_int: {_v!r} raises (below minimum or not an int)", False)
+    except RuntimeError:
+        check(f"optional_env_int: {_v!r} raises (below minimum or not an int)", True)
+os.environ.pop(_VAR, None)
+
+with tempfile.TemporaryDirectory() as tmp:
+    os.environ["MAX_NUMBER_OF_PAGES_TO_USE"] = "10"
+    os.environ["START_PAGE_NUMBER"] = "303"
+    cfg = ec.load_config(tmp, verbose=False)
+    check("load_config reads START_PAGE_NUMBER from .env alongside MAX_NUMBER_OF_PAGES_TO_USE",
+          cfg.start_page_number == 303 and cfg.max_pages == 10 and cfg.page_window_desc() == "pages 303-312")
+    os.environ.pop("MAX_NUMBER_OF_PAGES_TO_USE", None)
+    os.environ.pop("START_PAGE_NUMBER", None)
+    check("load_config defaults START_PAGE_NUMBER to 1 when unset", ec.load_config(tmp, verbose=False).start_page_number == 1)
+
 # ------------------------------------------------------------------------------------------ extract_chunk
 text = " ".join(f"word{i}" for i in range(3000))
 chunks = ec.build_child_chunks(text)
@@ -136,8 +166,13 @@ check("contextual_header shows 1-based pages", ec.contextual_header("f.pdf", {"t
       == "[Source: f.pdf | Section: T | Pages 60-61]")
 
 with tempfile.TemporaryDirectory() as tmp:
-    cfg = ec.Config(paths=common.get_paths(tmp), max_pages=100, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
+    cfg = ec.Config(paths=common.get_paths(tmp), max_pages=100, start_page_number=1, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
     check("Drive folder id parsed from the URL", cfg.drive_folder_id == "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I")
+    check("Config.start_page_index is 0-based", cfg.start_page_index == 0)
+    check("Config.page_window_desc: default window reads as pages 1-100", cfg.page_window_desc() == "pages 1-100")
+    check("Config.page_window_desc: no cap reads as 'to the end of the document'",
+          ec.Config(paths=cfg.paths, max_pages=None, start_page_number=303, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
+          .page_window_desc() == "page 303 to the end of the document")
 
     from stage1_1_eda_packages import KNOWN_SOURCE_EDA_META, SKIPPED_FILENAMES
     known = list(KNOWN_SOURCE_EDA_META)
@@ -169,6 +204,34 @@ with tempfile.TemporaryDirectory() as tmp:
     pages = ec.extract_pages(cfg, "source1", dl1["source1"])
     check("extract_pages: one entry per real page, cached under a cap-specific name",
           len(pages) == 1 and (cfg.paths.output_root / "source1" / "_cache_pages_max100.json").exists())
+
+    # START_PAGE_NUMBER + MAX_NUMBER_OF_PAGES_TO_USE: a 20-page PDF, window = pages 6-10
+    big_pdf = cfg.paths.input_root / "source1" / "big.pdf"
+    doc = fitz.open()
+    for i in range(20):
+        p = doc.new_page()
+        p.insert_text((72, 72), f"page {i + 1} content")
+    doc.save(str(big_pdf)); doc.close()
+    windowed_cfg = ec.Config(paths=cfg.paths, max_pages=5, start_page_number=6, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
+    check("Config.page_window_desc: a start + a cap reads as an inclusive page range", windowed_cfg.page_window_desc() == "pages 6-10")
+    win_pages = ec.extract_pages(windowed_cfg, "source1", big_pdf)
+    check("extract_pages window: one entry per REAL page regardless of the window", len(win_pages) == 20)
+    check("extract_pages window: only pages 6-10 (0-based 5-9) have text, everything else is empty",
+          [i for i, t in enumerate(win_pages) if t] == [5, 6, 7, 8, 9]
+          and all(f"page {i + 1} " in win_pages[i] for i in range(5, 10)))
+    check("extract_pages window: cache file name encodes both start and cap",
+          (cfg.paths.output_root / "source1" / "_cache_pages_from6_max5.json").exists())
+    default_start_cfg = ec.Config(paths=cfg.paths, max_pages=5, start_page_number=1, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
+    ec.extract_pages(default_start_cfg, "source3", big_pdf)
+    check("extract_pages window: default start (1) keeps the plain '_maxN' cache name, no 'from' suffix",
+          (cfg.paths.output_root / "source3" / "_cache_pages_max5.json").exists()
+          and not (cfg.paths.output_root / "source3" / "_cache_pages_from1_max5.json").exists())
+    win_pages_cached = ec.extract_pages(windowed_cfg, "source1", big_pdf)
+    check("extract_pages window: a second call reuses the cache untouched", win_pages_cached == win_pages)
+    beyond_cfg = ec.Config(paths=cfg.paths, max_pages=5, start_page_number=303, drive_folder_url=ec.DEFAULT_DRIVE_FOLDER)
+    beyond_pages = ec.extract_pages(beyond_cfg, "source2", big_pdf)  # different source_key so it isn't cached yet
+    check("extract_pages window: a start page past the end of the document extracts nothing, without crashing",
+          all(t == "" for t in beyond_pages) and len(beyond_pages) == 20)
 
     # write_chunks: files, stale removal, token_count without header
     secs = [{"title": "Sec A", "level": 1, "start_page": 0, "end_page": 1, "text": text},

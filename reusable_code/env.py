@@ -90,3 +90,18 @@ def optional_env_limit(name: str, default: Optional[int]) -> Optional[int]:
             f"{name} in your .env file is {raw!r}: use a positive number of pages, or NONE for no limit."
         )
     return value
+
+
+def optional_env_int(name: str, default: int, *, minimum: int = 1) -> int:
+    """A plain positive integer from .env (unset/blank -> ``default``); raises on anything else, including
+    a value below ``minimum``, so a typo can't silently turn into that default."""
+    raw = optional_env(name, "").strip()
+    if not raw:
+        return default
+    try:
+        value = int(raw)
+    except ValueError:
+        value = minimum - 1
+    if value < minimum:
+        raise RuntimeError(f"{name} in your .env file is {raw!r}: use an integer >= {minimum}.")
+    return value

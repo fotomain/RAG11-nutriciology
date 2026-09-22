@@ -1,0 +1,765 @@
+{
+ "schema_version": 1,
+ "page": 1,
+ "printed_page_number": "- 1",
+ "image": "fr/yogasutra_janvier_2020_pdf_d_2021/pages/page_0001.png",
+ "lang": "fr",
+ "source_key": "yogasutra_janvier_2020_pdf_d_2021",
+ "image_size": {
+  "width": 1406,
+  "height": 1988
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": "Yogasutra.janvier. 2020.pdf, éd. 2021.pdf",
+ "model": "gemini-3.6-flash",
+ "blocks": [
+  {
+   "id": "p0001_b001",
+   "local_id": "b1",
+   "type": "page_number",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.8285,
+    "y": 0.0439,
+    "w": 0.0202,
+    "h": 0.0145
+   },
+   "text": " -  1",
+   "words": [
+    {
+     "id": "p0001_b001_w001",
+     "text": " - ",
+     "bbox": {
+      "x": 0.8285,
+      "y": 0.0439,
+      "w": 0.0062,
+      "h": 0.0145
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.822,
+      "y": 0.045,
+      "w": 0.007,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b001_w002",
+     "text": "1",
+     "bbox": {
+      "x": 0.8394,
+      "y": 0.0439,
+      "w": 0.0093,
+      "h": 0.0145
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 5,
+     "bbox_gemini": {
+      "x": 0.836,
+      "y": 0.045,
+      "w": 0.01,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b001",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b002",
+   "local_id": "b2",
+   "type": "heading",
+   "reading_order": 2,
+   "bbox": {
+    "x": 0.4334,
+    "y": 0.1298,
+    "w": 0.1371,
+    "h": 0.0522
+   },
+   "text": "Yoga",
+   "words": [
+    {
+     "id": "p0001_b002_w001",
+     "text": "Yoga",
+     "bbox": {
+      "x": 0.4334,
+      "y": 0.1298,
+      "w": 0.1371,
+      "h": 0.0522
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 4,
+     "bbox_gemini": {
+      "x": 0.431,
+      "y": 0.137,
+      "w": 0.138,
+      "h": 0.046
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b002",
+    "chunk_number_in_lrm": 1,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "",
+    "next_chunk_id": "p0001_b003",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b003",
+   "local_id": "b3",
+   "type": "heading",
+   "reading_order": 3,
+   "bbox": {
+    "x": 0.1891,
+    "y": 0.1854,
+    "w": 0.6265,
+    "h": 0.0522
+   },
+   "text": "La parole sur le silence",
+   "words": [
+    {
+     "id": "p0001_b003_w001",
+     "text": "La",
+     "bbox": {
+      "x": 0.1891,
+      "y": 0.1854,
+      "w": 0.0673,
+      "h": 0.0522
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 2,
+     "bbox_gemini": {
+      "x": 0.189,
+      "y": 0.194,
+      "w": 0.057,
+      "h": 0.036
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b003_w002",
+     "text": "parole",
+     "bbox": {
+      "x": 0.2753,
+      "y": 0.1854,
+      "w": 0.1701,
+      "h": 0.0522
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 3,
+     "char_end": 9,
+     "bbox_gemini": {
+      "x": 0.276,
+      "y": 0.195,
+      "w": 0.167,
+      "h": 0.042
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b003_w003",
+     "text": "sur",
+     "bbox": {
+      "x": 0.4644,
+      "y": 0.1854,
+      "w": 0.086,
+      "h": 0.0522
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 10,
+     "char_end": 13,
+     "bbox_gemini": {
+      "x": 0.467,
+      "y": 0.196,
+      "w": 0.084,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b003_w004",
+     "text": "le",
+     "bbox": {
+      "x": 0.5693,
+      "y": 0.1854,
+      "w": 0.0463,
+      "h": 0.0522
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 14,
+     "char_end": 16,
+     "bbox_gemini": {
+      "x": 0.576,
+      "y": 0.194,
+      "w": 0.037,
+      "h": 0.033
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b003_w005",
+     "text": "silence",
+     "bbox": {
+      "x": 0.6346,
+      "y": 0.1854,
+      "w": 0.181,
+      "h": 0.0522
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 17,
+     "char_end": 24,
+     "bbox_gemini": {
+      "x": 0.636,
+      "y": 0.194,
+      "w": 0.178,
+      "h": 0.033
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b003",
+    "chunk_number_in_lrm": 2,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b002",
+    "next_chunk_id": "p0001_b004",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b004",
+   "local_id": "b4",
+   "type": "figure",
+   "reading_order": 4,
+   "bbox": {
+    "x": 0.124,
+    "y": 0.262,
+    "w": 0.759,
+    "h": 0.406
+   },
+   "text": "",
+   "words": [],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b004",
+    "chunk_number_in_lrm": 3,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b003",
+    "next_chunk_id": "p0001_b005",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": false,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b005",
+   "local_id": "b5",
+   "type": "heading",
+   "reading_order": 5,
+   "bbox": {
+    "x": 0.3798,
+    "y": 0.6933,
+    "w": 0.2444,
+    "h": 0.0351
+   },
+   "text": "Le Yoga-Sūtra",
+   "words": [
+    {
+     "id": "p0001_b005_w001",
+     "text": "Le",
+     "bbox": {
+      "x": 0.3798,
+      "y": 0.6936,
+      "w": 0.0439,
+      "h": 0.0348
+     },
+     "lang": "fr",
+     "style": "italic",
+     "char_start": 0,
+     "char_end": 2,
+     "bbox_gemini": {
+      "x": 0.38,
+      "y": 0.699,
+      "w": 0.037,
+      "h": 0.024
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b005_w002",
+     "text": "Yoga-Sūtra",
+     "bbox": {
+      "x": 0.4362,
+      "y": 0.6933,
+      "w": 0.188,
+      "h": 0.035
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 3,
+     "char_end": 13,
+     "bbox_gemini": {
+      "x": 0.436,
+      "y": 0.699,
+      "w": 0.188,
+      "h": 0.029
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b005",
+    "chunk_number_in_lrm": 4,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b004",
+    "next_chunk_id": "p0001_b006",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b006",
+   "local_id": "b6",
+   "type": "heading",
+   "reading_order": 6,
+   "bbox": {
+    "x": 0.3677,
+    "y": 0.7309,
+    "w": 0.269,
+    "h": 0.0352
+   },
+   "text": "Le Yoga-Bhāṣya",
+   "words": [
+    {
+     "id": "p0001_b006_w001",
+     "text": "Le",
+     "bbox": {
+      "x": 0.3677,
+      "y": 0.7313,
+      "w": 0.0439,
+      "h": 0.0348
+     },
+     "lang": "fr",
+     "style": "italic",
+     "char_start": 0,
+     "char_end": 2,
+     "bbox_gemini": {
+      "x": 0.368,
+      "y": 0.738,
+      "w": 0.037,
+      "h": 0.024
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b006_w002",
+     "text": "Yoga-Bhāṣya",
+     "bbox": {
+      "x": 0.4241,
+      "y": 0.7309,
+      "w": 0.2126,
+      "h": 0.035
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 3,
+     "char_end": 14,
+     "bbox_gemini": {
+      "x": 0.424,
+      "y": 0.738,
+      "w": 0.211,
+      "h": 0.029
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b006",
+    "chunk_number_in_lrm": 5,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b005",
+    "next_chunk_id": "p0001_b007",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b007",
+   "local_id": "b7",
+   "type": "paragraph",
+   "reading_order": 7,
+   "bbox": {
+    "x": 0.2379,
+    "y": 0.7955,
+    "w": 0.5284,
+    "h": 0.0261
+   },
+   "text": "Texte, traduction, notes et introduction",
+   "words": [
+    {
+     "id": "p0001_b007_w001",
+     "text": "Texte,",
+     "bbox": {
+      "x": 0.2379,
+      "y": 0.7955,
+      "w": 0.0806,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 6,
+     "bbox_gemini": {
+      "x": 0.238,
+      "y": 0.802,
+      "w": 0.075,
+      "h": 0.019
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b007_w002",
+     "text": "traduction,",
+     "bbox": {
+      "x": 0.3278,
+      "y": 0.7955,
+      "w": 0.1475,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 7,
+     "char_end": 18,
+     "bbox_gemini": {
+      "x": 0.326,
+      "y": 0.802,
+      "w": 0.138,
+      "h": 0.019
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b007_w003",
+     "text": "notes",
+     "bbox": {
+      "x": 0.4846,
+      "y": 0.7955,
+      "w": 0.0713,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 19,
+     "char_end": 24,
+     "bbox_gemini": {
+      "x": 0.477,
+      "y": 0.802,
+      "w": 0.068,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b007_w004",
+     "text": "et",
+     "bbox": {
+      "x": 0.5652,
+      "y": 0.7955,
+      "w": 0.0244,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 25,
+     "char_end": 27,
+     "bbox_gemini": {
+      "x": 0.558,
+      "y": 0.803,
+      "w": 0.024,
+      "h": 0.017
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b007_w005",
+     "text": "introduction",
+     "bbox": {
+      "x": 0.5987,
+      "y": 0.7955,
+      "w": 0.1676,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 28,
+     "char_end": 40,
+     "bbox_gemini": {
+      "x": 0.594,
+      "y": 0.802,
+      "w": 0.172,
+      "h": 0.02
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b007",
+    "chunk_number_in_lrm": 6,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b006",
+    "next_chunk_id": "p0001_b008",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0001_b008",
+   "local_id": "b8",
+   "type": "paragraph",
+   "reading_order": 8,
+   "bbox": {
+    "x": 0.4092,
+    "y": 0.8235,
+    "w": 0.1856,
+    "h": 0.0261
+   },
+   "text": "Michel Angot",
+   "words": [
+    {
+     "id": "p0001_b008_w001",
+     "text": "Michel",
+     "bbox": {
+      "x": 0.4092,
+      "y": 0.8235,
+      "w": 0.0918,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 6,
+     "bbox_gemini": {
+      "x": 0.41,
+      "y": 0.828,
+      "w": 0.088,
+      "h": 0.02
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0001_b008_w002",
+     "text": "Angot",
+     "bbox": {
+      "x": 0.5104,
+      "y": 0.8235,
+      "w": 0.0844,
+      "h": 0.0261
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 7,
+     "char_end": 12,
+     "bbox_gemini": {
+      "x": 0.51,
+      "y": 0.828,
+      "w": 0.082,
+      "h": 0.021
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0001_b008",
+    "chunk_number_in_lrm": 7,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0001_b007",
+    "next_chunk_id": "p0002_b002",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  }
+ ],
+ "bbox_refinement": {
+  "method": "pdf_text_layer_snap",
+  "words": 19,
+  "snapped": 19
+ }
+}

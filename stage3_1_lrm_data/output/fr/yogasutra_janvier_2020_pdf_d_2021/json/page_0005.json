@@ -1,0 +1,94 @@
+{
+ "schema_version": 1,
+ "page": 5,
+ "printed_page_number": "- 5",
+ "image": "fr/yogasutra_janvier_2020_pdf_d_2021/pages/page_0005.png",
+ "lang": "fr",
+ "source_key": "yogasutra_janvier_2020_pdf_d_2021",
+ "image_size": {
+  "width": 1406,
+  "height": 1988
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": "Yogasutra.janvier. 2020.pdf, éd. 2021.pdf",
+ "model": "gemini-3.6-flash",
+ "blocks": [
+  {
+   "id": "p0005_b001",
+   "local_id": "b1",
+   "type": "page_number",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.8285,
+    "y": 0.0439,
+    "w": 0.0202,
+    "h": 0.0145
+   },
+   "text": " -  5",
+   "words": [
+    {
+     "id": "p0005_b001_w001",
+     "text": " - ",
+     "bbox": {
+      "x": 0.8285,
+      "y": 0.0439,
+      "w": 0.0062,
+      "h": 0.0145
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.822,
+      "y": 0.045,
+      "w": 0.005,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0005_b001_w002",
+     "text": "5",
+     "bbox": {
+      "x": 0.8394,
+      "y": 0.0439,
+      "w": 0.0093,
+      "h": 0.0145
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 5,
+     "bbox_gemini": {
+      "x": 0.839,
+      "y": 0.045,
+      "w": 0.009,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0005_b001",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  }
+ ],
+ "bbox_refinement": {
+  "method": "pdf_text_layer_snap",
+  "words": 2,
+  "snapped": 2
+ }
+}
