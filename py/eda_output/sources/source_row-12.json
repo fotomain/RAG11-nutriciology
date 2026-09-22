@@ -1,0 +1,19 @@
+{
+  "rowGUID": "f448f190-9cfc-5755-bbff-26bcaa499aeb",
+  "rowOwnerGUID": "f448f190-9cfc-5755-bbff-26bcaa499aeb",
+  "rowParentGUID": null,
+  "orderInList": 12,
+  "rowJSON": {
+    "source_key": "source12",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1c35qZMEl76HOosJVBaUgoYdpMxQwQK6I",
+    "filename": "_OceanofPDF.com_Peak_-_Marc_Bubbs.pdf",
+    "expected_pages": 398,
+    "structure": "native_outline_pattern_filtered",
+    "local_path": "eda_input/source12/_OceanofPDF.com_Peak_-_Marc_Bubbs.pdf",
+    "size_bytes": 20253109,
+    "actual_page_count": 398,
+    "fetched_at": "2026-09-21T11:10:02.643848+00:00"
+  }
+}

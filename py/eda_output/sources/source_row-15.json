@@ -1,0 +1,19 @@
+{
+  "rowGUID": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "rowOwnerGUID": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
+  "rowParentGUID": null,
+  "orderInList": 15,
+  "rowJSON": {
+    "source_key": "source15",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1YYGz9FX044a7ColGrsXQtNkUroIeaWXT",
+    "filename": "vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf",
+    "expected_pages": 1080,
+    "structure": "native_outline_pattern_filtered",
+    "local_path": "eda_input/source15/vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf",
+    "size_bytes": 225693514,
+    "actual_page_count": 1080,
+    "fetched_at": "2026-09-21T11:10:02.580915+00:00"
+  }
+}

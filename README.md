@@ -2,7 +2,7 @@
 
 A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system built on foundational medical and clinical nutrition textbooks.
 
-The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations. Retrieval quality is built up from five composable techniques — **reranking**, **hybrid (vector + keyword) search**, **parent-chunk expansion**, **HyDE**, and **multi-query question splitting** — implemented once in [`reusable_code/`](reusable_code/) and demonstrated one at a time in the `stage2_ask_examples*` notebooks.
+The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations. Retrieval quality is built up from five composable techniques — **reranking**, **hybrid (vector + keyword) search**, **parent-chunk expansion**, **HyDE**, and **multi-query question splitting** — implemented once in [`py/reusable_code/`](py/reusable_code/) and demonstrated one at a time in the `stage2_ask_examples*` notebooks.
 
 --- git total size
 find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs -n 1 du -sh -c | tail -n 1
@@ -15,7 +15,7 @@ find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs du -sh
 ```mermaid
 flowchart TD
     A[Textbook PDFs<br/>Google Drive] --> B[Stage 1.1: Extract & Chunk<br/>Hierarchical Parent & Child Chunks]
-    B --> C[stage1_eda_output/ JSON Chunks]
+    B --> C[eda_output/ JSON Chunks]
     C --> D[Stage 1.2: Ingestion & Embeddings<br/>Voyage-3 'document' embeddings]
     D --> E[(Supabase PostgreSQL + pgvector<br/>HNSW Vector Index + GIN tsvector index)]
     E --> F[Stage 1.9: Data Verification<br/>Integrity & Parity Audit]
@@ -36,16 +36,17 @@ cd RAG11-nutriciology
 ```
 
 ### 1.2 Create & Activate Python Virtual Environment
-Python 3.10+ is recommended:
+Python 3.10+ is recommended. The venv, `requirements.txt`, and all Python code live under `py/`:
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv py/.venv
+source py/.venv/bin/activate
 ```
 
 ### 1.3 Install Python Dependencies
 ```bash
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r py/requirements.txt
+pip install -e py/   # makes `reusable_code` and `eda_packages` importable from any notebook/script under py/
 ```
 
 ### 1.4 (Optional) System OCR Engine
@@ -57,9 +58,9 @@ pip install -r requirements.txt
 
 ## Step 2: Prepare API Keys & Secrets (`.env`)
 
-Create your `.env` file from the provided template:
+Create your `.env` file from the provided template (both live under `py/`):
 ```bash
-cp .env.sample .env
+cp py/.env.sample py/.env
 ```
 
 Open `.env` and fill in the required credentials obtained from the official dashboards below:
@@ -105,19 +106,19 @@ Every statement in this script is `create ... if not exists` / `create or replac
 ### Fastest: run the whole of stage 1 with one command
 
 ```bash
-./run_stage1_all.command                  # 1.1 extract & chunk -> 1.2 embed & load -> 1.9 verify
-./run_stage1_all.command --from 1.2       # reuse the chunks already on disk
-./run_stage1_all.command --only 1.9       # just verify
-./run_stage1_all.command --prune-orphans  # also delete Supabase rows that have no local file
+./py/run/run_stage1_all.command                  # 1.1 extract & chunk -> 1.2 embed & load -> 1.9 verify
+./py/run/run_stage1_all.command --from 1.2       # reuse the chunks already on disk
+./py/run/run_stage1_all.command --only 1.9       # just verify
+./py/run/run_stage1_all.command --prune-orphans  # also delete Supabase rows that have no local file
 ```
 
 (or double-click it in Finder). It needs `.env`; `MAX_NUMBER_OF_PAGES_TO_USE` there controls the smoke-test cap (unset = 100,
 `NONE` = full run), and `START_PAGE_NUMBER` (unset = 1) shifts where that cap starts -- together they select a page
 window, e.g. `START_PAGE_NUMBER=303` + `MAX_NUMBER_OF_PAGES_TO_USE=10` extracts only pages 303-312 of each PDF.
 Exit code `0` = PASS, `1` = ran but verification found issues, `2` = a stage crashed. Every stage is
-idempotent and resumable, so after a failure fix the cause and run it again. The code lives in `reusable_code/stage1/`
+idempotent and resumable, so after a failure fix the cause and run it again. The code lives in `py/reusable_code/stage1/`
 (`extract_chunk.py`, `load.py`, `verify.py`, `pipeline.py`); the notebooks below are thin, step-by-step views of it, and
-`python -m reusable_code.stage1` is the same entry point.
+`python -m reusable_code.stage1` (run from `py/`) is the same entry point.
 
 Or execute the notebooks in sequence to run the entire RAG lifecycle:
 
@@ -127,65 +128,65 @@ stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1
 ```
 
 ### Stage 1.0 (Optional): Fetch Source Books
-- **Notebook**: [`stage1_0_eda_fetch_best_sources.ipynb`](stage1_0_eda_fetch_best_sources.ipynb) or [`stage1_0_deep_fetch.ipynb`](stage1_0_deep_fetch.ipynb)
+- **Notebook**: [`stage1_0_eda_fetch_best_sources.ipynb`](py/eda/stage1_0_eda_fetch_best_sources.ipynb) or [`stage1_0_deep_fetch.ipynb`](py/eda/stage1_0_deep_fetch.ipynb)
 - **Action**: Downloads or catalogs high-quality clinical and medical nutrition textbooks.
 - **Source Drive**: If already hosting PDFs in Google Drive, they are accessed from:
   `GOOGLE_DRIVE_SOURCES_FOLDER`: [Google Drive Nutrition Textbooks Folder](https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link)
 
 ### Stage 1.1: Extract Text & Hierarchical Chunking
-- **Notebook**: [`stage1_1_eda_extract_and_chunk.ipynb`](stage1_1_eda_extract_and_chunk.ipynb)
+- **Notebook**: [`stage1_1_eda_extract_and_chunk.ipynb`](py/eda/stage1_1_eda_extract_and_chunk.ipynb)
 - **Action**:
   - Pulls source PDFs directly from the Google Drive source folder or local directory.
   - Extracts text, headings, and tables (using `pymupdf` and `pdfplumber`).
   - Produces hierarchical chunks:
     - **Parent chunks**: Larger semantic context chunks.
     - **Child chunks**: Target retrieval chunks sized with `tiktoken` (`cl100k_base`).
-  - Writes structured metadata manifests to `./stage1_eda_output/`.
-  - **New PDFs need no code**: a file without its own `stage1_1_eda_packages/sourceN_<slug>.py` module is chunked by `generic_fallback.py` (PDF outline, else larger-font headings, else 10-page windows). Add a dedicated module later for better boundaries; it takes precedence automatically.
+  - Writes structured metadata manifests to `./eda_output/`.
+  - **New PDFs need no code**: a file without its own `py/eda_packages/sourceN_<slug>.py` module is chunked by `generic_fallback.py` (PDF outline, else larger-font headings, else 10-page windows). Add a dedicated module later for better boundaries; it takes precedence automatically.
 
 ### Stage 1.2: Embeddings & Supabase Ingestion
-- **Notebook**: [`stage1_2_eda_load_chunks.ipynb`](stage1_2_eda_load_chunks.ipynb)
+- **Notebook**: [`stage1_2_eda_load_chunks.ipynb`](py/eda/stage1_2_eda_load_chunks.ipynb)
 - **Action**:
-  - Loads chunk JSON files from `./stage1_eda_output/`.
+  - Loads chunk JSON files from `./eda_output/`.
   - Embeds all child chunk texts using Voyage AI (`voyage-3` with `input_type="document"`).
   - Batch upserts source rows, parent chunk rows, and child chunk rows with vectors into Supabase.
 
 ### Stage 1.9: Data Verification & Integrity Audit
-- **Notebook**: [`stage1_9_eda_verify_all_data.ipynb`](stage1_9_eda_verify_all_data.ipynb)
+- **Notebook**: [`stage1_9_eda_verify_all_data.ipynb`](py/eda/stage1_9_eda_verify_all_data.ipynb)
 - **Action**:
   - Runs automated consistency checks between local JSON files and Supabase tables.
   - Verifies zero missing rows, zero orphaned rows, and that every child chunk has a valid 1024-dim embedding.
 
 ### Stage 2: Question Answering & Evaluation
-All Stage 2 notebooks import the shared [`reusable_code`](reusable_code/) package (`init_clients`, `ask_question`, ...) instead of redefining retrieval/generation logic per notebook. Each notebook embeds sample clinical nutrition questions, retrieves context from Supabase, synthesizes an answer with Claude strictly from that context, and formats a concise `Short answer: Yes/No`, an in-depth explanation, and verifiable textbook page citations.
+All Stage 2 notebooks import the shared [`reusable_code`](py/reusable_code/) package (`init_clients`, `ask_question`, ...) instead of redefining retrieval/generation logic per notebook. Each notebook embeds sample clinical nutrition questions, retrieves context from Supabase, synthesizes an answer with Claude strictly from that context, and formats a concise `Short answer: Yes/No`, an in-depth explanation, and verifiable textbook page citations.
 
 | Notebook | Technique demonstrated |
 | --- | --- |
-| [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb) | Baseline: plain vector search via `match_rag11_child_chunks` |
-| [`stage2_ask_examples2_rerank.ipynb`](stage2_ask_examples2_rerank.ipynb) | Cross-encoder reranking (`use_rerank=True`) |
-| [`stage2_ask_examples3_hybrid_search.ipynb`](stage2_ask_examples3_hybrid_search.ipynb) | Hybrid vector + keyword search fused with Reciprocal Rank Fusion (`use_hybrid=True`) |
-| [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
-| [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
-| [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
-| [`stage2_ask_examples7_ys.ipynb`](stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only, questions and answers only (all service code in `reusable_code/ys/`): five questions, some in Devanagari; answers in `speaking_language` |
-| [`stage2_ask_examples7_ys_RU.ipynb`](stage2_ask_examples7_ys_RU.ipynb) | The same five Yoga-Sūtra questions in Russian, with Russian answers and Russian card labels (`speaking_language="RU"`) |
-| [`stage2_ask_examples8_nutriciology.ipynb`](stage2_ask_examples8_nutriciology.ipynb) | Five funny nutrition questions (jokes, slang, emoji, French): question understanding (`prepare_question()`) + `speaking_language = "EN"` answers, same card design as example 7 |
+| [`stage2_ask_examples1.ipynb`](py/ipynb/stage2_ask_examples1.ipynb) | Baseline: plain vector search via `match_rag11_child_chunks` |
+| [`stage2_ask_examples2_rerank.ipynb`](py/ipynb/stage2_ask_examples2_rerank.ipynb) | Cross-encoder reranking (`use_rerank=True`) |
+| [`stage2_ask_examples3_hybrid_search.ipynb`](py/ipynb/stage2_ask_examples3_hybrid_search.ipynb) | Hybrid vector + keyword search fused with Reciprocal Rank Fusion (`use_hybrid=True`) |
+| [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
+| [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
+| [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](py/ipynb/stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
+| [`stage2_ask_examples7_ys.ipynb`](py/ipynb/stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only, questions and answers only (all service code in `reusable_code/ys/`): five questions, some in Devanagari; answers in `speaking_language` |
+| [`stage2_ask_examples7_ys_RU.ipynb`](py/ipynb/stage2_ask_examples7_ys_RU.ipynb) | The same five Yoga-Sūtra questions in Russian, with Russian answers and Russian card labels (`speaking_language="RU"`) |
+| [`stage2_ask_examples8_nutriciology.ipynb`](py/ipynb/stage2_ask_examples8_nutriciology.ipynb) | Five funny nutrition questions (jokes, slang, emoji, French): question understanding (`prepare_question()`) + `speaking_language = "EN"` answers, same card design as example 7 |
 
-`ask_question()` composes all of these techniques by default (see [`reusable_code/README.md`](reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
+`ask_question()` composes all of these techniques by default (see [`py/reusable_code/README.md`](py/reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
 
-For the mechanics and rationale behind each technique, see the write-ups in [`documentation/`](documentation/):
-- [`HOW_IT_WORKS_Hybrid_Search.html`](documentation/HOW_IT_WORKS_Hybrid_Search.html)
-- [`HOW_IT_WORKS_Hypothetical_Document_Embedding.html`](documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html)
-- [`HOW_IT_WORKS_Multi_Query_Question_Splitting.html`](documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html)
-- [`HOW_IT_WORKS_Parent_Chunk_Expansion.html`](documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html)
-- [`RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html`](documentation/RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html) — end-to-end data flow
-- [`RAG11_HOW_TO_RUN_FROM_SCRATCH.html`](documentation/RAG11_HOW_TO_RUN_FROM_SCRATCH.html) — full from-scratch run guide
+For the mechanics and rationale behind each technique, see the write-ups in [`py/documentation/`](py/documentation/):
+- [`HOW_IT_WORKS_Hybrid_Search.html`](py/documentation/HOW_IT_WORKS_Hybrid_Search.html)
+- [`HOW_IT_WORKS_Hypothetical_Document_Embedding.html`](py/documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html)
+- [`HOW_IT_WORKS_Multi_Query_Question_Splitting.html`](py/documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html)
+- [`HOW_IT_WORKS_Parent_Chunk_Expansion.html`](py/documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html)
+- [`RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html`](py/documentation/RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html) — end-to-end data flow
+- [`RAG11_HOW_TO_RUN_FROM_SCRATCH.html`](py/documentation/RAG11_HOW_TO_RUN_FROM_SCRATCH.html) — full from-scratch run guide
 
 ---
 
-## `reusable_code/` — the shared retrieval & generation package
+## `py/reusable_code/` — the shared retrieval & generation package
 
-Every Stage 2 notebook imports from [`reusable_code/`](reusable_code/) rather than redefining `require_env`, `ask_question`, retrieval, or reranking logic per notebook:
+Every Stage 2 notebook imports from [`py/reusable_code/`](py/reusable_code/) rather than redefining `require_env`, `ask_question`, retrieval, or reranking logic per notebook:
 
 ```python
 from reusable_code import init_clients, ask_question
@@ -194,12 +195,12 @@ clients = init_clients()  # reads .env once; cached for the rest of the kernel
 result = ask_question("Is vitamin C a water-soluble vitamin?")
 ```
 
-It covers client setup (`clients.py`), retrieval (`retrieval.py`, `hybrid_search.py`, `hypothetical_document_embedding.py`, `multi_query_question_splitting.py`, `parent_chunk_expansion.py`), reranking and manual overrides (`rerunk_code.py`), generation (`generation.py`), and row-level CRUD helpers for the parent/child chunk tables (`crud_chunks_parent.py`, `crud_chunks_child.py`). See [`reusable_code/README.md`](reusable_code/README.md) for the full module map and how each retrieval technique composes with the others.
+It covers client setup (`clients.py`), retrieval (`retrieval.py`, `hybrid_search.py`, `hypothetical_document_embedding.py`, `multi_query_question_splitting.py`, `parent_chunk_expansion.py`), reranking and manual overrides (`rerunk_code.py`), generation (`generation.py`), and row-level CRUD helpers for the parent/child chunk tables (`crud_chunks_parent.py`, `crud_chunks_child.py`). See [`py/reusable_code/README.md`](py/reusable_code/README.md) for the full module map and how each retrieval technique composes with the others.
 
 ### Running the test suite
-[`test_reusable_code.py`](test_reusable_code.py) exercises `reusable_code` against fully faked Supabase/Voyage/Anthropic clients — no network access or `.env` required:
+[`test_reusable_code.py`](py/tests/test_reusable_code.py) exercises `reusable_code` against fully faked Supabase/Voyage/Anthropic clients — no network access or `.env` required:
 ```bash
-python3 test_reusable_code.py
+python3 py/tests/test_reusable_code.py
 ```
 
 ---
@@ -216,7 +217,7 @@ Run the script directly from the project root:
 *(Or pass a custom commit message: `./save_to_github.command "Finished stage 2 evaluations"`)*
 
 ### Option B: Directly Inside the Notebook
-Run **Cell #14** in [`stage2_ask_examples1.ipynb`](stage2_ask_examples1.ipynb):
+Run **Cell #14** in [`stage2_ask_examples1.ipynb`](py/ipynb/stage2_ask_examples1.ipynb):
 ```python
 save_to_github("stage2_ask_examples1.ipynb - answers verified and synced")
 ```

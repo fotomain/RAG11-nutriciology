@@ -1,0 +1,19 @@
+{
+  "rowGUID": "cbf14494-c952-5c63-bd63-242dd68080c0",
+  "rowOwnerGUID": "cbf14494-c952-5c63-bd63-242dd68080c0",
+  "rowParentGUID": null,
+  "orderInList": 11,
+  "rowJSON": {
+    "source_key": "source11",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1uRk24OuXhhk3WmL22B26jDnHLjNGc9fY",
+    "filename": "_OceanofPDF.com_Nancy_Clarks_Sports_Nutrition_Guidebook_-_Nancy_Clark.pdf",
+    "expected_pages": 537,
+    "structure": "ocr_hardcoded_toc",
+    "local_path": "eda_input/source11/_OceanofPDF.com_Nancy_Clarks_Sports_Nutrition_Guidebook_-_Nancy_Clark.pdf",
+    "size_bytes": 12009338,
+    "actual_page_count": 537,
+    "fetched_at": "2026-09-21T11:10:02.775143+00:00"
+  }
+}

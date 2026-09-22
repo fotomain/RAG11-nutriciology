@@ -1,13 +1,14 @@
 .env
 .venv/
 __pycache__/
+*.egg-info/
 *.pdf
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
 .idea/
-stage1_eda_input/
-stage1_eda_output/_checkpoints/
+eda_input/
+py/eda_output/_checkpoints/
 
 #====== AWS
 
@@ -19,7 +20,7 @@ aws-exports.js
 
 #====== react
 
-stage9_frontend/node_modules/
+rn/frontend/node_modules/
 /.pnp
 .pnp.js
 
@@ -28,12 +29,3 @@ stage9_frontend/node_modules/
 dist/
 web-build/
 build/
-
-#====== AWS
-
-AWSCLIV2.pkg
-.aws/
-*.pem
-*.ppk
-aws-exports.js
-

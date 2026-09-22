@@ -59,7 +59,7 @@ create table if not exists public.rag11_data_sources (
     "rowOwnerGUID"  uuid not null,   -- always == "rowGUID" (a source owns itself)
     "rowParentGUID" uuid,            -- always null -- a source has no parent
     "orderInList"   int not null,    -- position in the Drive folder listing
-    "rowJSON"       jsonb not null,  -- full stage1_eda_output/sources/source_row-N.json payload
+    "rowJSON"       jsonb not null,  -- full eda_output/sources/source_row-N.json payload
 
     -- generated helper columns, pulled out of rowJSON for cheap filtering
     source_key    text generated always as ("rowJSON"->>'source_key') stored,

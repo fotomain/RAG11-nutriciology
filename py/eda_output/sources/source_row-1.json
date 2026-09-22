@@ -1,0 +1,19 @@
+{
+  "rowGUID": "2b8f8480-5b57-5811-83b4-e808c7221d53",
+  "rowOwnerGUID": "2b8f8480-5b57-5811-83b4-e808c7221d53",
+  "rowParentGUID": null,
+  "orderInList": 1,
+  "rowJSON": {
+    "source_key": "source1",
+    "drive_folder_url": "https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link",
+    "drive_folder_id": "1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I",
+    "drive_file_id": "1CuHkNt3R9o6uDYA5kCDTj4PdndJIZsOV",
+    "filename": "human-nutrition-text.pdf",
+    "expected_pages": 1208,
+    "structure": "native_outline",
+    "local_path": "eda_input/source1/human-nutrition-text.pdf",
+    "size_bytes": 26891229,
+    "actual_page_count": 1208,
+    "fetched_at": "2026-09-21T11:10:02.128852+00:00"
+  }
+}
