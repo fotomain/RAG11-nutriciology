@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p82-c27",
-  "parent_id": "source16-p82",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Nutrigenomics | Pages 829-840]\n\nigenomics\n\n\nThe limiting step of protein synthesis is translation initiation during which the small unit of ribosomes is recruited to the 50 end\nof the mRNA to scan the initiation codon. Therefore, control mechanisms often relate to the control of the initiation factors of this\nprocess (protein synthesis, degradation and turnover). One of the mechanisms of control of translation initiation requires the\nassembly of translation initiation factor 4F (eIF-4F) with the cap at the 50end mRNA. The eIF-4F consists of three factors (eIF-4E,\neIF-4G and eIF-4A) and for assembly eIF-4E binds to the cap at 50, recruiting eIF-4G and eIF-4A. The eIF-4E factor binding protein\n(4EBP-1) exerts an inhibitory action on the binding of eIF-4G to eIF-4E and phosphorylation of 4EBP-1 allows the recruitment of\neIF-4G and eIF-4A and thereby initiation of protein synthesis.\nA key pathway of translation regulation that integrates and responds to environmental causes, such as the availability of AA and\nenergy, and the presence of insulin, is the so-called mTOR pathway, through phosphorylation and inhibition of the 4EBP-1,\ntogether with activation of ribosome kinase S6 (S6K), which are described below (Haissaguerre et al., 2014). However, this pathway\ncontrols other important metabolic and cellular functions, such as autophagy. Fig. 5 summarizes the control of amino acid-\nmediated protein biosynthesis and other signals through the mTOR pathway.\nThe presence of amino acids, especially leucine, activates the mTOR pathway by phosphorylating 4EBP-1 and allowing the\nassembly of the eIF-4F complex and, therefore,",
-  "token_count": 400
-}

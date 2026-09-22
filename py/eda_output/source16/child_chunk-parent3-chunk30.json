@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p3-c30",
-  "parent_id": "source16-p3",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Amino acids: Metabolism | Pages 42-54]\n\n occur under various nutritional and pathological conditions. This condition causes multiple organ\ndysfunctions, vomiting, nausea, seizures, and death in humans, particularly preterm infants maintained on a total parenteral nutri-\ntion (TPN) solution. The underlying biochemical mechanisms include reductions in NO bioavailability, blood ﬂow to the brain,\nand tissue oxygenation; depletion of a-KG in the Krebs cycle; and oxidative stress. Major factors responsible for hyperammonemia\ninclude arginine deﬁciency, liver failure, inherited metabolic disease (a defect in a urea-cycle enzyme or fatty acid oxidation), exces-\nsive AA load, AA imbalances, and AA antagonism (Wu, 2022).\nThe urea cycle in the liver and small intestine\nIn humans, the urea cycle is the major metabolic pathway for ammonia detoxiﬁcation (Fig. 3), with the net reaction of\n2NH3 þ HCO\u0006 ——— > H2N-CO-NH2 (urea) and the net consumption of 4 mol ATP/mol urea. This metabolic process occurs\nprimarily in the liver (Meijer et al., 1990) and, to a much lesser extent, the small-intestinal mucosa (Wu, 2022). The urea cycle spans\nboth the mitochondria and the cytoplasm in periportal hepatocytes and enterocytes. NH3 and HCO3\n\u0006 are formed from the\nC O\nNH2\nNH2\nH2O\nArginase\nUrea\nC O\nP\nO\nO\n- O\n-\nO\nN\nH2\nPi\n2 Mg-ADP + Pi\nNAG\nOCT\nCOO\n-\nC NH3\n+\nCH2\nH\nCOO\n-\nMg-ATP\nAMP + PPi\nL-Aspartate\nASS",
-  "token_count": 400
-}

@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p60-c13",
-  "parent_id": "source16-p60",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Vitamin K | Pages 588-595]\n\n based on phylloquinone being present in higher amounts in the liver,\nwhere clotting proteins are synthesized, while MK4 being more abundant in extra-hepatic tissues. However, menaquinones are also\npresent in the liver (Suttie, 2009), and recent evidence indicates conversion of phylloquinone and different menaquinone forms to\nMK4 in the liver and extrahepatic tissues (Ellis et al., 2022). Therefore, the proposition that some VKD proteins require phylloqui-\nnone and others require menaquinones is not supported by current data.\nNon-enzymatic\nVitamin K is reported to have anti-inﬂammatory properties via pathways independent of carboxylation. In cell-culture, pretreatment\nof macrophages with phylloquinone, MK4, and MK7 suppressed the LPS induced production of IL6. In a follow-up experiment that\nonly tested MK4, this effect was found to be through the NFkB signaling pathway. In osteoblast and osteoclast precursor cells, MK7\ntreatment suppressed the production of pro-inﬂammatory cytokines, also via the NFkB signaling pathway. In microglia-derived\ncells, MK4 suppressed the LPS-induced production of IL6, TNFa, IL1B and Cox2 and NFkB nuclear translocation Microglia are\ninvolved in neuroinﬂammation and MK4 is the main form of vitamin K found in the brain.\nMK4 is a ligand for the steroid and xenobiotic nuclear receptor (SXR) (also known as pregnane X receptor, PXR) and can regulate\ngene expression. In culture experiments using bone-derived cells, genes involved in bone formation and collagen accumulation\n(Ichikawa et al., 2006) were regulated by MK4 via SXR activation. In animal models",
-  "token_count": 400
-}

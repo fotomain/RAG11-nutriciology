@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p60-c11",
-  "parent_id": "source16-p60",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Vitamin K | Pages 588-595]\n\n.\nFunctions\nEnzymatic\nVitamin K’s main function is as an enzymatic co-factor for the post-translational carboxylation of certain Ɣ-carboxyglutamic acid\n(gla)-containing proteins, commonly referred to as vitamin K dependent (VKD) proteins. A vitamin K cycle is responsible for\nVKD protein carboxylation (Fig. 2). Dietary vitamin K (the quinone form) is reduced by the vitamin K epoxide reductase\n(VKOR), which then recycles the oxidized 2,3-epoxide vitamin K, for the cycle to continue. The reduced form of vitamin K is\nrequired for the post-translational glutamate carboxylase (ggcx) (Fig. 2). The glutamate carboxylase is responsible for the addition\nof a second carboxyl group to the glutamate amino acid residues, resulting in protein functionality (Suttie, 2009).\nVitamin K antagonists (i.e., warfarin) target the VKOR enzyme, thus inhibiting vitamin K recycling, which reduces the amount of\nvitamin K available for carboxylation of coagulation factors II, VII, IX, X and protein C and S (Suttie, 2009). A second gene,\nVKORC1L1, has been found to support the activity of VKOR, respond to vitamin K antagonists, and is present in extra-hepatic\ntissues. However, VKORC1L1 is unique in that it appears to be 50-fold more resistant to the antagonists, which may explain the\nlow susceptibility of extra-hepatic tissues to vitamin K antagonism and a concomitant lack of effects on vitamin K-dependent\nproteins.\nWhile the most studied VKD proteins are clotting factors synthesized in the liver, vitamin K and VKD proteins are also present in\nextrahe",
-  "token_count": 400
-}

@@ -1,4 +1,4 @@
-"""Hypothetical Document Embeddings (HyDE) for ``rag11_chunks_child_table``
+"""Hypothetical Document Embeddings (HyDE) for ``lrm_child_chunk_table``
 -- another retrieval-method module living alongside ``hybrid_search.py`` and
 ``parent_chunk_expansion.py`` instead of being folded into
 ``retrieval.py``/``generation.py`` themselves.
@@ -33,10 +33,10 @@ book?", you hand them a page that looks like the page you want and say
     - ``embed_hypothetical_document()`` -- embeds that paragraph with
       ``input_type='document'`` (not ``'query'`` -- a HyDE paragraph is
       document-shaped text, so it should be encoded on the same asymmetric
-      side Voyage used for the real child chunks in Stage 1.2, the same way
+      side Voyage used when lrm_child_chunk_table rows were embedded, the same way
       ``embed_query()`` uses ``input_type='query'`` for a real question).
     - ``retrieve_chunks_hyde()`` -- composes the two steps above and then
-      calls the *same* ``match_rag11_child_chunks`` RPC
+      calls the *same* ``match_lrm_chunks`` RPC
       ``retrieval.retrieve_chunks()`` already uses -- HyDE only changes
       *what text gets embedded* before that call, not the retrieval
       mechanism itself, so it needs zero schema or migration change.
@@ -136,13 +136,13 @@ def retrieve_chunks_hyde(
     (``embed_hypothetical_document()``), and search with it instead --
     then return the ``match_count`` best-matching child rows for the
     resulting embedding, ordered by cosine distance ascending (closest
-    first), via the *same* ``match_rag11_child_chunks`` RPC
-    ``retrieve_chunks()`` calls (see ``sql/create_sql_tables.sql``). HyDE
+    first), via the *same* ``match_lrm_chunks`` RPC
+    ``retrieve_chunks()`` calls (see ``sql/create_lrm_tables.sql``). HyDE
     only changes what text gets embedded before that call -- it needs no
     schema change, unlike ``hybrid_search.py``'s keyword half.
 
     ``filter_owner`` restricts retrieval to one source's
-    ``rag11_data_sources.rowGUID``; leave it ``None`` to search across
+    ``lrm_source_table.rowGUID``; leave it ``None`` to search across
     every ingested source.
 
     Returns just the row list by default; pass
@@ -158,12 +158,12 @@ def retrieve_chunks_hyde(
         question, model=hyde_model, max_tokens=hyde_max_tokens, clients=clients
     )
     hyde_embedding = embed_hypothetical_document(hypothetical_document, clients=clients)
-    # retrieval-step: the same match_rag11_child_chunks RPC retrieve_chunks()
+    # retrieval-step: the same match_lrm_chunks RPC retrieve_chunks()
     # calls, just searched with the HyDE embedding instead of the question's.
     params = {"query_embedding": hyde_embedding, "match_count": match_count}
     if filter_owner is not None:
         params["filter_owner"] = filter_owner
-    resp = with_retry(lambda: clients.supabase.rpc("match_rag11_child_chunks", params).execute())
+    resp = with_retry(lambda: clients.supabase.rpc("match_lrm_chunks", params).execute())
     rows = resp.data
     if return_hypothetical_document:
         return rows, hypothetical_document

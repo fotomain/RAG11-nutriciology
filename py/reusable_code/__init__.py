@@ -1,17 +1,17 @@
-"""RAG11 Nutrition -- shared, importable building blocks for every
-notebook in this repo (Stage 1.2 onward): client construction, retrieval,
-hybrid (dense + keyword) search, hypothetical document embeddings (HyDE),
-reranking, parent-chunk expansion, generation, and the git-sync helper.
+"""LRM11 -- shared, importable building blocks for every LRM notebook:
+client construction, retrieval, hybrid (dense + keyword) search,
+hypothetical document embeddings (HyDE), reranking, page expansion,
+generation, and the git-sync helper.
 
 Usage from any notebook, right after its own ``%pip install`` cell::
 
     from reusable_code import init_clients, ask_question
 
     clients = init_clients()
-    result = ask_question("Is vitamin C a water-soluble vitamin?")
+    result = ask_question("What does the Yoga-Sutra say about ahimsa?")
 
 ``ask_question()`` runs hybrid search, HyDE-vs-multi-query retrieval, and
-parent-chunk expansion by default -- each is controlled by a
+page expansion by default -- each is controlled by a
 USE_HYBRID_SEARCH / USE_HYPOTHETICAL_DOCUMENT_EMBEDDING /
 USE_MULTI_QUERY_QUESTION_SPLITTING / USE_PARENT_CHUNK_EXPANSION flag in
 .env (see config.py), all ``True`` if left unset. Set any of them to
@@ -21,13 +21,13 @@ no code changes, or override per call with an explicit keyword (e.g.
 
 See ``reusable_code/README.md`` for the full guide (including exactly how
 -- and whether -- you need to touch the Supabase tables),
-``stage2_ask_examples3_hybrid_search.ipynb`` for a worked example of the
-hybrid-search functions specifically,
-``stage2_ask_examples2_rerank.ipynb`` for a worked example of the reranking
-functions, ``stage2_ask_examples4_parent_chunk_expansion.ipynb`` for a
-worked example of parent-chunk expansion, and
-``stage2_ask_examples5_hypothetical_document_embedding.ipynb`` for a worked
-example of HyDE.
+``py/ipynb/stage2_ask_examples3_hybrid_search.ipynb`` for a worked example
+of the hybrid-search functions specifically,
+``py/ipynb/stage2_ask_examples2_rerank.ipynb`` for a worked example of the
+reranking functions, ``py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb``
+for a worked example of page expansion, and
+``py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb`` for
+a worked example of HyDE.
 """
 from .clients import (
     Clients,
@@ -43,35 +43,6 @@ from .config import (
     USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
     USE_MULTI_QUERY_QUESTION_SPLITTING,
     USE_PARENT_CHUNK_EXPANSION,
-)
-from .crud_chunks_child import (
-    CHILD_TABLE,
-    create_child_payload,
-    create_child_row,
-    create_child_rows,
-    delete_child_row,
-    delete_child_rows_by_owner,
-    delete_child_rows_by_parent,
-    read_all_child_rows,
-    read_child_row,
-    read_child_rows_by_owner,
-    read_child_rows_by_parent,
-    update_child_embedding,
-    update_child_rowjson,
-)
-from .crud_chunks_parent import (
-    PARENT_TABLE,
-    RAG11_UUID_NAMESPACE,
-    create_parent_payload,
-    create_parent_row,
-    create_parent_rows,
-    delete_parent_row,
-    delete_parent_rows_by_owner,
-    deterministic_uuid,
-    read_all_parent_rows,
-    read_parent_row,
-    read_parent_rows_by_owner,
-    update_parent_rowjson,
 )
 from .deduplication import (
     first_occurrence_map,
@@ -142,6 +113,7 @@ from .retrieval import (
     NUM_CONTEXT_CHUNKS,
     embed_query,
     page_numbers_for_chunk,
+    read_page_row,
     retrieve_chunks,
 )
 from .retry import with_retry
@@ -209,31 +181,7 @@ __all__ = [
     "show_qa",
     "show_summary",
     "summary_table_html",
-    "PARENT_TABLE",
-    "RAG11_UUID_NAMESPACE",
-    "deterministic_uuid",
-    "create_parent_payload",
-    "create_parent_rows",
-    "create_parent_row",
-    "read_parent_row",
-    "read_parent_rows_by_owner",
-    "read_all_parent_rows",
-    "update_parent_rowjson",
-    "delete_parent_row",
-    "delete_parent_rows_by_owner",
-    "CHILD_TABLE",
-    "create_child_payload",
-    "create_child_rows",
-    "create_child_row",
-    "read_child_row",
-    "read_child_rows_by_parent",
-    "read_child_rows_by_owner",
-    "read_all_child_rows",
-    "update_child_rowjson",
-    "update_child_embedding",
-    "delete_child_row",
-    "delete_child_rows_by_parent",
-    "delete_child_rows_by_owner",
+    "read_page_row",
     "group_by_key",
     "first_occurrence_map",
 ]

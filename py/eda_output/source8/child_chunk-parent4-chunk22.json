@@ -1,9 +1,0 @@
-{
-  "child_id": "source8-p4-c22",
-  "parent_id": "source8-p4",
-  "source_key": "source8",
-  "source_row_guid": "65bf9a74-515d-5c89-b326-3655e12992e7",
-  "chunk_type": "prose",
-  "text": "[Source: Krauses_Food_and_the_Nutrition_Care_Process.pdf | Section: 4 Intake: Analysis of the diet | Pages 74-85]\n\n = 3 meals \nSelected consumption markers for protein intake \n• \nAt least one serving of dairy products \n(milk, cheese, yoghurt) per day \nyes \nno \n• \nTwo or more servings of legumes \nor eggs per week \n \n \nyes \nno \n• \nMeat, fish or poultry every day \nyes \nno \n0.0 = if 0 or 1 yes \n0.5   = if 2 yes \n1.0   = if 3 yes \n \n \n \n \n            . \nConsumes two or more servings of fruit or vegetables per day? \n0 = no \n1 = yes \nHow much fluid (water, juice, coffee, tea, milk...) is consumed per \nday? \n0.0 = less than 3 cups \n0.5 = 3 to 5 cups \n1.0 = more than 5 cups \n \n \n \n            . \nMode of feeding \n0 = unable to eat without assistance \n1 = self-fed with some difficulty \n2 = self-fed without any problem \nSelf view of nutritional status \n0 = views self as being malnourished \n1 = is uncertain of nutritional state \n2 = views self as having no nutritional problem \nIn comparison with other people of the same age, how does the \npatient consider his / her health status? \n0.0 = not as good \n0.5 = does not know \n1.0 = as good \n2.0 = better   \n \n \n \n \n            . \nMid-arm circumference (MAC) in cm \n0.0 = MAC less than 21\n0.5 = MAC 21 to 22 \n1.0 = MAC 22 or greater \n \n \n \n            . \nCalf circumference (CC) in cm \n0 = CC less than 31 \n1 = CC 31 or greater \nA\nB\nC\nD\nJ\nE\nF\nScreening\nAssessment \nLives independently",
-  "token_count": 400
-}

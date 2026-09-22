@@ -1,31 +1,32 @@
-# RAG11 Nutrition — Evidence-Based Clinical Nutrition RAG Pipeline
+# LRM11 — Language Reading Model: page-image book viewer + retrieval
 
-A production-grade, hierarchical Retrieval-Augmented Generation (RAG) system built on foundational medical and clinical nutrition textbooks.
-
-The pipeline uses **hierarchical parent-child chunking**, **Voyage AI domain-specific asymmetric embeddings**, **Supabase pgvector with HNSW indexing**, and **Claude Sonnet** to deliver grounded answers accompanied by verifiable textbook page citations. Retrieval quality is built up from five composable techniques — **reranking**, **hybrid (vector + keyword) search**, **parent-chunk expansion**, **HyDE**, and **multi-query question splitting** — implemented once in [`py/reusable_code/`](py/reusable_code/) and demonstrated one at a time in the `stage2_ask_examples*` notebooks.
-
---- git total size
-find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs -n 1 du -sh -c | tail -n 1
----
-find . -maxdepth 3 -name ".git" -type d -prune -exec dirname {} + | xargs du -sh -c
-
+A pipeline that takes scanned/PDF books, recognises every page (text + word-level bounding boxes) via an
+LLM vision call, translates each page into every other supported language with the layout preserved, serves
+the result through a page-image viewer app, and (on top of that) chunks + embeds the recognised text so it
+can be asked questions about — grounded, cited-by-page answers, the same retrieval techniques a RAG pipeline
+uses (hybrid search, reranking, HyDE, multi-query, page expansion), built once in
+[`py/reusable_code/`](py/reusable_code/).
 
 ## Architecture Overview
 
 ```mermaid
 flowchart TD
-    A[Textbook PDFs<br/>Google Drive] --> B[Stage 1.1: Extract & Chunk<br/>Hierarchical Parent & Child Chunks]
-    B --> C[eda_output/ JSON Chunks]
-    C --> D[Stage 1.2: Ingestion & Embeddings<br/>Voyage-3 'document' embeddings]
-    D --> E[(Supabase PostgreSQL + pgvector<br/>HNSW Vector Index + GIN tsvector index)]
-    E --> F[Stage 1.9: Data Verification<br/>Integrity & Parity Audit]
-    E --> G[Stage 2: Question Answering<br/>reusable_code.ask_question]
-    H[User Nutrition Question] --> I[Voyage-3 'query' Embedding /<br/>HyDE / Multi-Query / Hybrid Retrieval]
-    I --> G
-    G --> R[Optional: Rerank + Parent-Chunk Expansion]
-    R --> J[Claude Sonnet<br/>Evidence-backed Generation]
-    J --> K[Final Answer with Page Citations<br/>& Short Yes/No Summary]
+    A[Source PDFs<br/>Google Drive] --> B[3.1: Recognise<br/>LLM vision -> page JSON + PNGs]
+    B --> C[3.1b: Translate<br/>layout-preserving, per language]
+    C --> D[3.3: Upload<br/>lrm_source_table / lrm_page_table]
+    D --> E[(Supabase PostgreSQL + pgvector)]
+    D --> F[3.4: Chunk + Embed<br/>lrm_child_chunk_table, voyage-3]
+    F --> E
+    E --> G[py/api: FastAPI backend]
+    G --> H[rn/frontend: page-image viewer]
+    E --> I[Retrieval + Generation<br/>reusable_code.ask_question]
+    J[User Question] --> I
+    I --> K[Claude<br/>Evidence-backed Generation]
+    K --> L[Answer with Page Citations<br/>& Short Yes/No Summary]
 ```
+
+Everything lives under `py/` (Python backend) and `rn/` (the React Native/Expo frontend); `sql/` holds the
+schema at the repo root, shared reference point for both.
 
 ## Step 1: Environment & Dependencies Setup
 
@@ -46,192 +47,123 @@ source py/.venv/bin/activate
 ```bash
 pip install --upgrade pip
 pip install -r py/requirements.txt
-pip install -e py/   # makes `reusable_code` and `eda_packages` importable from any notebook/script under py/
+pip install -e py/   # makes `reusable_code` importable from any notebook/script under py/
 ```
 
-### 1.4 (Optional) System OCR Engine
-*Required only if processing `source10` (scanned book without text layer)*:
-- **macOS**: `brew install tesseract`
-- **Linux (Debian/Ubuntu)**: `sudo apt-get install -y tesseract-ocr`
+### 1.4 Frontend
+```bash
+cd rn/frontend && npm install
+```
 
 ---
 
 ## Step 2: Prepare API Keys & Secrets (`.env`)
 
-Create your `.env` file from the provided template (both live under `py/`):
 ```bash
 cp py/.env.sample py/.env
 ```
 
-Open `.env` and fill in the required credentials obtained from the official dashboards below:
-
-| Variable | Description | Where to Get Key (URL) |
-| :--- | :--- | :--- |
-| **`PUBLIC_SUPABASE_URL`** | Supabase project endpoint | [Supabase Project Settings > API](https://supabase.com/dashboard/project/_/settings/api-keys) |
-| **`PUBLIC_SUPABASE_ANON_KEY`** | Supabase client anon public key | [Supabase Project Settings > API](https://supabase.com/dashboard/project/_/settings/api-keys) |
-| **`SUPABASE_SERVICE_ROLE_KEY`** | Supabase backend secret key (bypasses RLS for ingestion) | [Supabase Project Settings > API](https://supabase.com/dashboard/project/_/settings/api-keys) |
-| **`VOYAGE_API_KEY`** | Voyage AI API key (`voyage-3` embeddings) | [Voyage AI Dashboard > API Keys](https://dash.voyageai.com/api-keys) |
-| **`ANTHROPIC_API_KEY`** | Anthropic Claude API key (answer generation) | [Anthropic Console > API Keys](https://console.anthropic.com/settings/keys) |
-| **`GOOGLE_AI_KEY`** | Google Gemini API key (optional / deep fetching) | [Google AI Studio > Get API Key](https://aistudio.google.com/app/apikey) |
-| **`MAX_NUMBER_OF_PAGES_TO_USE`** | Stage 1.1: pages of text extracted per PDF. Unset = `100` (fast smoke test); `NONE` = no cap (full run) | — |
-| **`START_PAGE_NUMBER`** | Stage 1.1: 1-based page to start extracting text from. Unset = `1`. Combine with `MAX_NUMBER_OF_PAGES_TO_USE` to select one page window, e.g. `303` + `10` extracts pages 303-312 | — |
-| **`SPEAKING_LANGUAGE`** | Language of every answer (`EN`, `RU`, `FR`, `HI`, ...). Default `EN` | — |
+Fill in `PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`/`PUBLIC_SUPABASE_ANON_KEY`, `VOYAGE_API_KEY`,
+`ANTHROPIC_API_KEY`, `LRM_SOURCES_FOLDER` (a Google Drive folder of source PDFs), `LRM_DB_URL` (direct
+Postgres connection, for `--init`/`--reset`), and `OCR_PROVIDER_NAME` (`ocr_with_google` — default, needs
+`GOOGLE_AI_API_KEY` — or `ocr_with_aws`, needs AWS Bedrock credentials).
 
 > [!IMPORTANT]
 > Never commit your `.env` file to version control. It is protected and excluded by `.gitignore`.
 
 ---
 
-## Step 3: Initialize Database in Supabase
+## Step 3: Initialize the Database in Supabase
 
-1. Open your Supabase project dashboard: [https://supabase.com/dashboard](https://supabase.com/dashboard).
-2. Navigate to the **SQL Editor** from the left navigation panel (`https://supabase.com/dashboard/project/<YOUR_PROJECT_ID>/sql`).
-3. Click **New query** and paste the complete content of:
-   - [`sql/create_sql_tables.sql`](sql/create_sql_tables.sql)
-4. Click **Run**. This script sets up:
-   - `CREATE EXTENSION IF NOT EXISTS vector;`
-   - `rag11_data_sources` table
-   - `rag11_chunks_parent_table` table
-   - `rag11_chunks_child_table` table with 1024-dimension `embedding vector(1024)`
-   - Cosine distance HNSW vector index (`idx_rag11_child_hnsw`)
-   - Vector search RPC function: `match_rag11_child_chunks`
-   - Generated `tsvector` column + GIN index (`idx_rag11_child_chunk_tsv_gin`) and the `match_rag11_child_chunks_keyword` RPC, used by hybrid search
+Paste [`sql/create_lrm_tables.sql`](sql/create_lrm_tables.sql) into the Supabase SQL Editor and run it (or
+pass `--init` to `run2_lrm_upload.command`, which does this for you). It creates:
 
-Every statement in this script is `create ... if not exists` / `create or replace function`, so it's also safe to re-run later against a database that already has ingested data (e.g. after pulling an update that adds the hybrid-search columns).
+- `lrm_language_table` — reference table of supported language codes (fr/en/ru seeded; add more by inserting a row)
+- `lrm_source_table` — one row per (book, language)
+- `lrm_page_table` — one row per recognised/translated page (blocks, words, bounding boxes, text)
+- `lrm_child_chunk_table` — one row per embeddable chunk of page text, with its `voyage-3` embedding
+- `lrm_definition_table` / `lrm_definition_attribute_table` / `lrm_entities_relations_table` — a self-describing data
+  dictionary grounded in the IFLA Library Reference Model (LRM, the bibliographic standard — a different
+  "LRM" from this project's own name), documenting the four tables above and standards-mapping/association
+  data. See [`py/documentation/LRM_ER_Model.html`](py/documentation/LRM_ER_Model.html).
+- RPCs: `match_lrm_chunks` (vector search), `match_lrm_chunks_keyword` (full-text search), `get_lrm_page`
+
+[`sql/delete_lrm_tables.sql`](sql/delete_lrm_tables.sql) is the full teardown.
 
 ---
 
-## Step 4: Step-by-Step Pipeline Execution
-
-### Fastest: run the whole of stage 1 with one command
+## Step 4: Run the Pipeline
 
 ```bash
-./py/run/run_stage1_all.command                  # 1.1 extract & chunk -> 1.2 embed & load -> 1.9 verify
-./py/run/run_stage1_all.command --from 1.2       # reuse the chunks already on disk
-./py/run/run_stage1_all.command --only 1.9       # just verify
-./py/run/run_stage1_all.command --prune-orphans  # also delete Supabase rows that have no local file
+./py/run/run1_lrm_eda.command        # 3.1 download -> recognise -> translate every source PDF
+./py/run/run2_lrm_upload.command     # 3.3 upload lrm_source_table/lrm_page_table to Supabase (--init to create tables first)
+./py/run/run2b_lrm_chunks.command    # 3.4 chunk + embed into lrm_child_chunk_table
+./py/run/run3_lrm_fastapi.command    # serve the API on :8000
+./py/run/run4_lrm_frontend.command   # serve the Expo web viewer on :8081
 ```
 
-(or double-click it in Finder). It needs `.env`; `MAX_NUMBER_OF_PAGES_TO_USE` there controls the smoke-test cap (unset = 100,
-`NONE` = full run), and `START_PAGE_NUMBER` (unset = 1) shifts where that cap starts -- together they select a page
-window, e.g. `START_PAGE_NUMBER=303` + `MAX_NUMBER_OF_PAGES_TO_USE=10` extracts only pages 303-312 of each PDF.
-Exit code `0` = PASS, `1` = ran but verification found issues, `2` = a stage crashed. Every stage is
-idempotent and resumable, so after a failure fix the cause and run it again. The code lives in `py/reusable_code/stage1/`
-(`extract_chunk.py`, `load.py`, `verify.py`, `pipeline.py`); the notebooks below are thin, step-by-step views of it, and
-`python -m reusable_code.stage1` (run from `py/`) is the same entry point.
-
-Or execute the notebooks in sequence to run the entire RAG lifecycle:
-
-```
-stage1_0 (optional)  ──▶  stage1_1  ──▶  stage1_2  ──▶  stage1_9  ──▶  stage2
-(Fetch sources)         (Chunk)         (Ingest)        (Verify)       (Ask & Eval)
-```
-
-### Stage 1.0 (Optional): Fetch Source Books
-- **Notebook**: [`stage1_0_eda_fetch_best_sources.ipynb`](py/eda/stage1_0_eda_fetch_best_sources.ipynb) or [`stage1_0_deep_fetch.ipynb`](py/eda/stage1_0_deep_fetch.ipynb)
-- **Action**: Downloads or catalogs high-quality clinical and medical nutrition textbooks.
-- **Source Drive**: If already hosting PDFs in Google Drive, they are accessed from:
-  `GOOGLE_DRIVE_SOURCES_FOLDER`: [Google Drive Nutrition Textbooks Folder](https://drive.google.com/drive/folders/1GwS2oNWkn_aLE1eDTbkHW73Ljun_aM4I?usp=drive_link)
-
-### Stage 1.1: Extract Text & Hierarchical Chunking
-- **Notebook**: [`stage1_1_eda_extract_and_chunk.ipynb`](py/eda/stage1_1_eda_extract_and_chunk.ipynb)
-- **Action**:
-  - Pulls source PDFs directly from the Google Drive source folder or local directory.
-  - Extracts text, headings, and tables (using `pymupdf` and `pdfplumber`).
-  - Produces hierarchical chunks:
-    - **Parent chunks**: Larger semantic context chunks.
-    - **Child chunks**: Target retrieval chunks sized with `tiktoken` (`cl100k_base`).
-  - Writes structured metadata manifests to `./eda_output/`.
-  - **New PDFs need no code**: a file without its own `py/eda_packages/sourceN_<slug>.py` module is chunked by `generic_fallback.py` (PDF outline, else larger-font headings, else 10-page windows). Add a dedicated module later for better boundaries; it takes precedence automatically.
-
-### Stage 1.2: Embeddings & Supabase Ingestion
-- **Notebook**: [`stage1_2_eda_load_chunks.ipynb`](py/eda/stage1_2_eda_load_chunks.ipynb)
-- **Action**:
-  - Loads chunk JSON files from `./eda_output/`.
-  - Embeds all child chunk texts using Voyage AI (`voyage-3` with `input_type="document"`).
-  - Batch upserts source rows, parent chunk rows, and child chunk rows with vectors into Supabase.
-
-### Stage 1.9: Data Verification & Integrity Audit
-- **Notebook**: [`stage1_9_eda_verify_all_data.ipynb`](py/eda/stage1_9_eda_verify_all_data.ipynb)
-- **Action**:
-  - Runs automated consistency checks between local JSON files and Supabase tables.
-  - Verifies zero missing rows, zero orphaned rows, and that every child chunk has a valid 1024-dim embedding.
-
-### Stage 2: Question Answering & Evaluation
-All Stage 2 notebooks import the shared [`reusable_code`](py/reusable_code/) package (`init_clients`, `ask_question`, ...) instead of redefining retrieval/generation logic per notebook. Each notebook embeds sample clinical nutrition questions, retrieves context from Supabase, synthesizes an answer with Claude strictly from that context, and formats a concise `Short answer: Yes/No`, an in-depth explanation, and verifiable textbook page citations.
-
-| Notebook | Technique demonstrated |
-| --- | --- |
-| [`stage2_ask_examples1.ipynb`](py/ipynb/stage2_ask_examples1.ipynb) | Baseline: plain vector search via `match_rag11_child_chunks` |
-| [`stage2_ask_examples2_rerank.ipynb`](py/ipynb/stage2_ask_examples2_rerank.ipynb) | Cross-encoder reranking (`use_rerank=True`) |
-| [`stage2_ask_examples3_hybrid_search.ipynb`](py/ipynb/stage2_ask_examples3_hybrid_search.ipynb) | Hybrid vector + keyword search fused with Reciprocal Rank Fusion (`use_hybrid=True`) |
-| [`stage2_ask_examples4_parent_chunk_expansion.ipynb`](py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb) | Small-to-big context expansion from child to parent chunk (`expand_to_parents=True`) |
-| [`stage2_ask_examples5_hypothetical_document_embedding.ipynb`](py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb) | HyDE — embed a Claude-drafted hypothetical answer instead of the bare question (`use_hyde=True`) |
-| [`stage2_ask_examples6_multi_query_question_splitting.ipynb`](py/ipynb/stage2_ask_examples6_multi_query_question_splitting.ipynb) | Multi-query / question splitting for compound questions (`use_multi_query=True`) |
-| [`stage2_ask_examples7_ys.ipynb`](py/ipynb/stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only, questions and answers only (all service code in `reusable_code/ys/`): five questions, some in Devanagari; answers in `speaking_language` |
-| [`stage2_ask_examples7_ys_RU.ipynb`](py/ipynb/stage2_ask_examples7_ys_RU.ipynb) | The same five Yoga-Sūtra questions in Russian, with Russian answers and Russian card labels (`speaking_language="RU"`) |
-| [`stage2_ask_examples8_nutriciology.ipynb`](py/ipynb/stage2_ask_examples8_nutriciology.ipynb) | Five funny nutrition questions (jokes, slang, emoji, French): question understanding (`prepare_question()`) + `speaking_language = "EN"` answers, same card design as example 7 |
-
-`ask_question()` composes all of these techniques by default (see [`py/reusable_code/README.md`](py/reusable_code/README.md#feature-flags-configpy-env) for how `.env`'s `USE_*` flags and per-call keywords interact), so `stage2_ask_examples1.ipynb` is the only notebook that isolates the plain baseline; the others each force one technique on to show its effect in isolation.
-
-For the mechanics and rationale behind each technique, see the write-ups in [`py/documentation/`](py/documentation/):
-- [`HOW_IT_WORKS_Hybrid_Search.html`](py/documentation/HOW_IT_WORKS_Hybrid_Search.html)
-- [`HOW_IT_WORKS_Hypothetical_Document_Embedding.html`](py/documentation/HOW_IT_WORKS_Hypothetical_Document_Embedding.html)
-- [`HOW_IT_WORKS_Multi_Query_Question_Splitting.html`](py/documentation/HOW_IT_WORKS_Multi_Query_Question_Splitting.html)
-- [`HOW_IT_WORKS_Parent_Chunk_Expansion.html`](py/documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html)
-- [`RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html`](py/documentation/RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html) — end-to-end data flow
-- [`RAG11_HOW_TO_RUN_FROM_SCRATCH.html`](py/documentation/RAG11_HOW_TO_RUN_FROM_SCRATCH.html) — full from-scratch run guide
+Or run everything in sequence with `./py/run/run9_lrm_all.command`. Every stage is idempotent and resumable.
 
 ---
 
-## `py/reusable_code/` — the shared retrieval & generation package
+## Step 5: Ask Questions — Retrieval & Generation
 
-Every Stage 2 notebook imports from [`py/reusable_code/`](py/reusable_code/) rather than redefining `require_env`, `ask_question`, retrieval, or reranking logic per notebook:
+[`py/reusable_code/`](py/reusable_code/) is the shared retrieval + generation package every `py/ipynb/`
+notebook imports from, instead of redefining retrieval/generation logic per notebook:
 
 ```python
 from reusable_code import init_clients, ask_question
 
-clients = init_clients()  # reads .env once; cached for the rest of the kernel
-result = ask_question("Is vitamin C a water-soluble vitamin?")
+clients = init_clients()
+result = ask_question("What does the Yoga-Sutra say about ahimsa?")
 ```
 
-It covers client setup (`clients.py`), retrieval (`retrieval.py`, `hybrid_search.py`, `hypothetical_document_embedding.py`, `multi_query_question_splitting.py`, `parent_chunk_expansion.py`), reranking and manual overrides (`rerunk_code.py`), generation (`generation.py`), and row-level CRUD helpers for the parent/child chunk tables (`crud_chunks_parent.py`, `crud_chunks_child.py`). See [`py/reusable_code/README.md`](py/reusable_code/README.md) for the full module map and how each retrieval technique composes with the others.
+`ask_question()` composes hybrid search, HyDE-vs-multi-query retrieval, reranking, and page expansion by
+default — each controlled by a `USE_*` flag in `.env` (see `reusable_code/config.py`), or an explicit keyword
+per call.
+
+| Notebook | Technique demonstrated |
+| --- | --- |
+| [`py/ipynb/stage2_ask_examples1.ipynb`](py/ipynb/stage2_ask_examples1.ipynb) | Baseline: plain vector search via `match_lrm_chunks` |
+| `py/ipynb/stage2_ask_examples2_rerank.ipynb` | Cross-encoder reranking (`use_rerank=True`) |
+| `py/ipynb/stage2_ask_examples3_hybrid_search.ipynb` | Hybrid vector + keyword search (`use_hybrid=True`) |
+| `py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb` | Small-to-big context: chunk to full page (`expand_to_parents=True`) |
+| `py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb` | HyDE (`use_hyde=True`) |
+| `py/ipynb/stage2_ask_examples6_multi_query_question_splitting.ipynb` | Multi-query / question splitting (`use_multi_query=True`) |
+| [`py/ipynb/stage2_ask_examples7_ys.ipynb`](py/ipynb/stage2_ask_examples7_ys.ipynb) | Yoga-Sūtra book only, questions and answers (`reusable_code/ys/`), some in Devanagari |
+| [`py/ipynb/stage2_ask_examples7_ys_RU.ipynb`](py/ipynb/stage2_ask_examples7_ys_RU.ipynb) | The same Yoga-Sūtra questions in Russian |
+
+> Notebooks 2–6 are being ported one at a time from the same techniques' RAG11 originals; #1, #7 and #7_RU
+> are done and use real Yoga-Sūtra book content.
 
 ### Running the test suite
-[`test_reusable_code.py`](py/tests/test_reusable_code.py) exercises `reusable_code` against fully faked Supabase/Voyage/Anthropic clients — no network access or `.env` required:
 ```bash
-python3 py/tests/test_reusable_code.py
+python3 py/tests/test_reusable_code.py   # fully faked Supabase/Voyage/Anthropic clients -- no network needed
+python3 py/tests/test_ys.py
 ```
 
 ---
 
-## Step 5: Save & Synchronize Workspace to GitHub
+## Step 6: Save & Synchronize Workspace to GitHub
 
-A hardened synchronization utility is included to ensure your notebooks, code, and evaluation results are safely committed and pushed without getting blocked by Git locks or remote divergence:
-
-### Option A: From Terminal or Finder
-Run the script directly from the project root:
 ```bash
 ./save_to_github.command
-```
-*(Or pass a custom commit message: `./save_to_github.command "Finished stage 2 evaluations"`)*
-
-### Option B: Directly Inside the Notebook
-Run **Cell #14** in [`stage2_ask_examples1.ipynb`](py/ipynb/stage2_ask_examples1.ipynb):
-```python
-save_to_github("stage2_ask_examples1.ipynb - answers verified and synced")
+./save_to_github.command "custom commit message"
 ```
 
-**Features built into the sync tool:**
-- Automatically terminates hung background `git` processes.
-- Clears stale `.git/index.lock` files if an earlier process crashed.
-- Synchronizes remote changes (safe auto-stash, rebase, or merge) to avoid non-fast-forward push rejections.
-- Push retry with backoff.
+Or from Python: `from reusable_code import save_to_github; save_to_github("message")`.
 
 ---
 
 ## Database Maintenance & SQL Utilities
 
-- **[`sql/create_sql_tables.sql`](sql/create_sql_tables.sql)**: Complete database schema creation and RPC setup.
-- **[`sql/delete_chunks_data.sql`](sql/delete_chunks_data.sql)**: Safely truncate/delete chunks and source records if you need to re-run Stage 1.2 from scratch.
-- **[`sql/drop_all_tables.sql`](sql/drop_all_tables.sql)**: Complete teardown of all RAG11 database objects.
+- **[`sql/create_lrm_tables.sql`](sql/create_lrm_tables.sql)** — full schema + RPC setup.
+- **[`sql/delete_lrm_tables.sql`](sql/delete_lrm_tables.sql)** — full teardown.
+
+## Repo layout
+
+```
+py/           Python backend — venv, requirements, reusable_code/, lrm/{data,upload,chunks}/, api/, ipynb/, run/, tests/, documentation/
+rn/frontend/  Expo (React Native) page-image viewer, web + native
+sql/          Database schema (create/delete), shared reference point for the repo
+```

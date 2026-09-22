@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p73-c21",
-  "parent_id": "source16-p73",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Energy metabolism | Pages 745-758]\n\n2 NADH, 1 FADH2 and a GTP to regenerate the oxaloacetate.\nACETYL CoA (2 C)\nPALMITOYL-CoA (16 C)\nMALONYL CoA (3 C)                  \nACETYL CoA (2 C)\nCoASH\nACETYL CoA\nFATTY ACYL-acyl carrier protein\nACYL CoA (- 2 C)\nPALMITATE (16 C)\nCO2\nCO2\nNADPH\nNADP+\nNADPH\nNADP+\nFa\u0002y acid synthase\nAcyl carrier protein\nThiolase\nAcetyl CoA Carboxylase\nFAD\nFADH2\nNAD+\nNADH\nH20\nH20\noxida\u0003on\nThiolase\nFa\u0002y acid synthesis\nFa\u0002y acid  -oxida\u0003on\nFig. 4\nFatty acid synthesis and fatty acid b oxidation. Acetyl CoA carboxylase forms malonyl CoA which binds to an acetyl CoA linked to the acyl\ncarrier protein of fatty acid synthase. Within the cytosol, after a decarboxylation, a series of reductions by NADPH, and a hydration, the resulting four\ncarbon acyl group is bound to the acyl carrier protein (ACP) in fatty acid synthase. The process repeats utilizing a new malonyl CoA until the ﬁnal\nproduct, palmitate (16 carbons) is formed and this is released by hydrolysis from the ACP by a thiolase. The palmitate can be further modiﬁed by\nelongation and/or desaturation. Within the mitochondria fatty acyl CoA (e.g., palmitoyl CoA) will be catabolized releasing a FADH2 and a NADH in",
-  "token_count": 400
-}

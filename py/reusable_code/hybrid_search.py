@@ -1,4 +1,4 @@
-"""Hybrid (dense + keyword) search for ``rag11_chunks_child_table`` -- the
+"""Hybrid (dense + keyword) search for ``lrm_child_chunk_table`` -- the
 retrieval-method counterpart to ``retrieval.py``'s plain vector search (see
 ``retrieval.retrieve_chunks``), living in its own module the same way
 row-level CRUD for the parent/child chunk tables lives in
@@ -8,8 +8,8 @@ into ``retrieval.py`` itself.
 Two independent search methods over the same table, then one merge step:
 
     - ``retrieve_chunks_keyword()`` -- Postgres full-text (lexical) search
-      via the ``match_rag11_child_chunks_keyword`` RPC from
-      ``sql/create_sql_tables.sql``. The counterpart to
+      via the ``match_lrm_chunks_keyword`` RPC from
+      ``sql/create_lrm_tables.sql``. The counterpart to
       ``retrieval.retrieve_chunks()``'s dense/semantic search.
     - ``reciprocal_rank_fusion()`` -- a small, generic function that merges
       any number of already-ranked lists of rows into one combined ranking.
@@ -54,7 +54,7 @@ def _as_or_query(question: str) -> str:
     ``websearch_to_tsquery``-flavored string that ORs its words together
     instead of requiring all of them.
 
-    ``websearch_to_tsquery`` (what ``match_rag11_child_chunks_keyword``
+    ``websearch_to_tsquery`` (what ``match_lrm_chunks_keyword``
     calls) treats unquoted words as an implicit AND -- fine for a
     2-3-word keyword search, but against a full question ("How many grams
     of protein per kilogram of body weight does the RDA recommend for an
@@ -89,8 +89,8 @@ def retrieve_chunks_keyword(
     """Return the ``match_count`` best-matching child rows for ``question``
     by Postgres full-text (keyword/lexical) search, ordered by
     ``ts_rank_cd`` descending (best match first), via the
-    ``match_rag11_child_chunks_keyword`` RPC from
-    ``sql/create_sql_tables.sql``.
+    ``match_lrm_chunks_keyword`` RPC from
+    ``sql/create_lrm_tables.sql``.
 
     This is ``retrieval.retrieve_chunks()``'s lexical counterpart: it
     matches actual words/numbers in the text (via each chunk's generated
@@ -115,7 +115,7 @@ def retrieve_chunks_keyword(
     distant they are.
 
     ``filter_owner`` restricts retrieval to one source's
-    ``rag11_data_sources.rowGUID``; leave it ``None`` to search across
+    ``lrm_source_table.rowGUID``; leave it ``None`` to search across
     every ingested source.
     """
     clients = clients or get_clients()
@@ -123,7 +123,7 @@ def retrieve_chunks_keyword(
     if filter_owner is not None:
         params["filter_owner"] = filter_owner
     resp = with_retry(
-        lambda: clients.supabase.rpc("match_rag11_child_chunks_keyword", params).execute()
+        lambda: clients.supabase.rpc("match_lrm_chunks_keyword", params).execute()
     )
     return resp.data
 

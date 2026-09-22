@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p128-c26",
-  "parent_id": "source16-p128",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Body composition | Pages 1363-1377]\n\nﬁcantly in metabolic rate (Gallagher et al., 1998). The brain, liver, heart, and kidneys alone account for approximately\n60% of REE in adults although their combined weight is less than 6% of total body weight or 7% of FFM. The skeletal muscle\ncomponent of FFM comprises 40–50% of total body weight (or 51% of FFM) and accounts for only 18–25% of REE. REE varies\nin relation to body size across mammalian species. Within humans, REE per kg of body weight or FFM is highest in newborns\n(\u000456 kcal kg\u00021 day\u00021), declines sharply until 4 years, and slowly thereafter reaching adult values (\u000425 kcal kg\u00021 day\u00021). Among\nadults, REE is lower in the later adult years, to an extent beyond that explained by changes in body composition. That is, the\nloss of FFM cannot fully explain the decrease (5–25%) in REE in healthy elderly persons.\nRecent attention has been given to modeling REE based on available information on organ- and tissue-speciﬁc metabolic rates\ncombined (Table 3) with the mass of these tissues as determined by MRI. Whole-body REE can be calculated from organ-tissue mass\n(REEc) and then compared to REE measured using indirect calorimetry (REEm) for individuals or groups. REE (in kJ day\u00021) of each\norgan-tissue component (subscript i) can be calculated using the following equation:\nREEi ¼ OMRiMi\n(1)\nwhere (OMR) (organ metabolic rate) is the metabolic rate constant (in kJ per kg per day) for each organ-tissue component (Table 3)\nand M is the mass of the corresponding organ/tissue (kg). Whole-body REE (",
-  "token_count": 400
-}

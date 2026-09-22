@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p77-c5",
-  "parent_id": "source16-p77",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Indirect calorimetry | Pages 783-792]\n\n information about which macronutrient (carbohydrate, lipid, or protein) has been oxidized. The metabolism\nof these macronutrients consumes oxygen and produces carbon dioxide. When used to calculate nutrient utilization, the whole-\nbody RER is referred to as the global respiratory exchange ratio (RER) as it is the oxygen consumed and the carbon dioxide produced\nby the total of macronutrients metabolized. The ﬁrst step in calculating the three individual rates of macronutrient oxidation is to\ncalculate protein oxidation. Protein is the most difﬁcult to describe on a chemical basis because a protein is made from a mixture of\namino acids and, for each dietary protein, the number and composition of amino acids differ, and this is also inﬂuenced by\nTable 1\nRespiratory gas exchange constants and calculation of energy expenditure.\nSubstrate\nVO2\nVCO2\nHeat\nRER\nL g\u00011\nL g\u00011\nkcal g\u00011\nVCO2/VO2\nCarbohydratesa\n0.829\n829\n4.2\n1.00\nFat\n2.019\n1.427\n9.5\n0.71\nProtein\n0.966\n0.794\n4.4\n0.82\nNitrogen\n6.037\n4.963\n–\n0.82\nVariable\nFormula\nVO2 (L min\u00011)\n¼Vi (FiO2) \u0001 Ve (FeO2)\nVCO2 (L min\u00011)\n¼Ve (FeCO2) \u0001 Vi (FiO2)\nNPVO2 (L min\u00011)\n¼VO2 \u0001 6.037Nu\nNPVCO2 (L min\u00011)\n¼VCO2 \u0001 4.963Nu\nFull Weir equation (kcal min\u00011)\n¼3.",
-  "token_count": 400
-}

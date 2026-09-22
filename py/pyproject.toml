@@ -9,4 +9,4 @@ requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["reusable_code*", "eda_packages*"]
+include = ["reusable_code*"]

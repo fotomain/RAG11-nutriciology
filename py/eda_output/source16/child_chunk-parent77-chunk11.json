@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p77-c11",
-  "parent_id": "source16-p77",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Indirect calorimetry | Pages 783-792]\n\n is removed from the recirculated\nair by an absorber and is measured from the increased weight of the absorber (Fig. 1).\nThe more common type is the open-circuit indirect calorimetry involves a system in which both ends of the breathing system are\nopen to the atmosphere (Fig. 2). Outside air is drawn into the chamber at a constant ﬂow rate while maintaining a slight negative\npressure inside the chamber. At the same time, the composition of this outside air is measured by CO2 and O2 gas analyzers. Well-\nmixed expired chamber room air is drawn out at a constant ﬂow rate and also analyzed for O2 and CO2 composition. The difference\nin O2 and CO2 composition of the outside air and chamber room air is used to calculate the energy expenditure and macronutrient\noxidation of the subject using the equations in Table 1.\nA limitation of room calorimeters is that the volume of the room is large, often over 10,000 L, and that the ﬂow rate of air\nthrough the chamber is usually between 50 and 100 L/min. Thus, the room requires many hours to respond to changes in the\nrate of the subject’s gas exchange rates. One means to obviate this limitation is to measure not only the difference in O2 and\nCO2 as it enters and leaves the chamber but to add to this the changes in the volumes of O2 and CO2 in the chamber itselfde.g.,\nVO2 ¼ ﬂow rate (Ve(feO2) \u0001 Vi(ﬁO2) þ (chamber volume)*((fO2)t ¼ i \u0001 (fO2)t ¼ 0). During the 1990s, the precision of the O2 and\nCO2 analyzers was modest, and minute to minute variation in the measured gas concentrations only allowed investigators to\nmeasure",
-  "token_count": 400
-}

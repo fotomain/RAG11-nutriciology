@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c23",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n-ketoacid. Subsequent reduction, dehydration, and second\nreduction steps are catalyzed by oxoacyl-ACP reductase (CBR4), 3-oxoacyl-ACP reductase (HDT2), and 2-Enoyl-ACP reductase\n(MECR), respectively. The resulting 4-carbon acyl-ACP can serve as primer for additional cycles to increase chain length. Both reduc-\ntase enzymes utilize NADPH.\nResearch over several decades has uncovered some, but likely not all, functions for the mitochondrial FA synthesis pathway. One\nis the synthesis of lipoic acid, derived from the 8-carbon FA octanoic acid. Lipoic acid is a critical cofactor for carboxylase enzymes\nsuch as ACC1, ACC2, and PCC. Other functions include RNA processing, enzyme activity regulation, and control of mitochondrial\ngene expression.\nFatty acid elongation\n16:0 is the primary product synthesized by the de novo cytoplasmic FA synthesis pathway. Although 16:0 is an important FA, there is\nneed to synthesize longer chain-length acids. Enzymes for elongation of FA have been found in endoplasmic reticulum membranes\n(reviewed in Jakobsson et al., 2006). Reactions involved in FA elongation are very similar to those of cytoplasmic FA synthesis. The\nTable 1\nDistinctions between fatty acid b-oxidation and fatty acid synthesis.\nFatty acid b-oxidation\nFatty acid synthesis\nTissues with active pathway\nNearly all tissues except brain, nerve, and erythrocytes\nLiver, adipose, lactating mammary gland\nSubcellular location\nMitochondria\nCytoplasm\nRedox cofactors\nNAD, FAD\nNADPH\nAcyl group carrier\nCoA\nEnzym",
-  "token_count": 400
-}

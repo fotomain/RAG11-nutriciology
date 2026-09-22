@@ -1,4 +1,4 @@
-"""Reranking + manual rank overrides for ``rag11_chunks_child_table`` --
+"""Reranking + manual rank overrides for ``lrm_child_chunk_table`` --
 the retrieval-method counterpart to ``hybrid_search.py``, living in its own
 module the same way row-level CRUD for the parent/child chunk tables lives
 in ``crud_chunks_parent.py``/``crud_chunks_child.py`` instead of being
@@ -105,7 +105,7 @@ def update_rank_value(
 
     By default this is **entirely client-side and in-memory**: it does not
     require, and does not create, any stored server-side ranking column,
-    RPC, or migration -- ``rag11_chunks_child_table.rowJSON`` is already a
+    RPC, or migration -- ``lrm_child_chunk_table.rowJSON`` is already a
     schemaless ``jsonb`` column, so nothing about the tables needs to
     change for this function to work at all. It just sets
     ``"manual_rank_score"`` (and, if given, ``"manual_rank_reason"``) on a
@@ -191,7 +191,7 @@ def update_rank_value(
         # REST update() takes a full replacement value for a jsonb column,
         # not a partial `||` merge expression the way raw SQL could.
         current = with_retry(
-            lambda: clients.supabase.table("rag11_chunks_child_table")
+            lambda: clients.supabase.table("lrm_child_chunk_table")
             .select("rowJSON")
             .eq("rowGUID", row_guid)
             .single()
@@ -199,7 +199,7 @@ def update_rank_value(
         )
         merged_json = {**current.data["rowJSON"], **manual_json_patch}
         with_retry(
-            lambda: clients.supabase.table("rag11_chunks_child_table")
+            lambda: clients.supabase.table("lrm_child_chunk_table")
             .update({"rowJSON": merged_json})
             .eq("rowGUID", row_guid)
             .execute()

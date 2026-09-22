@@ -1,4 +1,4 @@
-"""Multi-query / question splitting for ``rag11_chunks_child_table`` --
+"""Multi-query / question splitting for ``lrm_child_chunk_table`` --
 another retrieval-method module living alongside ``hybrid_search.py``,
 ``hypothetical_document_embedding.py``, and ``parent_chunk_expansion.py``
 instead of being folded into ``retrieval.py``/``generation.py`` themselves.

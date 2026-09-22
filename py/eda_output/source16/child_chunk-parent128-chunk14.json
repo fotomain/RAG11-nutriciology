@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p128-c14",
-  "parent_id": "source16-p128",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Body composition | Pages 1363-1377]\n\n\nEquations for % fat\nReferences\n2C\n100 \u0003 (4.971/Db \u0002 4.519)\n(Behnke et al., 1995)\n3C\n100 \u0003 (2.118/Db \u0002 0.78 \u0003 (TBW/W) \u0002 1.354)\n(Siri, 1961)\n4C\n100 \u0003 (2.747/Db \u0002 0.727 \u0003 (TBW/W) þ 1.146 \u0003 (BMC/\nW) \u0002 2.0503)\n(Boileau et al., 1985)\n6C\n100 \u0003 (2.513/Db \u0002 0.739 \u0003 (TBW/\nW) þ 0.947 \u0003 (TBBM/W) \u0002 1.79)\n(Heymsﬁeld et al., 1996)\nDb, body density; TBW, total body water; W, body weight; BMC, bone mineral content; TBBM, total body bone mineral.\n24\nBody composition\n\n\nThe more complex 4C model involves neutron activation methods for the measurement of total body nitrogen and total body\ncalcium, where total body fat ¼ body weight \u0002 (total body protein (from total body nitrogen) þ total body water (dilution vol-\nume) þ total body ash (from total body calcium)). A six-compartment model is calculated as follows: fat mass (measured from\ntotal body carbon) ¼ body weight \u0002 (total body protein þ total body water þ bone mineral þ soft tissue mineral (from a combi-\nnation of total body potassium, total body nitrogen, total body chloride, total body calcium) þ glycogen (total body nitrogen) þ\nunmeasured residuals). However, the availability of neutron activation facilities is limited and therefore the latter models are not\nreadily obtain",
-  "token_count": 400
-}

@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p82-c9",
-  "parent_id": "source16-p82",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Nutrigenomics | Pages 829-840]\n\nes of ChoRE to provide a glucose-regulated tran-\nscriptional complex. Mlx is essential as a partner of ChREBP in the regulation of lipogenic enzyme genes in the liver since the use of\ndominant-negative forms of Mlx in hepatocytes, which are unable to bind DNA but do maintain their interaction with ChREBP,\nabrogates or decreases glucose-dependent transcription. MondoA also forms heterodimers with Mlx. Glucose signaling dependent\non Mondo-Mlx interaction is evolutionarily conserved among worms, Drosophila and vertebrates.\nDirect regulation of the transcription factor ChREBP activity by glucose and its metabolites\nThe amino-terminal domain of the ChREBP protein has several overlapping structural motifs. Of these, the GRACE and LID motifs\nstand out. While GRACE has a transcription-promoting effect in the absence of glucose or any of its metabolites, LID interacts with\nGRACE and blocks its activity. This interaction of LID with the GRACE domain extends to other regions of the amino-terminal end,\nTable 1\nGenes regulated by carbohydrate response element binding protein (ChREBP).\nRuta\nGene (gene symbol)\nActivation/repression by glucose\nGlycolysis\nLiver pyruvate kinase (Pklr)\nFructokinase (Fk)\nGLUT2 (Glut2)\nGLUT4 (Glut4)\nActivation\nActivation\nActivation\nActivation\nGluconeogenesis\nCatalytic subunit Glucose 6 Phosphatase (G6pc)\nPhosphoenol pyruvate carboxykinase (Pepck)\nActivation\nRepression\nLipogenesis\nFatty acid synthase (Fasn)\nAcetyl CoA carboxylase 1 (Acc1)\nStearoyl CoA desaturase 1 (Scd1)\nELOVL n-6 fatty acid elongase (Elo",
-  "token_count": 400
-}

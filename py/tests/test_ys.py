@@ -38,17 +38,19 @@ class Query:
     def limit(self, n): return self
 
     def execute(self):
-        if self.table == "rag11_data_sources":
+        if self.table == "lrm_source_table":
             return Result(self.sb.sources)
-        if self.table == "rag11_chunks_child_table":
-            return Result([], count=self.sb.n_children)
-        return Result([], count=self.sb.n_sutras)
+        if self.table == "lrm_child_chunk_table":
+            return Result([], count=self.sb.n_chunks)
+        return Result([], count=self.sb.n_pages)
 
 
 class FakeSupabase:
-    def __init__(self, sources=None, n_children=314, n_sutras=195):
-        self.sources = [{"rowGUID": GUID, "source_key": "source18", "filename": "Yogasutra.pdf"}] if sources is None else sources
-        self.n_children, self.n_sutras = n_children, n_sutras
+    def __init__(self, sources=None, n_chunks=314, n_pages=195, expected_pages=195):
+        self.sources = ([{"rowGUID": GUID, "source_key": "source18", "title": "source18",
+                           "rowJSON": {"page_count": expected_pages}}]
+                         if sources is None else sources)
+        self.n_chunks, self.n_pages = n_chunks, n_pages
         self.rpc_calls = []
 
     def table(self, name): return Query(self, name)
@@ -58,7 +60,7 @@ class FakeSupabase:
         rows = [{
             "rowGUID": f"c{i}", "rowParentGUID": "p1", "rowOwnerGUID": GUID, "orderInList": i,
             "cosine_distance": 0.1 * i, "text_rank": 1.0 - 0.1 * i,
-            "rowJSON": {"source_key": "source18", "text": f"[Source: Yogasutra.pdf | Section: Yoga-Sutra II.35 | Pages 5{i}-5{i}]\n\nahimsa text {i}"},
+            "rowJSON": {"source_key": "source18", "page_number": 50 + i, "text": f"ahimsa text {i}"},
         } for i in range(1, 5)]
         return SimpleNamespace(execute=lambda: Result(rows[: params.get("match_count", 4)]))
 
@@ -97,9 +99,9 @@ def make(sb=None, anth=None, lang="RU"):
 
 # ---- book lookup / readiness
 status = find_book(Clients(supabase=FakeSupabase(), voyage=None, anthropic=None))
-check("find_book returns the book's guid and counts", status.owner_guid == GUID and status.n_sutra_sections == 195 and status.complete)
-check("readiness_message: complete book has no warning", "WARNING" not in readiness_message(status))
-partial = BookStatus(GUID, "source18", "x.pdf", 314, 0)
+check("find_book returns the book's guid and counts", status.owner_guid == GUID and status.n_pages_loaded == 195 and status.ready)
+check("readiness_message: complete+chunked book has no warning", "WARNING" not in readiness_message(status))
+partial = BookStatus(GUID, "source18", "source18", 314, 0, 195)
 msg = readiness_message(partial)
 check("readiness_message: incomplete book explains the .env fix", "WARNING" in msg and "MAX_NUMBER_OF_PAGES_TO_USE=NONE" in msg and "0 of 195" in msg)
 try:

@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p27-c6",
-  "parent_id": "source16-p27",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Homocysteine | Pages 278-286]\n\n cleaved to form a-ketobutyrate and cysteine in a second PLP-dependent reaction catalyzed by cys-\ntathionine g-lyase (EC 4.4.1.1). Further metabolism of cysteine leads to the formation of glutathione or inorganic sulfate.\nRegulation of metabolism\nAn important aspect of homocysteine metabolism is that it is subject to allosteric control (Selhub and Miller, 1992). In addition to\nserving as the universal methyl donor, SAM is also an activator of cystathionine ß-synthase and an inhibitor of methylenetetrahy-\ndrofolate reductase (MTHFR) (EC 1.7.99.5), the enzyme responsible for the synthesis of methyltetrahydrofolate (Fig. 1). These allo-\nsteric functions serve to control whether homocysteine is recycled to form methionine or catabolized to form cystathionine. When\ndietary supply of methionine is high, such as after a protein meal, intracellular SAM concentration increases. High SAM activates\ncystathionine ß-synthase and inhibits MTHFR, thereby promoting homocysteine catabolism and limiting homocysteine remethy-\nlation. This serves to reduce the recycling of homocysteine when there is an adequate dietary supply of methionine. Conversely,\nunder fasting conditions when there is no dietary inﬂux of methionine, intracellular SAM concentration decreases. Cystathionine\nß-synthase is then not activated and the inhibition of MTHFR is relieved, thus promoting homocysteine remethylation over catab-\nolism. Consequently, this maintains intracellular methionine concentration during times of limited dietary supply.\nAn additional level of control on",
-  "token_count": 400
-}

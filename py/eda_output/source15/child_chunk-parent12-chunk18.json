@@ -1,9 +1,0 @@
-{
-  "child_id": "source15-p12-c18",
-  "parent_id": "source15-p12",
-  "source_key": "source15",
-  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
-  "chunk_type": "prose",
-  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 12 Energy Balance and Body Weight | Pages 279-323]\n\n 1.16 for low active\nPA \u0002 1.31 for active\nPA \u0002 1.56 for very active\nEER for Males 19 Years of Age and Older\ng\nEER \u0002 TEE\nEER \u0002 662 \u0005 9.53 \u0007 age \u0004 PA \u0007 (15.91 \u0007 weight \u0004 539.6 \u0007 height)\nWhere PA is the physical activity coefﬁ cient:\nPA \u0002 1.00 for sedentary\nPA \u0002 1.11 for low active\nPA \u0002 1.25 for active\nPA \u0002 1.48 for very active\nEER for Females 19 Years of Age and Older\nEER \u0002 TEE\nEER \u0002 354 \u0005 6.91 \u0007 age \u0004 PA \u0007 (9.36 \u0007 weight \u0004 726 \u0007 height)\nWhere PA is the physical activity coefﬁ cient:\nPA \u0002 1.00 for sedentary\nPA \u0002 1.12 for low active\nPA \u0002 1.27 for active\nPA \u0002 1.45 for very active\nEER for Pregnancy\nEER \u0002 EER for age \u0004 Pregnancy Energy Needs3 \u0004 Tissue Deposition\n1st trimester \u0002 EER for age \u0004 0\n2nd trimester \u0002 EER for age \u0004 160 \u0004 180\n3rd trimester \u0002 EER for age \u0004 272 \u0004 180\nEER for Lactation\nEER \u0002 EER for age \u0004 Milk Energy Output4 \u0005 Weight Loss5\n1st six months \u0002 EER for age \u0004 500 \u0005 170\n2nd six months \u0002 EER for age \u0004 400 \u0005 0\n1EER",
-  "token_count": 400
-}

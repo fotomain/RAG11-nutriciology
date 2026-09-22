@@ -1,9 +1,0 @@
-{
-  "child_id": "source9-p13-c18",
-  "parent_id": "source9-p13",
-  "source_key": "source9",
-  "source_row_guid": "afdc38a8-69a3-5b33-a746-f14464581420",
-  "chunk_type": "prose",
-  "text": "[Source: Medical_Nutrition_and_Disease_A_Case_Based_Approach.pdf | Section: 13 Enteral and Parenteral Nutrition Support | Pages 303-326]\n\nrequirement\n1 g/kg/day\n~55 g protein per day\n  3. \u0007Calculate water \nrequirement\n100 mL/kg 1st 10 kg +  \n50 mL/kg 2nd 10 kg + \n15 mL/kg remainder of \nweight\n~2000 mL/day\n  4. \u0007Select enteral \nformula\nSee Table 13-2 for review \nof EN formulas\nStandard polymeric formula \nwith or without fiber\n  5. \u0007Calculate goal \nvolume of formula \nneeded to meet \ncalorie goal\nKcal requirement ÷ kcal/L \nof formula = total L formula \nneeded\n1000 kcal/L ÷ 1400 kcal/\nday = ~1.4 L/day\n  6. \u0007Calculate amount of \nprotein that will be \nprovided from \nformula that was \ndetermined to meet \ncalorie requirement\nL standard polymeric \nformula × g protein/L\n1.4 L standard polymeric \nformula × 40 g protein/l = 56 g \nprotein\n  7. \u0007Determine if \nadditional protein is \nrequired to meet \nprotein goal\nProtein requirement minus \namount of protein in goal \nvolume of formula needed \nto meet kcal requirement\n55–56 g = negative 1 g\n  8. \u0007Calculate water \ncontent of goal EN\nTotal volume (mL) of \nformula × % water in \nformula\n1400 × 0.85 = ~1200\n  9. \u0007Calculate additional \nwater requirement\nWater requirement",
-  "token_count": 400
-}

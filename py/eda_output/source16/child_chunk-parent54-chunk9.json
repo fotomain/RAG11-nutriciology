@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p54-c9",
-  "parent_id": "source16-p54",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Vitamin C | Pages 523-533]\n\nidyl glycine hydroxylase (peptidyl a-amidase, EC 1.14.17.3).\nThe ﬁrst step in the reaction is hydroxylation of the glycine residue to yield hydroxyglycine. The hydroxylase is a copper-\ncontaining oxygenase that uses ascorbate to reduce the two copper ions to Cuþ; these then activate oxygen, with incorporation\nof one atom into hydroxyglycine and reduction of the other to water. This is followed by the cleavage of the peptide bond, with\namidation of the amino acid to the amino side of the hydroxyglycine residue, and release of glyoxylate. These two activities occur\nin a single bifunctional protein.\n2-Oxoglutarate-linked, iron-containing hydroxylases\nA number of iron-containing hydroxylases (listed in Table 1) share a common reaction mechanism, in which hydroxylation of the\nsubstrate is linked to decarboxylation of 2-oxoglutarate. Ascorbate is required for the activity of all of these enzymes, but it does not\nfunction as either a stoichiometric substrate or a conventional coenzyme (which would not be consumed in the reaction).\nProline and lysine hydroxylases are required for the postsynthetic modiﬁcation of collagen, and proline hydroxylase also for the\npostsynthetic modiﬁcation of osteocalcin in bone and the Clq component of complement, as well as a number of other proteins that\nhave a collagen-like domain.\nAspartyl b-hydroxylase catalyzes hydroxylation of aspartyl and asparaginyl residues in epidermal growth factor (EGF) and\na number of other proteins that have an EGF-like domain, including several of the vitamin K-dependent blood clot",
-  "token_count": 400
-}

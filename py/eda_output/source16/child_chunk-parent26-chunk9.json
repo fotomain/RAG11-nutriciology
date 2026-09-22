@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p26-c9",
-  "parent_id": "source16-p26",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Folate/folic acid | Pages 266-277]\n\n. Reversal of the SHMT reaction produces serine from\nglycine, but as serine is also produced from glycolysis via phosphoglycerate, this reaction is unlikely to be important. However,\none-carbon transfer from 5,10-methyleneTHF to deoxyuridylate to form thymidylic acid, a precursor of deoxyribonucleic acid\n(DNA), is of crucial importance to the cell. Although the source of the one-carbon unit, namely 5,10-methyleneTHF, is at the form-\naldehyde level of oxidation, the one-carbon unit transferred to form thymidylic acid appears at the methanol level of oxidation.\nElectrons for this reduction come from THF itself to generate dihydrofolate as a product. The dihydrofolate must in turn be reduced\nback to THF in order to accept further one-carbon units.\nA solitary transfer of one-carbon units takes place at the methanol level of oxidation. It involves the transfer of the methyl group\nfrom 5-methylTHF to homocysteine to form methionine and THF. This reaction is catalyzed by the enzyme methionine synthase\n(EC 2.1.1.13) and requires vitamin B12 as a cofactor. The substance 5-methylTHF is the dominant folate in the body, and it remains\nmetabolically inactive until it is demethylated to THF, whereupon polyglutamylation takes place to allow subsequent folate-\ndependent reactions to proceed efﬁciently. Methionine is activated by reaction with ATP to form S-adenosylmethionine (SAM).\nSAM serves as the universal methyl donor for a variety of essential methylation reactions, including those involving DNA, ribonu-\ncleic acid (RNA), histones, proteins, phospholipids,",
-  "token_count": 400
-}

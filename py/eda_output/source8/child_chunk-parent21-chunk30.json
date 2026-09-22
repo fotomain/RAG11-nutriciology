@@ -1,9 +1,0 @@
-{
-  "child_id": "source8-p21-c30",
-  "parent_id": "source8-p21",
-  "source_key": "source8",
-  "source_row_guid": "65bf9a74-515d-5c89-b326-3655e12992e7",
-  "chunk_type": "prose",
-  "text": "[Source: Krauses_Food_and_the_Nutrition_Care_Process.pdf | Section: 21 Nutrition in weight management | Pages 405-428]\n\n Chapter 7).\nDeurenberg Equation\nThe Deurenberg equation using the BMI, age, and gender of an \nindividual to determine body fatness is as follows (Deurenberg \nand Deurenberg-Yap, 2003):\n% body fat 5 (1.2 3 BMI) 1 (0.23 3 age in yrs) \n– (10.8 3 G) – 5.4\nG 5 1 for male; G 5 0 for female\nFor example if BMI 5 28, age 5 21 years and G 5 female:\n% body fat 5 (1.2 3 28) 1 (0.23 3 21) – (10.8 3 0) – 5.4 \n 5 33.6 1 4.83 – 0 – 5.4 \n 5 33%\nA body fat percentage of 20% to 25% or more in a male and \n25% to 32% or more in a female usually is considered to be \nexcessive and associated with the metabolic and health risks of \nobesity.\nA Body Shape Index\nMeasuring BMI historically has been the most common way to \nassess body fat and a person’s risk of weight-related health prob-\nlems. Because BMI measures body fat through a formula using \nheight and weight only, it does not account for where the weight \nis concentrated. Athletes, for example, could weigh more from \nmuscle mass, and their BMI would be higher because of it. As a \nresult, Dr. Nir Krakauer, an engineer and professor at New York \nUniversity, developed A Body Shape Index (ABSI), incorporat-\ning waist circumference (WC) as well as height and weight into \none formula to determine mortality rates. ABSI has been found \nto be a better mortality predictor, because",
-  "token_count": 400
-}

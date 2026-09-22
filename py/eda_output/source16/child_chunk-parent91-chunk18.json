@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c18",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n b-oxidation, enoyl-CoA\nisomerase and 2,4-dienoyl-CoA reductase are needed. In addition, the enzyme 2-methylacyl-CoA racemase (AMACR) is essential for\nproper metabolism of branched chain substrates. Methyl branches can be in either the R- or S-conformation, but ACOX2 and\nACOX3 can oxidize only the S-conformers. AMACR catalyzes the interconversion of these isomers.\nAnother mechanism for degradation of FAs that cannot undergo b-oxidation is u-oxidation. In this process, the terminal methyl\ngroup of a FA chain is oxidized to a carboxylic acid via various cytochrome P450 isozymes in the endoplasmic reticulum. The result-\ning dicarboxylic acids are then degraded by b-oxidation from the u-end, primarily in peroxisomes.\nFatty acid de novo synthesis\nMuch of our need for FAs as constituents of phospholipids and other complex lipids are met by the diet. In addition, lipogenic\ntissues are capable of the de novo synthesis of FAs (Fig. 6) (reviewed in Nguyen et al., 2008). These tissues include liver (hepatocytes),\nadipose tissue, and lactating mammary gland. Much of the FAs synthesized by all three tissues are incorporated into triacylglycerol.\nHepatic synthesis is primarily for export to other tissues (in very low-density lipoproteins), whereas synthesis in adipocytes and\nmammary gland is for local storage. In several respects, the enzymatic reactions of FA synthesis are the converse of those in FA oxida-\ntion. However, there are key differences, which are summarized in Table 1.\nFig. 6\nFatty acid biosynthesis",
-  "token_count": 400
-}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RAG11 — How Hybrid Search Works</title>
+<title>LRM11 — How Hybrid Search Works</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <style>
   :root{
@@ -203,7 +203,7 @@
 <body>
 
 <header class="topnav" id="topnav">
-  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <div class="brand"><span class="brand-mark"></span>LRM11</div>
   <nav class="navlinks" id="navlinks">
     <a href="#overview">Overview</a>
     <a href="#problem">The Problem</a>
@@ -213,7 +213,7 @@
     <a href="#walkthrough">Walkthrough</a>
   </nav>
   <div class="navspacer"></div>
-  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to full data flow</a></div>
+  <div class="navmeta"><a href="LRM_ER_Model.html">&larr; Back to ER model</a></div>
 </header>
 
 <main>
@@ -223,10 +223,10 @@
     <h1>Hybrid search: dense + keyword, fused</h1>
     <p class="lede">
       <strong>Hybrid search (dense + keyword/BM25-style, merged via Reciprocal Rank Fusion)</strong>
-      is the biggest bang-for-the-buck upgrade to RAG11's retrieval, because pure embeddings
+      is the biggest bang-for-the-buck upgrade to LRM11's retrieval, because pure embeddings
       often miss exact numeric/terminology matches — like <code class="pill">0.8 g/kg RDA</code> —
       that a plain keyword search nails instantly. Postgres full-text search
-      (<code class="pill">tsvector</code>) pairs naturally with the pgvector table RAG11
+      (<code class="pill">tsvector</code>) pairs naturally with the pgvector table LRM11
       already has, so no new database or search service is needed.
     </p>
     <div class="chipbar">
@@ -278,7 +278,7 @@
     <h2>How hybrid search fits the pipeline</h2>
     <p class="lede">
       One question triggers two independent, cheap searches over the same
-      <code class="pill">rag11_chunks_child_table</code> — one over
+      <code class="pill">lrm_child_chunk_table</code> — one over
       <code class="pill">embedding</code> (dense/semantic), one over
       <code class="pill">chunk_tsv</code> (keyword/lexical). Their ranked lists are merged with
       Reciprocal Rank Fusion before anything is shown to Claude — and, optionally, before
@@ -291,8 +291,8 @@ flowchart TD
     Q["User question"] --> QE["Voyage-3 'query' embedding"]
     Q --> QT["websearch_to_tsquery('english', question)"]
 
-    QE --> D["Dense search — match_rag11_child_chunks<br/>HNSW cosine distance over embedding"]
-    QT --> K["Keyword search — match_rag11_child_chunks_keyword<br/>ts_rank_cd over chunk_tsv (GIN index)"]
+    QE --> D["Dense search — match_lrm_chunks<br/>HNSW cosine distance over embedding"]
+    QT --> K["Keyword search — match_lrm_chunks_keyword<br/>ts_rank_cd over chunk_tsv (GIN index)"]
 
     D --> R["Reciprocal Rank Fusion<br/>reciprocal_rank_fusion({dense, keyword})"]
     K --> R
@@ -366,7 +366,7 @@ flowchart TD
       The chunk both methods can reach — even from very different ranks — still out-scores a chunk only
       one method liked, which is exactly the "chunk A was #1 in vector search and #3 in keyword search →
       combined score" behavior hybrid search is built for. Illustrative numbers; see
-      <code class="pill">reciprocal_rank_fusion()</code> in <code class="pill">reusable_code/retrieval.py</code>
+      <code class="pill">reciprocal_rank_fusion()</code> in <code class="pill">py/reusable_code/retrieval.py</code>
       for the real implementation.
     </p>
   </section>
@@ -375,7 +375,7 @@ flowchart TD
     <div class="eyebrow">Reference</div>
     <h2>What changed in the schema and API</h2>
     <p class="lede">
-      One additive, idempotent migration (<code class="pill">sql/create_sql_tables.sql</code>) adds
+      One additive, idempotent migration (<code class="pill">sql/create_lrm_tables.sql</code>) adds
       the keyword-search counterpart to every dense-search piece that already existed — same shape,
       same table, nothing removed or renamed.
     </p>
@@ -387,8 +387,8 @@ flowchart TD
         <tbody>
           <tr><td><code class="pill">embedding vector(1024)</code></td><td><code class="pill">chunk_tsv tsvector</code></td><td>Per-chunk search representation, both generated/stored so they can never drift from <code class="pill">rowJSON</code>.</td></tr>
           <tr><td><code class="pill">idx_rag11_child_embedding_hnsw</code></td><td><code class="pill">idx_rag11_child_chunk_tsv_gin</code></td><td>Index making the search fast at scale.</td></tr>
-          <tr><td><code class="pill">match_rag11_child_chunks(query_embedding, match_count, filter_owner)</code></td><td><code class="pill">match_rag11_child_chunks_keyword(query_text, match_count, filter_owner)</code></td><td>RPC returning the same 5 identity columns + one score column (<code class="pill">cosine_distance</code> vs. <code class="pill">text_rank</code>).</td></tr>
-          <tr><td><code class="pill">retrieve_chunks()</code></td><td><code class="pill">retrieve_chunks_keyword()</code></td><td>Python wrapper in <code class="pill">reusable_code/retrieval.py</code>.</td></tr>
+          <tr><td><code class="pill">match_lrm_chunks(query_embedding, match_count, filter_owner)</code></td><td><code class="pill">match_lrm_chunks_keyword(query_text, match_count, filter_owner)</code></td><td>RPC returning the same 5 identity columns + one score column (<code class="pill">cosine_distance</code> vs. <code class="pill">text_rank</code>).</td></tr>
+          <tr><td><code class="pill">retrieve_chunks()</code></td><td><code class="pill">retrieve_chunks_keyword()</code></td><td>Python wrapper in <code class="pill">py/reusable_code/retrieval.py</code>.</td></tr>
         </tbody>
       </table>
     </div>
@@ -411,8 +411,8 @@ chunks = hybrid_search(<span class="s">"How many g/kg of protein does the RDA re
 result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>)                    <span class="c"># hybrid retrieval only</span>
 result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>, use_rerank=<span class="k">True</span>)   <span class="c"># hybrid, then reranked</span></pre>
     <p class="caption">
-      See <code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code> for worked nutrition examples,
-      and <code class="pill">reusable_code/README.md</code> for the full migration note.
+      See <code class="pill">py/ipynb/stage2_ask_examples3_hybrid_search.ipynb</code> for worked examples,
+      and <code class="pill">py/reusable_code/README.md</code> for the full migration note.
     </p>
   </section>
 
@@ -428,7 +428,7 @@ result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">T
       </div>
 
       <div class="trace-step">
-        <div class="trace-meta"><span class="tag tag-blue">dense · match_rag11_child_chunks</span><h3>Vector search (top 15)</h3><p>Cosine distance, closest first</p></div>
+        <div class="trace-meta"><span class="tag tag-blue">dense · match_lrm_chunks</span><h3>Vector search (top 15)</h3><p>Cosine distance, closest first</p></div>
         <pre class="code">[
   { <span class="k">"rowGUID"</span>: <span class="s">"a1b2...-athletes"</span>,  <span class="k">"cosine_distance"</span>: <span class="m">0.361</span>, <span class="k">"snippet"</span>: <span class="s">"…protein timing for endurance athletes…"</span> },
   { <span class="k">"rowGUID"</span>: <span class="s">"c3d4...-sources"</span>,   <span class="k">"cosine_distance"</span>: <span class="m">0.374</span>, <span class="k">"snippet"</span>: <span class="s">"…dietary protein food sources overview…"</span> },
@@ -438,7 +438,7 @@ result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">T
       </div>
 
       <div class="trace-step">
-        <div class="trace-meta"><span class="tag tag-aqua">keyword · match_rag11_child_chunks_keyword</span><h3>Full-text search (top 15)</h3><p><code class="pill">ts_rank_cd</code>, best match first</p></div>
+        <div class="trace-meta"><span class="tag tag-aqua">keyword · match_lrm_chunks_keyword</span><h3>Full-text search (top 15)</h3><p><code class="pill">ts_rank_cd</code>, best match first</p></div>
         <pre class="code">[
   { <span class="k">"rowGUID"</span>: <span class="s">"e5f6...-rda-08"</span>, <span class="k">"text_rank"</span>: <span class="m">0.912</span>, <span class="k">"snippet"</span>: <span class="s">"…recommended intake is 0.8 g/kg body weight/day…"</span> },  <span class="c">// rank 1 -- exact term match</span>
   { <span class="k">"rowGUID"</span>: <span class="s">"g7h8...-table71"</span>, <span class="k">"text_rank"</span>: <span class="m">0.744</span>, <span class="k">"snippet"</span>: <span class="s">"…Table 7.1: Sedentary adult 0.4 g/lb (0.8 g/kg)…"</span> },
@@ -473,9 +473,9 @@ result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">T
 </main>
 
 <footer>
-  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html</a><br>
-  Sourced from <code class="pill">reusable_code/retrieval.py</code>, <code class="pill">reusable_code/generation.py</code>,
-  <code class="pill">sql/create_sql_tables.sql</code>, and <code class="pill">stage2_ask_examples3_hybrid_search.ipynb</code>
+  <a class="backlink" href="LRM_ER_Model.html">&larr; Back to LRM_ER_Model.html</a><br>
+  Sourced from <code class="pill">py/reusable_code/retrieval.py</code>, <code class="pill">py/reusable_code/generation.py</code>,
+  <code class="pill">sql/create_lrm_tables.sql</code>, and <code class="pill">py/ipynb/stage2_ask_examples3_hybrid_search.ipynb</code>
   in this repository. Sample values in the walkthrough are illustrative, shaped to the pipeline's real schema.
 </footer>
 

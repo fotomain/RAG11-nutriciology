@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p77-c8",
-  "parent_id": "source16-p77",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Indirect calorimetry | Pages 783-792]\n\nRER) has a value of 1.0. When one molecule of fat (tripalmitin) is broken down completely, the chemical reaction is as\nfollows:\nC57H104O6 þ 80O2 ¼ 57CO2 þ 52H2O þ heat\nWhen this molecule of fat is completely oxidized, 57 molecules of CO2 are produced whereas 80 molecules of O2 are consumed\n(RER ¼ 0.71).\nPhysiologic nonprotein RER values generally range between 0.71 (100% fat oxidation) and 1.00 (100% carbohydrate\noxidation). Thus, an RER of 0.85 reﬂects approximately 50% carbohydrate and 50% fat oxidation supporting energy\nexpenditure.\nUrinary N2 is often not measured and therefore results from indirect calorimetry often use the abbreviated Weir equation to\ncalculate rates of energy expenditure (Table 1), which assumes protein oxidation supports 12% of total energy expenditure.\nA healthy individual consuming an average mixed diet of carbohydrates, fat, and protein will usually have an RER between 0.80\nand 0.85. For example, assume a healthy male consumes 350 mL O2 min\u00011 and produces 298 mL CO2 min\u00011 on average\nthroughout 24 h. That individual will be expending 1.7 kcal min\u00011 (using the abbreviated Weir equation in Table 1). This equals\na 24 h energy expenditure of approximately 2448 kcal day\u00011 (1.7 kcal min\u00011 \u0003 1440 min). An RER \u0004 1.00 usually indicates whole\nbody de novo lipogenesis (endogenous synthesis of fatty acids) but can also result from hyperventilation during respiratory gas\nanalysis. High-intensity exercise will also result in an RER above 1.00",
-  "token_count": 400
-}

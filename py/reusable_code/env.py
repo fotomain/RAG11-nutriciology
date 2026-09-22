@@ -1,4 +1,4 @@
-"""Environment loading shared by every RAG11 notebook.
+"""Environment loading shared by every LRM11 notebook.
 
 Every notebook in this repo reads the same ``.env`` file at the project
 root (created once from ``.env.sample``). Centralizing that here means a
@@ -31,7 +31,7 @@ def require_env(name: str) -> str:
     value = os.environ.get(name, "").strip()
     if not value:
         raise RuntimeError(
-            f"{name} is empty in your .env file. Open .env in the RAG11 folder "
+            f"{name} is empty in your .env file. Open .env in the py/ folder "
             f"and paste your actual value in after '{name}='."
         )
     return value

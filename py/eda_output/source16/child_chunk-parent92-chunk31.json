@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p92-c31",
-  "parent_id": "source16-p92",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\nMode of expression\nImportant for components that can expressed in different forms (e.g., total and available carbohydrate).\nDeﬁnition\nSome components may have the same common name but different deﬁnitions (e.g., vitamin A deﬁned as\nretinol equivalents or retinol activity equivalents).\nConversion factors\nFor some components not only mode of expression and deﬁnition are required, but also the conversion\nfactors applied (e.g., nitrogen conversion factors to calculate protein values).\nAnalytical methods\nAnalytical methods may result in signiﬁcantly different values (e.g., dietary ﬁber analyzed by AOAC-\nProsky and crude ﬁber method).\nUnits and denominator\nUnits are used to quantify the amount of a component (e.g., g, mg, mg, kcal) while the denominator\ndeﬁne in how much of a food or beverage the component is found. Normally, in a FCT/FCDB present\ndata “per 100 g edible portion on fresh weight basis,” but care should be taken, especially for liquids.\n338\nFood composition data 2021",
-  "token_count": 235
-}

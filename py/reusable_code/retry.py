@@ -1,4 +1,4 @@
-"""Exponential-backoff retry wrapper shared by every RAG11 notebook that
+"""Exponential-backoff retry wrapper shared by every LRM11 notebook that
 calls a flaky network API (Voyage, Supabase, Anthropic)."""
 import random
 import time
@@ -19,7 +19,7 @@ def with_retry(
     backoff + jitter.
 
     ``is_retryable(exc)`` can be supplied to fail fast on errors retrying
-    can never fix (e.g. Stage 1.2's non-retryable Postgrest error codes for
+    can never fix (e.g. lrm_child_chunk_table upload's non-retryable Postgrest error codes for
     bad data) -- it defaults to "everything is retryable", matching the
     original per-notebook ``_retry`` helpers this replaces.
     """

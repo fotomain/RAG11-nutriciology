@@ -1,77 +1,57 @@
-"""Parent-chunk expansion ("small-to-big") for ``rag11_chunks_child_table``
-results -- the retrieval-stage counterpart to ``hybrid_search.py`` and
+"""Page expansion ("small-to-big") for ``lrm_child_chunk_table`` results -- the
+retrieval-stage counterpart to ``hybrid_search.py`` and
 ``rerunk_code.py``'s ``rerank_chunks()``, living in its own module the same
 way those do, instead of being folded into ``retrieval.py``/``generation.py``
 themselves.
 
-The problem this solves: child chunks are deliberately small (~300-500
-tokens, see ``stage1_1_eda_extract_and_chunk.ipynb``) so they match a question
-precisely, but a small chunk sometimes doesn't carry enough surrounding
-context to answer the question fully.
+The problem this solves: a chunk can be just a fragment of a page (see
+``sql/create_lrm_tables.sql``'s note on when a page splits into more than
+one chunk), so it sometimes doesn't carry enough surrounding context --
+the rest of the page -- to answer a question fully.
 
-Example: the question "How does soluble fiber's effect on LDL cholesterol
-differ from insoluble fiber's effect?" might retrieve, as its best-reranked
-child chunk, just two sentences: "Soluble fiber binds bile acids in the gut,
-which forces the liver to pull more LDL cholesterol from the blood to make
-more bile acids." That's a great match for half the question, but says
-nothing about insoluble fiber -- the comparison Claude needs is incomplete.
-Every child chunk's ``rowParentGUID`` (a real foreign key -- see
-``sql/create_sql_tables.sql``) already points at a bigger parent chunk from
-Stage 1.1: the full section the child chunk was carved out of, which
-usually discusses both sides of a comparison like this together.
+Every chunk's ``rowParentGUID`` (a real foreign key into ``lrm_page_table`` --
+see ``sql/create_lrm_tables.sql``) points at the full page it was carved
+out of, blocks/words/bboxes and all.
 
 The fix, and what this module does: after retrieval (plain, hybrid, and/or
 reranked -- ``expand_to_parent_chunks()`` doesn't care which one produced
-its input), swap each winning child chunk's text for its parent chunk's
-text before building the context block Claude sees. The small chunk finds
-the needle; the parent chunk gives the whole haystack around the needle so
-the comparison isn't cut off mid-thought.
+its input), swap each winning chunk's text for its page's full text before
+building the context block Claude sees.
 
     - ``expand_to_parent_chunks()`` -- the swap itself: groups input chunks
       by ``rowParentGUID`` via ``deduplication.group_by_key()`` (the same
       "first occurrence wins" dedup ``hybrid_search.reciprocal_rank_fusion()``
-      uses) so several winning child chunks sharing the same parent (a very
-      common case for a "compare X and Y" question, whose best-matching
-      child chunks often come from the same section) collapse into one
-      fetch (via ``crud_chunks_parent.read_parent_row()``) and one row, and
-      keeps each surviving row's original ranking
-      metadata (``rerank_score`` / ``rrf_score`` / ``cosine_distance`` /
-      ``dense_rank`` / ... -- whatever the input already carried) so it
-      still sorts and prints the same way downstream.
+      uses) so several winning chunks from the same page collapse into one
+      fetch (via ``retrieval.read_page_row()``) and one row, and keeps each
+      surviving row's original ranking metadata (``rerank_score`` /
+      ``rrf_score`` / ``cosine_distance`` / ``dense_rank`` / ... --
+      whatever the input already carried) so it still sorts and prints the
+      same way downstream.
     - ``build_expanded_context_block()`` --
       ``generation.build_context_block()``'s counterpart for expanded rows:
       same numbered-excerpt shape Claude already expects, plus (for
-      human/debugging visibility only) the parent section's title and how
-      many originally-matched child chunks it's standing in for.
+      human/debugging visibility only) the page's title and how many
+      originally-matched chunks it's standing in for.
     - ``page_numbers_for_expanded_chunk()`` --
-      ``retrieval.page_numbers_for_chunk()``'s counterpart: a parent
-      chunk's ``rowJSON`` carries its own ``start_page``/``end_page``
-      fields directly (``stage1_1_eda_extract_and_chunk.ipynb``), rather than
-      the ``"[... | Pages N-M]"`` header ``contextual_header()`` only
-      stamps onto child chunk text, so it can't be found by that regex.
+      ``retrieval.page_numbers_for_chunk()``'s counterpart, kept as its own
+      function so call sites read symmetrically with
+      ``build_expanded_context_block()``.
 
-See ``stage2_ask_examples4_parent_chunk_expansion.ipynb`` for worked
-nutrition examples,
-``documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html`` for the full
-write-up, and ``reusable_code/README.md`` for the one-paragraph summary. No
-schema or migration change is needed -- ``rag11_chunks_parent_table`` and
-its ``rowParentGUID`` foreign key already exist
-(``sql/create_sql_tables.sql``).
+No schema or migration change is needed -- ``lrm_page_table`` and its
+``rowParentGUID`` foreign key already exist (``sql/create_lrm_tables.sql``).
 """
 from typing import List, Optional
 
 from .clients import Clients, get_clients
-from .crud_chunks_parent import read_parent_row
 from .deduplication import group_by_key
-from .retrieval import page_numbers_for_chunk
+from .retrieval import page_numbers_for_chunk, read_page_row
 
-# A parent chunk is a whole book *section* (stage1_1_eda_extract_and_chunk.ipynb
-# builds parent chunks by section, not by a fixed token budget the way
-# child chunks are), so a section can run to several thousand words --
-# dwarfing the ~300-500 tokens a child chunk is capped at. Truncating keeps
-# one expanded parent from silently eating the whole context-window budget
-# build_context_block()/ask_question() have to share across every excerpt.
-# ~1500 tokens (English prose runs roughly 4 chars/token).
+# A whole page's text can run much longer than a single chunk (a page that
+# split into several chunks is, by definition, over the chunking token
+# budget). Truncating keeps one expanded page from silently eating the
+# whole context-window budget build_context_block()/ask_question() have to
+# share across every excerpt. ~1500 tokens (English prose runs roughly 4
+# chars/token).
 DEFAULT_MAX_PARENT_CHARS = 6000
 
 
@@ -118,7 +98,7 @@ def expand_to_parent_chunks(
           therefore its ``"text"``) has been swapped for the parent's; only
           ``False`` if the parent row was somehow missing (shouldn't
           happen -- ``rowParentGUID`` is a foreign key, see
-          ``sql/create_sql_tables.sql`` -- but the input chunk is kept
+          ``sql/create_lrm_tables.sql`` -- but the input chunk is kept
           as-is rather than silently dropped if it does).
         - ``"parent_row_guid"``: the parent's own ``rowGUID`` (present only
           when ``expanded_from_parent`` is ``True``).
@@ -142,7 +122,7 @@ def expand_to_parent_chunks(
 
     expanded = []
     for parent_guid, matched_children in groups.items():
-        parent_row = read_parent_row(parent_guid, clients=clients)
+        parent_row = read_page_row(parent_guid, clients=clients)
 
         expanded_row = dict(matched_children[0])
         expanded_row["matched_children"] = matched_children
@@ -188,22 +168,14 @@ def build_expanded_context_block(chunks: List[dict]) -> str:
 
 
 def page_numbers_for_expanded_chunk(row: dict) -> list:
-    """Page range for a (possibly parent-expanded) chunk row.
+    """The page(s) a (possibly page-expanded) row belongs to.
 
-    A parent chunk's ``rowJSON`` already carries its own
-    ``start_page``/``end_page`` fields, set directly by
-    ``stage1_1_eda_extract_and_chunk.ipynb`` (see
-    ``rag11_chunks_parent_table``'s generated columns in
-    ``sql/create_sql_tables.sql``) -- unlike a child chunk, whose page range
-    only exists inside its ``"[Source: ... | Pages N-M]"`` text header
-    (``contextual_header()``, applied to child chunks only), which is what
-    ``retrieval.page_numbers_for_chunk()`` parses instead. This tries the
-    parent-shaped fields first and falls back to that regex, so it works
-    whether or not ``row`` went through ``expand_to_parent_chunks()``.
+    An expanded row's ``rowJSON`` is a full ``lrm_page_table`` row's JSON, which
+    carries the same ``page_number`` field a plain chunk's ``rowJSON``
+    does (``upload.py`` stamps it onto every page before upserting -- see
+    ``sql/create_lrm_tables.sql``'s generated column of the same name), so
+    this needs no special parent-shaped case: it's just
+    ``retrieval.page_numbers_for_chunk()``, kept as its own function so
+    call sites read symmetrically with ``build_expanded_context_block()``.
     """
-    row_json = row.get("rowJSON", {})
-    start_page, end_page = row_json.get("start_page"), row_json.get("end_page")
-    if start_page is not None and end_page is not None:
-        # Parent JSON stores 0-based pages; child headers (and every citation) are 1-based.
-        return list(range(start_page + 1, end_page + 2))
     return page_numbers_for_chunk(row)

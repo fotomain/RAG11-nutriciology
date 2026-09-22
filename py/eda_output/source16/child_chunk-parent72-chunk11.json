@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p72-c11",
-  "parent_id": "source16-p72",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Electrolytes: Acid–base balance | Pages 736-744]\n\n+,\nsecreted by the apical H+-ATPase and Na+/H+ exchangers on tubular cells, to generate CO2. CO2 then diffuses into the tubular cells\ndown its concentration gradient. Within the tubular cell, carbonic anhydrase catalyzes the reverse reaction, which generates H+ and\nHCO3−Hydrogen ions are then recycled to the tubular lumen and bicarbonate is secreted into the extracellular ﬂuid by basolateral\nanion exchangers or Na+–HCO3−, cotransporters. Tubular cells are also exposed to CO2 in the extracellular ﬂuid and will continue\nto generate H+ even in the absence of ﬁltered bicarbonate. This H+ is then buffered by other buffers in the glomerular ﬁltrate\nincluding HPO42−and, to a lesser extent, creatinine. Strong acids, (e.g., H2SO4) with low pKa values will dissociate in the urine\n(pH range 5–8), and be buffered whereas weaker acids may be excreted intact. In the presence of alkalosis, cellular transporters\nTable 2\nBuffering and acid–base regulation\nMechanism\nSite\nRole (time)\nProtein (e.g., Hb) Cell\nRapid binding of H+ (s)\nBicarbonate buffer ECF\nBuffering of H+ (s)\nVentilation\nLungs Excretion of CO2, respiratory compensation (h)\nFixed acid\nexcretion\nKidney Excretion of H+, reabsorption and regeneration of\nbicarbonate, renal compensation (h–days)\nTubular\nfluid\nH+\nK+\nH+\nH+ + HCO3\n−\nH2O + CO2\nCO2 + H2O\nH+ + HCO3\n−\nNa",
-  "token_count": 400
-}

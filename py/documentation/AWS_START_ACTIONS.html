@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RAG11 — AWS Start Actions (Bedrock OCR Setup)</title>
+<title>LRM11 — AWS Start Actions (Bedrock OCR Setup)</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <style>
   :root{
@@ -177,7 +177,7 @@
 <body>
 
 <header class="topnav" id="topnav">
-  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <div class="brand"><span class="brand-mark"></span>LRM11</div>
   <nav class="navlinks" id="navlinks">
     <a href="#overview">Overview</a>
     <a href="#flow">Flow</a>
@@ -200,7 +200,7 @@
     <div class="eyebrow">Internal documentation · AWS setup playbook</div>
     <h1>AWS start actions — Bedrock OCR credentials</h1>
     <p class="lede">
-      This page is the full sequence to get <code class="pill">stage3_1_lrm_data/recognize.py</code> running with
+      This page is the full sequence to get <code class="pill">py/lrm/data/recognize.py</code> running with
       <code class="pill">OCR_PROVIDER_NAME=ocr_with_aws</code> — page recognition via Claude on
       <b>AWS Bedrock</b> instead of Gemini. AWS has no single "OCR API key": you need an IAM access-key
       pair scoped to Bedrock, plus a one-time console invocation that auto-enables the Claude model in your
@@ -242,7 +242,7 @@ flowchart TD
     class I cleanup;
         </pre>
       </div>
-      <p class="caption">Full credential/region details for every field: <a href="../.env.sample">.env.sample</a>. Code that reads these values: <a href="../stage3_1_lrm_data/recognize_aws.py">recognize_aws.py</a>.</p>
+      <p class="caption">Full credential/region details for every field: <a href="../.env.sample">.env.sample</a>. Code that reads these values: <a href="../lrm/data/recognize_aws.py">recognize_aws.py</a>.</p>
     </div>
   </section>
 
@@ -310,10 +310,10 @@ flowchart TD
           <p>Create the user:</p>
           <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-user --user-name rag11-bedrock</pre>
           <p>Create a policy limited to invoking Bedrock models:</p>
-          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-policy --policy-name RAG11BedrockInvoke --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["bedrock:InvokeModel","bedrock:InvokeModelWithResponseStream","bedrock:ListFoundationModels"],"Resource":"*"}]}'</pre>
-          <p>This prints an ARN like <code class="pill">arn:aws:iam::123456789012:policy/RAG11BedrockInvoke</code> — copy your account ID from it for the next command.</p>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam create-policy --policy-name LRM11BedrockInvoke --policy-document '{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["bedrock:InvokeModel","bedrock:InvokeModelWithResponseStream","bedrock:ListFoundationModels"],"Resource":"*"}]}'</pre>
+          <p>This prints an ARN like <code class="pill">arn:aws:iam::123456789012:policy/LRM11BedrockInvoke</code> — copy your account ID from it for the next command.</p>
           <p>Attach the policy (replace <code class="pill">&lt;ACCOUNT_ID&gt;</code>):</p>
-          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam attach-user-policy --user-name rag11-bedrock --policy-arn arn:aws:iam::&lt;ACCOUNT_ID&gt;:policy/RAG11BedrockInvoke</pre>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>aws iam attach-user-policy --user-name rag11-bedrock --policy-arn arn:aws:iam::&lt;ACCOUNT_ID&gt;:policy/LRM11BedrockInvoke</pre>
         </div>
       </div>
 
@@ -378,7 +378,7 @@ BEDROCK_MODEL_ID=&lt;modelId from step 6&gt;</pre>
           <p>Confirm the new (scoped) credential authenticates:</p>
           <pre class="code"><button class="copy-btn" type="button">Copy</button>AWS_ACCESS_KEY_ID=&lt;AccessKeyId&gt; AWS_SECRET_ACCESS_KEY=&lt;SecretAccessKey&gt; AWS_REGION=us-east-1 aws sts get-caller-identity</pre>
           <p>If that returns your account/user info rather than an error, the credential is live. Then run the real pipeline against a single page:</p>
-          <pre class="code"><button class="copy-btn" type="button">Copy</button>python stage3_1_lrm_data/recognize.py --pdf stage3_1_lrm_data/input/fr/&lt;yourbook&gt;.pdf --lang fr --start 1 --end 1</pre>
+          <pre class="code"><button class="copy-btn" type="button">Copy</button>python py/lrm/data/recognize.py --pdf py/lrm/data/input/fr/&lt;yourbook&gt;.pdf --lang fr --start 1 --end 1</pre>
         </div>
       </div>
     </div>
@@ -418,13 +418,13 @@ BEDROCK_MODEL_ID=&lt;modelId from step 6&gt;</pre>
         </tbody>
       </table>
     </div>
-    <p class="caption">Full code paths: <a href="../stage3_1_lrm_data/recognize.py">recognize.py</a> (dispatcher), <a href="../stage3_1_lrm_data/recognize_google.py">recognize_google.py</a>, <a href="../stage3_1_lrm_data/recognize_aws.py">recognize_aws.py</a>, shared schema in <a href="../stage3_1_lrm_data/ocr_schema.py">ocr_schema.py</a>.</p>
+    <p class="caption">Full code paths: <a href="../lrm/data/recognize.py">recognize.py</a> (dispatcher), <a href="../lrm/data/recognize_google.py">recognize_google.py</a>, <a href="../lrm/data/recognize_aws.py">recognize_aws.py</a>, shared schema in <a href="../lrm/data/ocr_schema.py">ocr_schema.py</a>.</p>
   </section>
 
 </main>
 
 <footer>
-  Internal setup playbook for switching <code class="pill">stage3_1_lrm_data/recognize.py</code> from
+  Internal setup playbook for switching <code class="pill">py/lrm/data/recognize.py</code> from
   <code class="pill">OCR_PROVIDER_NAME=ocr_with_google</code> (Gemini) to <code class="pill">ocr_with_aws</code>
   (Claude on AWS Bedrock). AWS CLI commands here assume AWS CLI v2 and an already-authenticated
   <code class="pill">bootstrap-admin</code> session (step 3). Never commit real key values from this page's

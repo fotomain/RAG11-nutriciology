@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p131-c10",
-  "parent_id": "source16-p131",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Doubly labeled water | Pages 1395-1404]\n\n., 2021). To this end, the experts proposed a correction to the\npropagation of the isotope exchange variation with nonaqueous atoms, which even small, is another critical parameter that affected\nthe CO2 calculation.\nTwo new approaches were derived and recommended for use in DLW future studies (Speakman et al., 2021). First, the original\nequation proposed by Schoeller et al. (Schoeller et al., 1986), was modiﬁed taking into account the constant of 1.036 as the average\ndilution space ratio (DSR ¼ ND/NO) to mitigate the potential error induced by the nonaqueous isotope exchange variation\n(Sagayama et al., 2016). This updated approach is indicated for individuals >2 and <96 years and achieved an accuracy\nof \u00020.4 \u0006 7.6% when compared to values from indirect calorimetry. The equation was simpliﬁed as follow, considering the isotope\nfractionation and exchange constants into it:\nrCO2 ¼ 0:455 \u0007 N \u0007 ½ð1:007kOÞ \u0002 ð1:041kDÞ\u0004\nSecond, the experts’ group validated a new equation for babies and infants under 2 years of age with a body mass of 0–10 kg,\nwhich accuracy of 0.64 \u0006 11.9%. In this approach, the equation considered the weight dependency observed for the isotopes DSR,\nand then combined it to the new standard equation above, as simpliﬁed below:\nrCO2 ¼ ½0:45859 \u0007 N \u0007 ðKO \u0002 ðDSR \u0007 kDÞÞ\u0004\nWhere N ¼ NO and DSR is deﬁned from an asymptotic exponential model, considering the body mass",
-  "token_count": 400
-}

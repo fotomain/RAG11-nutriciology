@@ -1,4 +1,4 @@
-# `reusable_code/` — shared building blocks for the RAG11 notebooks
+# `reusable_code/` — shared building blocks for the LRM11 notebooks
 
 This package pulls the pieces that were being copy-pasted (and slowly
 drifting) between `../ipynb/stage2_ask_examples1.ipynb` and the new
@@ -22,8 +22,8 @@ this repo can `import reusable_code` instead of re-defining the same
 | `multi_query_question_splitting.py` | Multi-query / question splitting: **`split_into_subquestions`**, **`retrieve_chunks_multi_query`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
 | `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, `expand_to_parents`, plus `filter_owner` to search a single source, `system_prompt` to replace the nutrition prompt, `retrieval_query` to search with different text than the question shown to the model, and `answer_language` to force the answer's language) |
-| `crud_chunks_parent.py` | Row-level CRUD for `rag11_chunks_parent_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
-| `crud_chunks_child.py` | Row-level CRUD for `rag11_chunks_child_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
+| `crud_chunks_parent.py` | Row-level CRUD for `lrm_page_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
+| `crud_chunks_child.py` | Row-level CRUD for `lrm_child_chunk_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
 | `devanagari.py` | `romanize_devanagari`, `contains_devanagari` — Devanagari to IAST, so a question typed in Devanagari can match IAST-transliterated chunks (used by `stage2_ask_examples7_ys.ipynb`) |
 | `language.py` | Speaking language: `prepare_question()` (one Claude call: detect language, translate, rewrite jokes/slang/emoji into a clean search query in the corpus language; falls back to the original question), `answer_language_directive()`, `language_name()` |
 | `display.py` | Notebook Question/Answer cards: `show_qa()`, `show_summary()`, `answer_html()`, `format_pages()` |
@@ -148,7 +148,7 @@ Every public function name is prefixed `create_` / `read_` / `update_` /
 `UPDATE`, no `ALTER TABLE`) — the same pattern `update_rank_value(...,
 persist=True)` already uses in `retrieval.py`. `delete_parent_row`/
 `delete_parent_rows_by_owner` cascade to child rows via the foreign key in
-`sql/create_sql_tables.sql`, so deleting a parent is enough to also remove
+`sql/create_lrm_tables.sql`, so deleting a parent is enough to also remove
 its children.
 
 Every function also accepts an explicit `clients=` argument instead of
@@ -193,17 +193,17 @@ for worked nutrition examples, and
 of why this matters.
 
 Unlike reranking, hybrid search **does** need one additive, idempotent
-schema change — re-run `sql/create_sql_tables.sql` to pick up:
-- `rag11_chunks_child_table.chunk_tsv` — a generated `tsvector` column over
+schema change — re-run `sql/create_lrm_tables.sql` to pick up:
+- `lrm_child_chunk_table.chunk_tsv` — a generated `tsvector` column over
   `rowJSON->>'text'` (the same source `chunk_text` reads from — a generated
   column can't reference another generated column, so `chunk_tsv` reads
   `rowJSON` directly rather than `chunk_text`), the keyword-search
   counterpart to the `embedding` column.
-- `idx_rag11_child_chunk_tsv_gin` — a GIN index on `chunk_tsv`, the
+- `idx_lrm_child_chunk_table_tsv_gin` — a GIN index on `chunk_tsv`, the
   keyword-search counterpart to the HNSW `embedding` index.
-- `match_rag11_child_chunks_keyword(query_text, match_count, filter_owner)`
+- `match_lrm_chunks_keyword(query_text, match_count, filter_owner)`
   — the RPC `retrieve_chunks_keyword()` calls, mirroring
-  `match_rag11_child_chunks()`'s shape exactly (same 5 identity columns
+  `match_lrm_chunks()`'s shape exactly (same 5 identity columns
   plus one score column, `text_rank` instead of `cosine_distance`).
 
 Every statement in that migration is `create table/index/function if not
@@ -226,7 +226,7 @@ vocabulary real chunks do), `embed_hypothetical_document()` embeds that
 paragraph with `input_type='document'` (matching how the real chunks were
 embedded, not `'query'`), and `retrieve_chunks_hyde()` searches with that
 embedding instead of the question's — via the *same*
-`match_rag11_child_chunks` RPC plain `retrieve_chunks()` already uses, so
+`match_lrm_chunks` RPC plain `retrieve_chunks()` already uses, so
 **zero** schema change is needed. `ask_question(..., use_hyde=True)` wires
 this in as a drop-in replacement for plain vector search (ignored if
 `use_hybrid=True` is also set — hybrid's dense half already embeds the raw
@@ -292,9 +292,9 @@ examples, and
 `../documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html` for the full
 write-up.
 
-Like reranking, this needs **zero** schema change — `rag11_chunks_parent_table`
+Like reranking, this needs **zero** schema change — `lrm_page_table`
 and the `rowParentGUID` foreign key from child to parent already exist
-(`sql/create_sql_tables.sql`); `expand_to_parent_chunks()` just reads them
+(`sql/create_lrm_tables.sql`); `expand_to_parent_chunks()` just reads them
 via `crud_chunks_parent.read_parent_row()`. The only thing to watch is
 size: a parent chunk is a whole book *section*, not token-budgeted the way
 a child chunk is, so `expand_to_parent_chunks(..., max_parent_chars=...)`
@@ -308,12 +308,12 @@ list accordingly (a manual score beats a rerank score beats a raw cosine
 distance). **By default this touches nothing in Supabase** — it only
 returns a new Python list for the rest of your notebook session. Pass
 `persist=True` to also write the override into that row's real `rowJSON`
-in `rag11_chunks_child_table` (see below for why that needs no migration).
+in `lrm_child_chunk_table` (see below for why that needs no migration).
 
 ## Do the tables need to change for any of this? Short answer: no.
 
 Every one of `rowGUID` / `rowOwnerGUID` / `rowParentGUID` / `orderInList` /
-**`rowJSON`** already exists on all three tables (`sql/create_sql_tables.sql`),
+**`rowJSON`** already exists on all three tables (`sql/create_lrm_tables.sql`),
 and `rowJSON` is a schemaless `jsonb` column by design — it's the "full
 payload, verbatim from a JSON file" column the whole project already
 treats as the source of truth. Reranking is a pure query-time function
@@ -326,7 +326,7 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
   those are query-time diagnostics, never written back to the database.
 - **HyDE (`retrieve_chunks_hyde`, `ask_question(use_hyde=True)`)** also
   needs **zero** table/column changes — it calls the exact same
-  `match_rag11_child_chunks` RPC plain `retrieve_chunks()` already uses;
+  `match_lrm_chunks` RPC plain `retrieve_chunks()` already uses;
   the only difference is *which text* gets embedded before that call
   (a Claude-drafted hypothetical paragraph instead of the bare question).
 - **Multi-query / question splitting (`retrieve_chunks_multi_query`,
@@ -337,7 +337,7 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
   entirely in Python via `reciprocal_rank_fusion()`.
 - **Parent-chunk expansion (`expand_to_parent_chunks`,
   `ask_question(expand_to_parents=True)`)** also needs **zero** table/column
-  changes — `rag11_chunks_parent_table` and the child table's
+  changes — `lrm_page_table` and the child table's
   `rowParentGUID` foreign key already exist. It only reads an existing
   parent row (`crud_chunks_parent.read_parent_row()`) and swaps it into the
   *in-memory* row dict; nothing is written back to Supabase.
@@ -354,16 +354,16 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
 You don't need this for anything above to work, but if later you want
 cheap SQL-side filtering/sorting on manual overrides (e.g. "show me every
 chunk a human has corrected") without unpacking `rowJSON` every time, add
-a generated column the same way `sql/create_sql_tables.sql` already does
+a generated column the same way `sql/create_lrm_tables.sql` already does
 for `source_key` / `chunk_text` / `token_count`:
 
 ```sql
-alter table public.rag11_chunks_child_table
+alter table public.lrm_child_chunk_table
   add column if not exists manual_rank_score double precision
   generated always as (("rowJSON"->>'manual_rank_score')::double precision) stored;
 
-create index if not exists idx_rag11_child_manual_rank
-  on public.rag11_chunks_child_table (manual_rank_score)
+create index if not exists idx_lrm_child_chunk_table_manual_rank
+  on public.lrm_child_chunk_table (manual_rank_score)
   where manual_rank_score is not null;
 ```
 

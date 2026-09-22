@@ -4,7 +4,7 @@ export type Lang = 'fr' | 'en' | 'ru';
 export const LANGS: Lang[] = ['fr', 'en', 'ru'];
 
 export type Source = {
-  sourceGuid: string; // lrm_sources.rowGUID -- stable id used as the AsyncStorage key suffix
+  sourceGuid: string; // lrm_source_table.rowGUID -- stable id used as the AsyncStorage key suffix
   source_key: string;
   language: string;
   title: string;

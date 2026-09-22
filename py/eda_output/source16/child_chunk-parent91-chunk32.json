@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c32",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n not only in the brain, but throughout the body. The endocannabinoid system serves important roles in human repro-\nduction and newborn growth, among other things. The endocannabinoids are FA-derived molecules, primarily anandamide (N-\narachadonoylethanolamine; AEA) and 2-arachidonoylglycerol (2-AG). The main pathway for AEA synthesis in brain begins with\nthe action of an N-acyltransferase that links the carboxyl carbon of AA (released from membrane phospholipids) to the amino\ngroup of phosphatidylethanolamine, producing N-arachidonoyl phosphatidylethanolamine (NAPE). A NAPE-speciﬁc phospholi-\npase D (NAPEPLD) cleaves this molecule, yielding AEA and phosphatidic acid. There are additional AEA synthesis pathways in the\nbrain and other tissues. Degradation of AEA is rapid, and is catalyzed by fatty acid amide hydrolase (FAAH), which cleaves the\ncarbon-nitrogen bond between AA and ethanolamine.\nPhosphatidylinositol typically contain AA at the sn-2 position. Synthesis of 2-AG begins with the cleavage of phosphatidylino-\nsitol, producing diacylglycerol and phosphoinositol, by the enzyme phospholipase C (PLCG1). A speciﬁc diacylglycerol lipase\n(DAGLA/B) releases the FA (typically a saturated FA) from the sn-1 position, yielding 2-AG. Like AEA, 2-AG is rapidly inactivated\nin vivo. Monoacylglycerol lipase (MGLL) and other lipases cleave 2-AG, releasing AA from the glycerol backbone.\nFatty acylation of",
-  "token_count": 400
-}

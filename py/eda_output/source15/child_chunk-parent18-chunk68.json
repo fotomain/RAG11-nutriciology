@@ -1,9 +1,0 @@
-{
-  "child_id": "source15-p18-c68",
-  "parent_id": "source15-p18",
-  "source_key": "source15",
-  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
-  "chunk_type": "prose",
-  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 18 Diseases of the Renal System | Pages 561-602]\n\n\nCalculation of Glucose Absorbed\nin Peritoneal Dialysis (PD) Patients\nThe net glucose absorption from dialysate should\nbe taken into account when calculating total energy\nintake for PD patients. There have been many published\nformulas estimating the kcal absorbed from peritoneal\ndialysate. The most accurate method is to measure the\ngrams of glucose in the efﬂ uent and compare this with \nthe grams of glucose that were infused. Generally, in \nPD patients with normal peritoneal transport capac-\nity, approximately 60% of the daily dialysate glucose \nload is absorbed—this results in a glucose absorption\nof approximately 100 to 200 g of glucose per 24 hours.\nAnother method that considers dialysis modality and\nmembrane transport characteristics is the following\nformula:1\nglucose absorbed (kcal) \u0002 (1 \u0003 D/D0)xi\nwhere D/D0 is the fraction of glucose remaining and the\nxi is the initial glucose.\nExample: infused \u0002 4 L of 38 g/L \u0006 4L of 13.6 g/L\n\u0002 152 \u0006 54.4 \u0002 206 g \u0002 xi\nMeasured remaining glucose\n\u0002 1200 mg/dL in 10 L efﬂ uent\n\u0002 1200 \u0004 (10,000 mL/100,000)\n\u0002 1200 \u0004 0.1\n\u0002 120 g\nD/D0 \u0002 120/206 \u0002 0.58\n  (1 \u0003 0.58) \u0004 206 \u0002 86.5 g\n  86.5 \u0004 3.4 \u0002 294 kcal\nReference\n1. Bodnar DM, Busch S, Fuchs J, Piedmonte M, Schreiber M. Estimat-\ning glucose absorption",
-  "token_count": 400
-}

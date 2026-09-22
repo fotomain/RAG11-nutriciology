@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RAG11 — How Hypothetical Document Embeddings (HyDE) Works</title>
+<title>LRM11 — How Hypothetical Document Embeddings (HyDE) Works</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <style>
   :root{
@@ -208,7 +208,7 @@
 <body>
 
 <header class="topnav" id="topnav">
-  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <div class="brand"><span class="brand-mark"></span>LRM11</div>
   <nav class="navlinks" id="navlinks">
     <a href="#overview">Overview</a>
     <a href="#problem">The Problem</a>
@@ -218,7 +218,7 @@
     <a href="#walkthrough">Walkthrough</a>
   </nav>
   <div class="navspacer"></div>
-  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to full data flow</a></div>
+  <div class="navmeta"><a href="LRM_ER_Model.html">&larr; Back to ER model</a></div>
 </header>
 
 <main>
@@ -293,7 +293,7 @@
 flowchart TD
     Q["User question"] --> HG["Claude drafts a short hypothetical<br/>textbook-style answer paragraph"]
     HG --> HE["Voyage-3 'document' embedding<br/>of that paragraph"]
-    HE --> D["Dense search — match_rag11_child_chunks<br/>HNSW cosine distance over embedding"]
+    HE --> D["Dense search — match_lrm_chunks<br/>HNSW cosine distance over embedding"]
     D --> RS["retrieve_chunks_hyde() result<br/>same shape retrieve_chunks() returns"]
     RS -.->|"optional: use_rerank=True"| RR["rerank_chunks() — Voyage cross-encoder"]
     RS -.->|"optional: expand_to_parents=True"| EXP["expand_to_parent_chunks()"]
@@ -355,7 +355,7 @@ flowchart TD
           textbook language ("what is the physiological effect of caffeine on hydration status?") —
           users don't have to learn to "talk like the textbook" to get a good answer.</li>
           <li><strong>No new infrastructure.</strong> Zero new tables, indexes, or services —
-          it reuses the exact same search RAG11 already runs, so it ships without a migration
+          it reuses the exact same search LRM11 already runs, so it ships without a migration
           or a review of new attack surface.</li>
           <li><strong>Toggle-able, low-risk rollout.</strong> <code class="pill">use_hyde=True</code>
           is off by default; it can be A/B tested per question type without touching the
@@ -394,7 +394,7 @@ flowchart TD
     <p class="lede">
       Unlike hybrid search (one additive migration for full-text search), HyDE needs
       <strong>zero</strong> schema or index changes. It calls the exact same
-      <code class="pill">match_rag11_child_chunks</code> RPC plain <code class="pill">retrieve_chunks()</code>
+      <code class="pill">match_lrm_chunks</code> RPC plain <code class="pill">retrieve_chunks()</code>
       already uses — the only thing that changes is <em>what text gets embedded</em> before
       that call.
     </p>
@@ -406,8 +406,8 @@ flowchart TD
         <tbody>
           <tr><td><code class="pill">embed_query(question)</code></td><td><code class="pill">generate_hypothetical_document(question)</code> then <code class="pill">embed_hypothetical_document(text)</code></td><td>An extra Claude call drafts the text to embed; embedding itself is still one Voyage call.</td></tr>
           <tr><td><code class="pill">input_type='query'</code></td><td><code class="pill">input_type='document'</code></td><td>Matches how the real child chunks were embedded in Stage 1.2 — a HyDE paragraph is document-shaped text.</td></tr>
-          <tr><td><code class="pill">match_rag11_child_chunks(query_embedding, ...)</code></td><td><code class="pill">match_rag11_child_chunks(query_embedding, ...)</code></td><td>Identical RPC call — <code class="pill">query_embedding</code> is just computed from different source text.</td></tr>
-          <tr><td><code class="pill">retrieve_chunks()</code></td><td><code class="pill">retrieve_chunks_hyde()</code></td><td>Python wrapper in <code class="pill">reusable_code/hypothetical_document_embedding.py</code>; same return shape.</td></tr>
+          <tr><td><code class="pill">match_lrm_chunks(query_embedding, ...)</code></td><td><code class="pill">match_lrm_chunks(query_embedding, ...)</code></td><td>Identical RPC call — <code class="pill">query_embedding</code> is just computed from different source text.</td></tr>
+          <tr><td><code class="pill">retrieve_chunks()</code></td><td><code class="pill">retrieve_chunks_hyde()</code></td><td>Python wrapper in <code class="pill">py/reusable_code/hypothetical_document_embedding.py</code>; same return shape.</td></tr>
         </tbody>
       </table>
     </div>
@@ -436,8 +436,8 @@ result = ask_question(<span class="s">"..."</span>, use_hyde=<span class="k">Tru
 result = ask_question(<span class="s">"..."</span>, use_hyde=<span class="k">True</span>, use_rerank=<span class="k">True</span>)                  <span class="c"># HyDE, then reranked</span>
 result = ask_question(<span class="s">"..."</span>, use_hyde=<span class="k">True</span>, expand_to_parents=<span class="k">True</span>)           <span class="c"># HyDE, then parent-expanded</span></pre>
     <p class="caption">
-      See <code class="pill">stage2_ask_examples5_hypothetical_document_embedding.ipynb</code> for worked
-      nutrition examples, and <code class="pill">reusable_code/README.md</code> for the full guide.
+      See <code class="pill">py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb</code> for worked
+      examples, and <code class="pill">py/reusable_code/README.md</code> for the full guide.
       <code class="pill">use_hyde</code> is ignored when <code class="pill">use_hybrid=True</code> is also
       passed to <code class="pill">ask_question()</code> — hybrid search's dense half always embeds
       the raw question, so combining the two isn't wired in.
@@ -466,7 +466,7 @@ result = ask_question(<span class="s">"..."</span>, use_hyde=<span class="k">Tru
       </div>
 
       <div class="trace-step">
-        <div class="trace-meta"><span class="tag tag-blue">dense · match_rag11_child_chunks</span><h3>Dense search (top 5)</h3><p>Same RPC plain retrieval uses, closest first</p></div>
+        <div class="trace-meta"><span class="tag tag-blue">dense · match_lrm_chunks</span><h3>Dense search (top 5)</h3><p>Same RPC plain retrieval uses, closest first</p></div>
         <pre class="code">[
   { <span class="k">"rowGUID"</span>: <span class="s">"c9d8...-caffeine-hydration"</span>, <span class="k">"cosine_distance"</span>: <span class="m">0.194</span>, <span class="k">"snippet"</span>: <span class="s">"…caffeine's diuretic effect is mild and does not impair hydration status in habituated users…"</span> },
   { <span class="k">"rowGUID"</span>: <span class="s">"f2a1...-fluid-balance"</span>,  <span class="k">"cosine_distance"</span>: <span class="m">0.221</span>, <span class="k">"snippet"</span>: <span class="s">"…pre-exercise fluid intake recommendations and electrolyte balance…"</span> },
@@ -494,10 +494,10 @@ result = ask_question(<span class="s">"..."</span>, use_hyde=<span class="k">Tru
 </main>
 
 <footer>
-  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html</a><br>
-  Sourced from <code class="pill">reusable_code/hypothetical_document_embedding.py</code>,
-  <code class="pill">reusable_code/generation.py</code>, <code class="pill">sql/create_sql_tables.sql</code>,
-  and <code class="pill">stage2_ask_examples5_hypothetical_document_embedding.ipynb</code> in this
+  <a class="backlink" href="LRM_ER_Model.html">&larr; Back to LRM_ER_Model.html</a><br>
+  Sourced from <code class="pill">py/reusable_code/hypothetical_document_embedding.py</code>,
+  <code class="pill">py/reusable_code/generation.py</code>, <code class="pill">sql/create_lrm_tables.sql</code>,
+  and <code class="pill">py/ipynb/stage2_ask_examples5_hypothetical_document_embedding.ipynb</code> in this
   repository. Sample values in the walkthrough are illustrative, shaped to the pipeline's real schema.
 </footer>
 

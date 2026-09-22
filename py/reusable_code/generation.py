@@ -1,4 +1,4 @@
-"""Answer generation shared by every RAG11 Q&A notebook."""
+"""Answer generation shared by every LRM11 Q&A notebook."""
 import re
 from typing import Optional
 
@@ -223,7 +223,7 @@ def ask_question(
           ``documentation/HOW_IT_WORKS_Parent_Chunk_Expansion.html``.
 
     ``filter_owner`` restricts every retrieval step to one source (a
-    ``rag11_data_sources.rowGUID``); ``None`` searches all sources.
+    ``lrm_source_table.rowGUID``); ``None`` searches all sources.
     ``system_prompt`` replaces the default nutrition ``SYSTEM_PROMPT`` for the
     final answer only (e.g. for a non-nutrition source such as the Yoga-Sutra).
     ``retrieval_query`` is the text used for every retrieval step (splitting,

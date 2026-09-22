@@ -1,4 +1,4 @@
-"""Shared client construction for every RAG11 notebook (Stage 1.2 onward):
+"""Shared client construction for every LRM11 notebook:
 one Supabase client, one Voyage AI client, one Anthropic client, built the
 same way everywhere instead of being copy-pasted -- and silently drifting
 -- into each notebook.
@@ -15,14 +15,14 @@ from .env import optional_env, require_env
 
 # Model ids -- change here once, every notebook that imports reusable_code
 # picks it up.
-EMBEDDING_MODEL = "voyage-3"  # must match the model used when child chunks were embedded (Stage 1.2)
+EMBEDDING_MODEL = "voyage-3"  # must match the model used when lrm_child_chunk_table rows are embedded
 RERANK_MODEL = "rerank-2"  # Voyage's cross-encoder reranker -- see retrieval.rerank_chunks()
 GENERATION_MODEL = "claude-sonnet-5"  # change here if your account uses a different Claude model id
 
 
 @dataclass(frozen=True)
 class Clients:
-    """A bundle of the three third-party clients every RAG11 notebook
+    """A bundle of the three third-party clients every LRM11 notebook
     needs. Passed explicitly to reusable_code functions in tests (so they
     can be swapped for fakes with no network calls); picked up implicitly
     via get_clients() in notebooks."""
@@ -37,7 +37,7 @@ _cache: Dict[str, Clients] = {}
 
 def make_supabase_client() -> SupabaseClient:
     """Supabase client from .env. Prefers the service_role key (bypasses RLS cleanly); falls back to the
-    anon key, which only works with the permissive policies sql/create_sql_tables.sql sets up."""
+    anon key, which only works with the permissive policies sql/create_lrm_tables.sql sets up."""
     url = require_env("PUBLIC_SUPABASE_URL")
     key = optional_env("SUPABASE_SERVICE_ROLE_KEY") or require_env("PUBLIC_SUPABASE_ANON_KEY")
     return create_client(url, key)

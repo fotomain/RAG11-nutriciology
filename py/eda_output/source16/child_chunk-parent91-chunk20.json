@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c20",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\nruvate dehydrogenase complex,\nyielding acetyl-CoA. Lipogenic tissue mitochondria also contain pyruvate carboxylase, which converts pyruvate to the 4-carbon\nacid, oxaloacetate. Acetyl-CoA and oxaloacetate condense to form the 6-carbon acid, citrate. As citrate accumulates within the mito-\nchondrion, it is exported via a transporter to the cytoplasm, where it is converted back to oxaloacetate plus acetyl-CoA in a reaction\ncatalyzed by ATP citrate lyase (ACLY). Cytoplasmic acetyl-CoA is the fundamental building block for de novo synthesis of FAs.\nThe ﬁrst enzyme unique to FA synthesis is acetyl-CoA carboxylase (ACC1), which converts the 2-carbon substrate, acetyl-CoA,\ninto the 3-carbon product, malonyl-CoA. Citrate, in addition to being the precursor of cytoplasmic acetyl-CoA, also has a regulatory\nrole. Citrate is an allosteric activator of acetyl-CoA carboxylase and serves as a signal that there is an ample carbon supply for FA\nsynthesis. As mentioned, malonyl-CoA is a potent inhibitor of CPT1. Cytoplasmic malonyl-CoA levels are high when there is signif-\nicant ﬂux through glycolysis, indicative of a high cellular energy state. Under these conditions, entry of FAs into the mitochondrion\n(and subsequent b-oxidation) is prevented. Interestingly, there are two isoforms of acetyl-CoA carboxylase. ACC1 is found in the\nabove-named lipogenic tissues. ACC2 is found in many tissues that are not capable of synthesizing FAs, for example, heart. It",
-  "token_count": 400
-}

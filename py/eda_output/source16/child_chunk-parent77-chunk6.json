@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p77-c6",
-  "parent_id": "source16-p77",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Indirect calorimetry | Pages 783-792]\n\n\u00011)\n¼VO2 \u0001 6.037Nu\nNPVCO2 (L min\u00011)\n¼VCO2 \u0001 4.963Nu\nFull Weir equation (kcal min\u00011)\n¼3.941 VO2 þ 1.106 VCO2 \u0001 2.17Nu\nModiﬁed Weir equation (kcal min\u00011)\n¼(3.94 þ 1.11 RER) VO2 (L min\u00011)\nVO2 ¼ rate of O2 consumption L min\u00011; VCO2 ¼ rate of CO2 production L min\u00011, Vi ¼ volume of inspired air L min\u00011,\nVe ¼ volume of expired air L min\u00011, Fi ¼ fraction of inspired O2 or CO2, Fe ¼ fraction of expired air that is O2 or CO2, NPV ¼\nVolume of non-protein gas L min\u00011, Nu ¼ urinary nitrogen g min\u00011.\naStarch or glycogen.\nAdapted from Jéquier et al. (1987).\n152\nIndirect calorimetry\n\n\nvariation in the fractions of nitrogen excreted as urea, ammonia, and creatinine. The breakdown of the standard dietary protein,\nhowever, can be described by the following chemical reaction:\nC100H159N26O32S0:7 þ 104O2 ¼ 86:6CO2 þ 50:6H2O þ 11:7N2H4CO þ 1:3NH4OH þ 0:43N3C4H7O þ 0:7H2SO4 þ heat\nIn this example, 86.6 molecules of CO2 are produced whereas 104 molecules of O2 are consumed when one molecule of protein\nis oxidized (RER ¼ 0.83). Although this RER value",
-  "token_count": 400
-}

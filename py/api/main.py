@@ -26,7 +26,7 @@ def sb():
 
 @app.get("/sources")
 def sources(language: str | None = None):
-    q = sb().table("lrm_sources").select("rowGUID,source_key,language,title,rowJSON").order("orderInList")
+    q = sb().table("lrm_source_table").select("rowGUID,source_key,language,title,rowJSON").order("orderInList")
     if language:
         q = q.eq("language", language)
     return [{"source_guid": r["rowGUID"], "source_key": r["source_key"], "language": r["language"], "title": r["title"],
@@ -36,7 +36,7 @@ def sources(language: str | None = None):
 
 @app.get("/page")
 def page(source: str, page: int = 1, language: str = "fr"):
-    r = (sb().table("lrm_pages").select("rowJSON").eq("source_key", source).eq("language", language)
+    r = (sb().table("lrm_page_table").select("rowJSON").eq("source_key", source).eq("language", language)
          .eq("page_number", page).limit(1).execute().data)
     if not r:
         raise HTTPException(404, f"no page {page} for {source} [{language}]")

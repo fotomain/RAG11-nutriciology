@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p73-c16",
-  "parent_id": "source16-p73",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Energy metabolism | Pages 745-758]\n\n in these initial reactions. The F1,6P2 is split by an aldolase to yield 2 three carbon\ncompounds which progress along the pathway via a series of intermediates to pyruvate. Glyceraldehyde 3-phosphate dehydroge-\nnase will yield NADH and two substrate phosphorylation steps, phosphoglycerate kinase and pyruvate kinase, are linked to the\nsynthesis of ATP. Since each three carbon unit yields 2 ATPs the total yield is 4 ATPs but because two ATPs were utilized in the ﬁrst\npart of the pathway the net yield is two ATP per glucose plus two pyruvates and 2 NADH. To maintain ﬂux in the pathway, and to\nkeep using glucose, this NADH must be oxidized back to NADþ. In oxidative cells the reducing power of the NADH can be trans-\nferred to the mitochondria but if this is not possible the NADH will be used by lactate dehydrogenase to reduce the pyruvate to\nlactate limiting the ATP yield to 2 per glucose metabolized. Sugars such as fructose and galactose can enter the glycolytic pathway\nafter being phosphorylated by speciﬁc isozymes of hexokinase and metabolized to intermediates, triose phosphates for fructose and\nglucose 6 phosphate for galactose, that feed into the glycolytic pathway.\nIf however, the pyruvate is destined to be fully oxidized in the mitochondria then the NADH formed in the cytosol also must be\ntransferred to the mitochondria. The mitochondrial membrane, however, is impermeable to NAD and NADH and shuttles exist to\ntransfer the reducing power (Hþ) in NADH into the mitochondria for oxidative phosphory",
-  "token_count": 400
-}

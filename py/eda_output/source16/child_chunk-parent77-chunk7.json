@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p77-c7",
-  "parent_id": "source16-p77",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Indirect calorimetry | Pages 783-792]\n\n þ heat\nIn this example, 86.6 molecules of CO2 are produced whereas 104 molecules of O2 are consumed when one molecule of protein\nis oxidized (RER ¼ 0.83). Although this RER value is intermediate between carbohydrate and fat, protein is unique among the three\nenergy substrates because it is the only one to contain the element nitrogen. As such, urinary N (g/min) can be assayed to obtain an\nestimate of protein oxidized by an individual. Because protein is the only macronutrient containing nitrogen, the oxidation of\nprotein can be calculated from the rate of urinary nitrogen excretion. When greater accuracy has desired the sum of urinary nitrogen\nproduction plus and change in the amount of urea circulating in the blood. Assuming circulating urea does not change, protein\noxidation is calculated as follows:\nProtein oxidationg=min ¼ 6:25Nurineg=min\nAfter calculating protein oxidation, the VO2 and VCO2 due to protein oxidation can be calculated in units of mL/min for each\ng/min of urinary nitrogen, and these subtracted from the global VO2 and VCO2 to yield the nonprotein VO2 and VCO2\n(Table 1).\nTo calculate the percentage of carbohydrate versus fat being used to support energy expenditure. For example, one molecule of\nsugar (glucose) breaks down as follows:\nC6H12O6 þ 6O2 ¼ 6CO2 þ 6H2O þ heat\nIn this reaction, six molecules of CO2 are produced and six molecules of O2 are consumed. Thus, the ratio of CO2 produced to O2\nconsumed (RER) has a value of 1.0. When one molecule of fat (tripalmitin) is broken down completely, the chemical reaction is as\nfollows:\nC57H104O6 þ 80O2 ¼",
-  "token_count": 400
-}

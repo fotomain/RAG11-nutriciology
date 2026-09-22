@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LRM ER Model</title>
+<style>
+  :root {
+    --bg: #f9f9f7; --surface: #ffffff; --ink: #0b0b0b; --ink-2: #52514e; --ink-muted: #898781;
+    --border: rgba(11,11,11,.12); --accent: #2a78d6; --accent-dark: #184f95;
+    --lang-fill: #fdf3e0; --lang-border: #d99a2b;
+    --src-fill: #eef4fc; --src-border: #2a78d6;
+    --page-fill: #efedfa; --page-border: #4a3aa7;
+    --chunk-fill: #e8f7f0; --chunk-border: #1baf7a;
+    --code-bg: #f3f3ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a; --surface: #1b1e24; --ink: #eceef1; --ink-2: #b7bcc4; --ink-muted: #82868f;
+      --border: rgba(255,255,255,.14); --accent: #5b9bef; --accent-dark: #8fbdf5;
+      --lang-fill: #2c2413; --lang-border: #d99a2b;
+      --src-fill: #16233a; --src-border: #5b9bef;
+      --page-fill: #211d3a; --page-border: #8f7ee8;
+      --chunk-fill: #10291f; --chunk-border: #34d399;
+      --code-bg: #22252b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif; line-height: 1.55;
+  }
+  main { max-width: 1060px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h1 { font-size: 1.7rem; margin: 0 0 .25rem; }
+  .lede { color: var(--ink-2); max-width: 70ch; margin: 0 0 2rem; }
+  h2 { font-size: 1.2rem; margin: 2.5rem 0 .75rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
+  code, .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .92em; }
+  code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px; }
+  .diagram { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; overflow-x: auto; }
+  svg { display: block; margin: 0 auto; }
+  table { width: 100%; border-collapse: collapse; margin: .5rem 0 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  th, td { text-align: left; padding: .55rem .75rem; border-bottom: 1px solid var(--border); font-size: .92rem; vertical-align: top; }
+  th { background: var(--code-bg); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  .note { color: var(--ink-muted); font-size: .88rem; }
+  .badge { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .02em; padding: .1rem .5rem; border-radius: 999px; }
+  .b-src { background: var(--src-fill); color: var(--src-border); }
+  .b-page { background: var(--page-fill); color: var(--page-border); }
+  .b-chunk { background: var(--chunk-fill); color: var(--chunk-border); }
+  .b-lang { background: var(--lang-fill); color: var(--lang-border); }
+</style>
+</head>
+<body>
+<main>
+  <h1>LRM ER Model</h1>
+  <p class="lede">Four tables behind the LRM (Language Reading Model) pipeline: a page-image book viewer with
+    retrieval on top. Full schema in <code>sql/create_lrm_tables.sql</code>.</p>
+
+  <h2>Diagram</h2>
+  <div class="diagram">
+<svg viewBox="0 0 990 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LRM entity relationship diagram, cascading waterfall layout">
+  <defs>
+    <marker id="arrow-src" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--src-border)"></path>
+    </marker>
+    <marker id="arrow-page" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--page-border)"></path>
+    </marker>
+    <marker id="arrow-lang" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--lang-border)"></path>
+    </marker>
+  </defs>
+  <style>
+    .box-title { font: 700 14px ui-monospace, monospace; }
+    .box-sub { font: italic 11px -apple-system, sans-serif; fill: var(--ink-muted); }
+    .col { font: 12px ui-monospace, monospace; fill: var(--ink); }
+    .col-fk { font: 12px ui-monospace, monospace; fill: var(--accent-dark); font-weight: 600; }
+    .rel-label { font: 700 11px -apple-system, sans-serif; }
+    .card-label { font: 700 12px ui-monospace, monospace; }
+    .edge-src { stroke: var(--src-border); stroke-width: 2.25; fill: none; marker-end: url(#arrow-src); }
+    .edge-page { stroke: var(--page-border); stroke-width: 2.25; fill: none; marker-end: url(#arrow-page); }
+    .edge-lang { stroke: var(--lang-border); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; marker-end: url(#arrow-lang); opacity: .8; }
+    .row-hi-src rect { fill: var(--src-fill); }
+    .row-hi-page rect { fill: var(--page-fill); }
+  </style>
+
+  <!-- ================= waterfall backbone: sources -> pages -> chunks ================= -->
+
+  <!-- lrm_source_table (step 1) -->
+  <g>
+    <rect x="20" y="30" width="270" height="200" rx="10" fill="var(--src-fill)" stroke="var(--src-border)" stroke-width="2"></rect>
+    <rect x="20" y="30" width="270" height="36" rx="10" fill="var(--src-border)"></rect>
+    <rect x="20" y="48" width="270" height="18" fill="var(--src-border)"></rect>
+    <text x="34" y="53" class="box-title" fill="#fff">lrm_source_table</text>
+    <text x="34" y="68" class="box-sub" fill="#fff" opacity=".85">one row per (book, language) — step 1</text>
+    <line x1="20" y1="82" x2="290" y2="82" stroke="var(--src-border)" stroke-width="1" opacity=".35"></line>
+    <text x="34" y="98" class="col-fk">&#128273; rowGUID (PK)</text>
+    <text x="34" y="118" class="col">rowOwnerGUID = rowGUID</text>
+    <text x="34" y="138" class="col">rowParentGUID = null</text>
+    <text x="34" y="158" class="col">orderInList, rowJSON</text>
+    <text x="34" y="178" class="col-fk">source_key, language &#8618;</text>
+    <text x="34" y="198" class="col">title</text>
+  </g>
+
+  <!-- lrm_page_table (step 2) -->
+  <g>
+    <rect x="360" y="290" width="270" height="210" rx="10" fill="var(--page-fill)" stroke="var(--page-border)" stroke-width="2"></rect>
+    <rect x="360" y="290" width="270" height="36" rx="10" fill="var(--page-border)"></rect>
+    <rect x="360" y="308" width="270" height="18" fill="var(--page-border)"></rect>
+    <text x="374" y="313" class="box-title" fill="#fff">lrm_page_table</text>
+    <text x="374" y="328" class="box-sub" fill="#fff" opacity=".85">one row per recognised page — step 2</text>
+    <line x1="360" y1="342" x2="630" y2="342" stroke="var(--page-border)" stroke-width="1" opacity=".35"></line>
+    <text x="374" y="358" class="col-fk">&#128273; rowGUID (PK)</text>
+    <text x="374" y="378" class="col-fk">&#8618; rowOwnerGUID (FK sources)</text>
+    <text x="374" y="398" class="col-fk">&#8618; rowParentGUID (FK sources)</text>
+    <text x="374" y="418" class="col">orderInList, rowJSON</text>
+    <text x="374" y="438" class="col">(blocks, words, bboxes, text)</text>
+    <text x="374" y="458" class="col-fk">source_key, language &#8618;, page_number</text>
+  </g>
+
+  <!-- lrm_child_chunk_table (step 3) -->
+  <g>
+    <rect x="680" y="560" width="300" height="240" rx="10" fill="var(--chunk-fill)" stroke="var(--chunk-border)" stroke-width="2"></rect>
+    <rect x="680" y="560" width="300" height="36" rx="10" fill="var(--chunk-border)"></rect>
+    <rect x="680" y="578" width="300" height="18" fill="var(--chunk-border)"></rect>
+    <text x="694" y="583" class="box-title" fill="#fff">lrm_child_chunk_table</text>
+    <text x="694" y="598" class="box-sub" fill="#fff" opacity=".85">one row per embeddable chunk — step 3</text>
+    <line x1="680" y1="612" x2="980" y2="612" stroke="var(--chunk-border)" stroke-width="1" opacity=".35"></line>
+    <text x="694" y="628" class="col-fk">&#128273; rowGUID (PK)</text>
+    <text x="694" y="648" class="col-fk">&#8618; rowOwnerGUID (FK sources)</text>
+    <text x="694" y="668" class="col-fk">&#8618; rowParentGUID (FK pages)</text>
+    <text x="694" y="688" class="col">orderInList, rowJSON</text>
+    <text x="694" y="708" class="col">source_key, language &#8618;, page_number</text>
+    <text x="694" y="728" class="col">chunk_text</text>
+    <text x="694" y="748" class="col">embedding vector(1024), chunk_tsv</text>
+  </g>
+
+  <!-- lrm_language_table (side reference, feeds all 3 steps) -->
+  <g>
+    <rect x="700" y="30" width="260" height="180" rx="10" fill="var(--lang-fill)" stroke="var(--lang-border)" stroke-width="2"></rect>
+    <rect x="700" y="30" width="260" height="36" rx="10" fill="var(--lang-border)"></rect>
+    <rect x="700" y="48" width="260" height="18" fill="var(--lang-border)"></rect>
+    <text x="714" y="53" class="box-title" fill="#fff">lrm_language_table</text>
+    <text x="714" y="68" class="box-sub" fill="#fff" opacity=".85">reference table (not step-ordered)</text>
+    <line x1="700" y1="82" x2="960" y2="82" stroke="var(--lang-border)" stroke-width="1" opacity=".35"></line>
+    <text x="714" y="98" class="col-fk">&#128273; code (PK)</text>
+    <text x="714" y="118" class="col">name, native_name</text>
+    <text x="714" y="138" class="col">prompt_name</text>
+    <text x="714" y="158" class="col">translation_style</text>
+    <text x="714" y="178" class="col">is_source_capable, sort_order</text>
+  </g>
+
+  <!-- ================= primary waterfall FK connectors: solid, orthogonal, row-to-row ================= -->
+
+  <!-- sources.rowGUID -> pages.rowOwnerGUID -->
+  <path class="edge-src" d="M290,98 L318,98 L318,378 L360,378"></path>
+  <!-- sources.rowGUID -> pages.rowParentGUID -->
+  <path class="edge-src" d="M290,98 L332,98 L332,398 L360,398"></path>
+  <rect x="242" y="330" width="112" height="20" rx="4" fill="var(--surface)" stroke="var(--src-border)" stroke-width="1"></rect>
+  <text x="248" y="344" class="rel-label" fill="var(--src-border)">1 rowGUID &#8594; N</text>
+
+  <!-- pages.rowGUID -> chunks.rowParentGUID -->
+  <path class="edge-page" d="M630,358 L655,358 L655,668 L680,668"></path>
+  <rect x="602" y="600" width="112" height="20" rx="4" fill="var(--surface)" stroke="var(--page-border)" stroke-width="1"></rect>
+  <text x="608" y="614" class="rel-label" fill="var(--page-border)">1 rowGUID &#8594; N</text>
+
+  <!-- sources.rowGUID -> chunks.rowOwnerGUID (skips past pages, routed below it) -->
+  <path class="edge-src" d="M290,98 L306,98 L306,530 L646,530 L646,648 L680,648"></path>
+  <rect x="470" y="512" width="150" height="20" rx="4" fill="var(--surface)" stroke="var(--src-border)" stroke-width="1"></rect>
+  <text x="476" y="526" class="rel-label" fill="var(--src-border)">sources.rowGUID &#8594; chunks.rowOwnerGUID</text>
+
+  <!-- ================= secondary connectors: language FK, dashed, muted ================= -->
+  <path class="edge-lang" d="M700,90 C550,140 380,150 290,178"></path>
+  <path class="edge-lang" d="M760,210 C700,260 660,400 630,458"></path>
+  <path class="edge-lang" d="M830,210 C830,420 800,650 700,708"></path>
+
+  <!-- legend -->
+  <g transform="translate(20,760)">
+    <line x1="0" y1="0" x2="30" y2="0" class="edge-src"></line>
+    <text x="38" y="4" class="rel-label" fill="var(--ink-2)">rowGUID / rowOwnerGUID / rowParentGUID (identity chain)</text>
+    <line x1="0" y1="22" x2="30" y2="22" class="edge-lang"></line>
+    <text x="38" y="26" class="rel-label" fill="var(--ink-2)">language (reference FK, not step-ordered)</text>
+  </g>
+</svg>
+  </div>
+  <p class="note">Arrows point from the referenced (parent) table to the table holding the foreign key.</p>
+
+  <h2>Tables</h2>
+
+  <table>
+    <tr><th>Table</th><th>Grain</th><th>Key relationships</th></tr>
+    <tr>
+      <td><span class="badge b-lang">lang</span> <code>lrm_language_table</code></td>
+      <td>One row per supported language code</td>
+      <td>Reference table, not part of the rowGUID pattern. Every <code>language</code> column elsewhere is a FK to <code>code</code> here — adding a language is one insert, no schema change.</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-src">src</span> <code>lrm_source_table</code></td>
+      <td>One row per (book, language) pair</td>
+      <td><code>rowOwnerGUID = rowGUID</code> (a source owns itself); <code>rowParentGUID</code> always null (nothing sits above a source).</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-page">page</span> <code>lrm_page_table</code></td>
+      <td>One row per recognised/translated page</td>
+      <td>Both <code>rowOwnerGUID</code> and <code>rowParentGUID</code> point at the owning source — a page sits directly under its source, one level, no separate "section" concept.</td>
+    </tr>
+    <tr>
+      <td><span class="badge b-chunk">chunk</span> <code>lrm_child_chunk_table</code></td>
+      <td>One row per embeddable chunk of page text</td>
+      <td><code>rowOwnerGUID</code> is the source; <code>rowParentGUID</code> is the owning page. Usually one chunk per page — a page only splits into more when its text exceeds the embedding token budget.</td>
+    </tr>
+  </table>
+
+  <h2>Why 2 levels, not 3</h2>
+  <p class="lede">A RAG pipeline chunking raw PDFs typically needs source &#8594; parent-chunk &#8594; child-chunk, because
+    a raw source has to be split into sections first. LRM already has that unit: <code>lrm_page_table</code> is
+    naturally page-sized and holds the full page text (<code>rowJSON.text</code>), so it plays the "parent" role
+    as-is. <code>lrm_child_chunk_table</code> only needs to be the child/embedding level: page &#8594; one or more chunks.</p>
+
+  <h2>Retrieval</h2>
+  <p class="lede">Three RPCs in <code>sql/create_lrm_tables.sql</code> read <code>lrm_child_chunk_table</code>:
+    <code>match_lrm_chunks</code> (cosine vector search over <code>embedding</code>),
+    <code>match_lrm_chunks_keyword</code> (full-text search over <code>chunk_tsv</code>), and
+    <code>get_lrm_page</code> (expand a matched chunk back to its full page via <code>rowParentGUID</code>).
+    Both search RPCs accept an optional <code>filter_owner</code> (restrict to one source) and
+    <code>filter_language</code> (restrict to one language).</p>
+
+  <h2>Data dictionary (IFLA LRM)</h2>
+  <p class="lede">Three more tables — <code>lrm_definition_table</code>, <code>lrm_definition_attribute_table</code>,
+    <code>lrm_entities_relations_table</code> — form a self-describing metadata layer grounded in the IFLA Library
+    Reference Model (the 2017 bibliographic conceptual model published by IFLA — a different "LRM" from
+    this project's own name, not the page-viewer). They <strong>document</strong> the four content tables above rather than
+    replacing them: this system doesn't yet need separate Work/Expression/Manifestation/Item tables, so
+    they're a governed data dictionary and standards-mapping layer instead of a schema migration.</p>
+
+  <table>
+    <tr><th>Table</th><th>Grain</th><th>Purpose</th></tr>
+    <tr>
+      <td><code>lrm_definition_table</code></td>
+      <td>One row per concept (not per instance)</td>
+      <td>Catalogs IFLA LRM's 11 entities (Res, Work, Expression, Manifestation, Item, Agent, Person,
+        Collective Agent, Nomen, Place, Time-span) plus this project's own internal concepts (source, page,
+        chunk, language), each with a definition and, where implemented, which physical table it maps to.</td>
+    </tr>
+    <tr>
+      <td><code>lrm_definition_attribute_table</code></td>
+      <td>One row per (entity, attribute)</td>
+      <td>The data dictionary: every attribute a definition has, its data type, required/repeatable flags,
+        and — when built — which real column carries it. A <code>null</code> <code>maps_to_column</code> is a
+        documented-but-not-yet-implemented attribute (e.g. <code>Manifestation.carrier_type</code>), so
+        extending the model is one insert here, the same "add a row, not a migration" pattern
+        <code>lrm_language_table</code> already uses for languages.</td>
+    </tr>
+    <tr>
+      <td><code>lrm_entities_relations_table</code></td>
+      <td>One row per typed edge, of two kinds</td>
+      <td><code>relation_kind = 'external_mapping'</code>: schema-level, e.g. <code>expression.language</code>
+        &#8596; Dublin Core's <code>dc:language</code>. <code>relation_kind = 'association'</code>:
+        instance-level, a real many-to-many link between entities that are peers, not parent/child (e.g. a
+        Work and its Agent). Polymorphic by design (<code>source_type</code>/<code>target_type</code> can
+        name any definition or table), so <code>source_ref</code>/<code>target_ref</code> are free-text
+        identifiers rather than strict foreign keys.</td>
+    </tr>
+  </table>
+</main>
+</body>
+</html>

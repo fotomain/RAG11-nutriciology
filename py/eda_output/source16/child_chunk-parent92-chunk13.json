@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p92-c13",
-  "parent_id": "source16-p92",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\nellulose and some pectin\nFiber, determined by neutral\ndetergent method\nFIBND\nThis includes lignin, cellulose, and insoluble hemicellulose\nCrude ﬁber\nFIBC\nIt captures only fractions of lignin, cellulose and hemicellulose (obsolete\nand should not be used)\nFiber, unknown or mixed methods\nFIB-\nVitamin A\nVitamin A, expressed in retinol\nequivalents (RE)\nVITA\nVITA ¼ retinol (mg) þ 1/6 beta-carotene (mg) þ 1/12 other pro-vitamin\nA carorenoids (mg)\nVitamin A, expressed in retinol activity\nequivalents (RAE)\nVITA_RAE\nVITA_RAE ¼ retinol (mg) þ 1/12 beta-carotene (mg) þ 1/24 other pro-\nvitamin A carorenoids (mg)\nVitamin A, determined by bioassay\nVITAA\nNo longer used in food composition tables and databases\nAdapted from FAO/INFOODS e-Learning Course on Food Composition Data (FAO, 2013).\nTable 3\nExamples of how different units and denominators can affect the absolute fat values in cream cheese.\nFat value\nUnit\nDenominator\n34.2\ng\n100 g edible portion on fresh weight basis (EP)\n34.2\n%\n100 g EP\n342\ng\n1 kg EP\n34,200\nmg\n100 g EP\n75\ng\n100 g edible portion on a dry matter basis (water content ¼ 54.4 g/100 g EP)\n75\n%\nOf dry matter (34.2 g fat/45.6 g DM)\n75\n%\nFat in dry matter\nAdapted from FAO/INFOODS",
-  "token_count": 400
-}

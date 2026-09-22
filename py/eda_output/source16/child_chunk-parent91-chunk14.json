@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c14",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n3 homodimers are responsible for the\ntranslocation of CoA derivatives of phytanic acid, pristanic acid, dicarboxylic FAs, and bile acid precursors (Wanders et al., 2020).\nThe basic reactions of peroxisomal b-oxidation resemble those found in mitochondria, but the peroxisomal and mitochondrial\nenzymes are distinct proteins (Fig. 4). In fact, peroxisomes contain two sets of b-oxidation enzymes that appear to function\nwith distinct substrates.\nThe ﬁrst step in the oxidation of straight-chain FAs, (e.g., VLCFAs), is catalyzed by acyl-CoA oxidase 1 (ACOX1) (Fig. 4). ACOX2\nand ACOX3 catalyze this initial desaturation reaction for a-methyl branched-chain substratesdbile acid precursors and pristanoyl-\nCoA, respectively (see FA a-Oxidation). For all substrates, enoyl-CoA hydratase and 3-hydroxyacyl-CoA dehydrogenase activities are\ncatalyzed mainly by D-bifunctional protein (HSD17B4), which contains both activities. For straight-chain substrates, peroxisomal\n3-ketoacyl-CoA thiolase (ACAA1) catalyzes the ﬁnal b-oxidation reaction, whereas SCPx thiolase (SCP2) catalyzes this step for pris-\ntanic acid and bile acid precursors. Peroxisomes also contain L-bifunctional protein (EHHADH), which is thought to contribute to\nstraight-chain FA oxidation. Human deﬁciencies of ACOX1 and HSD17B4 are associated with signiﬁcant morbidity and mortality.\nFig. 4\nPeroxisomal",
-  "token_count": 400
-}

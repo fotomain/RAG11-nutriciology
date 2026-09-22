@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p92-c12",
-  "parent_id": "source16-p92",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Food composition data 2021 | Pages 962-970]\n\n\u0002 (water (g) þ protein (g) þ fat\n(g) þ alcohol (g) þ ash (g))\nCHOCSM\nBy summation, this value is the sum of analytical values of sugars,\nstarch, oligosaccharides and dietary ﬁber\nAvailable carbohydrates (excludes ﬁber)\nCHOAVLDF\nCalculated by difference ¼ 100 \u0002 (water (g) þ protein (g) þ fat\n(g) þ alcohol (g) þ ash (g) þ (dietary) ﬁber))\nCHOAVL\nBy weight, this value is the sum of analytical values (anhydrous form) of\nsugars, starch and glycogen\nCHOAVLM\nMonosaccharide equivalents, this value is the sum of analytical values\n(hydrous form) of sugars, starch and glycogen\nFiber\nTotal dietary ﬁber\nFIBTG\nAnalyzed by AOAC Prosky method. It is a mixture of non-starch\npolysaccharides, lignin, resistant starch, resistant oligosaccharides,\ngum and waxes (most recommended deﬁnition)\nNon-starch polysaccharide\nPSACNS/NSP\nAlso called Englyst ﬁber. This includes non-starch polysaccharides but\nexcludes lignin, resistant starch and resistant oligosaccharides\nSouthgate ﬁber\nFIBTS\nMixture of non-starch polysaccharides, lignin and some resistant starch\nFiber, determined by acid detergent\nmethod\nFIBAD\nThis includes lignin, cellulose, some hemicellulose and some pectin\nFiber, determined by neutral\ndetergent method\nFIBND\nThis includes lignin, cellulose, and insoluble hemicellulose\nCrude ﬁber\nFIBC",
-  "token_count": 400
-}

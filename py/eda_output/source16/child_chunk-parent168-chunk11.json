@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p168-c11",
-  "parent_id": "source16-p168",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Ketosis | Pages 1775-1783]\n\n kidney, and lactating mammary gland,\ncan utilize ketone bodies but, in contrast to glucose utilization, no energy can be obtained in the absence of oxygen. In these tissues\nmetabolism of ketone bodies results in the inhibition of glucose utilization and inhibition of the oxidation of pyruvate. The net\nresult is a sparing of carbohydrate for the brain and the strictly glycolytic tissues (erythrocytes, retina).\nPathways of Ketone Body Utilization\nMitochondrial Pathway\nThe major site of ketone body utilization in peripheral tissues is the mitochondria (Figure 6). Although transporters for ketone\nbodies have been described on the plasma and inner mitochondrial membranes of some tissues, these do not appear to limit\nthe ﬂux. The initiating enzyme for acetoacetate metabolism is 3-oxoacid-CoA transferase:\nacetoacetateþsuccinyl \u0002 CoA⇌acetoacetyl \u0002 CoAþsuccinate\nThe resulting acetoacetyl-CoA is cleaved to two molecules of acetyl-CoA by acetoacetyl-CoA thiolase; they are then oxidized in\nthe tricarboxylate cycle.\n3-Hydroxybutyrate is converted to acetoacetate by 3-hydroxybutyrate dehydrogenase:\n3 \u0002 hydroxybutyrateþNADþ⇌acetoacetateþNADHþHþ\nThe ready reversibility of the three enzymes of the mitochondrial pathway (Figure 6) means that if the overall system is near\nequilibrium within the cell in vivo, the utilization of the ketone bodies will be dependent on their respective concentrations and\non the rate of removal of the products. Thus acetoacetate utilization will be promoted when mitochondrial acetyl-CoA is decreased,\nwhereas an increase in the latter",
-  "token_count": 400
-}

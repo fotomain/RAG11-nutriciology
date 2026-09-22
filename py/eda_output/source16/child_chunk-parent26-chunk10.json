@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p26-c10",
-  "parent_id": "source16-p26",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Folate/folic acid | Pages 266-277]\n\nadenosylmethionine (SAM).\nSAM serves as the universal methyl donor for a variety of essential methylation reactions, including those involving DNA, ribonu-\ncleic acid (RNA), histones, proteins, phospholipids, neurotransmitters, and creatine synthesis.\nRegulation of folate metabolism\nThe biochemical functions of folate can be divided into two general categories: (1) the synthesis of bases for incorporation into\nDNA and RNA, and (2) the metabolism of homocysteine to form methionine and subsequently SAM. Whether folate is utilized\nfor the former or the latter purpose is controlled by biochemical feedback mechanisms that speciﬁcally affect the conversion of\n5,10-methyleneTHF to 5-methylTHF by the enzyme, 5,10-methyleneTHF reductase (MTHFR) (EC 1.5.1.20). MTHFR is subject to\nallosteric inhibition by SAM. When intracellular SAM concentrations are low, MTHFR actively promotes the synthesis of 5-\nmethylTHF for methionine and SAM synthesis. When SAM concentrations are high, inhibition of MTHFR by SAM reduces the\nsynthesis of 5-methylTHF, methionine, and SAM, and promotes utilization of 5,10-methyleneTHF for thymidylate and purine\nsynthesis (Selhub and Miller, 1992). Another important inhibitor of MTHFR is dihydrofolate. Accumulation of DHF as a product\nof thymidylate synthesis will inhibit MTHFR, thus conserving 5,10-methyleneTHF for further thymidylate synthesis. In this way,\nDHF may serve as a sensor of active DNA synthesis and cellular proliferation (Matthews and Daubner, 1982).\nEnzyme polymorphisms\nCommon polymorphisms have",
-  "token_count": 400
-}

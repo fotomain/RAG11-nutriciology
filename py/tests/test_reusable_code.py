@@ -143,9 +143,9 @@ class FakeSupabase:
     def __init__(self, rpc_data, table_rows=None):
         # rpc_data may be a plain list (all calls, of any RPC name, get the
         # same data -- the original shape this fake supported) or a dict of
-        # {rpc_name: data} for tests that need e.g. match_rag11_child_chunks
-        # and match_rag11_child_chunks_keyword to return different rows.
-        self._rpc_data = rpc_data if isinstance(rpc_data, dict) else {"match_rag11_child_chunks": rpc_data}
+        # {rpc_name: data} for tests that need e.g. match_lrm_chunks
+        # and match_lrm_chunks_keyword to return different rows.
+        self._rpc_data = rpc_data if isinstance(rpc_data, dict) else {"match_lrm_chunks": rpc_data}
         self._tables = table_rows or {}
         self.rpc_calls = []
         self.update_calls = []
@@ -289,23 +289,23 @@ check("reciprocal_rank_fusion sorts by rrf_score descending",
 # ---------------------------------------------------------------------------
 
 fake_supabase_hybrid = FakeSupabase(rpc_data={
-    "match_rag11_child_chunks": dense_ranked,
-    "match_rag11_child_chunks_keyword": keyword_ranked,
+    "match_lrm_chunks": dense_ranked,
+    "match_lrm_chunks_keyword": keyword_ranked,
 })
 fake_clients_hybrid = Clients(supabase=fake_supabase_hybrid, voyage=fake_voyage, anthropic=fake_anthropic)
 
 kw_results = retrieve_chunks_keyword("What is the RDA for protein?", match_count=3, clients=fake_clients_hybrid)
 check("retrieve_chunks_keyword returns the keyword-ranked rows", [r["rowGUID"] for r in kw_results] == ["g4", "g2", "g3"])
 check("retrieve_chunks_keyword calls the keyword RPC, not the dense one",
-      fake_supabase_hybrid.rpc_calls[-1][0] == "match_rag11_child_chunks_keyword")
+      fake_supabase_hybrid.rpc_calls[-1][0] == "match_lrm_chunks_keyword")
 
 # ---------------------------------------------------------------------------
 # hybrid_search: runs both searches and returns the fused, trimmed list
 # ---------------------------------------------------------------------------
 
 fake_supabase_hybrid2 = FakeSupabase(rpc_data={
-    "match_rag11_child_chunks": dense_ranked,
-    "match_rag11_child_chunks_keyword": keyword_ranked,
+    "match_lrm_chunks": dense_ranked,
+    "match_lrm_chunks_keyword": keyword_ranked,
 })
 fake_clients_hybrid2 = Clients(supabase=fake_supabase_hybrid2, voyage=fake_voyage, anthropic=fake_anthropic)
 
@@ -338,7 +338,7 @@ hyde_rows, hyde_text = retrieve_chunks_hyde(
 check("retrieve_chunks_hyde returns the dense RPC rows", len(hyde_rows) == 3)
 check("retrieve_chunks_hyde also returns the hypothetical document used to retrieve them", hyde_text == hyde_doc)
 check("retrieve_chunks_hyde calls the same dense RPC retrieve_chunks() uses (no schema change needed)",
-      fake_supabase_hyde.rpc_calls[-1][0] == "match_rag11_child_chunks")
+      fake_supabase_hyde.rpc_calls[-1][0] == "match_lrm_chunks")
 check("retrieve_chunks_hyde embeds the hypothetical document, not the raw question",
       fake_voyage.embed_calls[-1][0] == [hyde_doc] and fake_voyage.embed_calls[-1][2] == "document")
 
@@ -435,8 +435,7 @@ parent_fiber = {
         "parent_id": "p1",
         "source_key": "source1",
         "title": "Fiber and Cholesterol",
-        "start_page": 40,
-        "end_page": 42,
+        "page_number": 41,
         "text": (
             "Soluble fiber binds bile acids in the gut, which forces the liver "
             "to pull more LDL cholesterol from the blood to make more bile "
@@ -446,7 +445,7 @@ parent_fiber = {
         ),
     },
 }
-fake_supabase_expand = FakeSupabase(rpc_data=rows, table_rows={"rag11_chunks_parent_table": [parent_fiber]})
+fake_supabase_expand = FakeSupabase(rpc_data=rows, table_rows={"lrm_page_table": [parent_fiber]})
 fake_clients_expand = Clients(supabase=fake_supabase_expand, voyage=fake_voyage, anthropic=fake_anthropic)
 
 # g1 and g2 (from `rows` above) both carry rowParentGUID == "parent-1" --
@@ -485,9 +484,9 @@ check("build_expanded_context_block shows how many child chunks it stands in for
 check("build_expanded_context_block behaves like build_context_block for a plain (non-expanded) row",
       build_expanded_context_block([rows[0]]) == build_context_block([rows[0]]))
 
-check("page_numbers_for_expanded_chunk converts a parent's 0-based start_page/end_page to 1-based pages",
-      page_numbers_for_expanded_chunk(expanded[0]) == [41, 42, 43])
-check("page_numbers_for_expanded_chunk falls back to the child text header otherwise",
+check("page_numbers_for_expanded_chunk reads the expanded (page-shaped) row's page_number",
+      page_numbers_for_expanded_chunk(expanded[0]) == [41])
+check("page_numbers_for_expanded_chunk behaves like page_numbers_for_chunk for a non-expanded row",
       page_numbers_for_expanded_chunk(rows[0]) == page_numbers_for_chunk(rows[0]))
 
 # ---------------------------------------------------------------------------
@@ -509,14 +508,14 @@ except ValueError:
 # persist=True path -- should merge into the fake table's stored rowJSON
 # without requiring any new column.
 persist_store = {
-    "rag11_chunks_child_table": [
+    "lrm_child_chunk_table": [
         {"rowGUID": "g3", "rowJSON": {"text": "Fiber and digestion background text.", "source_key": "source1"}},
     ]
 }
 fake_supabase_persist = FakeSupabase(rpc_data=rows, table_rows=persist_store)
 fake_clients_persist = Clients(supabase=fake_supabase_persist, voyage=fake_voyage, anthropic=fake_anthropic)
 update_rank_value(reranked, row_guid="g3", new_value=0.77, persist=True, clients=fake_clients_persist)
-persisted_row_json = persist_store["rag11_chunks_child_table"][0]["rowJSON"]
+persisted_row_json = persist_store["lrm_child_chunk_table"][0]["rowJSON"]
 check("update_rank_value(persist=True) merges manual_rank_score into existing rowJSON",
       persisted_row_json.get("manual_rank_score") == 0.77)
 check("update_rank_value(persist=True) leaves the original rowJSON keys intact",
@@ -560,8 +559,8 @@ check("ask_question(use_rerank=True) parses the Short answer line",
 check("ask_question() (no use_hybrid arg) marks used_hybrid False", result_plain["used_hybrid"] is False)
 
 fake_supabase_hybrid_ask = FakeSupabase(rpc_data={
-    "match_rag11_child_chunks": dense_ranked,
-    "match_rag11_child_chunks_keyword": keyword_ranked,
+    "match_lrm_chunks": dense_ranked,
+    "match_lrm_chunks_keyword": keyword_ranked,
 })
 fake_clients_hybrid_ask = Clients(supabase=fake_supabase_hybrid_ask, voyage=fake_voyage, anthropic=fake_anthropic)
 
@@ -573,12 +572,12 @@ check("ask_question(use_hybrid=True) marks used_hybrid", result_hybrid["used_hyb
 check("ask_question(use_hybrid=True) uses the fused top result",
       result_hybrid["chunks_used"] == 2)
 check("ask_question(use_hybrid=True) queried both the dense and keyword RPCs",
-      {"match_rag11_child_chunks", "match_rag11_child_chunks_keyword"}
+      {"match_lrm_chunks", "match_lrm_chunks_keyword"}
       == {name for name, _ in fake_supabase_hybrid_ask.rpc_calls})
 
 fake_supabase_hybrid_rerank = FakeSupabase(rpc_data={
-    "match_rag11_child_chunks": dense_ranked,
-    "match_rag11_child_chunks_keyword": keyword_ranked,
+    "match_lrm_chunks": dense_ranked,
+    "match_lrm_chunks_keyword": keyword_ranked,
 })
 fake_clients_hybrid_rerank = Clients(supabase=fake_supabase_hybrid_rerank, voyage=fake_voyage, anthropic=fake_anthropic)
 result_hybrid_rerank = ask_question(
@@ -589,7 +588,7 @@ result_hybrid_rerank = ask_question(
 check("ask_question(use_hybrid=True, use_rerank=True) marks both flags",
       result_hybrid_rerank["used_hybrid"] is True and result_hybrid_rerank["used_rerank"] is True)
 check("ask_question(use_hybrid=True, use_rerank=True) still queried both hybrid RPCs before reranking",
-      {"match_rag11_child_chunks", "match_rag11_child_chunks_keyword"}
+      {"match_lrm_chunks", "match_lrm_chunks_keyword"}
       == {name for name, _ in fake_supabase_hybrid_rerank.rpc_calls})
 
 # ---------------------------------------------------------------------------
@@ -610,7 +609,7 @@ check("ask_question(use_hyde=True) returns the hypothetical document used for re
       result_hyde["hypothetical_document"] == fake_anthropic.messages._answer_text)
 check("ask_question(use_hyde=True) still uses match_count chunks", result_hyde["chunks_used"] == 3)
 check("ask_question(use_hyde=True) queried the dense RPC with an embedding derived from the hypothetical doc",
-      fake_supabase_hyde_ask.rpc_calls[-1][0] == "match_rag11_child_chunks")
+      fake_supabase_hyde_ask.rpc_calls[-1][0] == "match_lrm_chunks")
 
 # ---------------------------------------------------------------------------
 # ask_question: use_multi_query is optional, defaults to False, takes
@@ -642,7 +641,7 @@ check("ask_question(use_multi_query=True) records the sub-questions searched",
           "How much protein per kg is recommended?",
       ])
 check("ask_question(use_multi_query=True) queried the dense RPC once per sub-question",
-      sum(1 for name, _ in fake_supabase_mq.rpc_calls if name == "match_rag11_child_chunks") == 2)
+      sum(1 for name, _ in fake_supabase_mq.rpc_calls if name == "match_lrm_chunks") == 2)
 
 result_multi_query_hyde_ignored = ask_question(
     MULTI_Q, match_count=3, use_multi_query=True, use_hyde=True, clients=fake_clients_mq,
@@ -653,8 +652,8 @@ check("ask_question(use_multi_query=True, use_hyde=True) ignores use_hyde (hypot
       and result_multi_query_hyde_ignored["used_multi_query"] is True)
 
 fake_supabase_mq_hybrid = FakeSupabase(rpc_data={
-    "match_rag11_child_chunks": dense_ranked,
-    "match_rag11_child_chunks_keyword": keyword_ranked,
+    "match_lrm_chunks": dense_ranked,
+    "match_lrm_chunks_keyword": keyword_ranked,
 })
 fake_clients_mq_hybrid = Clients(supabase=fake_supabase_mq_hybrid, voyage=fake_voyage, anthropic=fake_anthropic_mq)
 result_multi_query_hybrid = ask_question(
@@ -664,8 +663,8 @@ result_multi_query_hybrid = ask_question(
 check("ask_question(use_multi_query=True, use_hybrid=True) marks both flags",
       result_multi_query_hybrid["used_multi_query"] is True and result_multi_query_hybrid["used_hybrid"] is True)
 check("ask_question(use_multi_query=True, use_hybrid=True) queried both hybrid RPCs, once per sub-question",
-      sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_rag11_child_chunks") == 2
-      and sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_rag11_child_chunks_keyword") == 2)
+      sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_lrm_chunks") == 2
+      and sum(1 for name, _ in fake_supabase_mq_hybrid.rpc_calls if name == "match_lrm_chunks_keyword") == 2)
 
 # ---------------------------------------------------------------------------
 # ask_question: expand_to_parents is optional, defaults to False, and runs
@@ -685,8 +684,8 @@ check("ask_question(expand_to_parents=True) marks used_parent_expansion",
       result_expand["used_parent_expansion"] is True)
 check("ask_question(expand_to_parents=True) dedups chunks sharing one parent",
       result_expand["chunks_used"] == 1)
-check("ask_question(expand_to_parents=True) computes 1-based source_pages from the parent's start_page/end_page",
-      result_expand["source_pages"] == [41, 42, 43])
+check("ask_question(expand_to_parents=True) computes source_pages from the expanded page's page_number",
+      result_expand["source_pages"] == [41])
 
 # ---------------------------------------------------------------------------
 # env.optional_env_bool: parses the USE_* feature flags read by config.py
@@ -749,7 +748,7 @@ check("contains_devanagari", contains_devanagari("what is योग") and not co
 _plain_flags = dict(use_hybrid=False, use_hyde=False, use_multi_query=False, expand_to_parents=False)
 ask_question("q?", match_count=3, filter_owner="owner-X", system_prompt="CUSTOM SYSTEM", clients=fake_clients, **_plain_flags)
 check("ask_question(filter_owner=) reaches the dense RPC",
-      fake_supabase.rpc_calls[-1][0] == "match_rag11_child_chunks" and fake_supabase.rpc_calls[-1][1].get("filter_owner") == "owner-X")
+      fake_supabase.rpc_calls[-1][0] == "match_lrm_chunks" and fake_supabase.rpc_calls[-1][1].get("filter_owner") == "owner-X")
 check("ask_question(system_prompt=) replaces the default system prompt",
       fake_anthropic.messages.calls[-1]["system"] == "CUSTOM SYSTEM")
 ask_question("q?", match_count=3, clients=fake_clients, **_plain_flags)

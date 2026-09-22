@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p73-c17",
-  "parent_id": "source16-p73",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Energy metabolism | Pages 745-758]\n\nferred to the mitochondria. The mitochondrial membrane, however, is impermeable to NAD and NADH and shuttles exist to\ntransfer the reducing power (Hþ) in NADH into the mitochondria for oxidative phosphorylation. There are two possible shuttles\none that yields NADH within the mitochondria and one that yields FADH2.\nAn additional pathway of glucose metabolism is the pentose-phosphate pathway (hexose-monophosphate shunt) (Fig. 2). This\ntakes G6P and produces the ribose required for RNA and DNA synthesis. Alternatively the pathway can produce NADPH which is\nthe reducing power required by a number of cytosolic synthetic pathways, such as de novo fatty acid synthesis. NADPH is also used\nto reduce oxidized glutathione the major cellular antioxidant. When used for NADPH production the carbon re-enters the glycolytic\npathway as fructose 6-phosphate.\nPyruvate metabolism\nWithin the mitochondrial pyruvate is metabolized by pyruvate dehydrogenase, a multi-subunit complex, to yield acetyl CoA (Fig. 3)\n(Jeoung and Harris, 2010). The ﬁrst reaction, a thiamine dependent decarboxylase yields a 2 carbon (acetyl) group that is transferred\nto CoASH forming acetyl CoA. In so doing a lipoate group is reduced which must be re-oxidized to allow continued ﬂux through the\ncomplex. This is achieved by transferring the reducing power from the lipoate to NAD to form NADH via a FADH2 intermediate.\nThe reaction is highly regulated mainly by phosphorylation (inhibition) and dephosphorylation (activation) of the decarboxylation\nstep. Regulation of PDHC is extremely important at times of limited glucose",
-  "token_count": 400
-}

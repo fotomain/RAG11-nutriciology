@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RAG11 — How Parent-Chunk Expansion Works</title>
+<title>LRM11 — How Parent-Chunk Expansion Works</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <style>
   :root{
@@ -198,7 +198,7 @@
 <body>
 
 <header class="topnav" id="topnav">
-  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <div class="brand"><span class="brand-mark"></span>LRM11</div>
   <nav class="navlinks" id="navlinks">
     <a href="#overview">Overview</a>
     <a href="#problem">The Problem</a>
@@ -208,7 +208,7 @@
     <a href="#walkthrough">Walkthrough</a>
   </nav>
   <div class="navspacer"></div>
-  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to full data flow</a></div>
+  <div class="navmeta"><a href="LRM_ER_Model.html">&larr; Back to ER model</a></div>
 </header>
 
 <main>
@@ -221,7 +221,7 @@
       good for matching) for its <em>parent</em> chunk (the full section it was carved from, good
       for answering) right before Claude sees it. It fixes the case where the best-matching
       excerpt is too narrow to answer the whole question, even though it matched perfectly. No new
-      table, index, or migration is needed — <code class="pill">rag11_chunks_parent_table</code>
+      table, index, or migration is needed — <code class="pill">lrm_page_table</code>
       and the <code class="pill">rowParentGUID</code> foreign key already exist.
     </p>
     <div class="chipbar">
@@ -255,9 +255,9 @@
           fiber</strong>. The comparison Claude needs is incomplete, even though retrieval "worked."
         </li>
         <li>
-          The data already has the fix on hand: every child chunk's <code class="pill">rowParentGUID</code>
-          points at a bigger parent chunk from Stage 1.1 — the full section it was carved out of,
-          which usually discusses both fiber types together.
+          The data already has the fix on hand: every chunk's <code class="pill">rowParentGUID</code>
+          points at its full page — the page it was carved out of, which usually discusses
+          both fiber types together.
         </li>
         <li>
           The fix: after finding the best small chunk(s), swap them for their parent chunk(s)
@@ -324,8 +324,8 @@ flowchart TD
       </div>
       <div class="callout callout-parent">
         <h3>🟡 Parent chunk (after expansion)</h3>
-        <p>The full section (built once in Stage 1.1, stored in <code class="pill">rag11_chunks_parent_table</code>),
-        fetched by <code class="pill">crud_chunks_parent.read_parent_row(rowParentGUID)</code> and
+        <p>The full page (recognised once via py/lrm/data/recognize.py, stored in <code class="pill">lrm_page_table</code>),
+        fetched by <code class="pill">retrieval.read_page_row(rowParentGUID)</code> and
         swapped into the same row shape — same keys, same ranking metadata, bigger <code class="pill">text</code>.</p>
         <div class="example"><code class="pill">row["rowJSON"]["text"]</code> → the whole "Fiber" section, both fiber types included</div>
       </div>
@@ -363,7 +363,7 @@ flowchart TD
 
     <h3 style="margin-top:1.6rem;">Sizing: a parent chunk is a whole section, not a token budget</h3>
     <p class="lede">
-      Child chunks are capped at ~300–500 tokens by design (<code class="pill">stage1_1_eda_extract_and_chunk.ipynb</code>).
+      Chunks are capped at ~500 tokens by design (<code class="pill">CHUNK_TOKEN_BUDGET</code> in <code class="pill">py/lrm/chunks/build_chunks.py</code>).
       Parent chunks aren't — a parent is <em>one whole book section</em>, which can run from a
       paragraph to several thousand words. Sending an oversized parent unchecked could quietly
       consume the entire context budget <code class="pill">build_expanded_context_block()</code>
@@ -383,9 +383,9 @@ flowchart TD
     <div class="eyebrow">Reference</div>
     <h2>Python API</h2>
     <p class="lede">
-      No SQL migration needed — <code class="pill">rag11_chunks_parent_table</code>, its
+      No SQL migration needed — <code class="pill">lrm_page_table</code>, its
       <code class="pill">rowParentGUID</code> foreign key on the child table, and
-      <code class="pill">crud_chunks_parent.read_parent_row()</code> already exist. This is purely
+      <code class="pill">retrieval.read_page_row()</code> already exist. This is purely
       a query-time Python step.
     </p>
     <pre class="code"><span class="c"># low-level: expand whatever a prior retrieval step already returned</span>
@@ -402,8 +402,8 @@ result = ask_question(<span class="s">"..."</span>, expand_to_parents=<span clas
 result = ask_question(<span class="s">"..."</span>, use_hybrid=<span class="k">True</span>, use_rerank=<span class="k">True</span>, expand_to_parents=<span class="k">True</span>)   <span class="c"># hybrid + rerank + expand</span>
 result = ask_question(<span class="s">"..."</span>, expand_to_parents=<span class="k">True</span>, max_parent_chars=<span class="k">None</span>)                    <span class="c"># disable truncation</span></pre>
     <p class="caption">
-      See <code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code> for worked nutrition
-      examples, and <code class="pill">reusable_code/README.md</code> for the one-paragraph summary.
+      See <code class="pill">py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb</code> for worked
+      examples, and <code class="pill">py/reusable_code/README.md</code> for the one-paragraph summary.
     </p>
   </section>
 
@@ -463,13 +463,12 @@ result = ask_question(<span class="s">"..."</span>, expand_to_parents=<span clas
 </main>
 
 <footer>
-  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html</a><br>
-  Sourced from <code class="pill">reusable_code/parent_chunk_expansion.py</code>,
-  <code class="pill">reusable_code/crud_chunks_parent.py</code>,
-  <code class="pill">reusable_code/crud_chunks_child.py</code>,
-  <code class="pill">reusable_code/generation.py</code>,
-  <code class="pill">sql/create_sql_tables.sql</code>, and
-  <code class="pill">stage2_ask_examples4_parent_chunk_expansion.ipynb</code> in this repository.
+  <a class="backlink" href="LRM_ER_Model.html">&larr; Back to LRM_ER_Model.html</a><br>
+  Sourced from <code class="pill">py/reusable_code/parent_chunk_expansion.py</code>,
+  <code class="pill">py/reusable_code/retrieval.py</code>,
+  <code class="pill">py/reusable_code/generation.py</code>,
+  <code class="pill">sql/create_lrm_tables.sql</code>, and
+  <code class="pill">py/ipynb/stage2_ask_examples4_parent_chunk_expansion.ipynb</code> in this repository.
   Sample values in the walkthrough are illustrative, shaped to the pipeline's real schema.
 </footer>
 

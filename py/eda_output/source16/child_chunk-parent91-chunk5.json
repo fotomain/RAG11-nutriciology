@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p91-c5",
-  "parent_id": "source16-p91",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Fatty acids: Metabolism | Pages 948-961]\n\n associated with binding or trans-\nport proteins (Schwenk et al., 2010; Xu et al., 2019). Serum albumin has at least six binding sites for FAs and is the primary trans-\nporter of these molecules through the bloodstream. Several low molecular weight intracellular FA binding proteins (FABPs) have\nalso been identiﬁed. Free FAs can also associate with lipophilic cellular and organellar membranes; however, concentrations of these\nnonesteriﬁed compounds in membranes is typically very low.\nFatty acid activation\nFAs are generally nonreactive unless ﬁrst “activated” in an ATP-dependent process by thioesteriﬁcation to coenzyme A (CoA)\n(reviewed in Watkins, 1997). Activation is catalyzed by acyl-CoA synthetases (ACS; E.C. 6.2.1.x) via a bi uni uni bi ping-pong mech-\nanism. In the ﬁrst half-reaction, an acyl-adenylate intermediate is formed, with the release of inorganic pyrophosphate (PPi):\nPyrophosphatases rapidly cleave PPi, effectively preventing reversal of this reaction. In the second half-reaction, CoA displaces\nAMP to form the acyl-CoA:\nThe thioester bond between the acyl moiety and CoA is a high-energy bond that facilitates subsequent participation of the FA in\nmetabolic pathways. Humans have more than 25 ACSs that differ in their tissue expression, subcellular location, and FA chain\nlength preference.\nMitochondrial fatty acid b-oxidation\nTo recover their stored energy, FAs must be oxidized. Quantitatively, the most important energy-yielding degradation pathway is\nmitochondrial b-oxidation (Fig. 2) (reviewed in Houten et al., 2016). In the fed",
-  "token_count": 400
-}

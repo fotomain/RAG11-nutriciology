@@ -1,9 +1,0 @@
-{
-  "child_id": "source16-p139-c22",
-  "parent_id": "source16-p139",
-  "source_key": "source16",
-  "source_row_guid": "f61ff3bd-71d8-5988-9869-af2e086f35ba",
-  "chunk_type": "prose",
-  "text": "[Source: Encyclopedia_of_Human_Nutrition_4th_Edition_Benjamin_Caballero.pdf | Section: Cancer: Carcinogenic substances in food | Pages 1468-1478]\n\nomers and haloalkanes, acrylamide, and CYP3A, which also activates PAHs, aﬂatoxins, and\ncooked food mutagens (Anderson and Phillips, 2013).\nThe chemistry of the activation process varies with the type of carcinogen. The oxidation of aﬂatoxin B1, for example, results in\nthe formation of the 8,9-epoxide in a single step whereas the activation of PAHs, such as benzo(a)pyrene, is a multi-step process\ninvolving an epoxide that is converted to a diol by epoxide hydrolase, which is then converted to the proximate carcinogenic\nspecies, a diol-epoxide. Activation of arylamines and amides to DNA reactive species, in contrast, frequently involves an initial\noxidation step to an N-hydroxy derivative, which is then further metabolized to a highly reactive NeO-ester. This latter reaction is\ncatalyzed by a transferase enzyme, usually sulfotransferase or acetyltransferase for arylamines and glucuronotransferase for ary-\nlamides. Other oxidative reactions result in the formation of unstable compounds that decompose spontaneously to the ultimate\ncarcinogenic species. Thus, simple nitrosamines are oxidized by CYP2E1 to an a-hydroxy intermediate, which breaks down to the\nelectrophilic alkyldiazonium ion (Anderson and Phillips, 2013). This isoenzyme CYP2E1 is involved in the formation of glyci-\ndamide (GA) from acrylamide by epoxidation, which is considered the route underlying the genotoxicity and carcinogenicity of\nacrylamide.\nEnzyme systems other than the mixed function oxidase system may also be involved in the metabolic activation of carcinogens:\nprostag",
-  "token_count": 400
-}

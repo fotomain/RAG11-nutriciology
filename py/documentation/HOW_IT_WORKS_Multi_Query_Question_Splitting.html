@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RAG11 — How Multi-Query / Question Splitting Works</title>
+<title>LRM11 — How Multi-Query / Question Splitting Works</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <style>
   :root{
@@ -200,7 +200,7 @@
 <body>
 
 <header class="topnav" id="topnav">
-  <div class="brand"><span class="brand-mark"></span>RAG11</div>
+  <div class="brand"><span class="brand-mark"></span>LRM11</div>
   <nav class="navlinks" id="navlinks">
     <a href="#overview">Overview</a>
     <a href="#problem">The Problem</a>
@@ -210,7 +210,7 @@
     <a href="#walkthrough">Walkthrough</a>
   </nav>
   <div class="navspacer"></div>
-  <div class="navmeta"><a href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to full data flow</a></div>
+  <div class="navmeta"><a href="LRM_ER_Model.html">&larr; Back to ER model</a></div>
 </header>
 
 <main>
@@ -413,8 +413,8 @@ result = ask_question(<span class="s">"..."</span>, use_multi_query=<span class=
 result = ask_question(<span class="s">"..."</span>, use_multi_query=<span class="k">True</span>, use_hybrid=<span class="k">True</span>, use_rerank=<span class="k">True</span>,
                        expand_to_parents=<span class="k">True</span>)                                                            <span class="c"># full pipeline</span></pre>
     <p class="caption">
-      See <code class="pill">stage2_ask_examples6_multi_query_question_splitting.ipynb</code> for
-      worked nutrition examples, and <code class="pill">reusable_code/README.md</code> for the
+      See <code class="pill">py/ipynb/stage2_ask_examples6_multi_query_question_splitting.ipynb</code> for
+      worked examples, and <code class="pill">py/reusable_code/README.md</code> for the
       one-paragraph summary.
     </p>
   </section>
@@ -478,11 +478,11 @@ result = ask_question(<span class="s">"..."</span>, use_multi_query=<span class=
 </main>
 
 <footer>
-  <a class="backlink" href="RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html">&larr; Back to RAG11_HOW_IT_WORKS_DATA_FLOW_v5.html</a><br>
-  Sourced from <code class="pill">reusable_code/multi_query_question_splitting.py</code>,
-  <code class="pill">reusable_code/hybrid_search.py</code>,
-  <code class="pill">reusable_code/generation.py</code>, and
-  <code class="pill">stage2_ask_examples6_multi_query_question_splitting.ipynb</code> in this
+  <a class="backlink" href="LRM_ER_Model.html">&larr; Back to LRM_ER_Model.html</a><br>
+  Sourced from <code class="pill">py/reusable_code/multi_query_question_splitting.py</code>,
+  <code class="pill">py/reusable_code/hybrid_search.py</code>,
+  <code class="pill">py/reusable_code/generation.py</code>, and
+  <code class="pill">py/ipynb/stage2_ask_examples6_multi_query_question_splitting.ipynb</code> in this
   repository. Sample values in the walkthrough are illustrative, shaped to the pipeline's real
   schema.
 </footer>

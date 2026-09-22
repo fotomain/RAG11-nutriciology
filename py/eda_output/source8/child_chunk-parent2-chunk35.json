@@ -1,9 +1,0 @@
-{
-  "child_id": "source8-p2-c35",
-  "parent_id": "source8-p2",
-  "source_key": "source8",
-  "source_row_guid": "65bf9a74-515d-5c89-b326-3655e12992e7",
-  "chunk_type": "prose",
-  "text": "[Source: Krauses_Food_and_the_Nutrition_Care_Process.pdf | Section: 2 Intake: Energy | Pages 39-49]\n\n Intake: Energy\nwalking for 1 hour at 4 mph (0.20) and ice skating for \n30 minutes (0.13) for a total of 0.7. To that value add the BEE \nadjusted for the 10% TEF (1.1) for the final calculation:\n0.7 1 1.1 5 1.8\nFor this woman, the PAL value (1.8) falls within an active range. \nThe PA coefficient that correlates with an active lifestyle for this \nwoman is 1.27.\nTo calculate the EER for this adult woman, age 30, use the EER \nequation for women 19 years and older (BMI 18.5-25 kg/m2); see \nBox 2-1. The following calculation estimates the EER for a \n30-year-old active woman who weighs 65 kg, is 1.77 m tall, with \na PA coefficient (1.27):\nEER 5 354 - 6.91 3 Age (yr) 1 PA 3 (9.36 \n3 Weight [kg] 1 726 3 Height [m])\nEER 5 354 – (6.91 3 30) 1 1.27 3 ([9.36 3 65] \n1 [726 3 1.77])\nEER 5 2551 kcal\nEnergy spent during various activities and the intensity and \nimpact of selected activities also can be determined for children \nand teens (see Box 2-1).\nPhysical Activity in Children\nCALCULATING FOOD ENERGY\nThe total energy available from a food is measured with a bomb \ncalorimeter. This device consists of a closed container in which \na weighed food sample, ignited with an electric spark, is burned \nin an oxygenated atmosphere. The container is immersed in a \nknown",
-  "token_count": 400
-}

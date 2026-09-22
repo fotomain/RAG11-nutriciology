@@ -1,9 +1,0 @@
-{
-  "child_id": "source15-p12-c14",
-  "parent_id": "source15-p12",
-  "source_key": "source15",
-  "source_row_guid": "9a07d851-ff42-5bc1-a7f8-24b8ee0b7d23",
-  "chunk_type": "prose",
-  "text": "[Source: vdoc.pub_nutrition-therapy-and-pathophysiology-2nd-edition.pdf | Section: 12 Energy Balance and Body Weight | Pages 279-323]\n\n a predictive equation that uses\nvariables such as sex, age, weight, stature (height), and physical\nactivity level. However, in critically ill patients, it may be neces-\nsary to more accurately determine energy requirements using\nindirect calorimetry. Doubly labeled water is commonly used \nin human metabolic research, while use of direct calorimetry \nis limited by the small number of research facilities having the\nnecessary technology.\nEquations In most instances, an individual’s energy require-\nments are estimated using one of several empirically derived\nequations. Two examples are the Harris-Benedict equations \ndeveloped in the early 1900s by the researchers J. A. Harris \nand F. G. Benedict, and those developed in the 1980s by the\nWorld Health Organization (WHO), both of which are shown \nin Table 12.1. Harris and Benedict measured the resting energy \nexpenditures (REE) of 239 healthy young adult males and \nfemales using indirect calorimetry (discussed later in this chap-\nter) and then developed a set of regression equations that best\npredicted REE using the variables sex, weight, stature (height),\nand age.6 Although originally published in 1919, their equations\nremain in use today for healthy individuals. (See Chapters 5\nTable 12.1 Examples of Equations for Estimating \nResting Energy Expenditure in Healthy Persons1\nHarris-Benedict\nFemales\nMales\nREE \u0002 655.096 \u0004 9.563 W \u0004 1.850 S \u0005 4.676 A\nREE \u0002 66.473 \u0004 13.752 W \u0004 5.003 S \u0005 6.755 A\nHarris-Benedict (Values Rounded for Simplicity)\nFemales\nMales\nREE \u0002 655.1 \u0004 9.",
-  "token_count": 400
-}
