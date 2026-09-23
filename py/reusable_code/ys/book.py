@@ -37,7 +37,7 @@ def find_book(clients: Optional[Clients] = None) -> BookStatus:
         raise RuntimeError(
             "The Yoga-Sutra book is not in the database. First time only: paste sql/create_lrm_tables.sql "
             "into the Supabase SQL Editor and run it. Then run the LRM pipeline: "
-            "py/run/run1_lrm_eda.command, then run2_lrm_upload.command, then run2b_lrm_chunks.command."
+            "py/run/run1_lrm_eda.command, then run2_lrm_upload.command."
         )
     row = rows[0]
     guid = row["rowGUID"]
@@ -61,5 +61,5 @@ def readiness_message(status: BookStatus) -> str:
         "'the excerpts do not contain ...'. To load it:\n"
         "  1. in .env set MAX_NUMBER_OF_PAGES_TO_USE=NONE (and restart the notebook kernel)\n"
         "  2. re-run py/run/run1_lrm_eda.command\n"
-        "  3. run2_lrm_upload.command, then run2b_lrm_chunks.command\n"
+        "  3. run2_lrm_upload.command\n"
     )

@@ -96,8 +96,7 @@ First time only — the upload/chunk scripts talk to Supabase over its REST API 
 
 ```bash
 ./py/run/run1_lrm_eda.command        # 3.1 download -> recognise -> translate every source PDF
-./py/run/run2_lrm_upload.command     # 3.3 upload lrm_source_table/lrm_page_table to Supabase
-./py/run/run2b_lrm_chunks.command    # 3.4 chunk + embed into lrm_child_chunk_table
+./py/run/run2_lrm_upload.command     # 3.3 upload lrm_source_table/lrm_page_table + 3.4 chunk/embed into lrm_child_chunk_table
 ./py/run/run3_lrm_fastapi.command    # serve the API on :8000 (GET /sources, /page, /files, POST /ask)
 ./py/run/run4_lrm_frontend.command   # serve the Expo web viewer on :8081
 ./py/run/ask_lrm.command "question"  # ask a question from the terminal (see Step 5)
