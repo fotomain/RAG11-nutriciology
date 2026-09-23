@@ -9,8 +9,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from reasoning import router as reasoning_router  # noqa: E402
-from sources import OUT, router as sources_router  # noqa: E402
+from .reasoning import router as reasoning_router  # noqa: E402
+from .sources import OUT, router as sources_router  # noqa: E402
 
 app = FastAPI(title="LRM API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"])

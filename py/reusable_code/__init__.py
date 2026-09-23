@@ -49,11 +49,11 @@ from .config import (
     USE_PARENT_CHUNK_EXPANSION,
     USE_REASONING,
 )
-from .deduplication import (
+from .ask.deduplication import (
     first_occurrence_map,
     group_by_key,
 )
-from .generation import (
+from .ask.generation import (
     MAX_ANSWER_TOKENS,
     SYSTEM_PROMPT,
     ask_question,
@@ -61,8 +61,8 @@ from .generation import (
     extract_short_answer,
     grounding_words,
 )
-from .devanagari import contains_devanagari, romanize_devanagari
-from .display import (
+from .ask.devanagari import contains_devanagari, romanize_devanagari
+from .ask.display import (
     answer_html,
     format_pages,
     qa_card_html,
@@ -70,7 +70,7 @@ from .display import (
     show_summary,
     summary_table_html,
 )
-from .language import (
+from .ask.language import (
     PreparedQuestion,
     answer_language_directive,
     language_name,
@@ -78,7 +78,7 @@ from .language import (
 )
 from .git_sync import save_to_github
 from .reasoning import ask_with_reasoning
-from .hybrid_search import (
+from .eda.transform.hybrid_search import (
     HYBRID_MIN_POOL,
     HYBRID_POOL_MULTIPLIER,
     RRF_K,
@@ -86,14 +86,14 @@ from .hybrid_search import (
     reciprocal_rank_fusion,
     retrieve_chunks_keyword,
 )
-from .hypothetical_document_embedding import (
+from .eda.transform.hypothetical_document_embedding import (
     HYDE_MAX_TOKENS,
     HYDE_SYSTEM_PROMPT,
     embed_hypothetical_document,
     generate_hypothetical_document,
     retrieve_chunks_hyde,
 )
-from .multi_query_question_splitting import (
+from .eda.transform.multi_query_question_splitting import (
     MAX_SUBQUESTIONS,
     MULTI_QUERY_MAX_TOKENS,
     MULTI_QUERY_MIN_POOL,
@@ -102,19 +102,19 @@ from .multi_query_question_splitting import (
     retrieve_chunks_multi_query,
     split_into_subquestions,
 )
-from .parent_chunk_expansion import (
+from .eda.transform.parent_chunk_expansion import (
     DEFAULT_MAX_PARENT_CHARS,
     build_expanded_context_block,
     expand_to_parent_chunks,
     page_numbers_for_expanded_chunk,
 )
-from .rerunk_code import (
+from .ask.rerunk_code import (
     RERANK_MIN_POOL,
     RERANK_POOL_MULTIPLIER,
     rerank_chunks,
     update_rank_value,
 )
-from .retrieval import (
+from .ask.retrieval import (
     MIN_CONTEXT_CHUNKS,
     NUM_CONTEXT_CHUNKS,
     embed_query,

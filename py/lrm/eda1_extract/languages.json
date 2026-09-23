@@ -1,7 +1,0 @@
-{
-  "fr": {"name": "Français", "short": "FR", "prompt_name": "French", "source": true},
-  "en": {"name": "English", "short": "EN", "prompt_name": "American English (US)",
-         "style": "- Use American English spelling and punctuation, with curly quotation marks “ ”."},
-  "ru": {"name": "Русский", "short": "RU", "prompt_name": "Russian",
-         "style": "- Write in a natural, literary scholarly Russian. Use «…» quotation marks and the em dash — per Russian typography. Do not transliterate the Sanskrit or Latin kept in [[ ]]; leave it in the source form."}
-}

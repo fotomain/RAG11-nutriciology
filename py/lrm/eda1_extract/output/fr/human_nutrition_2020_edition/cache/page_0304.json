@@ -1,0 +1,34 @@
+{
+ "lang": "fr",
+ "page": 304,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "texts": {
+  "p0304_b001": "Unis, considérons ceci : aux États-Unis, environ 130 millions d'adultes sont en surpoids, et 30 pour cent d'entre eux sont considérés comme obèses. L'épidémie d'obésité a atteint les jeunes adultes et les enfants et affectera de manière marquée la prévalence de graves conséquences sanitaires à l'âge adulte. Les conséquences sur la santé liées au surpoids ou à l'obésité comprennent le diabète de type 2, les maladies cardiovasculaires, l'arthrite, la dépression et certains cancers. Un engouement pour les aliments sucrés et les céréales raffinées contribue probablement à la proportion épidémique de personnes en surpoids ou obèses dans ce pays, mais il en va de même pour la consommation d'aliments riches en calories contenant trop de graisses saturées et pour le mode de vie sédentaire de la plupart des Américains. De grands désaccords subsistent quant à savoir si les régimes riches en glucides augmentent la prise de poids et le risque de maladie, en particulier lorsque les apports caloriques ne diffèrent pas significativement entre les régimes comparés. De nombreuses études scientifiques démontrent des corrélations positives entre des régimes riches en sucres ajoutés et la prise de poids ainsi que le risque de maladie, mais d'autres ne montrent pas de relation significative. En ce qui concerne les céréales raffinées, aucune étude ne montre que leur consommation augmente la prise de poids ou le risque de maladie. Ce qui est clair, en revanche, c'est que tirer une plus grande part de ses glucides de sources alimentaires contenant des céréales complètes plutôt que des céréales raffinées stimule la perte de poids et réduit le risque de maladie.",
+  "p0304_b002": "Une source majeure de sucres ajoutés dans le régime alimentaire américain est constituée par les boissons gazeuses. Il existe des preuves scientifiques cohérentes selon lesquelles la consommation de boissons gazeuses sucrées augmente la prise de poids et le risque de maladie. Une analyse de plus de trente études publiée dans l'American Journal of Clinical Nutrition a conclu qu'il existe de nombreuses preuves indiquant qu'une consommation plus élevée de boissons sucrées est liée à la prise de poids et à l'obésité. <sup>2</sup> Une étude menée à la Harvard School of Public Health",
+  "p0304_b003": "2. Malik VS, Schulze MB, Hu FB. (2006). Intake of Sugar- Sweetened Beverages and Weight Gain: A Systematic Review. American Journal of Clinical Nutrition, 84(2),"
+ },
+ "source_marked": {
+  "p0304_b001": "States consider this–in the United States approximately 130 million adults are overweight, and 30 percent of them are considered obese. The obesity epidemic has reached young adults and children and will markedly affect the prevalence of serious health consequences in adulthood. Health consequences linked to being overweight or obese include Type 2 diabetes, cardiovascular disease, arthritis, depression, and some cancers. An infatuation with sugary foods and refined grains likely contributes to the epidemic proportion of people who are overweight or obese in this country, but so do the consumption of high-calorie foods that contain too much saturated fat and the sedentary lifestyle of most Americans. There is much disagreement over whether high-carbohydrate diets increase weight-gain and disease risk, especially when calories are not significantly higher between compared diets. Many scientific studies demonstrate positive correlations between diets high in added sugars with weight gain and disease risk, but some others do not show a significant relationship. In regard to refined grains, there are no studies that show consumption of refined grains increases weight gain or disease risk. What is clear, however, is that getting more of your carbohydrates from dietary sources containing whole grains instead of refined grains stimulates weight loss and reduces disease risk.",
+  "p0304_b002": "A major source of added sugars in the American diet is soft drinks. There is consistent scientific evidence that consuming sugary soft drinks increases weight gain and disease risk. An analysis of over thirty studies in the American Journal of Clinical Nutrition concluded that there is much evidence to indicate higher consumption of sugar-sweetened beverages is linked with weight gain and obesity. <sup>2</sup> A study at the Harvard School of Public Health",
+  "p0304_b003": "2. Malik VS, Schulze MB, Hu FB. (2006). Intake of Sugar- Sweetened Beverages and Weight Gain: A Systematic Review. American Journal of Clinical Nutrition, 84(2),"
+ },
+ "missing": [],
+ "qa": {
+  "p0304_b001": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.2
+  },
+  "p0304_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.3
+  },
+  "p0304_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.0
+  }
+ }
+}

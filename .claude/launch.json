@@ -4,7 +4,7 @@
     {
       "name": "lrm-fastapi",
       "runtimeExecutable": "py/.venv/bin/python3",
-      "runtimeArgs": ["-m", "uvicorn", "--app-dir", "py/api", "main:app", "--port", "8000"],
+      "runtimeArgs": ["-m", "uvicorn", "--app-dir", "py", "api.main:app", "--port", "8000"],
       "port": 8000
     },
     {

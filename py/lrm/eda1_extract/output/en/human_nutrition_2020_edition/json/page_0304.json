@@ -1,0 +1,6701 @@
+{
+ "schema_version": 1,
+ "page": 304,
+ "printed_page_number": "",
+ "image": "en/human_nutrition_2020_edition/pages/page_0304.png",
+ "lang": "en",
+ "source_key": "human_nutrition_2020_edition",
+ "image_size": {
+  "width": 935,
+  "height": 1445
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": "Human Nutrition. 2020 Edition.pdf",
+ "model": "gemini-3.5-flash-lite",
+ "blocks": [
+  {
+   "id": "p0304_b001",
+   "local_id": "b1",
+   "type": "paragraph",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.143,
+    "y": 0.0952,
+    "w": 0.7139,
+    "h": 0.4981
+   },
+   "text": "States consider this–in the United States approximately 130 million adults are overweight, and 30 percent of them are considered obese. The obesity epidemic has reached young adults and children and will markedly affect the prevalence of serious health consequences in adulthood. Health consequences linked to being overweight or obese include Type 2 diabetes, cardiovascular disease, arthritis, depression, and some cancers. An infatuation with sugary foods and refined grains likely contributes to the epidemic proportion of people who are overweight or obese in this country, but so do the consumption of high-calorie foods that contain too much saturated fat and the sedentary lifestyle of most Americans. There is much disagreement over whether high-carbohydrate diets increase weight-gain and disease risk, especially when calories are not significantly higher between compared diets. Many scientific studies demonstrate positive correlations between diets high in added sugars with weight gain and disease risk, but some others do not show a significant relationship. In regard to refined grains, there are no studies that show consumption of refined grains increases weight gain or disease risk. What is clear, however, is that getting more of your carbohydrates from dietary sources containing whole grains instead of refined grains stimulates weight loss and reduces disease risk.",
+   "words": [
+    {
+     "id": "p0304_b001_w001",
+     "text": "States",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.0952,
+      "w": 0.0647,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 6,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.098,
+      "w": 0.063,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w002",
+     "text": "consider",
+     "bbox": {
+      "x": 0.2144,
+      "y": 0.0952,
+      "w": 0.0916,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 7,
+     "char_end": 15,
+     "bbox_gemini": {
+      "x": 0.216,
+      "y": 0.098,
+      "w": 0.073,
+      "h": 0.032
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w003",
+     "text": "this–in",
+     "bbox": {
+      "x": 0.3126,
+      "y": 0.0952,
+      "w": 0.0753,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 16,
+     "char_end": 23,
+     "bbox_gemini": {
+      "x": 0.295,
+      "y": 0.097,
+      "w": 0.087,
+      "h": 0.036
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w004",
+     "text": "the",
+     "bbox": {
+      "x": 0.3945,
+      "y": 0.0952,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 24,
+     "char_end": 27,
+     "bbox_gemini": {
+      "x": 0.389,
+      "y": 0.097,
+      "w": 0.029,
+      "h": 0.029
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w005",
+     "text": "United",
+     "bbox": {
+      "x": 0.4356,
+      "y": 0.0952,
+      "w": 0.0718,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 28,
+     "char_end": 34,
+     "bbox_gemini": {
+      "x": 0.426,
+      "y": 0.098,
+      "w": 0.053,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w006",
+     "text": "States",
+     "bbox": {
+      "x": 0.5139,
+      "y": 0.0952,
+      "w": 0.0647,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 35,
+     "char_end": 41,
+     "bbox_gemini": {
+      "x": 0.487,
+      "y": 0.097,
+      "w": 0.065,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w007",
+     "text": "approximately",
+     "bbox": {
+      "x": 0.5851,
+      "y": 0.0952,
+      "w": 0.1512,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 42,
+     "char_end": 55,
+     "bbox_gemini": {
+      "x": 0.559,
+      "y": 0.097,
+      "w": 0.102,
+      "h": 0.037
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w008",
+     "text": "130",
+     "bbox": {
+      "x": 0.7428,
+      "y": 0.0952,
+      "w": 0.035,
+      "h": 0.0178
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 56,
+     "char_end": 59,
+     "bbox_gemini": {
+      "x": 0.67,
+      "y": 0.097,
+      "w": 0.029,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w009",
+     "text": "million",
+     "bbox": {
+      "x": 0.7843,
+      "y": 0.0952,
+      "w": 0.0724,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 60,
+     "char_end": 67,
+     "bbox_gemini": {
+      "x": 0.708,
+      "y": 0.098,
+      "w": 0.06,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w010",
+     "text": "adults",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.118,
+      "w": 0.0643,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 68,
+     "char_end": 74,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.121,
+      "w": 0.058,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w011",
+     "text": "are",
+     "bbox": {
+      "x": 0.2204,
+      "y": 0.118,
+      "w": 0.0337,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 75,
+     "char_end": 78,
+     "bbox_gemini": {
+      "x": 0.211,
+      "y": 0.122,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w012",
+     "text": "overweight,",
+     "bbox": {
+      "x": 0.267,
+      "y": 0.118,
+      "w": 0.1246,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 79,
+     "char_end": 90,
+     "bbox_gemini": {
+      "x": 0.256,
+      "y": 0.122,
+      "w": 0.098,
+      "h": 0.038
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w013",
+     "text": "and",
+     "bbox": {
+      "x": 0.4045,
+      "y": 0.118,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 91,
+     "char_end": 94,
+     "bbox_gemini": {
+      "x": 0.365,
+      "y": 0.122,
+      "w": 0.035,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w014",
+     "text": "30",
+     "bbox": {
+      "x": 0.4565,
+      "y": 0.118,
+      "w": 0.0268,
+      "h": 0.0178
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 95,
+     "char_end": 97,
+     "bbox_gemini": {
+      "x": 0.41,
+      "y": 0.121,
+      "w": 0.032,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w015",
+     "text": "percent",
+     "bbox": {
+      "x": 0.4961,
+      "y": 0.118,
+      "w": 0.0823,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 98,
+     "char_end": 105,
+     "bbox_gemini": {
+      "x": 0.452,
+      "y": 0.121,
+      "w": 0.064,
+      "h": 0.032
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w016",
+     "text": "of",
+     "bbox": {
+      "x": 0.5912,
+      "y": 0.118,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 106,
+     "char_end": 108,
+     "bbox_gemini": {
+      "x": 0.527,
+      "y": 0.122,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w017",
+     "text": "them",
+     "bbox": {
+      "x": 0.625,
+      "y": 0.118,
+      "w": 0.055,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 109,
+     "char_end": 113,
+     "bbox_gemini": {
+      "x": 0.558,
+      "y": 0.123,
+      "w": 0.041,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w018",
+     "text": "are",
+     "bbox": {
+      "x": 0.6929,
+      "y": 0.118,
+      "w": 0.0337,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 114,
+     "char_end": 117,
+     "bbox_gemini": {
+      "x": 0.608,
+      "y": 0.122,
+      "w": 0.038,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w019",
+     "text": "considered",
+     "bbox": {
+      "x": 0.7395,
+      "y": 0.118,
+      "w": 0.1174,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 118,
+     "char_end": 128,
+     "bbox_gemini": {
+      "x": 0.656,
+      "y": 0.122,
+      "w": 0.097,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w020",
+     "text": "obese.",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1409,
+      "w": 0.0672,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 129,
+     "char_end": 135,
+     "bbox_gemini": {
+      "x": 0.142,
+      "y": 0.147,
+      "w": 0.056,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w021",
+     "text": "The",
+     "bbox": {
+      "x": 0.2166,
+      "y": 0.1409,
+      "w": 0.0405,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 136,
+     "char_end": 139,
+     "bbox_gemini": {
+      "x": 0.206,
+      "y": 0.146,
+      "w": 0.032,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w022",
+     "text": "obesity",
+     "bbox": {
+      "x": 0.2632,
+      "y": 0.1409,
+      "w": 0.0765,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 140,
+     "char_end": 147,
+     "bbox_gemini": {
+      "x": 0.247,
+      "y": 0.147,
+      "w": 0.055,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w023",
+     "text": "epidemic",
+     "bbox": {
+      "x": 0.3458,
+      "y": 0.1409,
+      "w": 0.0969,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 148,
+     "char_end": 156,
+     "bbox_gemini": {
+      "x": 0.311,
+      "y": 0.147,
+      "w": 0.063,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w024",
+     "text": "has",
+     "bbox": {
+      "x": 0.4489,
+      "y": 0.1409,
+      "w": 0.0358,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 157,
+     "char_end": 160,
+     "bbox_gemini": {
+      "x": 0.382,
+      "y": 0.147,
+      "w": 0.033,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w025",
+     "text": "reached",
+     "bbox": {
+      "x": 0.4909,
+      "y": 0.1409,
+      "w": 0.0852,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 161,
+     "char_end": 168,
+     "bbox_gemini": {
+      "x": 0.423,
+      "y": 0.146,
+      "w": 0.055,
+      "h": 0.032
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w026",
+     "text": "young",
+     "bbox": {
+      "x": 0.5823,
+      "y": 0.1409,
+      "w": 0.065,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 169,
+     "char_end": 174,
+     "bbox_gemini": {
+      "x": 0.487,
+      "y": 0.147,
+      "w": 0.047,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w027",
+     "text": "adults",
+     "bbox": {
+      "x": 0.6534,
+      "y": 0.1409,
+      "w": 0.0643,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 175,
+     "char_end": 181,
+     "bbox_gemini": {
+      "x": 0.543,
+      "y": 0.148,
+      "w": 0.055,
+      "h": 0.029
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w028",
+     "text": "and",
+     "bbox": {
+      "x": 0.7239,
+      "y": 0.1409,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 182,
+     "char_end": 185,
+     "bbox_gemini": {
+      "x": 0.607,
+      "y": 0.148,
+      "w": 0.035,
+      "h": 0.029
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w029",
+     "text": "children",
+     "bbox": {
+      "x": 0.7692,
+      "y": 0.1409,
+      "w": 0.0876,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 186,
+     "char_end": 194,
+     "bbox_gemini": {
+      "x": 0.651,
+      "y": 0.147,
+      "w": 0.067,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w030",
+     "text": "and",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1638,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 195,
+     "char_end": 198,
+     "bbox_gemini": {
+      "x": 0.142,
+      "y": 0.17,
+      "w": 0.035,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w031",
+     "text": "will",
+     "bbox": {
+      "x": 0.2031,
+      "y": 0.1638,
+      "w": 0.0369,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 199,
+     "char_end": 203,
+     "bbox_gemini": {
+      "x": 0.186,
+      "y": 0.17,
+      "w": 0.032,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w032",
+     "text": "markedly",
+     "bbox": {
+      "x": 0.226,
+      "y": 0.17,
+      "w": 0.069,
+      "h": 0.036
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 204,
+     "char_end": 212,
+     "bbox_gemini": {
+      "x": 0.226,
+      "y": 0.17,
+      "w": 0.069,
+      "h": 0.036
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w033",
+     "text": "affect",
+     "bbox": {
+      "x": 0.3793,
+      "y": 0.1638,
+      "w": 0.0602,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 213,
+     "char_end": 219,
+     "bbox_gemini": {
+      "x": 0.304,
+      "y": 0.17,
+      "w": 0.054,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w034",
+     "text": "the",
+     "bbox": {
+      "x": 0.4603,
+      "y": 0.1638,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 220,
+     "char_end": 223,
+     "bbox_gemini": {
+      "x": 0.366,
+      "y": 0.17,
+      "w": 0.031,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w035",
+     "text": "prevalence",
+     "bbox": {
+      "x": 0.5159,
+      "y": 0.1638,
+      "w": 0.115,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 224,
+     "char_end": 234,
+     "bbox_gemini": {
+      "x": 0.405,
+      "y": 0.17,
+      "w": 0.083,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w036",
+     "text": "of",
+     "bbox": {
+      "x": 0.6517,
+      "y": 0.1638,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 235,
+     "char_end": 237,
+     "bbox_gemini": {
+      "x": 0.497,
+      "y": 0.171,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w037",
+     "text": "serious",
+     "bbox": {
+      "x": 0.6934,
+      "y": 0.1638,
+      "w": 0.0763,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 238,
+     "char_end": 245,
+     "bbox_gemini": {
+      "x": 0.528,
+      "y": 0.171,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w038",
+     "text": "health",
+     "bbox": {
+      "x": 0.7906,
+      "y": 0.1638,
+      "w": 0.0662,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 246,
+     "char_end": 252,
+     "bbox_gemini": {
+      "x": 0.588,
+      "y": 0.17,
+      "w": 0.05,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w039",
+     "text": "consequences",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1867,
+      "w": 0.1494,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 253,
+     "char_end": 265,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.195,
+      "w": 0.117,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w040",
+     "text": "in",
+     "bbox": {
+      "x": 0.3021,
+      "y": 0.1867,
+      "w": 0.0201,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 266,
+     "char_end": 268,
+     "bbox_gemini": {
+      "x": 0.269,
+      "y": 0.195,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w041",
+     "text": "adulthood.",
+     "bbox": {
+      "x": 0.3319,
+      "y": 0.1867,
+      "w": 0.1132,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 269,
+     "char_end": 279,
+     "bbox_gemini": {
+      "x": 0.299,
+      "y": 0.195,
+      "w": 0.087,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w042",
+     "text": "Health",
+     "bbox": {
+      "x": 0.4547,
+      "y": 0.1867,
+      "w": 0.0698,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 280,
+     "char_end": 286,
+     "bbox_gemini": {
+      "x": 0.396,
+      "y": 0.195,
+      "w": 0.054,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w043",
+     "text": "consequences",
+     "bbox": {
+      "x": 0.458,
+      "y": 0.195,
+      "w": 0.119,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 287,
+     "char_end": 299,
+     "bbox_gemini": {
+      "x": 0.458,
+      "y": 0.195,
+      "w": 0.119,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w044",
+     "text": "linked",
+     "bbox": {
+      "x": 0.6931,
+      "y": 0.1867,
+      "w": 0.0642,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 300,
+     "char_end": 306,
+     "bbox_gemini": {
+      "x": 0.586,
+      "y": 0.195,
+      "w": 0.041,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w045",
+     "text": "to",
+     "bbox": {
+      "x": 0.7669,
+      "y": 0.1867,
+      "w": 0.0221,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 307,
+     "char_end": 309,
+     "bbox_gemini": {
+      "x": 0.635,
+      "y": 0.195,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w046",
+     "text": "being",
+     "bbox": {
+      "x": 0.664,
+      "y": 0.195,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 310,
+     "char_end": 315,
+     "bbox_gemini": {
+      "x": 0.664,
+      "y": 0.195,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w047",
+     "text": "overweight",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.219,
+      "w": 0.09,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 316,
+     "char_end": 326,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.219,
+      "w": 0.09,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w048",
+     "text": "or",
+     "bbox": {
+      "x": 0.242,
+      "y": 0.219,
+      "w": 0.024,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 327,
+     "char_end": 329,
+     "bbox_gemini": {
+      "x": 0.242,
+      "y": 0.219,
+      "w": 0.024,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w049",
+     "text": "obese",
+     "bbox": {
+      "x": 0.275,
+      "y": 0.219,
+      "w": 0.049,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 330,
+     "char_end": 335,
+     "bbox_gemini": {
+      "x": 0.275,
+      "y": 0.219,
+      "w": 0.049,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w050",
+     "text": "include",
+     "bbox": {
+      "x": 0.334,
+      "y": 0.219,
+      "w": 0.06,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 336,
+     "char_end": 343,
+     "bbox_gemini": {
+      "x": 0.334,
+      "y": 0.219,
+      "w": 0.06,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w051",
+     "text": "Type",
+     "bbox": {
+      "x": 0.402,
+      "y": 0.219,
+      "w": 0.036,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 344,
+     "char_end": 348,
+     "bbox_gemini": {
+      "x": 0.402,
+      "y": 0.219,
+      "w": 0.036,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w052",
+     "text": "2",
+     "bbox": {
+      "x": 0.448,
+      "y": 0.219,
+      "w": 0.014,
+      "h": 0.031
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 349,
+     "char_end": 350,
+     "bbox_gemini": {
+      "x": 0.448,
+      "y": 0.219,
+      "w": 0.014,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w053",
+     "text": "diabetes,",
+     "bbox": {
+      "x": 0.471,
+      "y": 0.219,
+      "w": 0.069,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 351,
+     "char_end": 360,
+     "bbox_gemini": {
+      "x": 0.471,
+      "y": 0.219,
+      "w": 0.069,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w054",
+     "text": "cardiovascular",
+     "bbox": {
+      "x": 0.548,
+      "y": 0.219,
+      "w": 0.115,
+      "h": 0.036
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 361,
+     "char_end": 375,
+     "bbox_gemini": {
+      "x": 0.548,
+      "y": 0.219,
+      "w": 0.115,
+      "h": 0.036
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w055",
+     "text": "disease,",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.243,
+      "w": 0.071,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 376,
+     "char_end": 384,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.243,
+      "w": 0.071,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w056",
+     "text": "arthritis,",
+     "bbox": {
+      "x": 0.222,
+      "y": 0.243,
+      "w": 0.073,
+      "h": 0.036
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 385,
+     "char_end": 395,
+     "bbox_gemini": {
+      "x": 0.222,
+      "y": 0.243,
+      "w": 0.073,
+      "h": 0.036
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w057",
+     "text": "depression,",
+     "bbox": {
+      "x": 0.304,
+      "y": 0.243,
+      "w": 0.091,
+      "h": 0.036
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 396,
+     "char_end": 407,
+     "bbox_gemini": {
+      "x": 0.304,
+      "y": 0.243,
+      "w": 0.091,
+      "h": 0.036
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w058",
+     "text": "and",
+     "bbox": {
+      "x": 0.2884,
+      "y": 0.2553,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 408,
+     "char_end": 411,
+     "bbox_gemini": {
+      "x": 0.403,
+      "y": 0.243,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w059",
+     "text": "some",
+     "bbox": {
+      "x": 0.445,
+      "y": 0.243,
+      "w": 0.039,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 412,
+     "char_end": 416,
+     "bbox_gemini": {
+      "x": 0.445,
+      "y": 0.243,
+      "w": 0.039,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w060",
+     "text": "cancers.",
+     "bbox": {
+      "x": 0.492,
+      "y": 0.243,
+      "w": 0.065,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 417,
+     "char_end": 425,
+     "bbox_gemini": {
+      "x": 0.492,
+      "y": 0.243,
+      "w": 0.065,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w061",
+     "text": "An",
+     "bbox": {
+      "x": 0.4202,
+      "y": 0.2553,
+      "w": 0.0646,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 426,
+     "char_end": 428,
+     "bbox_gemini": {
+      "x": 0.565,
+      "y": 0.243,
+      "w": 0.026,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w062",
+     "text": "infatuation",
+     "bbox": {
+      "x": 0.599,
+      "y": 0.243,
+      "w": 0.074,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 429,
+     "char_end": 440,
+     "bbox_gemini": {
+      "x": 0.599,
+      "y": 0.243,
+      "w": 0.074,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w063",
+     "text": "with",
+     "bbox": {
+      "x": 0.717,
+      "y": 0.2553,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 441,
+     "char_end": 445,
+     "bbox_gemini": {
+      "x": 0.682,
+      "y": 0.243,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w064",
+     "text": "sugary",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.268,
+      "w": 0.053,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 446,
+     "char_end": 452,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.268,
+      "w": 0.053,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w065",
+     "text": "foods",
+     "bbox": {
+      "x": 0.205,
+      "y": 0.268,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 453,
+     "char_end": 458,
+     "bbox_gemini": {
+      "x": 0.205,
+      "y": 0.268,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w066",
+     "text": "and",
+     "bbox": {
+      "x": 0.262,
+      "y": 0.268,
+      "w": 0.035,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 459,
+     "char_end": 462,
+     "bbox_gemini": {
+      "x": 0.262,
+      "y": 0.268,
+      "w": 0.035,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w067",
+     "text": "refined",
+     "bbox": {
+      "x": 0.306,
+      "y": 0.267,
+      "w": 0.054,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 463,
+     "char_end": 470,
+     "bbox_gemini": {
+      "x": 0.306,
+      "y": 0.267,
+      "w": 0.054,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w068",
+     "text": "grains",
+     "bbox": {
+      "x": 0.369,
+      "y": 0.268,
+      "w": 0.048,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 471,
+     "char_end": 477,
+     "bbox_gemini": {
+      "x": 0.369,
+      "y": 0.268,
+      "w": 0.048,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w069",
+     "text": "likely",
+     "bbox": {
+      "x": 0.425,
+      "y": 0.268,
+      "w": 0.046,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 478,
+     "char_end": 484,
+     "bbox_gemini": {
+      "x": 0.425,
+      "y": 0.268,
+      "w": 0.046,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w070",
+     "text": "contributes",
+     "bbox": {
+      "x": 0.6249,
+      "y": 0.2782,
+      "w": 0.0616,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 485,
+     "char_end": 496,
+     "bbox_gemini": {
+      "x": 0.479,
+      "y": 0.267,
+      "w": 0.087,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w071",
+     "text": "to",
+     "bbox": {
+      "x": 0.574,
+      "y": 0.267,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 497,
+     "char_end": 499,
+     "bbox_gemini": {
+      "x": 0.574,
+      "y": 0.267,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w072",
+     "text": "the",
+     "bbox": {
+      "x": 0.7219,
+      "y": 0.2782,
+      "w": 0.0393,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 500,
+     "char_end": 503,
+     "bbox_gemini": {
+      "x": 0.603,
+      "y": 0.267,
+      "w": 0.031,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w073",
+     "text": "epidemic",
+     "bbox": {
+      "x": 0.643,
+      "y": 0.267,
+      "w": 0.063,
+      "h": 0.036
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 504,
+     "char_end": 512,
+     "bbox_gemini": {
+      "x": 0.643,
+      "y": 0.267,
+      "w": 0.063,
+      "h": 0.036
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w074",
+     "text": "proportion",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.292,
+      "w": 0.08,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 513,
+     "char_end": 523,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.292,
+      "w": 0.08,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w075",
+     "text": "of",
+     "bbox": {
+      "x": 0.1874,
+      "y": 0.301,
+      "w": 0.0238,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 524,
+     "char_end": 526,
+     "bbox_gemini": {
+      "x": 0.231,
+      "y": 0.292,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w076",
+     "text": "people",
+     "bbox": {
+      "x": 0.26,
+      "y": 0.292,
+      "w": 0.049,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 527,
+     "char_end": 533,
+     "bbox_gemini": {
+      "x": 0.26,
+      "y": 0.292,
+      "w": 0.049,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w077",
+     "text": "who",
+     "bbox": {
+      "x": 0.317,
+      "y": 0.292,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 534,
+     "char_end": 537,
+     "bbox_gemini": {
+      "x": 0.317,
+      "y": 0.292,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w078",
+     "text": "are",
+     "bbox": {
+      "x": 0.359,
+      "y": 0.292,
+      "w": 0.037,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 538,
+     "char_end": 541,
+     "bbox_gemini": {
+      "x": 0.359,
+      "y": 0.292,
+      "w": 0.037,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w079",
+     "text": "overweight",
+     "bbox": {
+      "x": 0.404,
+      "y": 0.292,
+      "w": 0.089,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 542,
+     "char_end": 552,
+     "bbox_gemini": {
+      "x": 0.404,
+      "y": 0.292,
+      "w": 0.089,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w080",
+     "text": "or",
+     "bbox": {
+      "x": 0.4469,
+      "y": 0.301,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 553,
+     "char_end": 555,
+     "bbox_gemini": {
+      "x": 0.502,
+      "y": 0.292,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w081",
+     "text": "obese",
+     "bbox": {
+      "x": 0.533,
+      "y": 0.292,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 556,
+     "char_end": 561,
+     "bbox_gemini": {
+      "x": 0.533,
+      "y": 0.292,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w082",
+     "text": "in",
+     "bbox": {
+      "x": 0.589,
+      "y": 0.292,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 562,
+     "char_end": 564,
+     "bbox_gemini": {
+      "x": 0.589,
+      "y": 0.292,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w083",
+     "text": "this",
+     "bbox": {
+      "x": 0.6817,
+      "y": 0.301,
+      "w": 0.0428,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 565,
+     "char_end": 569,
+     "bbox_gemini": {
+      "x": 0.618,
+      "y": 0.292,
+      "w": 0.033,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w084",
+     "text": "country,",
+     "bbox": {
+      "x": 0.7332,
+      "y": 0.301,
+      "w": 0.0795,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 570,
+     "char_end": 578,
+     "bbox_gemini": {
+      "x": 0.66,
+      "y": 0.292,
+      "w": 0.061,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w085",
+     "text": "but",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.316,
+      "w": 0.031,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 579,
+     "char_end": 582,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.316,
+      "w": 0.031,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w086",
+     "text": "so",
+     "bbox": {
+      "x": 0.183,
+      "y": 0.316,
+      "w": 0.026,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 583,
+     "char_end": 585,
+     "bbox_gemini": {
+      "x": 0.183,
+      "y": 0.316,
+      "w": 0.026,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w087",
+     "text": "do",
+     "bbox": {
+      "x": 0.218,
+      "y": 0.316,
+      "w": 0.027,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 586,
+     "char_end": 588,
+     "bbox_gemini": {
+      "x": 0.218,
+      "y": 0.316,
+      "w": 0.027,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w088",
+     "text": "the",
+     "bbox": {
+      "x": 0.4032,
+      "y": 0.3239,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 589,
+     "char_end": 592,
+     "bbox_gemini": {
+      "x": 0.254,
+      "y": 0.316,
+      "w": 0.03,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w089",
+     "text": "consumption",
+     "bbox": {
+      "x": 0.293,
+      "y": 0.316,
+      "w": 0.093,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 593,
+     "char_end": 604,
+     "bbox_gemini": {
+      "x": 0.293,
+      "y": 0.316,
+      "w": 0.093,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w090",
+     "text": "of",
+     "bbox": {
+      "x": 0.6498,
+      "y": 0.3239,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 605,
+     "char_end": 607,
+     "bbox_gemini": {
+      "x": 0.395,
+      "y": 0.316,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w091",
+     "text": "high-calorie",
+     "bbox": {
+      "x": 0.425,
+      "y": 0.316,
+      "w": 0.095,
+      "h": 0.033
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 608,
+     "char_end": 620,
+     "bbox_gemini": {
+      "x": 0.425,
+      "y": 0.316,
+      "w": 0.095,
+      "h": 0.033
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w092",
+     "text": "foods",
+     "bbox": {
+      "x": 0.529,
+      "y": 0.316,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 621,
+     "char_end": 626,
+     "bbox_gemini": {
+      "x": 0.529,
+      "y": 0.316,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w093",
+     "text": "that",
+     "bbox": {
+      "x": 0.588,
+      "y": 0.316,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 627,
+     "char_end": 631,
+     "bbox_gemini": {
+      "x": 0.588,
+      "y": 0.316,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w094",
+     "text": "contain",
+     "bbox": {
+      "x": 0.63,
+      "y": 0.316,
+      "w": 0.052,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 632,
+     "char_end": 639,
+     "bbox_gemini": {
+      "x": 0.63,
+      "y": 0.316,
+      "w": 0.052,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w095",
+     "text": "too",
+     "bbox": {
+      "x": 0.691,
+      "y": 0.316,
+      "w": 0.03,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 640,
+     "char_end": 643,
+     "bbox_gemini": {
+      "x": 0.691,
+      "y": 0.316,
+      "w": 0.03,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w096",
+     "text": "much",
+     "bbox": {
+      "x": 0.2353,
+      "y": 0.3468,
+      "w": 0.0596,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 644,
+     "char_end": 648,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.34,
+      "w": 0.046,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w097",
+     "text": "saturated",
+     "bbox": {
+      "x": 0.197,
+      "y": 0.34,
+      "w": 0.075,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 649,
+     "char_end": 658,
+     "bbox_gemini": {
+      "x": 0.197,
+      "y": 0.34,
+      "w": 0.075,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w098",
+     "text": "fat",
+     "bbox": {
+      "x": 0.281,
+      "y": 0.34,
+      "w": 0.03,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 659,
+     "char_end": 662,
+     "bbox_gemini": {
+      "x": 0.281,
+      "y": 0.34,
+      "w": 0.03,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w099",
+     "text": "and",
+     "bbox": {
+      "x": 0.32,
+      "y": 0.34,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 663,
+     "char_end": 666,
+     "bbox_gemini": {
+      "x": 0.32,
+      "y": 0.34,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w100",
+     "text": "the",
+     "bbox": {
+      "x": 0.5049,
+      "y": 0.3468,
+      "w": 0.0885,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 667,
+     "char_end": 670,
+     "bbox_gemini": {
+      "x": 0.363,
+      "y": 0.34,
+      "w": 0.03,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w101",
+     "text": "sedentary",
+     "bbox": {
+      "x": 0.401,
+      "y": 0.34,
+      "w": 0.07,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 671,
+     "char_end": 680,
+     "bbox_gemini": {
+      "x": 0.401,
+      "y": 0.34,
+      "w": 0.07,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w102",
+     "text": "lifestyle",
+     "bbox": {
+      "x": 0.479,
+      "y": 0.34,
+      "w": 0.069,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 681,
+     "char_end": 690,
+     "bbox_gemini": {
+      "x": 0.479,
+      "y": 0.34,
+      "w": 0.069,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w103",
+     "text": "of",
+     "bbox": {
+      "x": 0.557,
+      "y": 0.34,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 691,
+     "char_end": 693,
+     "bbox_gemini": {
+      "x": 0.557,
+      "y": 0.34,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w104",
+     "text": "most",
+     "bbox": {
+      "x": 0.587,
+      "y": 0.34,
+      "w": 0.041,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 694,
+     "char_end": 698,
+     "bbox_gemini": {
+      "x": 0.587,
+      "y": 0.34,
+      "w": 0.041,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w105",
+     "text": "Americans.",
+     "bbox": {
+      "x": 0.636,
+      "y": 0.34,
+      "w": 0.089,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 699,
+     "char_end": 709,
+     "bbox_gemini": {
+      "x": 0.636,
+      "y": 0.34,
+      "w": 0.089,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w106",
+     "text": "There",
+     "bbox": {
+      "x": 0.734,
+      "y": 0.349,
+      "w": 0.041,
+      "h": 0.022
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 710,
+     "char_end": 715,
+     "bbox_gemini": {
+      "x": 0.734,
+      "y": 0.349,
+      "w": 0.041,
+      "h": 0.022
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w107",
+     "text": "is",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.365,
+      "w": 0.024,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 716,
+     "char_end": 718,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.365,
+      "w": 0.024,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w108",
+     "text": "much",
+     "bbox": {
+      "x": 0.176,
+      "y": 0.365,
+      "w": 0.047,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 719,
+     "char_end": 723,
+     "bbox_gemini": {
+      "x": 0.176,
+      "y": 0.365,
+      "w": 0.047,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w109",
+     "text": "disagreement",
+     "bbox": {
+      "x": 0.4208,
+      "y": 0.3697,
+      "w": 0.0773,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 724,
+     "char_end": 736,
+     "bbox_gemini": {
+      "x": 0.231,
+      "y": 0.365,
+      "w": 0.111,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w110",
+     "text": "over",
+     "bbox": {
+      "x": 0.351,
+      "y": 0.365,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 737,
+     "char_end": 741,
+     "bbox_gemini": {
+      "x": 0.351,
+      "y": 0.365,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w111",
+     "text": "whether",
+     "bbox": {
+      "x": 0.6681,
+      "y": 0.3697,
+      "w": 0.0579,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 742,
+     "char_end": 749,
+     "bbox_gemini": {
+      "x": 0.398,
+      "y": 0.365,
+      "w": 0.057,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w112",
+     "text": "high-carbohydrate",
+     "bbox": {
+      "x": 0.463,
+      "y": 0.365,
+      "w": 0.139,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 750,
+     "char_end": 767,
+     "bbox_gemini": {
+      "x": 0.463,
+      "y": 0.365,
+      "w": 0.139,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w113",
+     "text": "diets",
+     "bbox": {
+      "x": 0.7334,
+      "y": 0.3697,
+      "w": 0.0822,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 768,
+     "char_end": 773,
+     "bbox_gemini": {
+      "x": 0.61,
+      "y": 0.365,
+      "w": 0.043,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w114",
+     "text": "increase",
+     "bbox": {
+      "x": 0.661,
+      "y": 0.365,
+      "w": 0.063,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 774,
+     "char_end": 782,
+     "bbox_gemini": {
+      "x": 0.661,
+      "y": 0.365,
+      "w": 0.063,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w115",
+     "text": "weight-gain",
+     "bbox": {
+      "x": 0.732,
+      "y": 0.372,
+      "w": 0.099,
+      "h": 0.027
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 783,
+     "char_end": 794,
+     "bbox_gemini": {
+      "x": 0.732,
+      "y": 0.372,
+      "w": 0.099,
+      "h": 0.027
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w116",
+     "text": "and",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.39,
+      "w": 0.034,
+      "h": 0.029
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 795,
+     "char_end": 798,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.39,
+      "w": 0.034,
+      "h": 0.029
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w117",
+     "text": "disease",
+     "bbox": {
+      "x": 0.186,
+      "y": 0.39,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 799,
+     "char_end": 806,
+     "bbox_gemini": {
+      "x": 0.186,
+      "y": 0.39,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w118",
+     "text": "risk,",
+     "bbox": {
+      "x": 0.245,
+      "y": 0.39,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 807,
+     "char_end": 812,
+     "bbox_gemini": {
+      "x": 0.245,
+      "y": 0.39,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w119",
+     "text": "especially",
+     "bbox": {
+      "x": 0.295,
+      "y": 0.39,
+      "w": 0.077,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 813,
+     "char_end": 823,
+     "bbox_gemini": {
+      "x": 0.295,
+      "y": 0.39,
+      "w": 0.077,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w120",
+     "text": "when",
+     "bbox": {
+      "x": 0.38,
+      "y": 0.39,
+      "w": 0.041,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 824,
+     "char_end": 828,
+     "bbox_gemini": {
+      "x": 0.38,
+      "y": 0.39,
+      "w": 0.041,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w121",
+     "text": "calories",
+     "bbox": {
+      "x": 0.43,
+      "y": 0.39,
+      "w": 0.061,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 829,
+     "char_end": 837,
+     "bbox_gemini": {
+      "x": 0.43,
+      "y": 0.39,
+      "w": 0.061,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w122",
+     "text": "are",
+     "bbox": {
+      "x": 0.499,
+      "y": 0.39,
+      "w": 0.038,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 838,
+     "char_end": 841,
+     "bbox_gemini": {
+      "x": 0.499,
+      "y": 0.39,
+      "w": 0.038,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w123",
+     "text": "not",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3925,
+      "w": 0.0358,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 842,
+     "char_end": 845,
+     "bbox_gemini": {
+      "x": 0.546,
+      "y": 0.39,
+      "w": 0.031,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w124",
+     "text": "significantly",
+     "bbox": {
+      "x": 0.1892,
+      "y": 0.3925,
+      "w": 0.1286,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 846,
+     "char_end": 859,
+     "bbox_gemini": {
+      "x": 0.586,
+      "y": 0.39,
+      "w": 0.096,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w125",
+     "text": "higher",
+     "bbox": {
+      "x": 0.3279,
+      "y": 0.3925,
+      "w": 0.0689,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 860,
+     "char_end": 866,
+     "bbox_gemini": {
+      "x": 0.691,
+      "y": 0.39,
+      "w": 0.054,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w126",
+     "text": "between",
+     "bbox": {
+      "x": 0.407,
+      "y": 0.3925,
+      "w": 0.0908,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 867,
+     "char_end": 874,
+     "bbox_gemini": {
+      "x": 0.753,
+      "y": 0.39,
+      "w": 0.06,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w127",
+     "text": "compared",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.415,
+      "w": 0.071,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 875,
+     "char_end": 883,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.415,
+      "w": 0.071,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w128",
+     "text": "diets.",
+     "bbox": {
+      "x": 0.222,
+      "y": 0.415,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 884,
+     "char_end": 890,
+     "bbox_gemini": {
+      "x": 0.222,
+      "y": 0.415,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w129",
+     "text": "Many",
+     "bbox": {
+      "x": 0.281,
+      "y": 0.415,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 891,
+     "char_end": 895,
+     "bbox_gemini": {
+      "x": 0.281,
+      "y": 0.415,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w130",
+     "text": "scientific",
+     "bbox": {
+      "x": 0.338,
+      "y": 0.415,
+      "w": 0.078,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 896,
+     "char_end": 906,
+     "bbox_gemini": {
+      "x": 0.338,
+      "y": 0.415,
+      "w": 0.078,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w131",
+     "text": "studies",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4154,
+      "w": 0.0756,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 907,
+     "char_end": 914,
+     "bbox_gemini": {
+      "x": 0.424,
+      "y": 0.415,
+      "w": 0.06,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w132",
+     "text": "demonstrate",
+     "bbox": {
+      "x": 0.2308,
+      "y": 0.4154,
+      "w": 0.135,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 915,
+     "char_end": 926,
+     "bbox_gemini": {
+      "x": 0.493,
+      "y": 0.415,
+      "w": 0.092,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w133",
+     "text": "positive",
+     "bbox": {
+      "x": 0.3778,
+      "y": 0.4154,
+      "w": 0.0825,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 927,
+     "char_end": 935,
+     "bbox_gemini": {
+      "x": 0.593,
+      "y": 0.415,
+      "w": 0.068,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w134",
+     "text": "correlations",
+     "bbox": {
+      "x": 0.4722,
+      "y": 0.4154,
+      "w": 0.1276,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 936,
+     "char_end": 948,
+     "bbox_gemini": {
+      "x": 0.67,
+      "y": 0.415,
+      "w": 0.099,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w135",
+     "text": "between",
+     "bbox": {
+      "x": 0.6118,
+      "y": 0.4154,
+      "w": 0.0908,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 949,
+     "char_end": 956,
+     "bbox_gemini": {
+      "x": 0.778,
+      "y": 0.415,
+      "w": 0.077,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w136",
+     "text": "diets",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.439,
+      "w": 0.043,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 957,
+     "char_end": 962,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.439,
+      "w": 0.043,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w137",
+     "text": "high",
+     "bbox": {
+      "x": 0.195,
+      "y": 0.439,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 963,
+     "char_end": 967,
+     "bbox_gemini": {
+      "x": 0.195,
+      "y": 0.439,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w138",
+     "text": "in",
+     "bbox": {
+      "x": 0.241,
+      "y": 0.439,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 968,
+     "char_end": 970,
+     "bbox_gemini": {
+      "x": 0.241,
+      "y": 0.439,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w139",
+     "text": "added",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4383,
+      "w": 0.0647,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 971,
+     "char_end": 976,
+     "bbox_gemini": {
+      "x": 0.272,
+      "y": 0.439,
+      "w": 0.05,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w140",
+     "text": "sugars",
+     "bbox": {
+      "x": 0.2141,
+      "y": 0.4383,
+      "w": 0.0687,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 977,
+     "char_end": 983,
+     "bbox_gemini": {
+      "x": 0.33,
+      "y": 0.439,
+      "w": 0.053,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w141",
+     "text": "with",
+     "bbox": {
+      "x": 0.2891,
+      "y": 0.4383,
+      "w": 0.0469,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 984,
+     "char_end": 988,
+     "bbox_gemini": {
+      "x": 0.392,
+      "y": 0.439,
+      "w": 0.038,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w142",
+     "text": "weight",
+     "bbox": {
+      "x": 0.3422,
+      "y": 0.4383,
+      "w": 0.072,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 989,
+     "char_end": 995,
+     "bbox_gemini": {
+      "x": 0.438,
+      "y": 0.439,
+      "w": 0.049,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w143",
+     "text": "gain",
+     "bbox": {
+      "x": 0.4204,
+      "y": 0.4383,
+      "w": 0.0444,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 996,
+     "char_end": 1000,
+     "bbox_gemini": {
+      "x": 0.495,
+      "y": 0.439,
+      "w": 0.039,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w144",
+     "text": "and",
+     "bbox": {
+      "x": 0.4711,
+      "y": 0.4383,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1001,
+     "char_end": 1004,
+     "bbox_gemini": {
+      "x": 0.542,
+      "y": 0.439,
+      "w": 0.035,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w145",
+     "text": "disease",
+     "bbox": {
+      "x": 0.5164,
+      "y": 0.4383,
+      "w": 0.0773,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1005,
+     "char_end": 1012,
+     "bbox_gemini": {
+      "x": 0.585,
+      "y": 0.439,
+      "w": 0.05,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w146",
+     "text": "risk,",
+     "bbox": {
+      "x": 0.5999,
+      "y": 0.4383,
+      "w": 0.0446,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1013,
+     "char_end": 1018,
+     "bbox_gemini": {
+      "x": 0.644,
+      "y": 0.439,
+      "w": 0.042,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w147",
+     "text": "but",
+     "bbox": {
+      "x": 0.6509,
+      "y": 0.4383,
+      "w": 0.0356,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1019,
+     "char_end": 1022,
+     "bbox_gemini": {
+      "x": 0.695,
+      "y": 0.439,
+      "w": 0.03,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w148",
+     "text": "some",
+     "bbox": {
+      "x": 0.6927,
+      "y": 0.4383,
+      "w": 0.0564,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1023,
+     "char_end": 1027,
+     "bbox_gemini": {
+      "x": 0.734,
+      "y": 0.439,
+      "w": 0.038,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w149",
+     "text": "others",
+     "bbox": {
+      "x": 0.7553,
+      "y": 0.4383,
+      "w": 0.0683,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1028,
+     "char_end": 1034,
+     "bbox_gemini": {
+      "x": 0.781,
+      "y": 0.439,
+      "w": 0.046,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w150",
+     "text": "do",
+     "bbox": {
+      "x": 0.8299,
+      "y": 0.4383,
+      "w": 0.0269,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1035,
+     "char_end": 1037,
+     "bbox_gemini": {
+      "x": 0.836,
+      "y": 0.439,
+      "w": 0.02,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w151",
+     "text": "not",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4612,
+      "w": 0.0358,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1038,
+     "char_end": 1041,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.464,
+      "w": 0.031,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w152",
+     "text": "show",
+     "bbox": {
+      "x": 0.1842,
+      "y": 0.4612,
+      "w": 0.0554,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1042,
+     "char_end": 1046,
+     "bbox_gemini": {
+      "x": 0.183,
+      "y": 0.464,
+      "w": 0.04,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w153",
+     "text": "a",
+     "bbox": {
+      "x": 0.2449,
+      "y": 0.4612,
+      "w": 0.0117,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1047,
+     "char_end": 1048,
+     "bbox_gemini": {
+      "x": 0.232,
+      "y": 0.464,
+      "w": 0.01,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w154",
+     "text": "significant",
+     "bbox": {
+      "x": 0.2618,
+      "y": 0.4612,
+      "w": 0.1106,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1049,
+     "char_end": 1060,
+     "bbox_gemini": {
+      "x": 0.25,
+      "y": 0.464,
+      "w": 0.085,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w155",
+     "text": "relationship.",
+     "bbox": {
+      "x": 0.3776,
+      "y": 0.4612,
+      "w": 0.1316,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1061,
+     "char_end": 1074,
+     "bbox_gemini": {
+      "x": 0.344,
+      "y": 0.464,
+      "w": 0.12,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w156",
+     "text": "In",
+     "bbox": {
+      "x": 0.5144,
+      "y": 0.4612,
+      "w": 0.0212,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1075,
+     "char_end": 1077,
+     "bbox_gemini": {
+      "x": 0.473,
+      "y": 0.464,
+      "w": 0.023,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w157",
+     "text": "regard",
+     "bbox": {
+      "x": 0.5409,
+      "y": 0.4612,
+      "w": 0.0696,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1078,
+     "char_end": 1084,
+     "bbox_gemini": {
+      "x": 0.505,
+      "y": 0.464,
+      "w": 0.051,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w158",
+     "text": "to",
+     "bbox": {
+      "x": 0.6156,
+      "y": 0.4612,
+      "w": 0.0221,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1085,
+     "char_end": 1087,
+     "bbox_gemini": {
+      "x": 0.565,
+      "y": 0.464,
+      "w": 0.021,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w159",
+     "text": "refined",
+     "bbox": {
+      "x": 0.6429,
+      "y": 0.4612,
+      "w": 0.0764,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1088,
+     "char_end": 1095,
+     "bbox_gemini": {
+      "x": 0.595,
+      "y": 0.464,
+      "w": 0.053,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w160",
+     "text": "grains,",
+     "bbox": {
+      "x": 0.7245,
+      "y": 0.4612,
+      "w": 0.0703,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1096,
+     "char_end": 1103,
+     "bbox_gemini": {
+      "x": 0.657,
+      "y": 0.464,
+      "w": 0.057,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w161",
+     "text": "there",
+     "bbox": {
+      "x": 0.8001,
+      "y": 0.4612,
+      "w": 0.0567,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1104,
+     "char_end": 1109,
+     "bbox_gemini": {
+      "x": 0.723,
+      "y": 0.464,
+      "w": 0.04,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w162",
+     "text": "are",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.484,
+      "w": 0.0337,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1110,
+     "char_end": 1113,
+     "bbox_gemini": {
+      "x": 0.772,
+      "y": 0.464,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w163",
+     "text": "no",
+     "bbox": {
+      "x": 0.1856,
+      "y": 0.484,
+      "w": 0.027,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1114,
+     "char_end": 1116,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.489,
+      "w": 0.024,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w164",
+     "text": "studies",
+     "bbox": {
+      "x": 0.2214,
+      "y": 0.484,
+      "w": 0.0756,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1117,
+     "char_end": 1124,
+     "bbox_gemini": {
+      "x": 0.176,
+      "y": 0.489,
+      "w": 0.06,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w165",
+     "text": "that",
+     "bbox": {
+      "x": 0.3058,
+      "y": 0.484,
+      "w": 0.0428,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1125,
+     "char_end": 1129,
+     "bbox_gemini": {
+      "x": 0.245,
+      "y": 0.489,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w166",
+     "text": "show",
+     "bbox": {
+      "x": 0.3573,
+      "y": 0.484,
+      "w": 0.0554,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1130,
+     "char_end": 1134,
+     "bbox_gemini": {
+      "x": 0.288,
+      "y": 0.489,
+      "w": 0.04,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w167",
+     "text": "consumption",
+     "bbox": {
+      "x": 0.4215,
+      "y": 0.484,
+      "w": 0.1392,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1135,
+     "char_end": 1146,
+     "bbox_gemini": {
+      "x": 0.337,
+      "y": 0.489,
+      "w": 0.093,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w168",
+     "text": "of",
+     "bbox": {
+      "x": 0.5695,
+      "y": 0.484,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1147,
+     "char_end": 1149,
+     "bbox_gemini": {
+      "x": 0.439,
+      "y": 0.489,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w169",
+     "text": "refined",
+     "bbox": {
+      "x": 0.5991,
+      "y": 0.484,
+      "w": 0.0764,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1150,
+     "char_end": 1157,
+     "bbox_gemini": {
+      "x": 0.469,
+      "y": 0.489,
+      "w": 0.053,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w170",
+     "text": "grains",
+     "bbox": {
+      "x": 0.6841,
+      "y": 0.484,
+      "w": 0.0646,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1158,
+     "char_end": 1164,
+     "bbox_gemini": {
+      "x": 0.531,
+      "y": 0.489,
+      "w": 0.049,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w171",
+     "text": "increases",
+     "bbox": {
+      "x": 0.7575,
+      "y": 0.484,
+      "w": 0.0992,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1165,
+     "char_end": 1174,
+     "bbox_gemini": {
+      "x": 0.588,
+      "y": 0.489,
+      "w": 0.079,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w172",
+     "text": "weight",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5069,
+      "w": 0.072,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1175,
+     "char_end": 1181,
+     "bbox_gemini": {
+      "x": 0.676,
+      "y": 0.489,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w173",
+     "text": "gain",
+     "bbox": {
+      "x": 0.2234,
+      "y": 0.5069,
+      "w": 0.0444,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1182,
+     "char_end": 1186,
+     "bbox_gemini": {
+      "x": 0.733,
+      "y": 0.489,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w174",
+     "text": "or",
+     "bbox": {
+      "x": 0.2762,
+      "y": 0.5069,
+      "w": 0.0231,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1187,
+     "char_end": 1189,
+     "bbox_gemini": {
+      "x": 0.781,
+      "y": 0.489,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w175",
+     "text": "disease",
+     "bbox": {
+      "x": 0.3076,
+      "y": 0.5069,
+      "w": 0.0773,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1190,
+     "char_end": 1197,
+     "bbox_gemini": {
+      "x": 0.812,
+      "y": 0.489,
+      "w": 0.043,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w176",
+     "text": "risk.",
+     "bbox": {
+      "x": 0.3932,
+      "y": 0.5069,
+      "w": 0.0445,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1198,
+     "char_end": 1203,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.513,
+      "w": 0.042,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w177",
+     "text": "What",
+     "bbox": {
+      "x": 0.4461,
+      "y": 0.5069,
+      "w": 0.0571,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1204,
+     "char_end": 1208,
+     "bbox_gemini": {
+      "x": 0.194,
+      "y": 0.513,
+      "w": 0.044,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w178",
+     "text": "is",
+     "bbox": {
+      "x": 0.5115,
+      "y": 0.5069,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1209,
+     "char_end": 1211,
+     "bbox_gemini": {
+      "x": 0.247,
+      "y": 0.513,
+      "w": 0.023,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w179",
+     "text": "clear,",
+     "bbox": {
+      "x": 0.5367,
+      "y": 0.5069,
+      "w": 0.0569,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1212,
+     "char_end": 1218,
+     "bbox_gemini": {
+      "x": 0.279,
+      "y": 0.513,
+      "w": 0.051,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w180",
+     "text": "however,",
+     "bbox": {
+      "x": 0.6018,
+      "y": 0.5069,
+      "w": 0.0951,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1219,
+     "char_end": 1227,
+     "bbox_gemini": {
+      "x": 0.339,
+      "y": 0.513,
+      "w": 0.069,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w181",
+     "text": "is",
+     "bbox": {
+      "x": 0.7053,
+      "y": 0.5069,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1228,
+     "char_end": 1230,
+     "bbox_gemini": {
+      "x": 0.417,
+      "y": 0.513,
+      "w": 0.023,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w182",
+     "text": "that",
+     "bbox": {
+      "x": 0.7305,
+      "y": 0.5069,
+      "w": 0.0428,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1231,
+     "char_end": 1235,
+     "bbox_gemini": {
+      "x": 0.449,
+      "y": 0.513,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w183",
+     "text": "getting",
+     "bbox": {
+      "x": 0.7815,
+      "y": 0.5069,
+      "w": 0.0752,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1236,
+     "char_end": 1243,
+     "bbox_gemini": {
+      "x": 0.491,
+      "y": 0.513,
+      "w": 0.052,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w184",
+     "text": "more",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5298,
+      "w": 0.0556,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1244,
+     "char_end": 1248,
+     "bbox_gemini": {
+      "x": 0.552,
+      "y": 0.513,
+      "w": 0.037,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w185",
+     "text": "of",
+     "bbox": {
+      "x": 0.2054,
+      "y": 0.5298,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1249,
+     "char_end": 1251,
+     "bbox_gemini": {
+      "x": 0.597,
+      "y": 0.513,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w186",
+     "text": "your",
+     "bbox": {
+      "x": 0.2329,
+      "y": 0.5298,
+      "w": 0.0485,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1252,
+     "char_end": 1256,
+     "bbox_gemini": {
+      "x": 0.628,
+      "y": 0.513,
+      "w": 0.036,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w187",
+     "text": "carbohydrates",
+     "bbox": {
+      "x": 0.2881,
+      "y": 0.5298,
+      "w": 0.1518,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1257,
+     "char_end": 1270,
+     "bbox_gemini": {
+      "x": 0.673,
+      "y": 0.513,
+      "w": 0.118,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w188",
+     "text": "from",
+     "bbox": {
+      "x": 0.4466,
+      "y": 0.5298,
+      "w": 0.0509,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1271,
+     "char_end": 1275,
+     "bbox_gemini": {
+      "x": 0.8,
+      "y": 0.513,
+      "w": 0.038,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w189",
+     "text": "dietary",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.538,
+      "w": 0.058,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1276,
+     "char_end": 1283,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.538,
+      "w": 0.058,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w190",
+     "text": "sources",
+     "bbox": {
+      "x": 0.21,
+      "y": 0.538,
+      "w": 0.062,
+      "h": 0.035
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1284,
+     "char_end": 1291,
+     "bbox_gemini": {
+      "x": 0.21,
+      "y": 0.538,
+      "w": 0.062,
+      "h": 0.035
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w191",
+     "text": "containing",
+     "bbox": {
+      "x": 0.6742,
+      "y": 0.5298,
+      "w": 0.1122,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1292,
+     "char_end": 1302,
+     "bbox_gemini": {
+      "x": 0.281,
+      "y": 0.538,
+      "w": 0.079,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w192",
+     "text": "whole",
+     "bbox": {
+      "x": 0.7932,
+      "y": 0.5298,
+      "w": 0.0635,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1303,
+     "char_end": 1308,
+     "bbox_gemini": {
+      "x": 0.369,
+      "y": 0.538,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w193",
+     "text": "grains",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5527,
+      "w": 0.0646,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1309,
+     "char_end": 1315,
+     "bbox_gemini": {
+      "x": 0.426,
+      "y": 0.538,
+      "w": 0.049,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w194",
+     "text": "instead",
+     "bbox": {
+      "x": 0.2151,
+      "y": 0.5527,
+      "w": 0.0771,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1316,
+     "char_end": 1323,
+     "bbox_gemini": {
+      "x": 0.483,
+      "y": 0.538,
+      "w": 0.052,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w195",
+     "text": "of",
+     "bbox": {
+      "x": 0.2995,
+      "y": 0.5527,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1324,
+     "char_end": 1326,
+     "bbox_gemini": {
+      "x": 0.544,
+      "y": 0.538,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w196",
+     "text": "refined",
+     "bbox": {
+      "x": 0.3276,
+      "y": 0.5527,
+      "w": 0.0764,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1327,
+     "char_end": 1334,
+     "bbox_gemini": {
+      "x": 0.574,
+      "y": 0.538,
+      "w": 0.054,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w197",
+     "text": "grains",
+     "bbox": {
+      "x": 0.4113,
+      "y": 0.5527,
+      "w": 0.0646,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1335,
+     "char_end": 1341,
+     "bbox_gemini": {
+      "x": 0.636,
+      "y": 0.538,
+      "w": 0.05,
+      "h": 0.035
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w198",
+     "text": "stimulates",
+     "bbox": {
+      "x": 0.4832,
+      "y": 0.5527,
+      "w": 0.1089,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1342,
+     "char_end": 1352,
+     "bbox_gemini": {
+      "x": 0.694,
+      "y": 0.538,
+      "w": 0.078,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w199",
+     "text": "weight",
+     "bbox": {
+      "x": 0.5995,
+      "y": 0.5527,
+      "w": 0.072,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1353,
+     "char_end": 1359,
+     "bbox_gemini": {
+      "x": 0.781,
+      "y": 0.538,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w200",
+     "text": "loss",
+     "bbox": {
+      "x": 0.6788,
+      "y": 0.5527,
+      "w": 0.0404,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1360,
+     "char_end": 1364,
+     "bbox_gemini": {
+      "x": 0.837,
+      "y": 0.538,
+      "w": 0.038,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w201",
+     "text": "and",
+     "bbox": {
+      "x": 0.143,
+      "y": 0.562,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1365,
+     "char_end": 1368,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.562,
+      "w": 0.034,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w202",
+     "text": "reduces",
+     "bbox": {
+      "x": 0.186,
+      "y": 0.562,
+      "w": 0.059,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1369,
+     "char_end": 1376,
+     "bbox_gemini": {
+      "x": 0.186,
+      "y": 0.562,
+      "w": 0.059,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b001_w203",
+     "text": "disease",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5755,
+      "w": 0.0773,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1377,
+     "char_end": 1384,
+     "bbox_gemini": {
+      "x": 0.254,
+      "y": 0.562,
+      "w": 0.045,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b001_w204",
+     "text": "risk.",
+     "bbox": {
+      "x": 0.2264,
+      "y": 0.5755,
+      "w": 0.0445,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 1385,
+     "char_end": 1390,
+     "bbox_gemini": {
+      "x": 0.308,
+      "y": 0.562,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0304_b001",
+    "chunk_number_in_lrm": 5,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0303_b004",
+    "next_chunk_id": "p0304_b002",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0304_b002",
+   "local_id": "b2",
+   "type": "paragraph",
+   "reading_order": 2,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.5984,
+    "w": 0.7137,
+    "h": 0.1551
+   },
+   "text": "A major source of added sugars in the American diet is soft drinks. There is consistent scientific evidence that consuming sugary soft drinks increases weight gain and disease risk. An analysis of over thirty studies in the American Journal of Clinical Nutrition concluded that there is much evidence to indicate higher consumption of sugar-sweetened beverages is linked with weight gain and obesity. 2 A study at the Harvard School of Public Health",
+   "words": [
+    {
+     "id": "p0304_b002_w001",
+     "text": "A",
+     "bbox": {
+      "x": 0.1659,
+      "y": 0.5984,
+      "w": 0.0142,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 1,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.601,
+      "w": 0.016,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w002",
+     "text": "major",
+     "bbox": {
+      "x": 0.1855,
+      "y": 0.5984,
+      "w": 0.061,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 2,
+     "char_end": 7,
+     "bbox_gemini": {
+      "x": 0.191,
+      "y": 0.601,
+      "w": 0.052,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w003",
+     "text": "source",
+     "bbox": {
+      "x": 0.2518,
+      "y": 0.5984,
+      "w": 0.0713,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 8,
+     "char_end": 14,
+     "bbox_gemini": {
+      "x": 0.252,
+      "y": 0.601,
+      "w": 0.052,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w004",
+     "text": "of",
+     "bbox": {
+      "x": 0.3286,
+      "y": 0.5984,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 15,
+     "char_end": 17,
+     "bbox_gemini": {
+      "x": 0.313,
+      "y": 0.601,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w005",
+     "text": "added",
+     "bbox": {
+      "x": 0.3548,
+      "y": 0.5984,
+      "w": 0.0647,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 18,
+     "char_end": 23,
+     "bbox_gemini": {
+      "x": 0.343,
+      "y": 0.601,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w006",
+     "text": "sugars",
+     "bbox": {
+      "x": 0.4248,
+      "y": 0.5984,
+      "w": 0.0687,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 24,
+     "char_end": 30,
+     "bbox_gemini": {
+      "x": 0.401,
+      "y": 0.601,
+      "w": 0.052,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w007",
+     "text": "in",
+     "bbox": {
+      "x": 0.499,
+      "y": 0.5984,
+      "w": 0.0201,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 31,
+     "char_end": 33,
+     "bbox_gemini": {
+      "x": 0.462,
+      "y": 0.601,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w008",
+     "text": "the",
+     "bbox": {
+      "x": 0.5245,
+      "y": 0.5984,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 34,
+     "char_end": 37,
+     "bbox_gemini": {
+      "x": 0.492,
+      "y": 0.601,
+      "w": 0.031,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w009",
+     "text": "American",
+     "bbox": {
+      "x": 0.5646,
+      "y": 0.5984,
+      "w": 0.1006,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 38,
+     "char_end": 46,
+     "bbox_gemini": {
+      "x": 0.531,
+      "y": 0.601,
+      "w": 0.07,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w010",
+     "text": "diet",
+     "bbox": {
+      "x": 0.6706,
+      "y": 0.5984,
+      "w": 0.0409,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 47,
+     "char_end": 51,
+     "bbox_gemini": {
+      "x": 0.61,
+      "y": 0.601,
+      "w": 0.038,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w011",
+     "text": "is",
+     "bbox": {
+      "x": 0.7168,
+      "y": 0.5984,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 52,
+     "char_end": 54,
+     "bbox_gemini": {
+      "x": 0.656,
+      "y": 0.601,
+      "w": 0.023,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w012",
+     "text": "soft",
+     "bbox": {
+      "x": 0.7391,
+      "y": 0.5984,
+      "w": 0.0405,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 55,
+     "char_end": 59,
+     "bbox_gemini": {
+      "x": 0.688,
+      "y": 0.601,
+      "w": 0.037,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w013",
+     "text": "drinks.",
+     "bbox": {
+      "x": 0.7849,
+      "y": 0.5984,
+      "w": 0.0719,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 60,
+     "char_end": 67,
+     "bbox_gemini": {
+      "x": 0.734,
+      "y": 0.601,
+      "w": 0.059,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w014",
+     "text": "There",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6213,
+      "w": 0.0625,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 68,
+     "char_end": 73,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.625,
+      "w": 0.043,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w015",
+     "text": "is",
+     "bbox": {
+      "x": 0.2135,
+      "y": 0.6213,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 74,
+     "char_end": 76,
+     "bbox_gemini": {
+      "x": 0.195,
+      "y": 0.625,
+      "w": 0.023,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w016",
+     "text": "consistent",
+     "bbox": {
+      "x": 0.2383,
+      "y": 0.6213,
+      "w": 0.11,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 77,
+     "char_end": 87,
+     "bbox_gemini": {
+      "x": 0.226,
+      "y": 0.625,
+      "w": 0.08,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w017",
+     "text": "scientific",
+     "bbox": {
+      "x": 0.3562,
+      "y": 0.6213,
+      "w": 0.0969,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 88,
+     "char_end": 98,
+     "bbox_gemini": {
+      "x": 0.315,
+      "y": 0.625,
+      "w": 0.077,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w018",
+     "text": "evidence",
+     "bbox": {
+      "x": 0.4611,
+      "y": 0.6213,
+      "w": 0.094,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 99,
+     "char_end": 107,
+     "bbox_gemini": {
+      "x": 0.401,
+      "y": 0.625,
+      "w": 0.07,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w019",
+     "text": "that",
+     "bbox": {
+      "x": 0.5631,
+      "y": 0.6213,
+      "w": 0.0428,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 108,
+     "char_end": 112,
+     "bbox_gemini": {
+      "x": 0.48,
+      "y": 0.625,
+      "w": 0.033,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w020",
+     "text": "consuming",
+     "bbox": {
+      "x": 0.6137,
+      "y": 0.6213,
+      "w": 0.1161,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 113,
+     "char_end": 122,
+     "bbox_gemini": {
+      "x": 0.522,
+      "y": 0.625,
+      "w": 0.08,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w021",
+     "text": "sugary",
+     "bbox": {
+      "x": 0.7379,
+      "y": 0.6213,
+      "w": 0.0706,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 123,
+     "char_end": 129,
+     "bbox_gemini": {
+      "x": 0.611,
+      "y": 0.625,
+      "w": 0.053,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w022",
+     "text": "soft",
+     "bbox": {
+      "x": 0.8164,
+      "y": 0.6213,
+      "w": 0.0405,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 130,
+     "char_end": 134,
+     "bbox_gemini": {
+      "x": 0.673,
+      "y": 0.625,
+      "w": 0.037,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w023",
+     "text": "drinks",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6442,
+      "w": 0.0663,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 135,
+     "char_end": 141,
+     "bbox_gemini": {
+      "x": 0.718,
+      "y": 0.625,
+      "w": 0.05,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w024",
+     "text": "increases",
+     "bbox": {
+      "x": 0.2187,
+      "y": 0.6442,
+      "w": 0.0992,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 142,
+     "char_end": 151,
+     "bbox_gemini": {
+      "x": 0.777,
+      "y": 0.625,
+      "w": 0.078,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w025",
+     "text": "weight",
+     "bbox": {
+      "x": 0.3273,
+      "y": 0.6442,
+      "w": 0.072,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 152,
+     "char_end": 158,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.65,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w026",
+     "text": "gain",
+     "bbox": {
+      "x": 0.4084,
+      "y": 0.6442,
+      "w": 0.0444,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 159,
+     "char_end": 163,
+     "bbox_gemini": {
+      "x": 0.2,
+      "y": 0.65,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w027",
+     "text": "and",
+     "bbox": {
+      "x": 0.4622,
+      "y": 0.6442,
+      "w": 0.0391,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 164,
+     "char_end": 167,
+     "bbox_gemini": {
+      "x": 0.247,
+      "y": 0.65,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w028",
+     "text": "disease",
+     "bbox": {
+      "x": 0.5105,
+      "y": 0.6442,
+      "w": 0.0773,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 168,
+     "char_end": 175,
+     "bbox_gemini": {
+      "x": 0.29,
+      "y": 0.65,
+      "w": 0.049,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w029",
+     "text": "risk.",
+     "bbox": {
+      "x": 0.5971,
+      "y": 0.6442,
+      "w": 0.0445,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 176,
+     "char_end": 181,
+     "bbox_gemini": {
+      "x": 0.348,
+      "y": 0.65,
+      "w": 0.042,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w030",
+     "text": "An",
+     "bbox": {
+      "x": 0.6508,
+      "y": 0.6442,
+      "w": 0.028,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 182,
+     "char_end": 184,
+     "bbox_gemini": {
+      "x": 0.399,
+      "y": 0.65,
+      "w": 0.025,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w031",
+     "text": "analysis",
+     "bbox": {
+      "x": 0.6881,
+      "y": 0.6442,
+      "w": 0.0827,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 185,
+     "char_end": 193,
+     "bbox_gemini": {
+      "x": 0.433,
+      "y": 0.65,
+      "w": 0.059,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w032",
+     "text": "of",
+     "bbox": {
+      "x": 0.78,
+      "y": 0.6442,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 194,
+     "char_end": 196,
+     "bbox_gemini": {
+      "x": 0.501,
+      "y": 0.65,
+      "w": 0.021,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w033",
+     "text": "over",
+     "bbox": {
+      "x": 0.8101,
+      "y": 0.6442,
+      "w": 0.0467,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 197,
+     "char_end": 201,
+     "bbox_gemini": {
+      "x": 0.531,
+      "y": 0.65,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w034",
+     "text": "thirty",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6671,
+      "w": 0.0596,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 202,
+     "char_end": 208,
+     "bbox_gemini": {
+      "x": 0.578,
+      "y": 0.65,
+      "w": 0.047,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w035",
+     "text": "studies",
+     "bbox": {
+      "x": 0.2214,
+      "y": 0.6671,
+      "w": 0.0756,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 209,
+     "char_end": 216,
+     "bbox_gemini": {
+      "x": 0.633,
+      "y": 0.65,
+      "w": 0.06,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w036",
+     "text": "in",
+     "bbox": {
+      "x": 0.3156,
+      "y": 0.6671,
+      "w": 0.0201,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 217,
+     "char_end": 219,
+     "bbox_gemini": {
+      "x": 0.701,
+      "y": 0.65,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w037",
+     "text": "the",
+     "bbox": {
+      "x": 0.3544,
+      "y": 0.6671,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 220,
+     "char_end": 223,
+     "bbox_gemini": {
+      "x": 0.732,
+      "y": 0.65,
+      "w": 0.03,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w038",
+     "text": "American",
+     "bbox": {
+      "x": 0.4076,
+      "y": 0.6671,
+      "w": 0.1006,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 224,
+     "char_end": 232,
+     "bbox_gemini": {
+      "x": 0.771,
+      "y": 0.65,
+      "w": 0.07,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w039",
+     "text": "Journal",
+     "bbox": {
+      "x": 0.5269,
+      "y": 0.6671,
+      "w": 0.0767,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 233,
+     "char_end": 240,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.675,
+      "w": 0.058,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w040",
+     "text": "of",
+     "bbox": {
+      "x": 0.6222,
+      "y": 0.6671,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 241,
+     "char_end": 243,
+     "bbox_gemini": {
+      "x": 0.21,
+      "y": 0.675,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w041",
+     "text": "Clinical",
+     "bbox": {
+      "x": 0.6616,
+      "y": 0.6671,
+      "w": 0.0786,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 244,
+     "char_end": 252,
+     "bbox_gemini": {
+      "x": 0.241,
+      "y": 0.675,
+      "w": 0.06,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w042",
+     "text": "Nutrition",
+     "bbox": {
+      "x": 0.7587,
+      "y": 0.6671,
+      "w": 0.098,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 253,
+     "char_end": 262,
+     "bbox_gemini": {
+      "x": 0.31,
+      "y": 0.675,
+      "w": 0.077,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w043",
+     "text": "concluded",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6899,
+      "w": 0.1103,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 263,
+     "char_end": 272,
+     "bbox_gemini": {
+      "x": 0.396,
+      "y": 0.674,
+      "w": 0.079,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w044",
+     "text": "that",
+     "bbox": {
+      "x": 0.2732,
+      "y": 0.6899,
+      "w": 0.0428,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 273,
+     "char_end": 277,
+     "bbox_gemini": {
+      "x": 0.484,
+      "y": 0.674,
+      "w": 0.033,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w045",
+     "text": "there",
+     "bbox": {
+      "x": 0.3356,
+      "y": 0.6899,
+      "w": 0.0567,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 278,
+     "char_end": 283,
+     "bbox_gemini": {
+      "x": 0.525,
+      "y": 0.674,
+      "w": 0.041,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w046",
+     "text": "is",
+     "bbox": {
+      "x": 0.412,
+      "y": 0.6899,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 284,
+     "char_end": 286,
+     "bbox_gemini": {
+      "x": 0.575,
+      "y": 0.674,
+      "w": 0.023,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w047",
+     "text": "much",
+     "bbox": {
+      "x": 0.4486,
+      "y": 0.6899,
+      "w": 0.0596,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 287,
+     "char_end": 291,
+     "bbox_gemini": {
+      "x": 0.606,
+      "y": 0.674,
+      "w": 0.046,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w048",
+     "text": "evidence",
+     "bbox": {
+      "x": 0.5279,
+      "y": 0.6899,
+      "w": 0.094,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 292,
+     "char_end": 300,
+     "bbox_gemini": {
+      "x": 0.661,
+      "y": 0.674,
+      "w": 0.07,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w049",
+     "text": "to",
+     "bbox": {
+      "x": 0.6416,
+      "y": 0.6899,
+      "w": 0.0221,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 301,
+     "char_end": 303,
+     "bbox_gemini": {
+      "x": 0.74,
+      "y": 0.674,
+      "w": 0.021,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w050",
+     "text": "indicate",
+     "bbox": {
+      "x": 0.6834,
+      "y": 0.6899,
+      "w": 0.0848,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 304,
+     "char_end": 312,
+     "bbox_gemini": {
+      "x": 0.77,
+      "y": 0.674,
+      "w": 0.056,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w051",
+     "text": "higher",
+     "bbox": {
+      "x": 0.7879,
+      "y": 0.6899,
+      "w": 0.0689,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 313,
+     "char_end": 319,
+     "bbox_gemini": {
+      "x": 0.835,
+      "y": 0.674,
+      "w": 0.02,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w052",
+     "text": "consumption",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.7128,
+      "w": 0.1392,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 320,
+     "char_end": 331,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.699,
+      "w": 0.093,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w053",
+     "text": "of",
+     "bbox": {
+      "x": 0.2918,
+      "y": 0.7128,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 332,
+     "char_end": 334,
+     "bbox_gemini": {
+      "x": 0.245,
+      "y": 0.699,
+      "w": 0.022,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w054",
+     "text": "sugar-sweetened",
+     "bbox": {
+      "x": 0.3219,
+      "y": 0.7128,
+      "w": 0.1827,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 335,
+     "char_end": 350,
+     "bbox_gemini": {
+      "x": 0.275,
+      "y": 0.699,
+      "w": 0.154,
+      "h": 0.034
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w055",
+     "text": "beverages",
+     "bbox": {
+      "x": 0.5138,
+      "y": 0.7128,
+      "w": 0.1059,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 351,
+     "char_end": 360,
+     "bbox_gemini": {
+      "x": 0.438,
+      "y": 0.699,
+      "w": 0.074,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w056",
+     "text": "is",
+     "bbox": {
+      "x": 0.6291,
+      "y": 0.7128,
+      "w": 0.0169,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 361,
+     "char_end": 363,
+     "bbox_gemini": {
+      "x": 0.52,
+      "y": 0.699,
+      "w": 0.023,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w057",
+     "text": "linked",
+     "bbox": {
+      "x": 0.6552,
+      "y": 0.7128,
+      "w": 0.0642,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 364,
+     "char_end": 370,
+     "bbox_gemini": {
+      "x": 0.552,
+      "y": 0.699,
+      "w": 0.041,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w058",
+     "text": "with",
+     "bbox": {
+      "x": 0.7287,
+      "y": 0.7128,
+      "w": 0.0469,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 371,
+     "char_end": 375,
+     "bbox_gemini": {
+      "x": 0.602,
+      "y": 0.699,
+      "w": 0.037,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w059",
+     "text": "weight",
+     "bbox": {
+      "x": 0.7849,
+      "y": 0.7128,
+      "w": 0.072,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 376,
+     "char_end": 382,
+     "bbox_gemini": {
+      "x": 0.648,
+      "y": 0.699,
+      "w": 0.048,
+      "h": 0.03
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w060",
+     "text": "gain",
+     "bbox": {
+      "x": 0.704,
+      "y": 0.699,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 383,
+     "char_end": 387,
+     "bbox_gemini": {
+      "x": 0.704,
+      "y": 0.699,
+      "w": 0.039,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b002_w061",
+     "text": "and",
+     "bbox": {
+      "x": 0.752,
+      "y": 0.699,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 388,
+     "char_end": 391,
+     "bbox_gemini": {
+      "x": 0.752,
+      "y": 0.699,
+      "w": 0.034,
+      "h": 0.03
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b002_w062",
+     "text": "obesity.",
+     "bbox": {
+      "x": 0.795,
+      "y": 0.699,
+      "w": 0.06,
+      "h": 0.034
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 392,
+     "char_end": 400,
+     "bbox_gemini": {
+      "x": 0.795,
+      "y": 0.699,
+      "w": 0.06,
+      "h": 0.034
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b002_w063",
+     "text": "2",
+     "bbox": {
+      "x": 0.324,
+      "y": 0.728,
+      "w": 0.011,
+      "h": 0.022
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 401,
+     "char_end": 402,
+     "bbox_gemini": {
+      "x": 0.324,
+      "y": 0.728,
+      "w": 0.011,
+      "h": 0.022
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b002_w064",
+     "text": "A",
+     "bbox": {
+      "x": 0.346,
+      "y": 0.7357,
+      "w": 0.0142,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 403,
+     "char_end": 404,
+     "bbox_gemini": {
+      "x": 0.343,
+      "y": 0.737,
+      "w": 0.016,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w065",
+     "text": "study",
+     "bbox": {
+      "x": 0.369,
+      "y": 0.7357,
+      "w": 0.0583,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 405,
+     "char_end": 410,
+     "bbox_gemini": {
+      "x": 0.368,
+      "y": 0.737,
+      "w": 0.041,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w066",
+     "text": "at",
+     "bbox": {
+      "x": 0.4362,
+      "y": 0.7357,
+      "w": 0.0204,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 411,
+     "char_end": 413,
+     "bbox_gemini": {
+      "x": 0.418,
+      "y": 0.737,
+      "w": 0.02,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w067",
+     "text": "the",
+     "bbox": {
+      "x": 0.4653,
+      "y": 0.7357,
+      "w": 0.0347,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 414,
+     "char_end": 417,
+     "bbox_gemini": {
+      "x": 0.447,
+      "y": 0.737,
+      "w": 0.03,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w068",
+     "text": "Harvard",
+     "bbox": {
+      "x": 0.5088,
+      "y": 0.7357,
+      "w": 0.0855,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 418,
+     "char_end": 425,
+     "bbox_gemini": {
+      "x": 0.485,
+      "y": 0.737,
+      "w": 0.058,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w069",
+     "text": "School",
+     "bbox": {
+      "x": 0.6032,
+      "y": 0.7357,
+      "w": 0.0713,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 426,
+     "char_end": 432,
+     "bbox_gemini": {
+      "x": 0.552,
+      "y": 0.737,
+      "w": 0.05,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w070",
+     "text": "of",
+     "bbox": {
+      "x": 0.6833,
+      "y": 0.7357,
+      "w": 0.0208,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 433,
+     "char_end": 435,
+     "bbox_gemini": {
+      "x": 0.61,
+      "y": 0.737,
+      "w": 0.022,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w071",
+     "text": "Public",
+     "bbox": {
+      "x": 0.713,
+      "y": 0.7357,
+      "w": 0.0652,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 436,
+     "char_end": 442,
+     "bbox_gemini": {
+      "x": 0.641,
+      "y": 0.737,
+      "w": 0.047,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b002_w072",
+     "text": "Health",
+     "bbox": {
+      "x": 0.787,
+      "y": 0.7357,
+      "w": 0.0698,
+      "h": 0.0178
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 443,
+     "char_end": 449,
+     "bbox_gemini": {
+      "x": 0.697,
+      "y": 0.737,
+      "w": 0.058,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0304_b002",
+    "chunk_number_in_lrm": 6,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [
+     "p0304_b003"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     7
+    ],
+    "level": 0,
+    "prev_chunk_id": "p0304_b001",
+    "next_chunk_id": "p0304_b003",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0304_b003",
+   "local_id": "b3",
+   "type": "footnote",
+   "reading_order": 3,
+   "bbox": {
+    "x": 0.115,
+    "y": 0.8289,
+    "w": 0.6937,
+    "h": 0.0756
+   },
+   "text": "2. Malik VS, Schulze MB, Hu FB. (2006). Intake of Sugar- Sweetened Beverages and Weight Gain: A Systematic Review. American Journal of Clinical Nutrition, 84(2),",
+   "words": [
+    {
+     "id": "p0304_b003_w001",
+     "text": "2.",
+     "bbox": {
+      "x": 0.115,
+      "y": 0.8289,
+      "w": 0.0211,
+      "h": 0.0211
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 2,
+     "bbox_gemini": {
+      "x": 0.113,
+      "y": 0.832,
+      "w": 0.019,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w002",
+     "text": "Malik",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.8289,
+      "w": 0.0679,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 3,
+     "char_end": 8,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.832,
+      "w": 0.056,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w003",
+     "text": "VS,",
+     "bbox": {
+      "x": 0.2182,
+      "y": 0.8289,
+      "w": 0.0396,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 9,
+     "char_end": 12,
+     "bbox_gemini": {
+      "x": 0.207,
+      "y": 0.832,
+      "w": 0.047,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w004",
+     "text": "Schulze",
+     "bbox": {
+      "x": 0.2648,
+      "y": 0.8289,
+      "w": 0.0975,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 13,
+     "char_end": 20,
+     "bbox_gemini": {
+      "x": 0.262,
+      "y": 0.832,
+      "w": 0.071,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w005",
+     "text": "MB,",
+     "bbox": {
+      "x": 0.3694,
+      "y": 0.8289,
+      "w": 0.0482,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 21,
+     "char_end": 24,
+     "bbox_gemini": {
+      "x": 0.341,
+      "y": 0.832,
+      "w": 0.045,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w006",
+     "text": "Hu",
+     "bbox": {
+      "x": 0.4248,
+      "y": 0.8289,
+      "w": 0.0367,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 25,
+     "char_end": 27,
+     "bbox_gemini": {
+      "x": 0.395,
+      "y": 0.832,
+      "w": 0.028,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w007",
+     "text": "FB.",
+     "bbox": {
+      "x": 0.4685,
+      "y": 0.8289,
+      "w": 0.0381,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 28,
+     "char_end": 31,
+     "bbox_gemini": {
+      "x": 0.431,
+      "y": 0.832,
+      "w": 0.037,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w008",
+     "text": "(2006).",
+     "bbox": {
+      "x": 0.5137,
+      "y": 0.8289,
+      "w": 0.0863,
+      "h": 0.0211
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 32,
+     "char_end": 39,
+     "bbox_gemini": {
+      "x": 0.475,
+      "y": 0.832,
+      "w": 0.065,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w009",
+     "text": "Intake",
+     "bbox": {
+      "x": 0.6071,
+      "y": 0.8289,
+      "w": 0.0781,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 40,
+     "char_end": 46,
+     "bbox_gemini": {
+      "x": 0.548,
+      "y": 0.832,
+      "w": 0.054,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w010",
+     "text": "of",
+     "bbox": {
+      "x": 0.6923,
+      "y": 0.8289,
+      "w": 0.0247,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 47,
+     "char_end": 49,
+     "bbox_gemini": {
+      "x": 0.61,
+      "y": 0.832,
+      "w": 0.021,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w011",
+     "text": "Sugar-",
+     "bbox": {
+      "x": 0.7241,
+      "y": 0.8289,
+      "w": 0.0846,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 50,
+     "char_end": 56,
+     "bbox_gemini": {
+      "x": 0.64,
+      "y": 0.832,
+      "w": 0.063,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w012",
+     "text": "Sweetened",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.856,
+      "w": 0.1372,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 57,
+     "char_end": 66,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.858,
+      "w": 0.094,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w013",
+     "text": "Beverages",
+     "bbox": {
+      "x": 0.2874,
+      "y": 0.856,
+      "w": 0.1266,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 67,
+     "char_end": 76,
+     "bbox_gemini": {
+      "x": 0.246,
+      "y": 0.858,
+      "w": 0.08,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w014",
+     "text": "and",
+     "bbox": {
+      "x": 0.4211,
+      "y": 0.856,
+      "w": 0.0463,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 77,
+     "char_end": 80,
+     "bbox_gemini": {
+      "x": 0.334,
+      "y": 0.858,
+      "w": 0.034,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w015",
+     "text": "Weight",
+     "bbox": {
+      "x": 0.4745,
+      "y": 0.856,
+      "w": 0.0899,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 81,
+     "char_end": 87,
+     "bbox_gemini": {
+      "x": 0.376,
+      "y": 0.858,
+      "w": 0.048,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w016",
+     "text": "Gain:",
+     "bbox": {
+      "x": 0.5715,
+      "y": 0.856,
+      "w": 0.065,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 88,
+     "char_end": 93,
+     "bbox_gemini": {
+      "x": 0.432,
+      "y": 0.858,
+      "w": 0.047,
+      "h": 0.031
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w017",
+     "text": "A",
+     "bbox": {
+      "x": 0.6436,
+      "y": 0.856,
+      "w": 0.0168,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 94,
+     "char_end": 95,
+     "bbox_gemini": {
+      "x": 0.487,
+      "y": 0.858,
+      "w": 0.016,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w018",
+     "text": "Systematic",
+     "bbox": {
+      "x": 0.6675,
+      "y": 0.856,
+      "w": 0.137,
+      "h": 0.0211
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 96,
+     "char_end": 106,
+     "bbox_gemini": {
+      "x": 0.512,
+      "y": 0.858,
+      "w": 0.088,
+      "h": 0.028
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w019",
+     "text": "Review.",
+     "bbox": {
+      "x": 0.609,
+      "y": 0.858,
+      "w": 0.063,
+      "h": 0.028
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 107,
+     "char_end": 114,
+     "bbox_gemini": {
+      "x": 0.609,
+      "y": 0.858,
+      "w": 0.063,
+      "h": 0.028
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b003_w020",
+     "text": "American",
+     "bbox": {
+      "x": 0.68,
+      "y": 0.858,
+      "w": 0.07,
+      "h": 0.031
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 115,
+     "char_end": 123,
+     "bbox_gemini": {
+      "x": 0.68,
+      "y": 0.858,
+      "w": 0.07,
+      "h": 0.031
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b003_w021",
+     "text": "Journal",
+     "bbox": {
+      "x": 0.758,
+      "y": 0.858,
+      "w": 0.045,
+      "h": 0.028
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 124,
+     "char_end": 131,
+     "bbox_gemini": {
+      "x": 0.758,
+      "y": 0.858,
+      "w": 0.045,
+      "h": 0.028
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0304_b003_w022",
+     "text": "of",
+     "bbox": {
+      "x": 0.467,
+      "y": 0.883,
+      "w": 0.0228,
+      "h": 0.0215
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 132,
+     "char_end": 134,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.884,
+      "w": 0.02,
+      "h": 0.019
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w023",
+     "text": "Clinical",
+     "bbox": {
+      "x": 0.4968,
+      "y": 0.883,
+      "w": 0.0951,
+      "h": 0.0215
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 135,
+     "char_end": 143,
+     "bbox_gemini": {
+      "x": 0.171,
+      "y": 0.884,
+      "w": 0.055,
+      "h": 0.019
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w024",
+     "text": "Nutrition,",
+     "bbox": {
+      "x": 0.599,
+      "y": 0.883,
+      "w": 0.1227,
+      "h": 0.0215
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 144,
+     "char_end": 154,
+     "bbox_gemini": {
+      "x": 0.234,
+      "y": 0.884,
+      "w": 0.075,
+      "h": 0.023
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b003_w025",
+     "text": "84(2),",
+     "bbox": {
+      "x": 0.7291,
+      "y": 0.883,
+      "w": 0.0671,
+      "h": 0.0215
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 155,
+     "char_end": 161,
+     "bbox_gemini": {
+      "x": 0.317,
+      "y": 0.884,
+      "w": 0.057,
+      "h": 0.023
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "2",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0304_b003",
+    "chunk_number_in_lrm": 7,
+    "parent_chunk_id": "p0304_b002",
+    "parent_chunk_number_in_lrm": 6,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 1,
+    "prev_chunk_id": "p0304_b002",
+    "next_chunk_id": "p0305_b001",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0304_b002"
+  },
+  {
+   "id": "p0304_b004",
+   "local_id": "b4",
+   "type": "running_footer",
+   "reading_order": 4,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.9222,
+    "w": 0.6524,
+    "h": 0.0159
+   },
+   "text": "262 | Health Consequences and Benefits of High-Carbohydrate Diets",
+   "words": [
+    {
+     "id": "p0304_b004_w001",
+     "text": "262",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.9222,
+      "w": 0.0334,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.143,
+      "y": 0.924,
+      "w": 0.034,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w002",
+     "text": "|",
+     "bbox": {
+      "x": 0.1872,
+      "y": 0.9222,
+      "w": 0.0046,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 5,
+     "bbox_gemini": {
+      "x": 0.187,
+      "y": 0.923,
+      "w": 0.008,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w003",
+     "text": "Health",
+     "bbox": {
+      "x": 0.2025,
+      "y": 0.9222,
+      "w": 0.062,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 6,
+     "char_end": 12,
+     "bbox_gemini": {
+      "x": 0.202,
+      "y": 0.924,
+      "w": 0.048,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w004",
+     "text": "Consequences",
+     "bbox": {
+      "x": 0.2698,
+      "y": 0.9222,
+      "w": 0.1363,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 13,
+     "char_end": 25,
+     "bbox_gemini": {
+      "x": 0.258,
+      "y": 0.923,
+      "w": 0.096,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w005",
+     "text": "and",
+     "bbox": {
+      "x": 0.4114,
+      "y": 0.9222,
+      "w": 0.0347,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 26,
+     "char_end": 29,
+     "bbox_gemini": {
+      "x": 0.362,
+      "y": 0.923,
+      "w": 0.024,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w006",
+     "text": "Benefits",
+     "bbox": {
+      "x": 0.4515,
+      "y": 0.9222,
+      "w": 0.077,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 30,
+     "char_end": 38,
+     "bbox_gemini": {
+      "x": 0.394,
+      "y": 0.923,
+      "w": 0.052,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w007",
+     "text": "of",
+     "bbox": {
+      "x": 0.5338,
+      "y": 0.9222,
+      "w": 0.0186,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 39,
+     "char_end": 41,
+     "bbox_gemini": {
+      "x": 0.455,
+      "y": 0.923,
+      "w": 0.016,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w008",
+     "text": "High-Carbohydrate",
+     "bbox": {
+      "x": 0.5576,
+      "y": 0.9222,
+      "w": 0.184,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 42,
+     "char_end": 59,
+     "bbox_gemini": {
+      "x": 0.479,
+      "y": 0.923,
+      "w": 0.131,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0304_b004_w009",
+     "text": "Diets",
+     "bbox": {
+      "x": 0.7469,
+      "y": 0.9222,
+      "w": 0.0487,
+      "h": 0.0159
+     },
+     "lang": "en",
+     "style": "normal",
+     "char_start": 60,
+     "char_end": 65,
+     "bbox_gemini": {
+      "x": 0.618,
+      "y": 0.923,
+      "w": 0.038,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0304_b004",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  }
+ ],
+ "bbox_refinement": {
+  "method": "pdf_text_layer_snap",
+  "words": 310,
+  "snapped": 229
+ }
+}

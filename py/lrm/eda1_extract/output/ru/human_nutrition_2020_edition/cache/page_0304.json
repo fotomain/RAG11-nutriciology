@@ -1,0 +1,34 @@
+{
+ "lang": "ru",
+ "page": 304,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "texts": {
+  "p0304_b001": "Вдумайтесь в это: в Соединенных Штатах около 130 миллионов взрослых имеют избыточный вес, и 30 процентов из них считаются страдающими ожирением. Эпидемия ожирения охватила молодых людей и детей и существенно повлияет на распространенность тяжелых последствий для здоровья в зрелом возрасте. К последствиям для здоровья, связанным с избыточным весом или ожирением, относятся сахарный диабет 2-го типа, сердечно-сосудистые заболевания, артрит, депрессия и некоторые виды рака. Страсть к сладкой пище и рафинированным злакам, вероятнее всего, способствует достижению эпидемических масштабов переизбытка веса и ожирения среди людей в этой стране, однако к тому же ведут потребление высококалорийной пищи, содержащей слишком много насыщенных жиров, и малоподвижный образ жизни большинства американцев. Существует множество разногласий по поводу того, увеличивают ли диеты с высоким содержанием углеводов набор веса и риск заболеваний, особенно когда количество калорий существенно не различается между сравниваемыми диетами. Многие научные исследования демонстрируют прямые корреляции между диетами с высоким содержанием добавленных сахаров и набором веса и риском заболеваний, однако некоторые другие не показывают значимой связи. Что касается рафинированных злаков, то нет никаких исследований, которые бы показывали, что потребление рафинированных злаков увеличивает набор веса или риск заболеваний. Тем не менее очевидно, что получение большего количества углеводов из пищевых источников, содержащих цельные злаки, а не рафинированные злаки, стимулирует потерю веса и снижает риск заболеваний.",
+  "p0304_b002": "Основным источником добавленных сахаров в американском рационе являются безалкогольные газированные напитки. Имеется последовательное научное свидетельство того, что употребление сладких газированных напитков увеличивает набор веса и риск заболеваний. Анализ более чем тридцати исследований в American Journal of Clinical Nutrition пришел к выводу, что существует множество свидетельств того, что более высокое потребление подслащенных сахаром напитков связано с набором веса и ожирением. <sup>2</sup> Исследование в Гарвардской школе общественного здравоохранения",
+  "p0304_b003": "2. Malik VS, Schulze MB, Hu FB. (2006). Intake of Sugar- Sweetened Beverages and Weight Gain: A Systematic Review. American Journal of Clinical Nutrition, 84(2),"
+ },
+ "source_marked": {
+  "p0304_b001": "States consider this–in the United States approximately 130 million adults are overweight, and 30 percent of them are considered obese. The obesity epidemic has reached young adults and children and will markedly affect the prevalence of serious health consequences in adulthood. Health consequences linked to being overweight or obese include Type 2 diabetes, cardiovascular disease, arthritis, depression, and some cancers. An infatuation with sugary foods and refined grains likely contributes to the epidemic proportion of people who are overweight or obese in this country, but so do the consumption of high-calorie foods that contain too much saturated fat and the sedentary lifestyle of most Americans. There is much disagreement over whether high-carbohydrate diets increase weight-gain and disease risk, especially when calories are not significantly higher between compared diets. Many scientific studies demonstrate positive correlations between diets high in added sugars with weight gain and disease risk, but some others do not show a significant relationship. In regard to refined grains, there are no studies that show consumption of refined grains increases weight gain or disease risk. What is clear, however, is that getting more of your carbohydrates from dietary sources containing whole grains instead of refined grains stimulates weight loss and reduces disease risk.",
+  "p0304_b002": "A major source of added sugars in the American diet is soft drinks. There is consistent scientific evidence that consuming sugary soft drinks increases weight gain and disease risk. An analysis of over thirty studies in the American Journal of Clinical Nutrition concluded that there is much evidence to indicate higher consumption of sugar-sweetened beverages is linked with weight gain and obesity. <sup>2</sup> A study at the Harvard School of Public Health",
+  "p0304_b003": "2. Malik VS, Schulze MB, Hu FB. (2006). Intake of Sugar- Sweetened Beverages and Weight Gain: A Systematic Review. American Journal of Clinical Nutrition, 84(2),"
+ },
+ "missing": [],
+ "qa": {
+  "p0304_b001": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.15
+  },
+  "p0304_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.26
+  },
+  "p0304_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.0
+  }
+ }
+}

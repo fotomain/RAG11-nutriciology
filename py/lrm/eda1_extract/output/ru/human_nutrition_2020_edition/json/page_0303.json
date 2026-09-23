@@ -1,0 +1,4072 @@
+{
+ "schema_version": 1,
+ "page": 303,
+ "lang": "ru",
+ "printed_page_number": "261",
+ "image": "ru/human_nutrition_2020_edition/pages/page_0303.png",
+ "source_key": "human_nutrition_2020_edition",
+ "image_size": {
+  "width": 935,
+  "height": 1445
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": {
+  "lang": "en",
+  "page": 303
+ },
+ "pdf": "files/ru/pages/page_0303.pdf",
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "blocks": [
+  {
+   "id": "p0303_b001",
+   "local_id": "b1",
+   "type": "paragraph",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.0974,
+    "w": 0.7136,
+    "h": 0.466
+   },
+   "text": "Совет по продовольствию и питанию Института медицины (IOM) определяет добавленные сахара как «сахара и сиропы, которые добавляются в продукты питания в процессе их обработки или приготовления». Далее IOM утверждает: «Основными источниками добавленных сахаров являются безалкогольные напитки, спортивные напитки, торты, печенье, пироги, фруктовые напитки, фруктовые пунши, молочные десерты и конфеты». Обработанные продукты, включая обеды для микроволновых печей, также содержат добавленные сахара. Добавленные сахара не включают сахара, которые содержатся в цельных продуктах от природы (например, в яблоке), но включают такие натуральные сахара, как коричневый сахар, кукурузный сироп, декстроза, фруктоза, концентраты фруктовых соков, кленовый сироп, сахароза и сырой сахар, которые затем добавляются при создании других продуктов (например, печенья). Результаты опроса сорока двух тысяч американцев показывают, что в 2008 году среднее потребление добавленных сахаров составляло 15 процентов от общего числа калорий, что ниже по сравнению с 18 процентами от общего числа калорий в 2000 году. 1 Это по-прежнему выше рекомендуемого уровня потребления, составляющего менее 10 процентов от общего числа калорий. Министерство сельского хозяйства США (USDA) сообщает, что потребление сахара в рационе американцев в 2008 году составляло в среднем 28 чайных ложек в день (Рисунок 4.13 «Потребление сахара (в чайных ложках) из различных источников»).",
+   "words": [
+    {
+     "id": "p0303_b001_w001",
+     "text": "Совет",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.0974,
+      "w": 0.0557,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 5
+    },
+    {
+     "id": "p0303_b001_w002",
+     "text": "по",
+     "bbox": {
+      "x": 0.2172,
+      "y": 0.0974,
+      "w": 0.0229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 6,
+     "char_end": 8
+    },
+    {
+     "id": "p0303_b001_w003",
+     "text": "продовольствию",
+     "bbox": {
+      "x": 0.2585,
+      "y": 0.0974,
+      "w": 0.1564,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 9,
+     "char_end": 23
+    },
+    {
+     "id": "p0303_b001_w004",
+     "text": "и",
+     "bbox": {
+      "x": 0.4332,
+      "y": 0.0974,
+      "w": 0.0119,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 24,
+     "char_end": 25
+    },
+    {
+     "id": "p0303_b001_w005",
+     "text": "питанию",
+     "bbox": {
+      "x": 0.4634,
+      "y": 0.0974,
+      "w": 0.0838,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 26,
+     "char_end": 33
+    },
+    {
+     "id": "p0303_b001_w006",
+     "text": "Института",
+     "bbox": {
+      "x": 0.5655,
+      "y": 0.0974,
+      "w": 0.0995,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 34,
+     "char_end": 43
+    },
+    {
+     "id": "p0303_b001_w007",
+     "text": "медицины",
+     "bbox": {
+      "x": 0.6833,
+      "y": 0.0974,
+      "w": 0.0971,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 44,
+     "char_end": 52
+    },
+    {
+     "id": "p0303_b001_w008",
+     "text": "(IOM)",
+     "bbox": {
+      "x": 0.7988,
+      "y": 0.0974,
+      "w": 0.0579,
+      "h": 0.0159
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 53,
+     "char_end": 58
+    },
+    {
+     "id": "p0303_b001_w009",
+     "text": "определяет",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1189,
+      "w": 0.1054,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 59,
+     "char_end": 69
+    },
+    {
+     "id": "p0303_b001_w010",
+     "text": "добавленные",
+     "bbox": {
+      "x": 0.2708,
+      "y": 0.1189,
+      "w": 0.1229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 70,
+     "char_end": 81
+    },
+    {
+     "id": "p0303_b001_w011",
+     "text": "сахара",
+     "bbox": {
+      "x": 0.4159,
+      "y": 0.1189,
+      "w": 0.0614,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 82,
+     "char_end": 88
+    },
+    {
+     "id": "p0303_b001_w012",
+     "text": "как",
+     "bbox": {
+      "x": 0.4995,
+      "y": 0.1189,
+      "w": 0.031,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 89,
+     "char_end": 92
+    },
+    {
+     "id": "p0303_b001_w013",
+     "text": "«сахара",
+     "bbox": {
+      "x": 0.5527,
+      "y": 0.1189,
+      "w": 0.0725,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 93,
+     "char_end": 100
+    },
+    {
+     "id": "p0303_b001_w014",
+     "text": "и",
+     "bbox": {
+      "x": 0.6474,
+      "y": 0.1189,
+      "w": 0.0119,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 101,
+     "char_end": 102
+    },
+    {
+     "id": "p0303_b001_w015",
+     "text": "сиропы,",
+     "bbox": {
+      "x": 0.6814,
+      "y": 0.1189,
+      "w": 0.0761,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 103,
+     "char_end": 110
+    },
+    {
+     "id": "p0303_b001_w016",
+     "text": "которые",
+     "bbox": {
+      "x": 0.7797,
+      "y": 0.1189,
+      "w": 0.0767,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 111,
+     "char_end": 118
+    },
+    {
+     "id": "p0303_b001_w017",
+     "text": "добавляются",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1403,
+      "w": 0.1211,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 119,
+     "char_end": 130
+    },
+    {
+     "id": "p0303_b001_w018",
+     "text": "в",
+     "bbox": {
+      "x": 0.2845,
+      "y": 0.1403,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 131,
+     "char_end": 132
+    },
+    {
+     "id": "p0303_b001_w019",
+     "text": "продукты",
+     "bbox": {
+      "x": 0.3152,
+      "y": 0.1403,
+      "w": 0.0908,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 133,
+     "char_end": 141
+    },
+    {
+     "id": "p0303_b001_w020",
+     "text": "питания",
+     "bbox": {
+      "x": 0.4262,
+      "y": 0.1403,
+      "w": 0.0774,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 142,
+     "char_end": 149
+    },
+    {
+     "id": "p0303_b001_w021",
+     "text": "в",
+     "bbox": {
+      "x": 0.5238,
+      "y": 0.1403,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 150,
+     "char_end": 151
+    },
+    {
+     "id": "p0303_b001_w022",
+     "text": "процессе",
+     "bbox": {
+      "x": 0.5545,
+      "y": 0.1403,
+      "w": 0.086,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 152,
+     "char_end": 160
+    },
+    {
+     "id": "p0303_b001_w023",
+     "text": "их",
+     "bbox": {
+      "x": 0.6608,
+      "y": 0.1403,
+      "w": 0.0229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 161,
+     "char_end": 163
+    },
+    {
+     "id": "p0303_b001_w024",
+     "text": "обработки",
+     "bbox": {
+      "x": 0.7039,
+      "y": 0.1403,
+      "w": 0.0976,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 164,
+     "char_end": 173
+    },
+    {
+     "id": "p0303_b001_w025",
+     "text": "или",
+     "bbox": {
+      "x": 0.8218,
+      "y": 0.1403,
+      "w": 0.0348,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 174,
+     "char_end": 177
+    },
+    {
+     "id": "p0303_b001_w026",
+     "text": "приготовления».",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1617,
+      "w": 0.1562,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 178,
+     "char_end": 193
+    },
+    {
+     "id": "p0303_b001_w027",
+     "text": "Далее",
+     "bbox": {
+      "x": 0.3191,
+      "y": 0.1617,
+      "w": 0.0558,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 194,
+     "char_end": 199
+    },
+    {
+     "id": "p0303_b001_w028",
+     "text": "IOM",
+     "bbox": {
+      "x": 0.3947,
+      "y": 0.1617,
+      "w": 0.0431,
+      "h": 0.0159
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 200,
+     "char_end": 203
+    },
+    {
+     "id": "p0303_b001_w029",
+     "text": "утверждает:",
+     "bbox": {
+      "x": 0.4575,
+      "y": 0.1617,
+      "w": 0.114,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 204,
+     "char_end": 215
+    },
+    {
+     "id": "p0303_b001_w030",
+     "text": "«Основными",
+     "bbox": {
+      "x": 0.5913,
+      "y": 0.1617,
+      "w": 0.1229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 216,
+     "char_end": 226
+    },
+    {
+     "id": "p0303_b001_w031",
+     "text": "источниками",
+     "bbox": {
+      "x": 0.7339,
+      "y": 0.1617,
+      "w": 0.1225,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 227,
+     "char_end": 238
+    },
+    {
+     "id": "p0303_b001_w032",
+     "text": "добавленных",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1832,
+      "w": 0.1242,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 239,
+     "char_end": 250
+    },
+    {
+     "id": "p0303_b001_w033",
+     "text": "сахаров",
+     "bbox": {
+      "x": 0.2842,
+      "y": 0.1832,
+      "w": 0.0732,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 251,
+     "char_end": 258
+    },
+    {
+     "id": "p0303_b001_w034",
+     "text": "являются",
+     "bbox": {
+      "x": 0.3743,
+      "y": 0.1832,
+      "w": 0.0878,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 259,
+     "char_end": 267
+    },
+    {
+     "id": "p0303_b001_w035",
+     "text": "безалкогольные",
+     "bbox": {
+      "x": 0.4789,
+      "y": 0.1832,
+      "w": 0.1487,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 268,
+     "char_end": 282
+    },
+    {
+     "id": "p0303_b001_w036",
+     "text": "напитки,",
+     "bbox": {
+      "x": 0.6445,
+      "y": 0.1832,
+      "w": 0.083,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 283,
+     "char_end": 291
+    },
+    {
+     "id": "p0303_b001_w037",
+     "text": "спортивные",
+     "bbox": {
+      "x": 0.7443,
+      "y": 0.1832,
+      "w": 0.1121,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 292,
+     "char_end": 302
+    },
+    {
+     "id": "p0303_b001_w038",
+     "text": "напитки,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2046,
+      "w": 0.083,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 303,
+     "char_end": 311
+    },
+    {
+     "id": "p0303_b001_w039",
+     "text": "торты,",
+     "bbox": {
+      "x": 0.2348,
+      "y": 0.2046,
+      "w": 0.0614,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 312,
+     "char_end": 318
+    },
+    {
+     "id": "p0303_b001_w040",
+     "text": "печенье,",
+     "bbox": {
+      "x": 0.3048,
+      "y": 0.2046,
+      "w": 0.0794,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 319,
+     "char_end": 327
+    },
+    {
+     "id": "p0303_b001_w041",
+     "text": "пироги,",
+     "bbox": {
+      "x": 0.3928,
+      "y": 0.2046,
+      "w": 0.0724,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 328,
+     "char_end": 335
+    },
+    {
+     "id": "p0303_b001_w042",
+     "text": "фруктовые",
+     "bbox": {
+      "x": 0.4738,
+      "y": 0.2046,
+      "w": 0.1023,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 336,
+     "char_end": 345
+    },
+    {
+     "id": "p0303_b001_w043",
+     "text": "напитки,",
+     "bbox": {
+      "x": 0.5848,
+      "y": 0.2046,
+      "w": 0.083,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 346,
+     "char_end": 354
+    },
+    {
+     "id": "p0303_b001_w044",
+     "text": "фруктовые",
+     "bbox": {
+      "x": 0.6763,
+      "y": 0.2046,
+      "w": 0.1023,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 355,
+     "char_end": 364
+    },
+    {
+     "id": "p0303_b001_w045",
+     "text": "пунши,",
+     "bbox": {
+      "x": 0.7873,
+      "y": 0.2046,
+      "w": 0.0693,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 365,
+     "char_end": 371
+    },
+    {
+     "id": "p0303_b001_w046",
+     "text": "молочные",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.226,
+      "w": 0.0941,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 372,
+     "char_end": 380
+    },
+    {
+     "id": "p0303_b001_w047",
+     "text": "десерты",
+     "bbox": {
+      "x": 0.2459,
+      "y": 0.226,
+      "w": 0.0769,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 381,
+     "char_end": 388
+    },
+    {
+     "id": "p0303_b001_w048",
+     "text": "и",
+     "bbox": {
+      "x": 0.3315,
+      "y": 0.226,
+      "w": 0.0119,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 389,
+     "char_end": 390
+    },
+    {
+     "id": "p0303_b001_w049",
+     "text": "конфеты».",
+     "bbox": {
+      "x": 0.3521,
+      "y": 0.226,
+      "w": 0.0979,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 391,
+     "char_end": 400
+    },
+    {
+     "id": "p0303_b001_w050",
+     "text": "Обработанные",
+     "bbox": {
+      "x": 0.4587,
+      "y": 0.226,
+      "w": 0.1384,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 401,
+     "char_end": 413
+    },
+    {
+     "id": "p0303_b001_w051",
+     "text": "продукты,",
+     "bbox": {
+      "x": 0.6058,
+      "y": 0.226,
+      "w": 0.0963,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 414,
+     "char_end": 423
+    },
+    {
+     "id": "p0303_b001_w052",
+     "text": "включая",
+     "bbox": {
+      "x": 0.7108,
+      "y": 0.226,
+      "w": 0.0791,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 424,
+     "char_end": 431
+    },
+    {
+     "id": "p0303_b001_w053",
+     "text": "обеды",
+     "bbox": {
+      "x": 0.7986,
+      "y": 0.226,
+      "w": 0.0577,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 432,
+     "char_end": 437
+    },
+    {
+     "id": "p0303_b001_w054",
+     "text": "для",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2475,
+      "w": 0.0325,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 438,
+     "char_end": 441
+    },
+    {
+     "id": "p0303_b001_w055",
+     "text": "микроволновых",
+     "bbox": {
+      "x": 0.1989,
+      "y": 0.2475,
+      "w": 0.1503,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 442,
+     "char_end": 455
+    },
+    {
+     "id": "p0303_b001_w056",
+     "text": "печей,",
+     "bbox": {
+      "x": 0.3723,
+      "y": 0.2475,
+      "w": 0.0595,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 456,
+     "char_end": 462
+    },
+    {
+     "id": "p0303_b001_w057",
+     "text": "также",
+     "bbox": {
+      "x": 0.455,
+      "y": 0.2475,
+      "w": 0.0554,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 463,
+     "char_end": 468
+    },
+    {
+     "id": "p0303_b001_w058",
+     "text": "содержат",
+     "bbox": {
+      "x": 0.5335,
+      "y": 0.2475,
+      "w": 0.0867,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 469,
+     "char_end": 477
+    },
+    {
+     "id": "p0303_b001_w059",
+     "text": "добавленные",
+     "bbox": {
+      "x": 0.6433,
+      "y": 0.2475,
+      "w": 0.1229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 478,
+     "char_end": 489
+    },
+    {
+     "id": "p0303_b001_w060",
+     "text": "сахара.",
+     "bbox": {
+      "x": 0.7894,
+      "y": 0.2475,
+      "w": 0.067,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 490,
+     "char_end": 497
+    },
+    {
+     "id": "p0303_b001_w061",
+     "text": "Добавленные",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2689,
+      "w": 0.1268,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 498,
+     "char_end": 509
+    },
+    {
+     "id": "p0303_b001_w062",
+     "text": "сахара",
+     "bbox": {
+      "x": 0.2783,
+      "y": 0.2689,
+      "w": 0.0614,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 510,
+     "char_end": 516
+    },
+    {
+     "id": "p0303_b001_w063",
+     "text": "не",
+     "bbox": {
+      "x": 0.3481,
+      "y": 0.2689,
+      "w": 0.0217,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 517,
+     "char_end": 519
+    },
+    {
+     "id": "p0303_b001_w064",
+     "text": "включают",
+     "bbox": {
+      "x": 0.3781,
+      "y": 0.2689,
+      "w": 0.0949,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 520,
+     "char_end": 528
+    },
+    {
+     "id": "p0303_b001_w065",
+     "text": "сахара,",
+     "bbox": {
+      "x": 0.4813,
+      "y": 0.2689,
+      "w": 0.067,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 529,
+     "char_end": 536
+    },
+    {
+     "id": "p0303_b001_w066",
+     "text": "которые",
+     "bbox": {
+      "x": 0.5566,
+      "y": 0.2689,
+      "w": 0.0767,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 537,
+     "char_end": 544
+    },
+    {
+     "id": "p0303_b001_w067",
+     "text": "содержатся",
+     "bbox": {
+      "x": 0.6416,
+      "y": 0.2689,
+      "w": 0.1069,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 545,
+     "char_end": 555
+    },
+    {
+     "id": "p0303_b001_w068",
+     "text": "в",
+     "bbox": {
+      "x": 0.7569,
+      "y": 0.2689,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 556,
+     "char_end": 557
+    },
+    {
+     "id": "p0303_b001_w069",
+     "text": "цельных",
+     "bbox": {
+      "x": 0.7757,
+      "y": 0.2689,
+      "w": 0.0807,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 558,
+     "char_end": 565
+    },
+    {
+     "id": "p0303_b001_w070",
+     "text": "продуктах",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2903,
+      "w": 0.0971,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 566,
+     "char_end": 575
+    },
+    {
+     "id": "p0303_b001_w071",
+     "text": "от",
+     "bbox": {
+      "x": 0.2594,
+      "y": 0.2903,
+      "w": 0.0205,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 576,
+     "char_end": 578
+    },
+    {
+     "id": "p0303_b001_w072",
+     "text": "природы",
+     "bbox": {
+      "x": 0.299,
+      "y": 0.2903,
+      "w": 0.0825,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 579,
+     "char_end": 586
+    },
+    {
+     "id": "p0303_b001_w073",
+     "text": "(например,",
+     "bbox": {
+      "x": 0.4005,
+      "y": 0.2903,
+      "w": 0.104,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 587,
+     "char_end": 597
+    },
+    {
+     "id": "p0303_b001_w074",
+     "text": "в",
+     "bbox": {
+      "x": 0.5237,
+      "y": 0.2903,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 598,
+     "char_end": 599
+    },
+    {
+     "id": "p0303_b001_w075",
+     "text": "яблоке),",
+     "bbox": {
+      "x": 0.5532,
+      "y": 0.2903,
+      "w": 0.076,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 600,
+     "char_end": 608
+    },
+    {
+     "id": "p0303_b001_w076",
+     "text": "но",
+     "bbox": {
+      "x": 0.6483,
+      "y": 0.2903,
+      "w": 0.0229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 609,
+     "char_end": 611
+    },
+    {
+     "id": "p0303_b001_w077",
+     "text": "включают",
+     "bbox": {
+      "x": 0.6904,
+      "y": 0.2903,
+      "w": 0.0949,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 612,
+     "char_end": 620
+    },
+    {
+     "id": "p0303_b001_w078",
+     "text": "такие",
+     "bbox": {
+      "x": 0.8044,
+      "y": 0.2903,
+      "w": 0.0522,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 621,
+     "char_end": 626
+    },
+    {
+     "id": "p0303_b001_w079",
+     "text": "натуральные",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3118,
+      "w": 0.1204,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 627,
+     "char_end": 638
+    },
+    {
+     "id": "p0303_b001_w080",
+     "text": "сахара,",
+     "bbox": {
+      "x": 0.2712,
+      "y": 0.3118,
+      "w": 0.067,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 639,
+     "char_end": 646
+    },
+    {
+     "id": "p0303_b001_w081",
+     "text": "как",
+     "bbox": {
+      "x": 0.3457,
+      "y": 0.3118,
+      "w": 0.031,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 647,
+     "char_end": 650
+    },
+    {
+     "id": "p0303_b001_w082",
+     "text": "коричневый",
+     "bbox": {
+      "x": 0.3843,
+      "y": 0.3118,
+      "w": 0.1137,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 651,
+     "char_end": 661
+    },
+    {
+     "id": "p0303_b001_w083",
+     "text": "сахар,",
+     "bbox": {
+      "x": 0.5056,
+      "y": 0.3118,
+      "w": 0.0571,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 662,
+     "char_end": 668
+    },
+    {
+     "id": "p0303_b001_w084",
+     "text": "кукурузный",
+     "bbox": {
+      "x": 0.5703,
+      "y": 0.3118,
+      "w": 0.1123,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 669,
+     "char_end": 679
+    },
+    {
+     "id": "p0303_b001_w085",
+     "text": "сироп,",
+     "bbox": {
+      "x": 0.6901,
+      "y": 0.3118,
+      "w": 0.0612,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 680,
+     "char_end": 686
+    },
+    {
+     "id": "p0303_b001_w086",
+     "text": "декстроза,",
+     "bbox": {
+      "x": 0.759,
+      "y": 0.3118,
+      "w": 0.0973,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 687,
+     "char_end": 697
+    },
+    {
+     "id": "p0303_b001_w087",
+     "text": "фруктоза,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3332,
+      "w": 0.0913,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 698,
+     "char_end": 707
+    },
+    {
+     "id": "p0303_b001_w088",
+     "text": "концентраты",
+     "bbox": {
+      "x": 0.2479,
+      "y": 0.3332,
+      "w": 0.1209,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 708,
+     "char_end": 719
+    },
+    {
+     "id": "p0303_b001_w089",
+     "text": "фруктовых",
+     "bbox": {
+      "x": 0.3822,
+      "y": 0.3332,
+      "w": 0.1036,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 720,
+     "char_end": 729
+    },
+    {
+     "id": "p0303_b001_w090",
+     "text": "соков,",
+     "bbox": {
+      "x": 0.4992,
+      "y": 0.3332,
+      "w": 0.0576,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 730,
+     "char_end": 736
+    },
+    {
+     "id": "p0303_b001_w091",
+     "text": "кленовый",
+     "bbox": {
+      "x": 0.5702,
+      "y": 0.3332,
+      "w": 0.0918,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 737,
+     "char_end": 745
+    },
+    {
+     "id": "p0303_b001_w092",
+     "text": "сироп,",
+     "bbox": {
+      "x": 0.6754,
+      "y": 0.3332,
+      "w": 0.0612,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 746,
+     "char_end": 752
+    },
+    {
+     "id": "p0303_b001_w093",
+     "text": "сахароза",
+     "bbox": {
+      "x": 0.75,
+      "y": 0.3332,
+      "w": 0.0813,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 753,
+     "char_end": 761
+    },
+    {
+     "id": "p0303_b001_w094",
+     "text": "и",
+     "bbox": {
+      "x": 0.8447,
+      "y": 0.3332,
+      "w": 0.0119,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 762,
+     "char_end": 763
+    },
+    {
+     "id": "p0303_b001_w095",
+     "text": "сырой",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3546,
+      "w": 0.0587,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 764,
+     "char_end": 769
+    },
+    {
+     "id": "p0303_b001_w096",
+     "text": "сахар,",
+     "bbox": {
+      "x": 0.2101,
+      "y": 0.3546,
+      "w": 0.0571,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 770,
+     "char_end": 776
+    },
+    {
+     "id": "p0303_b001_w097",
+     "text": "которые",
+     "bbox": {
+      "x": 0.2753,
+      "y": 0.3546,
+      "w": 0.0767,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 777,
+     "char_end": 784
+    },
+    {
+     "id": "p0303_b001_w098",
+     "text": "затем",
+     "bbox": {
+      "x": 0.3602,
+      "y": 0.3546,
+      "w": 0.0515,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 785,
+     "char_end": 790
+    },
+    {
+     "id": "p0303_b001_w099",
+     "text": "добавляются",
+     "bbox": {
+      "x": 0.4198,
+      "y": 0.3546,
+      "w": 0.1211,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 791,
+     "char_end": 802
+    },
+    {
+     "id": "p0303_b001_w100",
+     "text": "при",
+     "bbox": {
+      "x": 0.549,
+      "y": 0.3546,
+      "w": 0.0348,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 803,
+     "char_end": 806
+    },
+    {
+     "id": "p0303_b001_w101",
+     "text": "создании",
+     "bbox": {
+      "x": 0.5919,
+      "y": 0.3546,
+      "w": 0.0859,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 807,
+     "char_end": 815
+    },
+    {
+     "id": "p0303_b001_w102",
+     "text": "других",
+     "bbox": {
+      "x": 0.686,
+      "y": 0.3546,
+      "w": 0.0652,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 816,
+     "char_end": 822
+    },
+    {
+     "id": "p0303_b001_w103",
+     "text": "продуктов",
+     "bbox": {
+      "x": 0.7593,
+      "y": 0.3546,
+      "w": 0.0971,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 823,
+     "char_end": 832
+    },
+    {
+     "id": "p0303_b001_w104",
+     "text": "(например,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3761,
+      "w": 0.104,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 833,
+     "char_end": 843
+    },
+    {
+     "id": "p0303_b001_w105",
+     "text": "печенья).",
+     "bbox": {
+      "x": 0.2571,
+      "y": 0.3761,
+      "w": 0.0871,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 844,
+     "char_end": 853
+    },
+    {
+     "id": "p0303_b001_w106",
+     "text": "Результаты",
+     "bbox": {
+      "x": 0.3541,
+      "y": 0.3761,
+      "w": 0.1046,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 854,
+     "char_end": 864
+    },
+    {
+     "id": "p0303_b001_w107",
+     "text": "опроса",
+     "bbox": {
+      "x": 0.4685,
+      "y": 0.3761,
+      "w": 0.0656,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 865,
+     "char_end": 871
+    },
+    {
+     "id": "p0303_b001_w108",
+     "text": "сорока",
+     "bbox": {
+      "x": 0.5439,
+      "y": 0.3761,
+      "w": 0.0633,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 872,
+     "char_end": 878
+    },
+    {
+     "id": "p0303_b001_w109",
+     "text": "двух",
+     "bbox": {
+      "x": 0.6171,
+      "y": 0.3761,
+      "w": 0.0431,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 879,
+     "char_end": 883
+    },
+    {
+     "id": "p0303_b001_w110",
+     "text": "тысяч",
+     "bbox": {
+      "x": 0.6701,
+      "y": 0.3761,
+      "w": 0.0557,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 884,
+     "char_end": 889
+    },
+    {
+     "id": "p0303_b001_w111",
+     "text": "американцев",
+     "bbox": {
+      "x": 0.7356,
+      "y": 0.3761,
+      "w": 0.1208,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 890,
+     "char_end": 901
+    },
+    {
+     "id": "p0303_b001_w112",
+     "text": "показывают,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3975,
+      "w": 0.1166,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 902,
+     "char_end": 913
+    },
+    {
+     "id": "p0303_b001_w113",
+     "text": "что",
+     "bbox": {
+      "x": 0.2698,
+      "y": 0.3975,
+      "w": 0.0316,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 914,
+     "char_end": 917
+    },
+    {
+     "id": "p0303_b001_w114",
+     "text": "в",
+     "bbox": {
+      "x": 0.3114,
+      "y": 0.3975,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 918,
+     "char_end": 919
+    },
+    {
+     "id": "p0303_b001_w115",
+     "text": "2008",
+     "bbox": {
+      "x": 0.3318,
+      "y": 0.3975,
+      "w": 0.0443,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 920,
+     "char_end": 924
+    },
+    {
+     "id": "p0303_b001_w116",
+     "text": "году",
+     "bbox": {
+      "x": 0.3861,
+      "y": 0.3975,
+      "w": 0.0413,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 925,
+     "char_end": 929
+    },
+    {
+     "id": "p0303_b001_w117",
+     "text": "среднее",
+     "bbox": {
+      "x": 0.4373,
+      "y": 0.3975,
+      "w": 0.0732,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 930,
+     "char_end": 937
+    },
+    {
+     "id": "p0303_b001_w118",
+     "text": "потребление",
+     "bbox": {
+      "x": 0.5205,
+      "y": 0.3975,
+      "w": 0.1186,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 938,
+     "char_end": 949
+    },
+    {
+     "id": "p0303_b001_w119",
+     "text": "добавленных",
+     "bbox": {
+      "x": 0.6491,
+      "y": 0.3975,
+      "w": 0.1242,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 950,
+     "char_end": 961
+    },
+    {
+     "id": "p0303_b001_w120",
+     "text": "сахаров",
+     "bbox": {
+      "x": 0.7832,
+      "y": 0.3975,
+      "w": 0.0732,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 962,
+     "char_end": 969
+    },
+    {
+     "id": "p0303_b001_w121",
+     "text": "составляло",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4189,
+      "w": 0.1046,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 970,
+     "char_end": 980
+    },
+    {
+     "id": "p0303_b001_w122",
+     "text": "15",
+     "bbox": {
+      "x": 0.2534,
+      "y": 0.4189,
+      "w": 0.0222,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 981,
+     "char_end": 983
+    },
+    {
+     "id": "p0303_b001_w123",
+     "text": "процентов",
+     "bbox": {
+      "x": 0.2812,
+      "y": 0.4189,
+      "w": 0.0985,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 984,
+     "char_end": 993
+    },
+    {
+     "id": "p0303_b001_w124",
+     "text": "от",
+     "bbox": {
+      "x": 0.3853,
+      "y": 0.4189,
+      "w": 0.0205,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 994,
+     "char_end": 996
+    },
+    {
+     "id": "p0303_b001_w125",
+     "text": "общего",
+     "bbox": {
+      "x": 0.4113,
+      "y": 0.4189,
+      "w": 0.0689,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 997,
+     "char_end": 1003
+    },
+    {
+     "id": "p0303_b001_w126",
+     "text": "числа",
+     "bbox": {
+      "x": 0.4858,
+      "y": 0.4189,
+      "w": 0.0537,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1004,
+     "char_end": 1009
+    },
+    {
+     "id": "p0303_b001_w127",
+     "text": "калорий,",
+     "bbox": {
+      "x": 0.545,
+      "y": 0.4189,
+      "w": 0.0829,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1010,
+     "char_end": 1018
+    },
+    {
+     "id": "p0303_b001_w128",
+     "text": "что",
+     "bbox": {
+      "x": 0.6336,
+      "y": 0.4189,
+      "w": 0.0316,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1019,
+     "char_end": 1022
+    },
+    {
+     "id": "p0303_b001_w129",
+     "text": "ниже",
+     "bbox": {
+      "x": 0.6708,
+      "y": 0.4189,
+      "w": 0.0485,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1023,
+     "char_end": 1027
+    },
+    {
+     "id": "p0303_b001_w130",
+     "text": "по",
+     "bbox": {
+      "x": 0.7249,
+      "y": 0.4189,
+      "w": 0.0229,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1028,
+     "char_end": 1030
+    },
+    {
+     "id": "p0303_b001_w131",
+     "text": "сравнению",
+     "bbox": {
+      "x": 0.7534,
+      "y": 0.4189,
+      "w": 0.1031,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1031,
+     "char_end": 1040
+    },
+    {
+     "id": "p0303_b001_w132",
+     "text": "с",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4403,
+      "w": 0.0098,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1041,
+     "char_end": 1042
+    },
+    {
+     "id": "p0303_b001_w133",
+     "text": "18",
+     "bbox": {
+      "x": 0.1596,
+      "y": 0.4403,
+      "w": 0.0222,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1043,
+     "char_end": 1045
+    },
+    {
+     "id": "p0303_b001_w134",
+     "text": "процентами",
+     "bbox": {
+      "x": 0.1883,
+      "y": 0.4403,
+      "w": 0.1132,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1046,
+     "char_end": 1056
+    },
+    {
+     "id": "p0303_b001_w135",
+     "text": "от",
+     "bbox": {
+      "x": 0.3081,
+      "y": 0.4403,
+      "w": 0.0205,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1057,
+     "char_end": 1059
+    },
+    {
+     "id": "p0303_b001_w136",
+     "text": "общего",
+     "bbox": {
+      "x": 0.3351,
+      "y": 0.4403,
+      "w": 0.0689,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1060,
+     "char_end": 1066
+    },
+    {
+     "id": "p0303_b001_w137",
+     "text": "числа",
+     "bbox": {
+      "x": 0.4105,
+      "y": 0.4403,
+      "w": 0.0537,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1067,
+     "char_end": 1072
+    },
+    {
+     "id": "p0303_b001_w138",
+     "text": "калорий",
+     "bbox": {
+      "x": 0.4708,
+      "y": 0.4403,
+      "w": 0.0774,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1073,
+     "char_end": 1080
+    },
+    {
+     "id": "p0303_b001_w139",
+     "text": "в",
+     "bbox": {
+      "x": 0.5547,
+      "y": 0.4403,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1081,
+     "char_end": 1082
+    },
+    {
+     "id": "p0303_b001_w140",
+     "text": "2000",
+     "bbox": {
+      "x": 0.5718,
+      "y": 0.4403,
+      "w": 0.0443,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1083,
+     "char_end": 1087
+    },
+    {
+     "id": "p0303_b001_w141",
+     "text": "году.",
+     "bbox": {
+      "x": 0.6227,
+      "y": 0.4403,
+      "w": 0.0446,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1088,
+     "char_end": 1093
+    },
+    {
+     "id": "p0303_b001_w142",
+     "text": "1",
+     "bbox": {
+      "x": 0.6742,
+      "y": 0.4377,
+      "w": 0.0092,
+      "h": 0.0132
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1094,
+     "char_end": 1095
+    },
+    {
+     "id": "p0303_b001_w143",
+     "text": "Это",
+     "bbox": {
+      "x": 0.69,
+      "y": 0.4403,
+      "w": 0.0351,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1096,
+     "char_end": 1099
+    },
+    {
+     "id": "p0303_b001_w144",
+     "text": "по-прежнему",
+     "bbox": {
+      "x": 0.7316,
+      "y": 0.4403,
+      "w": 0.1252,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1100,
+     "char_end": 1111
+    },
+    {
+     "id": "p0303_b001_w145",
+     "text": "выше",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4618,
+      "w": 0.0522,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1112,
+     "char_end": 1116
+    },
+    {
+     "id": "p0303_b001_w146",
+     "text": "рекомендуемого",
+     "bbox": {
+      "x": 0.2111,
+      "y": 0.4618,
+      "w": 0.1535,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1117,
+     "char_end": 1131
+    },
+    {
+     "id": "p0303_b001_w147",
+     "text": "уровня",
+     "bbox": {
+      "x": 0.3803,
+      "y": 0.4618,
+      "w": 0.0657,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1132,
+     "char_end": 1138
+    },
+    {
+     "id": "p0303_b001_w148",
+     "text": "потребления,",
+     "bbox": {
+      "x": 0.4617,
+      "y": 0.4618,
+      "w": 0.1245,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1139,
+     "char_end": 1151
+    },
+    {
+     "id": "p0303_b001_w149",
+     "text": "составляющего",
+     "bbox": {
+      "x": 0.602,
+      "y": 0.4618,
+      "w": 0.1455,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1152,
+     "char_end": 1165
+    },
+    {
+     "id": "p0303_b001_w150",
+     "text": "менее",
+     "bbox": {
+      "x": 0.7632,
+      "y": 0.4618,
+      "w": 0.0553,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1166,
+     "char_end": 1171
+    },
+    {
+     "id": "p0303_b001_w151",
+     "text": "10",
+     "bbox": {
+      "x": 0.8342,
+      "y": 0.4618,
+      "w": 0.0222,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1172,
+     "char_end": 1174
+    },
+    {
+     "id": "p0303_b001_w152",
+     "text": "процентов",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4832,
+      "w": 0.0985,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1175,
+     "char_end": 1184
+    },
+    {
+     "id": "p0303_b001_w153",
+     "text": "от",
+     "bbox": {
+      "x": 0.2516,
+      "y": 0.4832,
+      "w": 0.0205,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1185,
+     "char_end": 1187
+    },
+    {
+     "id": "p0303_b001_w154",
+     "text": "общего",
+     "bbox": {
+      "x": 0.282,
+      "y": 0.4832,
+      "w": 0.0689,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1188,
+     "char_end": 1194
+    },
+    {
+     "id": "p0303_b001_w155",
+     "text": "числа",
+     "bbox": {
+      "x": 0.3608,
+      "y": 0.4832,
+      "w": 0.0537,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1195,
+     "char_end": 1200
+    },
+    {
+     "id": "p0303_b001_w156",
+     "text": "калорий.",
+     "bbox": {
+      "x": 0.4244,
+      "y": 0.4832,
+      "w": 0.0829,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1201,
+     "char_end": 1209
+    },
+    {
+     "id": "p0303_b001_w157",
+     "text": "Министерство",
+     "bbox": {
+      "x": 0.5172,
+      "y": 0.4832,
+      "w": 0.1366,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1210,
+     "char_end": 1222
+    },
+    {
+     "id": "p0303_b001_w158",
+     "text": "сельского",
+     "bbox": {
+      "x": 0.6637,
+      "y": 0.4832,
+      "w": 0.0912,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1223,
+     "char_end": 1232
+    },
+    {
+     "id": "p0303_b001_w159",
+     "text": "хозяйства",
+     "bbox": {
+      "x": 0.7649,
+      "y": 0.4832,
+      "w": 0.0916,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1233,
+     "char_end": 1242
+    },
+    {
+     "id": "p0303_b001_w160",
+     "text": "США",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5046,
+      "w": 0.0531,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1243,
+     "char_end": 1246
+    },
+    {
+     "id": "p0303_b001_w161",
+     "text": "(USDA)",
+     "bbox": {
+      "x": 0.2031,
+      "y": 0.5046,
+      "w": 0.0751,
+      "h": 0.0159
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1247,
+     "char_end": 1253
+    },
+    {
+     "id": "p0303_b001_w162",
+     "text": "сообщает,",
+     "bbox": {
+      "x": 0.2849,
+      "y": 0.5046,
+      "w": 0.0935,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1254,
+     "char_end": 1263
+    },
+    {
+     "id": "p0303_b001_w163",
+     "text": "что",
+     "bbox": {
+      "x": 0.3852,
+      "y": 0.5046,
+      "w": 0.0316,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1264,
+     "char_end": 1267
+    },
+    {
+     "id": "p0303_b001_w164",
+     "text": "потребление",
+     "bbox": {
+      "x": 0.4235,
+      "y": 0.5046,
+      "w": 0.1186,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1268,
+     "char_end": 1279
+    },
+    {
+     "id": "p0303_b001_w165",
+     "text": "сахара",
+     "bbox": {
+      "x": 0.5489,
+      "y": 0.5046,
+      "w": 0.0614,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1280,
+     "char_end": 1286
+    },
+    {
+     "id": "p0303_b001_w166",
+     "text": "в",
+     "bbox": {
+      "x": 0.6171,
+      "y": 0.5046,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1287,
+     "char_end": 1288
+    },
+    {
+     "id": "p0303_b001_w167",
+     "text": "рационе",
+     "bbox": {
+      "x": 0.6343,
+      "y": 0.5046,
+      "w": 0.0774,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1289,
+     "char_end": 1296
+    },
+    {
+     "id": "p0303_b001_w168",
+     "text": "американцев",
+     "bbox": {
+      "x": 0.7184,
+      "y": 0.5046,
+      "w": 0.1208,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1297,
+     "char_end": 1308
+    },
+    {
+     "id": "p0303_b001_w169",
+     "text": "в",
+     "bbox": {
+      "x": 0.846,
+      "y": 0.5046,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1309,
+     "char_end": 1310
+    },
+    {
+     "id": "p0303_b001_w170",
+     "text": "2008",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5261,
+      "w": 0.0443,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1311,
+     "char_end": 1315
+    },
+    {
+     "id": "p0303_b001_w171",
+     "text": "году",
+     "bbox": {
+      "x": 0.1973,
+      "y": 0.5261,
+      "w": 0.0413,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1316,
+     "char_end": 1320
+    },
+    {
+     "id": "p0303_b001_w172",
+     "text": "составляло",
+     "bbox": {
+      "x": 0.2483,
+      "y": 0.5261,
+      "w": 0.1046,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1321,
+     "char_end": 1331
+    },
+    {
+     "id": "p0303_b001_w173",
+     "text": "в",
+     "bbox": {
+      "x": 0.3627,
+      "y": 0.5261,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1332,
+     "char_end": 1333
+    },
+    {
+     "id": "p0303_b001_w174",
+     "text": "среднем",
+     "bbox": {
+      "x": 0.3829,
+      "y": 0.5261,
+      "w": 0.0774,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1334,
+     "char_end": 1341
+    },
+    {
+     "id": "p0303_b001_w175",
+     "text": "28",
+     "bbox": {
+      "x": 0.47,
+      "y": 0.5261,
+      "w": 0.0222,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1342,
+     "char_end": 1344
+    },
+    {
+     "id": "p0303_b001_w176",
+     "text": "чайных",
+     "bbox": {
+      "x": 0.5019,
+      "y": 0.5261,
+      "w": 0.0706,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1345,
+     "char_end": 1351
+    },
+    {
+     "id": "p0303_b001_w177",
+     "text": "ложек",
+     "bbox": {
+      "x": 0.5822,
+      "y": 0.5261,
+      "w": 0.0572,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1352,
+     "char_end": 1357
+    },
+    {
+     "id": "p0303_b001_w178",
+     "text": "в",
+     "bbox": {
+      "x": 0.6491,
+      "y": 0.5261,
+      "w": 0.0105,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1358,
+     "char_end": 1359
+    },
+    {
+     "id": "p0303_b001_w179",
+     "text": "день",
+     "bbox": {
+      "x": 0.6693,
+      "y": 0.5261,
+      "w": 0.0431,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1360,
+     "char_end": 1364
+    },
+    {
+     "id": "p0303_b001_w180",
+     "text": "(Рисунок",
+     "bbox": {
+      "x": 0.7221,
+      "y": 0.5261,
+      "w": 0.0859,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1365,
+     "char_end": 1373
+    },
+    {
+     "id": "p0303_b001_w181",
+     "text": "4.13",
+     "bbox": {
+      "x": 0.8177,
+      "y": 0.5261,
+      "w": 0.0388,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1374,
+     "char_end": 1378
+    },
+    {
+     "id": "p0303_b001_w182",
+     "text": "«Потребление",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5475,
+      "w": 0.1339,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1379,
+     "char_end": 1391
+    },
+    {
+     "id": "p0303_b001_w183",
+     "text": "сахара",
+     "bbox": {
+      "x": 0.2826,
+      "y": 0.5475,
+      "w": 0.0614,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1392,
+     "char_end": 1398
+    },
+    {
+     "id": "p0303_b001_w184",
+     "text": "(в",
+     "bbox": {
+      "x": 0.3496,
+      "y": 0.5475,
+      "w": 0.0178,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1399,
+     "char_end": 1401
+    },
+    {
+     "id": "p0303_b001_w185",
+     "text": "чайных",
+     "bbox": {
+      "x": 0.373,
+      "y": 0.5475,
+      "w": 0.0706,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1402,
+     "char_end": 1408
+    },
+    {
+     "id": "p0303_b001_w186",
+     "text": "ложках)",
+     "bbox": {
+      "x": 0.4491,
+      "y": 0.5475,
+      "w": 0.0756,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1409,
+     "char_end": 1416
+    },
+    {
+     "id": "p0303_b001_w187",
+     "text": "из",
+     "bbox": {
+      "x": 0.5303,
+      "y": 0.5475,
+      "w": 0.0206,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1417,
+     "char_end": 1419
+    },
+    {
+     "id": "p0303_b001_w188",
+     "text": "различных",
+     "bbox": {
+      "x": 0.5564,
+      "y": 0.5475,
+      "w": 0.1015,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1420,
+     "char_end": 1429
+    },
+    {
+     "id": "p0303_b001_w189",
+     "text": "источников»).",
+     "bbox": {
+      "x": 0.6635,
+      "y": 0.5475,
+      "w": 0.1316,
+      "h": 0.0159
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1430,
+     "char_end": 1443
+    }
+   ],
+   "lang": "ru",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b001",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b001",
+    "chunk_number_in_lrm": 1,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [
+     "p0303_b004"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     4
+    ],
+    "level": 0,
+    "prev_chunk_id": "",
+    "next_chunk_id": "p0303_b002",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 9.37,
+    "scale": 0.937,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.22
+   }
+  },
+  {
+   "id": "p0303_b002",
+   "local_id": "b2",
+   "type": "heading",
+   "reading_order": 2,
+   "bbox": {
+    "x": 0.1885,
+    "y": 0.5823,
+    "w": 0.5865,
+    "h": 0.1075
+   },
+   "text": "Ожирение, диабет и сердечно-сосудистые заболевания и их предполагаемая связь с чрезмерным потреблением сахара и рафинированных углеводов",
+   "words": [
+    {
+     "id": "p0303_b002_w001",
+     "text": "Ожирение,",
+     "bbox": {
+      "x": 0.1893,
+      "y": 0.5823,
+      "w": 0.1547,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 9
+    },
+    {
+     "id": "p0303_b002_w002",
+     "text": "диабет",
+     "bbox": {
+      "x": 0.3518,
+      "y": 0.5823,
+      "w": 0.0942,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 10,
+     "char_end": 16
+    },
+    {
+     "id": "p0303_b002_w003",
+     "text": "и",
+     "bbox": {
+      "x": 0.4538,
+      "y": 0.5823,
+      "w": 0.0181,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 17,
+     "char_end": 18
+    },
+    {
+     "id": "p0303_b002_w004",
+     "text": "сердечно-сосудистые",
+     "bbox": {
+      "x": 0.4797,
+      "y": 0.5823,
+      "w": 0.2943,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 19,
+     "char_end": 38
+    },
+    {
+     "id": "p0303_b002_w005",
+     "text": "заболевания",
+     "bbox": {
+      "x": 0.1885,
+      "y": 0.6106,
+      "w": 0.176,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 39,
+     "char_end": 50
+    },
+    {
+     "id": "p0303_b002_w006",
+     "text": "и",
+     "bbox": {
+      "x": 0.3724,
+      "y": 0.6106,
+      "w": 0.0181,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 51,
+     "char_end": 52
+    },
+    {
+     "id": "p0303_b002_w007",
+     "text": "их",
+     "bbox": {
+      "x": 0.3983,
+      "y": 0.6106,
+      "w": 0.0337,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 53,
+     "char_end": 55
+    },
+    {
+     "id": "p0303_b002_w008",
+     "text": "предполагаемая",
+     "bbox": {
+      "x": 0.4399,
+      "y": 0.6106,
+      "w": 0.229,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 56,
+     "char_end": 70
+    },
+    {
+     "id": "p0303_b002_w009",
+     "text": "связь",
+     "bbox": {
+      "x": 0.6768,
+      "y": 0.6106,
+      "w": 0.0765,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 71,
+     "char_end": 76
+    },
+    {
+     "id": "p0303_b002_w010",
+     "text": "с",
+     "bbox": {
+      "x": 0.7611,
+      "y": 0.6106,
+      "w": 0.0139,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 77,
+     "char_end": 78
+    },
+    {
+     "id": "p0303_b002_w011",
+     "text": "чрезмерным",
+     "bbox": {
+      "x": 0.226,
+      "y": 0.639,
+      "w": 0.1777,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 79,
+     "char_end": 89
+    },
+    {
+     "id": "p0303_b002_w012",
+     "text": "потреблением",
+     "bbox": {
+      "x": 0.4115,
+      "y": 0.639,
+      "w": 0.1982,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 90,
+     "char_end": 102
+    },
+    {
+     "id": "p0303_b002_w013",
+     "text": "сахара",
+     "bbox": {
+      "x": 0.6176,
+      "y": 0.639,
+      "w": 0.094,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 103,
+     "char_end": 109
+    },
+    {
+     "id": "p0303_b002_w014",
+     "text": "и",
+     "bbox": {
+      "x": 0.7195,
+      "y": 0.639,
+      "w": 0.0181,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 110,
+     "char_end": 111
+    },
+    {
+     "id": "p0303_b002_w015",
+     "text": "рафинированных",
+     "bbox": {
+      "x": 0.2833,
+      "y": 0.6673,
+      "w": 0.2502,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 112,
+     "char_end": 126
+    },
+    {
+     "id": "p0303_b002_w016",
+     "text": "углеводов",
+     "bbox": {
+      "x": 0.5414,
+      "y": 0.6673,
+      "w": 0.139,
+      "h": 0.0225
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 127,
+     "char_end": 136
+    }
+   ],
+   "lang": "ru",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b002",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b002",
+    "chunk_number_in_lrm": 2,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0303_b001",
+    "next_chunk_id": "p0303_b003",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 12.42,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.13
+   }
+  },
+  {
+   "id": "p0303_b003",
+   "local_id": "b3",
+   "type": "paragraph",
+   "reading_order": 3,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.6992,
+    "w": 0.6945,
+    "h": 0.0169
+   },
+   "text": "Чтобы понять масштабы проблемы здравоохранения в Соединенных",
+   "words": [
+    {
+     "id": "p0303_b003_w001",
+     "text": "Чтобы",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6992,
+      "w": 0.0651,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 5
+    },
+    {
+     "id": "p0303_b003_w002",
+     "text": "понять",
+     "bbox": {
+      "x": 0.2142,
+      "y": 0.6992,
+      "w": 0.0691,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 6,
+     "char_end": 12
+    },
+    {
+     "id": "p0303_b003_w003",
+     "text": "масштабы",
+     "bbox": {
+      "x": 0.2893,
+      "y": 0.6992,
+      "w": 0.103,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 13,
+     "char_end": 21
+    },
+    {
+     "id": "p0303_b003_w004",
+     "text": "проблемы",
+     "bbox": {
+      "x": 0.3982,
+      "y": 0.6992,
+      "w": 0.1009,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 22,
+     "char_end": 30
+    },
+    {
+     "id": "p0303_b003_w005",
+     "text": "здравоохранения",
+     "bbox": {
+      "x": 0.505,
+      "y": 0.6992,
+      "w": 0.1708,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 31,
+     "char_end": 46
+    },
+    {
+     "id": "p0303_b003_w006",
+     "text": "в",
+     "bbox": {
+      "x": 0.6817,
+      "y": 0.6992,
+      "w": 0.0112,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 47,
+     "char_end": 48
+    },
+    {
+     "id": "p0303_b003_w007",
+     "text": "Соединенных",
+     "bbox": {
+      "x": 0.6988,
+      "y": 0.6992,
+      "w": 0.1389,
+      "h": 0.0169
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 49,
+     "char_end": 60
+    }
+   ],
+   "lang": "ru",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b003",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b003",
+    "chunk_number_in_lrm": 3,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0303_b002",
+    "next_chunk_id": "p0303_b004",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 9.37,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 0.95
+   }
+  },
+  {
+   "id": "p0303_b004",
+   "local_id": "b4",
+   "type": "footnote",
+   "reading_order": 4,
+   "bbox": {
+    "x": 0.1196,
+    "y": 0.7773,
+    "w": 0.7266,
+    "h": 0.1015
+   },
+   "text": "1. Welsh JA, Sharma AJ, et al. (2011). Consumption of Added Sugars Is Decreasing in the United States. American Journal of Clinical Nutrition, 94(3), 726–34. http://www.ncbi.nlm.nih.gov/ pubmed/21753067. Accessed September 22, 2017.",
+   "words": [
+    {
+     "id": "p0303_b004_w001",
+     "text": "1.",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.7773,
+      "w": 0.021,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 2
+    },
+    {
+     "id": "p0303_b004_w002",
+     "text": "Welsh",
+     "bbox": {
+      "x": 0.1501,
+      "y": 0.7773,
+      "w": 0.0694,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 3,
+     "char_end": 8
+    },
+    {
+     "id": "p0303_b004_w003",
+     "text": "JA,",
+     "bbox": {
+      "x": 0.229,
+      "y": 0.7773,
+      "w": 0.0382,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 9,
+     "char_end": 12
+    },
+    {
+     "id": "p0303_b004_w004",
+     "text": "Sharma",
+     "bbox": {
+      "x": 0.2766,
+      "y": 0.7773,
+      "w": 0.0856,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 13,
+     "char_end": 19
+    },
+    {
+     "id": "p0303_b004_w005",
+     "text": "AJ,",
+     "bbox": {
+      "x": 0.3717,
+      "y": 0.7773,
+      "w": 0.0382,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 20,
+     "char_end": 23
+    },
+    {
+     "id": "p0303_b004_w006",
+     "text": "et",
+     "bbox": {
+      "x": 0.4196,
+      "y": 0.7773,
+      "w": 0.0202,
+      "h": 0.0201
+     },
+     "lang": "la",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 24,
+     "char_end": 26
+    },
+    {
+     "id": "p0303_b004_w007",
+     "text": "al.",
+     "bbox": {
+      "x": 0.4493,
+      "y": 0.7773,
+      "w": 0.0288,
+      "h": 0.0201
+     },
+     "lang": "la",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 27,
+     "char_end": 30
+    },
+    {
+     "id": "p0303_b004_w008",
+     "text": "(2011).",
+     "bbox": {
+      "x": 0.4877,
+      "y": 0.7773,
+      "w": 0.0808,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 31,
+     "char_end": 38
+    },
+    {
+     "id": "p0303_b004_w009",
+     "text": "Consumption",
+     "bbox": {
+      "x": 0.5779,
+      "y": 0.7773,
+      "w": 0.1511,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 39,
+     "char_end": 50
+    },
+    {
+     "id": "p0303_b004_w010",
+     "text": "of",
+     "bbox": {
+      "x": 0.7385,
+      "y": 0.7773,
+      "w": 0.0234,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 51,
+     "char_end": 53
+    },
+    {
+     "id": "p0303_b004_w011",
+     "text": "Added",
+     "bbox": {
+      "x": 0.7714,
+      "y": 0.7773,
+      "w": 0.0748,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 54,
+     "char_end": 59
+    },
+    {
+     "id": "p0303_b004_w012",
+     "text": "Sugars",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8045,
+      "w": 0.0763,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 60,
+     "char_end": 66
+    },
+    {
+     "id": "p0303_b004_w013",
+     "text": "Is",
+     "bbox": {
+      "x": 0.2049,
+      "y": 0.8045,
+      "w": 0.0203,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 67,
+     "char_end": 69
+    },
+    {
+     "id": "p0303_b004_w014",
+     "text": "Decreasing",
+     "bbox": {
+      "x": 0.2342,
+      "y": 0.8045,
+      "w": 0.1261,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 70,
+     "char_end": 80
+    },
+    {
+     "id": "p0303_b004_w015",
+     "text": "in",
+     "bbox": {
+      "x": 0.3692,
+      "y": 0.8045,
+      "w": 0.0218,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 81,
+     "char_end": 83
+    },
+    {
+     "id": "p0303_b004_w016",
+     "text": "the",
+     "bbox": {
+      "x": 0.4,
+      "y": 0.8045,
+      "w": 0.0342,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 84,
+     "char_end": 87
+    },
+    {
+     "id": "p0303_b004_w017",
+     "text": "United",
+     "bbox": {
+      "x": 0.4432,
+      "y": 0.8045,
+      "w": 0.0763,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 88,
+     "char_end": 94
+    },
+    {
+     "id": "p0303_b004_w018",
+     "text": "States.",
+     "bbox": {
+      "x": 0.5284,
+      "y": 0.8045,
+      "w": 0.0739,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 95,
+     "char_end": 102
+    },
+    {
+     "id": "p0303_b004_w019",
+     "text": "American",
+     "bbox": {
+      "x": 0.6113,
+      "y": 0.8045,
+      "w": 0.1105,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 103,
+     "char_end": 111
+    },
+    {
+     "id": "p0303_b004_w020",
+     "text": "Journal",
+     "bbox": {
+      "x": 0.7308,
+      "y": 0.8045,
+      "w": 0.0825,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 112,
+     "char_end": 119
+    },
+    {
+     "id": "p0303_b004_w021",
+     "text": "of",
+     "bbox": {
+      "x": 0.8223,
+      "y": 0.8045,
+      "w": 0.0234,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 120,
+     "char_end": 122
+    },
+    {
+     "id": "p0303_b004_w022",
+     "text": "Clinical",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8316,
+      "w": 0.0887,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 123,
+     "char_end": 131
+    },
+    {
+     "id": "p0303_b004_w023",
+     "text": "Nutrition,",
+     "bbox": {
+      "x": 0.2176,
+      "y": 0.8316,
+      "w": 0.1098,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 132,
+     "char_end": 142
+    },
+    {
+     "id": "p0303_b004_w024",
+     "text": "94(3),",
+     "bbox": {
+      "x": 0.3367,
+      "y": 0.8316,
+      "w": 0.0678,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 143,
+     "char_end": 149
+    },
+    {
+     "id": "p0303_b004_w025",
+     "text": "726–34.",
+     "bbox": {
+      "x": 0.4138,
+      "y": 0.8316,
+      "w": 0.0912,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 150,
+     "char_end": 157
+    },
+    {
+     "id": "p0303_b004_w026",
+     "text": "http://www.ncbi.nlm.nih.gov/",
+     "bbox": {
+      "x": 0.5143,
+      "y": 0.8316,
+      "w": 0.3314,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 158,
+     "char_end": 186
+    },
+    {
+     "id": "p0303_b004_w027",
+     "text": "pubmed/21753067.",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8587,
+      "w": 0.2173,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 187,
+     "char_end": 203
+    },
+    {
+     "id": "p0303_b004_w028",
+     "text": "Accessed",
+     "bbox": {
+      "x": 0.344,
+      "y": 0.8587,
+      "w": 0.1058,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 204,
+     "char_end": 212
+    },
+    {
+     "id": "p0303_b004_w029",
+     "text": "September",
+     "bbox": {
+      "x": 0.4568,
+      "y": 0.8587,
+      "w": 0.1199,
+      "h": 0.0201
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 213,
+     "char_end": 222
+    },
+    {
+     "id": "p0303_b004_w030",
+     "text": "22,",
+     "bbox": {
+      "x": 0.5837,
+      "y": 0.8587,
+      "w": 0.0351,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 223,
+     "char_end": 226
+    },
+    {
+     "id": "p0303_b004_w031",
+     "text": "2017.",
+     "bbox": {
+      "x": 0.6258,
+      "y": 0.8587,
+      "w": 0.0631,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 227,
+     "char_end": 232
+    }
+   ],
+   "lang": "ru",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b004",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "1",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "p0303_b001",
+   "lrm": {
+    "chunk_id": "p0303_b004",
+    "chunk_number_in_lrm": 4,
+    "parent_chunk_id": "p0303_b001",
+    "parent_chunk_number_in_lrm": 1,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 1,
+    "prev_chunk_id": "p0303_b003",
+    "next_chunk_id": "p0304_b001",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 11.11,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.02
+   }
+  },
+  {
+   "id": "p0303_b005",
+   "local_id": "b5",
+   "type": "running_footer",
+   "reading_order": 5,
+   "bbox": {
+    "x": 0.2079,
+    "y": 0.9226,
+    "w": 0.5418,
+    "h": 0.0141
+   },
+   "text": "Health Consequences and Benefits of High-Carbohydrate Diets | 261",
+   "words": [
+    {
+     "id": "p0303_b005_w001",
+     "text": "Health",
+     "bbox": {
+      "x": 0.2079,
+      "y": 0.9226,
+      "w": 0.0523,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 6
+    },
+    {
+     "id": "p0303_b005_w002",
+     "text": "Consequences",
+     "bbox": {
+      "x": 0.2651,
+      "y": 0.9226,
+      "w": 0.1124,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 7,
+     "char_end": 19
+    },
+    {
+     "id": "p0303_b005_w003",
+     "text": "and",
+     "bbox": {
+      "x": 0.3824,
+      "y": 0.9226,
+      "w": 0.0284,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 20,
+     "char_end": 23
+    },
+    {
+     "id": "p0303_b005_w004",
+     "text": "Benefits",
+     "bbox": {
+      "x": 0.4157,
+      "y": 0.9226,
+      "w": 0.0654,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 24,
+     "char_end": 32
+    },
+    {
+     "id": "p0303_b005_w005",
+     "text": "of",
+     "bbox": {
+      "x": 0.486,
+      "y": 0.9226,
+      "w": 0.0164,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 33,
+     "char_end": 35
+    },
+    {
+     "id": "p0303_b005_w006",
+     "text": "High-Carbohydrate",
+     "bbox": {
+      "x": 0.5073,
+      "y": 0.9226,
+      "w": 0.1527,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 36,
+     "char_end": 53
+    },
+    {
+     "id": "p0303_b005_w007",
+     "text": "Diets",
+     "bbox": {
+      "x": 0.665,
+      "y": 0.9226,
+      "w": 0.0414,
+      "h": 0.0141
+     },
+     "lang": "ru",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 54,
+     "char_end": 59
+    },
+    {
+     "id": "p0303_b005_w008",
+     "text": "|",
+     "bbox": {
+      "x": 0.7113,
+      "y": 0.9226,
+      "w": 0.0039,
+      "h": 0.0141
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 60,
+     "char_end": 61
+    },
+    {
+     "id": "p0303_b005_w009",
+     "text": "261",
+     "bbox": {
+      "x": 0.7202,
+      "y": 0.9226,
+      "w": 0.0295,
+      "h": 0.0141
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 62,
+     "char_end": 65
+    }
+   ],
+   "lang": "ru",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b005",
+    "translated": false
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b005",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "layout": {
+    "font_pt": 8.37,
+    "scale": 0.93,
+    "fits": true
+   },
+   "qa": {}
+  }
+ ]
+}

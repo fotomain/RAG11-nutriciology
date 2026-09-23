@@ -10,6 +10,7 @@ export type Source = {
   title: string;
   page_count: number | null;
   recognised_pages?: number;
+  first_page?: number | null; // lowest recognised page -- where a never-opened source starts
 };
 
 export type BBox = { x: number; y: number; w: number; h: number }; // fractions of the page image

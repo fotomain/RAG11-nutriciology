@@ -29,7 +29,8 @@ def sources(language: str | None = None):
         q = q.eq("language", language)
     return [{"source_guid": r["rowGUID"], "source_key": r["source_key"], "language": r["language"], "title": r["title"],
              "page_count": r["rowJSON"].get("page_count"),
-             "recognised_pages": r["rowJSON"].get("recognised_pages")} for r in q.execute().data]
+             "recognised_pages": r["rowJSON"].get("recognised_pages"),
+             "first_page": r["rowJSON"].get("first_page")} for r in q.execute().data]
 
 
 @router.get("/page")

@@ -15,9 +15,9 @@ from typing import List, Optional
 
 from ..clients import Clients, init_clients
 from ..config import SPEAKING_LANGUAGE
-from ..display import show_qa, show_summary, ui
-from ..generation import ask_question
-from ..language import PreparedQuestion, prepare_question
+from ..ask.display import show_qa, show_summary, ui
+from ..ask.generation import ask_question
+from ..ask.language import PreparedQuestion, prepare_question
 from .book import BookStatus, find_book, readiness_message
 from .prompts import YS_CORPUS_HINT, YS_SYSTEM_PROMPT, prompt_message
 
@@ -99,7 +99,7 @@ class YogaSutraQA:
 
     def compare_retrieval(self, question: str, match_count: int = 5) -> None:
         """Optional diagnostic: hybrid retrieval for the raw question vs. its search query."""
-        from ..hybrid_search import hybrid_search
+        from ..eda.transform.hybrid_search import hybrid_search
         prepared = self.prepare(question)
         for label, text in [("raw question", question), ("search query", prepared.retrieval_query)]:
             print(f"--- {label}: {text[:100]}")

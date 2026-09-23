@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "lang": "en",
+ "total_pages": 941,
+ "page_count": 3,
+ "source_key": "yogasutra_m_angot_2021",
+ "pdf": "en/yogasutra_m_angot_2021/yogasutra_m_angot_2021_en.pdf",
+ "pages": [
+  {
+   "page": 303,
+   "printed": "303",
+   "blocks": 14,
+   "words": 489,
+   "min_scale": 0.924
+  },
+  {
+   "page": 304,
+   "printed": "304",
+   "blocks": 12,
+   "words": 241,
+   "min_scale": 0.908
+  },
+  {
+   "page": 305,
+   "printed": "305",
+   "blocks": 9,
+   "words": 231,
+   "min_scale": 0.908
+  }
+ ]
+}

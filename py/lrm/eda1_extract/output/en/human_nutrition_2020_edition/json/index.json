@@ -1,0 +1,28 @@
+{
+ "schema_version": 1,
+ "source_key": "human_nutrition_2020_edition",
+ "lang": "en",
+ "total_pages": 1208,
+ "page_count": 3,
+ "lrm_chunk_count": 15,
+ "pages": [
+  {
+   "page": 303,
+   "printed": "261",
+   "blocks": 5,
+   "words": 259
+  },
+  {
+   "page": 304,
+   "printed": "",
+   "blocks": 4,
+   "words": 310
+  },
+  {
+   "page": 305,
+   "printed": "263",
+   "blocks": 9,
+   "words": 227
+  }
+ ]
+}

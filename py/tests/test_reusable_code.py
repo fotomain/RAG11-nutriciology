@@ -16,29 +16,29 @@ sys.path.insert(0, ".")
 from reusable_code import config as config_module  # noqa: E402
 from reusable_code.clients import Clients  # noqa: E402
 from reusable_code.env import optional_env_bool  # noqa: E402
-from reusable_code.generation import SYSTEM_PROMPT as SYSTEM_PROMPT_DEFAULT  # noqa: E402
-from reusable_code.generation import ask_question, build_context_block  # noqa: E402
-from reusable_code.hybrid_search import (  # noqa: E402
+from reusable_code.ask.generation import SYSTEM_PROMPT as SYSTEM_PROMPT_DEFAULT  # noqa: E402
+from reusable_code.ask.generation import ask_question, build_context_block  # noqa: E402
+from reusable_code.eda.transform.hybrid_search import (  # noqa: E402
     hybrid_search,
     reciprocal_rank_fusion,
     retrieve_chunks_keyword,
 )
-from reusable_code.hypothetical_document_embedding import (  # noqa: E402
+from reusable_code.eda.transform.hypothetical_document_embedding import (  # noqa: E402
     embed_hypothetical_document,
     generate_hypothetical_document,
     retrieve_chunks_hyde,
 )
-from reusable_code.multi_query_question_splitting import (  # noqa: E402
+from reusable_code.eda.transform.multi_query_question_splitting import (  # noqa: E402
     retrieve_chunks_multi_query,
     split_into_subquestions,
 )
-from reusable_code.parent_chunk_expansion import (  # noqa: E402
+from reusable_code.eda.transform.parent_chunk_expansion import (  # noqa: E402
     build_expanded_context_block,
     expand_to_parent_chunks,
     page_numbers_for_expanded_chunk,
 )
-from reusable_code.rerunk_code import rerank_chunks, update_rank_value  # noqa: E402
-from reusable_code.retrieval import (  # noqa: E402
+from reusable_code.ask.rerunk_code import rerank_chunks, update_rank_value  # noqa: E402
+from reusable_code.ask.retrieval import (  # noqa: E402
     page_numbers_for_chunk,
     retrieve_chunks,
 )
@@ -735,7 +735,7 @@ check("ask_question()'s expand_to_parents default matches config.USE_PARENT_CHUN
 # devanagari.py: Devanagari -> IAST, and ask_question(filter_owner=, system_prompt=)
 # ---------------------------------------------------------------------------
 
-from reusable_code.devanagari import contains_devanagari, romanize_devanagari  # noqa: E402
+from reusable_code.ask.devanagari import contains_devanagari, romanize_devanagari  # noqa: E402
 
 check("romanize: Yoga-Sutra I.2", romanize_devanagari("योगश्चित्तवृत्तिनिरोधः") == "yogaścittavṛttinirodhaḥ")
 check("romanize: anusvara + long vowel", romanize_devanagari("अहिंसा") == "ahiṃsā")
@@ -768,8 +768,8 @@ check("ask_question(use_hybrid=True, filter_owner=) filters BOTH the dense and k
 # language.py (question understanding + answer language) and display.py
 # ---------------------------------------------------------------------------
 
-from reusable_code.display import answer_html, format_pages, qa_card_html, summary_table_html  # noqa: E402
-from reusable_code.language import (  # noqa: E402
+from reusable_code.ask.display import answer_html, format_pages, qa_card_html, summary_table_html  # noqa: E402
+from reusable_code.ask.language import (  # noqa: E402
     answer_language_directive,
     language_name,
     prepare_question,
@@ -829,7 +829,7 @@ _card = qa_card_html(1, "क्या योग है?", {"answer": "Short answ
                      "candidates_considered": 9, "source_pages": [1, 2, 3], "subquestions": None, "grounding_words": ["yoga"]}, _prep_bad)
 check("qa_card_html: Question/Answer labels, badge (no duplicate 'Short answer' line), IAST line, auto height",
       "Question 1:" in _card and "Answer:" in _card and 'ys-badge ys-no' in _card and _card.count("Short answer") == 1
-      and "IAST: kyā yoga hai?" in _card and "overflow:visible" in __import__("reusable_code.display", fromlist=["CSS"]).CSS.replace(" ", ""))
+      and "IAST: kyā yoga hai?" in _card and "overflow:visible" in __import__("reusable_code.ask.display", fromlist=["CSS"]).CSS.replace(" ", ""))
 check("summary_table_html escapes cells", "&lt;b&gt;" in summary_table_html([["<b>"]], ["h"]))
 
 # ---------------------------------------------------------------------------

@@ -48,7 +48,7 @@ export default function LRMPageDashboard() {
   }, [lang]);
 
   // once the restored language's sources have loaded, select the saved one -- selectSource() below
-  // looks up that source's own last page (or starts at page 1 if it has none saved yet). If there is
+  // looks up that source's own last page (or starts at its first recognised page if none is saved yet). If there is
   // no saved source to restore (first launch, or it's gone from the list), fall back to the 1st source.
   useEffect(() => {
     if (source || sources.length === 0) return;
@@ -83,7 +83,7 @@ export default function LRMPageDashboard() {
     setSource(s);
     await setLastSource({ sourceGuid: s.sourceGuid, source_key: s.source_key, language: lang });
     const saved = await getLastPage(s.sourceGuid);
-    const target = saved ?? 1; // no page saved for this source yet -> start from page 1
+    const target = saved ?? s.first_page ?? 1; // no page saved yet -> start at its first recognised page
     const clamped = Math.min(Math.max(1, target), s.page_count ?? Infinity);
     setN(clamped); setInput(String(clamped));
     if (!wide) setShowList(false);

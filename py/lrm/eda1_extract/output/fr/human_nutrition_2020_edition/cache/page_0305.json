@@ -1,0 +1,69 @@
+{
+ "lang": "fr",
+ "page": 305,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "texts": {
+  "p0305_b001": "a établi un lien entre la consommation de boissons sucrées et un risque accru de maladie cardiaque. <sup>3</sup>",
+  "p0305_b002": "Alors que le débat sur le sucre, les céréales raffinées et le poids fait rage, les résultats de toutes ces études ont conduit certaines organisations de santé publique, telles que l'American Heart Association (AHA), à recommander un apport quotidien en sucre encore plus faible (moins de 9 cuillères à café par jour pour les hommes et moins de 6 cuillères à café pour les femmes) que ce qui était auparavant jugé acceptable. À la suite de sa conférence scientifique de 2010 sur les sucres ajoutés, l'AHA a formulé les recommandations diététiques connexes suivantes <sup>4</sup> :",
+  "p0305_b003": "Premièrement, connaissez le nombre total de calories que vous devriez consommer chaque jour.",
+  "p0305_b004": "Consommez une alimentation globalement saine et obtenez le maximum de nutriments pour les calories ingérées, en utilisant les aliments riches en sucres ajoutés comme des calories discrétionnaires (celles qui restent après avoir soustrait tous les nutriments recommandés des calories dépensées).",
+  "p0305_b005": "Réduisez l'apport en sucre, en particulier lorsque les sucres contenus dans les aliments ne sont pas liés à des nutriments bénéfiques, comme c'est le cas dans les boissons sucrées, les bonbons, les gâteaux et les biscuits.",
+  "p0305_b006": "274-88. http://www.ajcn.org/content/84/2/274.long. Consulté le 22 septembre 2017.",
+  "p0305_b007": "<sup>3.</sup> Public Health Takes Aim at Sugar and Salt. Harvard School of Public Health. https://www.hsph.harvard.edu/ news/magazine/sugar-and-salt/. Publié en 2009. Consulté le 30 septembre 2017.",
+  "p0305_b008": "<sup>4.</sup> Van Horn L, Johnson RK, [[et]] al. (2010). Translation and Implementation of Added Sugars Consumption Recommendations. [[Circulation,]] 122, 2470–90. http://circ.ahajournals.org/content/122/23/ 2470/tab-supplemental. Consulté le 27 septembre 2017."
+ },
+ "source_marked": {
+  "p0305_b001": "linked the consumption of sugary soft drinks to an increased risk for heart disease. <sup>3</sup>",
+  "p0305_b002": "While the sugar and refined grains and weight debate rages on, the results of all of these studies has led some public health organizations like the American Heart Association (AHA) to recommend even a lower intake of sugar per day (fewer than 9 teaspoons per day for men and fewer than 6 teaspoons for women) than what used to be deemed acceptable. After its 2010 scientific conference on added sugars, the AHA made the following related dietary recommendations <sup>4</sup> :",
+  "p0305_b003": "First, know the number of total calories you should eat each day.",
+  "p0305_b004": "Consume an overall healthy diet and get the most nutrients for the calories, using foods high in added sugars as discretionary calories (those left over after getting all recommended nutrients subtracted from the calories used).",
+  "p0305_b005": "Lower sugar intake, especially when the sugars in foods are not tied to positive nutrients such as in sugary drinks, candies, cakes, and cookies.",
+  "p0305_b006": "274-88. http://www.ajcn.org/content/84/2/274.long. Accessed September 22, 2017.",
+  "p0305_b007": "<sup>3.</sup> Public Health Takes Aim at Sugar and Salt. Harvard School of Public Health. https://www.hsph.harvard.edu/ news/magazine/sugar-and-salt/. Published 2009. Accessed September 30, 2017.",
+  "p0305_b008": "<sup>4.</sup> Van Horn L, Johnson RK, [[et]] al.(2010). Translation and Implementation of Added Sugars Consumption Recommendations. [[Circulation,]] 122, 2470–90.http://circ.ahajournals.org/content/122/23/ 2470/tab-supplemental. Accessed September 27, 2017."
+ },
+ "missing": [],
+ "qa": {
+  "p0305_b001": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.3
+  },
+  "p0305_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.24
+  },
+  "p0305_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.42
+  },
+  "p0305_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.29
+  },
+  "p0305_b005": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.53
+  },
+  "p0305_b006": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.03
+  },
+  "p0305_b007": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.07
+  },
+  "p0305_b008": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.1
+  }
+ }
+}

@@ -1,0 +1,5449 @@
+{
+ "schema_version": 1,
+ "page": 305,
+ "printed_page_number": "305",
+ "image": "fr/yogasutra_m_angot_2021/pages/page_0305.png",
+ "lang": "fr",
+ "source_key": "yogasutra_m_angot_2021",
+ "image_size": {
+  "width": 1406,
+  "height": 1988
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": "Yogasutra M.Angot 2021.pdf",
+ "model": "gemini-3.5-flash",
+ "blocks": [
+  {
+   "id": "p0305_b001",
+   "local_id": "b0",
+   "type": "page_number",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.8394,
+    "y": 0.0439,
+    "w": 0.0278,
+    "h": 0.0145
+   },
+   "text": "- 305",
+   "words": [
+    {
+     "id": "p0305_b001_w001",
+     "text": "- 305",
+     "bbox": {
+      "x": 0.8394,
+      "y": 0.0439,
+      "w": 0.0278,
+      "h": 0.0145
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 5,
+     "bbox_gemini": {
+      "x": 0.828,
+      "y": 0.044,
+      "w": 0.039,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b001",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0305_b002",
+   "local_id": "b1",
+   "type": "sutra",
+   "reading_order": 2,
+   "bbox": {
+    "x": 0.1213,
+    "y": 0.1023,
+    "w": 0.515,
+    "h": 0.0672
+   },
+   "text": "मृदुमध्याधिमात्रत्वात्ततोऽपि विशेषः । २२ । Mṛdumadhyādhimātratvāttato'pi viśeṣaḥ /I.22/ Mṛdu-madhya-adhimātratvāt tato'pi viśeṣaḥ/I.22/",
+   "words": [
+    {
+     "id": "p0305_b002_w001",
+     "text": "मृदुमध्याधिमात्रत्वात्ततोऽपि",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.1023,
+      "w": 0.2184,
+      "h": 0.0232
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 28,
+     "bbox_gemini": {
+      "x": 0.121,
+      "y": 0.105,
+      "w": 0.256,
+      "h": 0.019
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w002",
+     "text": "विशेषः",
+     "bbox": {
+      "x": 0.3548,
+      "y": 0.1023,
+      "w": 0.0592,
+      "h": 0.0232
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 29,
+     "char_end": 35,
+     "bbox_gemini": {
+      "x": 0.382,
+      "y": 0.105,
+      "w": 0.059,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w003",
+     "text": "।",
+     "bbox": {
+      "x": 0.4294,
+      "y": 0.1023,
+      "w": 0.0084,
+      "h": 0.0232
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 36,
+     "char_end": 37,
+     "bbox_gemini": {
+      "x": 0.454,
+      "y": 0.105,
+      "w": 0.007,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w004",
+     "text": "२२",
+     "bbox": {
+      "x": 0.4532,
+      "y": 0.1023,
+      "w": 0.0241,
+      "h": 0.0232
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 38,
+     "char_end": 40,
+     "bbox_gemini": {
+      "x": 0.474,
+      "y": 0.105,
+      "w": 0.025,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w005",
+     "text": "।",
+     "bbox": {
+      "x": 0.4923,
+      "y": 0.1023,
+      "w": 0.0084,
+      "h": 0.0232
+     },
+     "lang": "sa",
+     "style": "normal",
+     "char_start": 41,
+     "char_end": 42,
+     "bbox_gemini": {
+      "x": 0.512,
+      "y": 0.105,
+      "w": 0.007,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w006",
+     "text": "Mṛdumadhyādhimātratvāttato'pi",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.1272,
+      "w": 0.3556,
+      "h": 0.0205
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 43,
+     "char_end": 72,
+     "bbox_gemini": {
+      "x": 0.121,
+      "y": 0.129,
+      "w": 0.376,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w007",
+     "text": "viśeṣaḥ",
+     "bbox": {
+      "x": 0.4845,
+      "y": 0.1272,
+      "w": 0.0783,
+      "h": 0.0205
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 73,
+     "char_end": 80,
+     "bbox_gemini": {
+      "x": 0.502,
+      "y": 0.129,
+      "w": 0.078,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w008",
+     "text": "/I.22/",
+     "bbox": {
+      "x": 0.5705,
+      "y": 0.1276,
+      "w": 0.0658,
+      "h": 0.0202
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 81,
+     "char_end": 87,
+     "bbox_gemini": {
+      "x": 0.585,
+      "y": 0.129,
+      "w": 0.05,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w009",
+     "text": "Mṛdu-madhya-adhimātratvāt",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.1491,
+      "w": 0.2803,
+      "h": 0.0203
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 88,
+     "char_end": 113,
+     "bbox_gemini": {
+      "x": 0.121,
+      "y": 0.152,
+      "w": 0.289,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w010",
+     "text": "tato'pi",
+     "bbox": {
+      "x": 0.4092,
+      "y": 0.1491,
+      "w": 0.0625,
+      "h": 0.0203
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 114,
+     "char_end": 121,
+     "bbox_gemini": {
+      "x": 0.415,
+      "y": 0.152,
+      "w": 0.057,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b002_w011",
+     "text": "viśeṣaḥ/I.22/",
+     "bbox": {
+      "x": 0.479,
+      "y": 0.1491,
+      "w": 0.1343,
+      "h": 0.0204
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 122,
+     "char_end": 135,
+     "bbox_gemini": {
+      "x": 0.477,
+      "y": 0.152,
+      "w": 0.134,
+      "h": 0.018
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "1.22",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b002",
+    "chunk_number_in_lrm": 25,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [
+     "p0305_b004",
+     "p0305_b005",
+     "p0305_b006"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     27,
+     28,
+     29
+    ],
+    "level": 0,
+    "prev_chunk_id": "p0304_b012",
+    "next_chunk_id": "p0305_b003",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "1.22",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0305_b003",
+   "local_id": "b2",
+   "type": "paragraph",
+   "reading_order": 3,
+   "bbox": {
+    "x": 0.1197,
+    "y": 0.1902,
+    "w": 0.7637,
+    "h": 0.0359
+   },
+   "text": "« Et il est plus [proche] encore selon que l'intensité [de l'élan] est faible, modérée ou extrême. »",
+   "words": [
+    {
+     "id": "p0305_b003_w001",
+     "text": "«",
+     "bbox": {
+      "x": 0.1197,
+      "y": 0.1902,
+      "w": 0.0101,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 1,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.192,
+      "w": 0.012,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w002",
+     "text": "Et",
+     "bbox": {
+      "x": 0.1363,
+      "y": 0.1902,
+      "w": 0.0191,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 2,
+     "char_end": 4,
+     "bbox_gemini": {
+      "x": 0.135,
+      "y": 0.192,
+      "w": 0.021,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w003",
+     "text": "il",
+     "bbox": {
+      "x": 0.1617,
+      "y": 0.1902,
+      "w": 0.0115,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 5,
+     "char_end": 7,
+     "bbox_gemini": {
+      "x": 0.161,
+      "y": 0.192,
+      "w": 0.012,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w004",
+     "text": "est",
+     "bbox": {
+      "x": 0.1798,
+      "y": 0.1902,
+      "w": 0.0247,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 8,
+     "char_end": 11,
+     "bbox_gemini": {
+      "x": 0.178,
+      "y": 0.192,
+      "w": 0.031,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w005",
+     "text": "plus",
+     "bbox": {
+      "x": 0.2108,
+      "y": 0.1902,
+      "w": 0.0388,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 12,
+     "char_end": 16,
+     "bbox_gemini": {
+      "x": 0.214,
+      "y": 0.192,
+      "w": 0.038,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w006",
+     "text": "[proche]",
+     "bbox": {
+      "x": 0.256,
+      "y": 0.1902,
+      "w": 0.0748,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 17,
+     "char_end": 25,
+     "bbox_gemini": {
+      "x": 0.257,
+      "y": 0.192,
+      "w": 0.073,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w007",
+     "text": "encore",
+     "bbox": {
+      "x": 0.3374,
+      "y": 0.1902,
+      "w": 0.0588,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 26,
+     "char_end": 32,
+     "bbox_gemini": {
+      "x": 0.335,
+      "y": 0.192,
+      "w": 0.062,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w008",
+     "text": "selon",
+     "bbox": {
+      "x": 0.4028,
+      "y": 0.1902,
+      "w": 0.0468,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 33,
+     "char_end": 38,
+     "bbox_gemini": {
+      "x": 0.402,
+      "y": 0.192,
+      "w": 0.048,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w009",
+     "text": "que",
+     "bbox": {
+      "x": 0.456,
+      "y": 0.1902,
+      "w": 0.033,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 39,
+     "char_end": 42,
+     "bbox_gemini": {
+      "x": 0.455,
+      "y": 0.192,
+      "w": 0.034,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w010",
+     "text": "l'intensité",
+     "bbox": {
+      "x": 0.4951,
+      "y": 0.1902,
+      "w": 0.0863,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 43,
+     "char_end": 54,
+     "bbox_gemini": {
+      "x": 0.494,
+      "y": 0.192,
+      "w": 0.087,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w011",
+     "text": "[de",
+     "bbox": {
+      "x": 0.5878,
+      "y": 0.1902,
+      "w": 0.029,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 55,
+     "char_end": 58,
+     "bbox_gemini": {
+      "x": 0.586,
+      "y": 0.192,
+      "w": 0.031,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w012",
+     "text": "l'élan]",
+     "bbox": {
+      "x": 0.6229,
+      "y": 0.1902,
+      "w": 0.0543,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 59,
+     "char_end": 66,
+     "bbox_gemini": {
+      "x": 0.622,
+      "y": 0.192,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w013",
+     "text": "est",
+     "bbox": {
+      "x": 0.6838,
+      "y": 0.1902,
+      "w": 0.0247,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 67,
+     "char_end": 70,
+     "bbox_gemini": {
+      "x": 0.682,
+      "y": 0.192,
+      "w": 0.031,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w014",
+     "text": "faible,",
+     "bbox": {
+      "x": 0.7148,
+      "y": 0.1902,
+      "w": 0.0542,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 71,
+     "char_end": 78,
+     "bbox_gemini": {
+      "x": 0.718,
+      "y": 0.192,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w015",
+     "text": "modérée",
+     "bbox": {
+      "x": 0.7757,
+      "y": 0.1902,
+      "w": 0.0782,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 79,
+     "char_end": 86,
+     "bbox_gemini": {
+      "x": 0.778,
+      "y": 0.192,
+      "w": 0.076,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w016",
+     "text": "ou",
+     "bbox": {
+      "x": 0.8604,
+      "y": 0.1902,
+      "w": 0.023,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 87,
+     "char_end": 89,
+     "bbox_gemini": {
+      "x": 0.859,
+      "y": 0.192,
+      "w": 0.023,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w017",
+     "text": "extrême.",
+     "bbox": {
+      "x": 0.1197,
+      "y": 0.2087,
+      "w": 0.0768,
+      "h": 0.0171
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 90,
+     "char_end": 98,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.211,
+      "w": 0.078,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b003_w018",
+     "text": "»",
+     "bbox": {
+      "x": 0.2032,
+      "y": 0.2087,
+      "w": 0.0101,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 99,
+     "char_end": 100,
+     "bbox_gemini": {
+      "x": 0.201,
+      "y": 0.211,
+      "w": 0.012,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b003",
+    "chunk_number_in_lrm": 26,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0305_b002",
+    "next_chunk_id": "p0305_b004",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": ""
+  },
+  {
+   "id": "p0305_b004",
+   "local_id": "b3",
+   "type": "paragraph",
+   "reading_order": 4,
+   "bbox": {
+    "x": 0.1213,
+    "y": 0.2443,
+    "w": 0.7623,
+    "h": 0.0736
+   },
+   "text": "Mṛdu-tīvro madhya-tīvro'dhimātra-tīvra iti, tato'pi viśeṣaḥ / Tad-viśeṣān 629 mṛdu-tīvra- saṃvegasya_āsannas tato madhya-tīvra-saṃvegasya_āsannataras tasmād adhimātra-tīvra- saṃvegasya_adhimātra-upāyasya_āsannatamaḥ samādhi-lābhaḥ 630 samādhi-phalaṃ ca_iti /22/",
+   "words": [
+    {
+     "id": "p0305_b004_w001",
+     "text": "Mṛdu-tīvro",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.2445,
+      "w": 0.094,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 0,
+     "char_end": 10,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.246,
+      "w": 0.096,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w002",
+     "text": "madhya-tīvro'dhimātra-tīvra",
+     "bbox": {
+      "x": 0.225,
+      "y": 0.2445,
+      "w": 0.2363,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 11,
+     "char_end": 38,
+     "bbox_gemini": {
+      "x": 0.224,
+      "y": 0.246,
+      "w": 0.23,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w003",
+     "text": "iti,",
+     "bbox": {
+      "x": 0.4709,
+      "y": 0.2445,
+      "w": 0.0228,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 39,
+     "char_end": 43,
+     "bbox_gemini": {
+      "x": 0.464,
+      "y": 0.246,
+      "w": 0.027,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w004",
+     "text": "tato'pi",
+     "bbox": {
+      "x": 0.5035,
+      "y": 0.2443,
+      "w": 0.0611,
+      "h": 0.0177
+     },
+     "lang": "sa",
+     "style": "bold",
+     "char_start": 44,
+     "char_end": 51,
+     "bbox_gemini": {
+      "x": 0.501,
+      "y": 0.246,
+      "w": 0.057,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w005",
+     "text": "viśeṣaḥ",
+     "bbox": {
+      "x": 0.5741,
+      "y": 0.2443,
+      "w": 0.0672,
+      "h": 0.0177
+     },
+     "lang": "sa",
+     "style": "bold",
+     "char_start": 52,
+     "char_end": 59,
+     "bbox_gemini": {
+      "x": 0.568,
+      "y": 0.246,
+      "w": 0.071,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w006",
+     "text": "/",
+     "bbox": {
+      "x": 0.6507,
+      "y": 0.2445,
+      "w": 0.006,
+      "h": 0.0175
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 60,
+     "char_end": 61,
+     "bbox_gemini": {
+      "x": 0.649,
+      "y": 0.246,
+      "w": 0.009,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w007",
+     "text": "Tad-viśeṣān",
+     "bbox": {
+      "x": 0.6664,
+      "y": 0.2445,
+      "w": 0.0967,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 62,
+     "char_end": 73,
+     "bbox_gemini": {
+      "x": 0.668,
+      "y": 0.246,
+      "w": 0.094,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w008",
+     "text": "629",
+     "bbox": {
+      "x": 0.7636,
+      "y": 0.2452,
+      "w": 0.0131,
+      "h": 0.0073
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 74,
+     "char_end": 77,
+     "bbox_gemini": {
+      "x": 0.762,
+      "y": 0.246,
+      "w": 0.015,
+      "h": 0.008
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w009",
+     "text": "mṛdu-tīvra-",
+     "bbox": {
+      "x": 0.7866,
+      "y": 0.2445,
+      "w": 0.097,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 78,
+     "char_end": 89,
+     "bbox_gemini": {
+      "x": 0.787,
+      "y": 0.246,
+      "w": 0.095,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w010",
+     "text": "saṃvegasya_āsannas",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.2633,
+      "w": 0.1703,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 90,
+     "char_end": 108,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.265,
+      "w": 0.181,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w011",
+     "text": "tato",
+     "bbox": {
+      "x": 0.3032,
+      "y": 0.2633,
+      "w": 0.0315,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 109,
+     "char_end": 113,
+     "bbox_gemini": {
+      "x": 0.309,
+      "y": 0.265,
+      "w": 0.031,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w012",
+     "text": "madhya-tīvra-saṃvegasya_āsannataras",
+     "bbox": {
+      "x": 0.3463,
+      "y": 0.2633,
+      "w": 0.3195,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 114,
+     "char_end": 149,
+     "bbox_gemini": {
+      "x": 0.35,
+      "y": 0.265,
+      "w": 0.315,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w013",
+     "text": "tasmād",
+     "bbox": {
+      "x": 0.6773,
+      "y": 0.2633,
+      "w": 0.0581,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 150,
+     "char_end": 156,
+     "bbox_gemini": {
+      "x": 0.675,
+      "y": 0.265,
+      "w": 0.063,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w014",
+     "text": "adhimātra-tīvra-",
+     "bbox": {
+      "x": 0.7471,
+      "y": 0.2633,
+      "w": 0.1353,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 157,
+     "char_end": 173,
+     "bbox_gemini": {
+      "x": 0.748,
+      "y": 0.265,
+      "w": 0.134,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w015",
+     "text": "saṃvegasya_adhimātra-upāyasya_āsannatamaḥ",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.2818,
+      "w": 0.3879,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 174,
+     "char_end": 215,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.284,
+      "w": 0.407,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w016",
+     "text": "samādhi-lābhaḥ",
+     "bbox": {
+      "x": 0.5281,
+      "y": 0.2818,
+      "w": 0.1266,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 216,
+     "char_end": 230,
+     "bbox_gemini": {
+      "x": 0.535,
+      "y": 0.284,
+      "w": 0.119,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w017",
+     "text": "630",
+     "bbox": {
+      "x": 0.6551,
+      "y": 0.2826,
+      "w": 0.0131,
+      "h": 0.0073
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 231,
+     "char_end": 234,
+     "bbox_gemini": {
+      "x": 0.654,
+      "y": 0.284,
+      "w": 0.015,
+      "h": 0.007
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w018",
+     "text": "samādhi-phalaṃ",
+     "bbox": {
+      "x": 0.6874,
+      "y": 0.2818,
+      "w": 0.133,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 235,
+     "char_end": 249,
+     "bbox_gemini": {
+      "x": 0.694,
+      "y": 0.284,
+      "w": 0.125,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w019",
+     "text": "ca_iti",
+     "bbox": {
+      "x": 0.8394,
+      "y": 0.2818,
+      "w": 0.0439,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 250,
+     "char_end": 256,
+     "bbox_gemini": {
+      "x": 0.829,
+      "y": 0.284,
+      "w": 0.053,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b004_w020",
+     "text": "/22/",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.3005,
+      "w": 0.0445,
+      "h": 0.0174
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 257,
+     "char_end": 261,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.302,
+      "w": 0.047,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b004",
+    "chunk_number_in_lrm": 27,
+    "parent_chunk_id": "p0305_b002",
+    "parent_chunk_number_in_lrm": 25,
+    "child_chunk_ids": [
+     "p0305_b007",
+     "p0305_b008"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     30,
+     31
+    ],
+    "level": 1,
+    "prev_chunk_id": "p0305_b003",
+    "next_chunk_id": "p0305_b005",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b002"
+  },
+  {
+   "id": "p0305_b005",
+   "local_id": "b4",
+   "type": "paragraph",
+   "reading_order": 5,
+   "bbox": {
+    "x": 0.1213,
+    "y": 0.3378,
+    "w": 0.762,
+    "h": 0.0736
+   },
+   "text": "[Glose] Le composé Mṛdumadhyādhimātra est un dvandva dont chacun des termes qualifie tīvra 'l'intensité' [de l'élan] en sorte que le sens est : selon que l'intensité [de l'élan] est faible, modérée ou extrême, [le caractère proche du samādhi] est plus élevé encore.",
+   "words": [
+    {
+     "id": "p0305_b005_w001",
+     "text": "[Glose]",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.3381,
+      "w": 0.064,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 7,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.341,
+      "w": 0.065,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w002",
+     "text": "Le",
+     "bbox": {
+      "x": 0.1931,
+      "y": 0.3381,
+      "w": 0.0222,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 8,
+     "char_end": 10,
+     "bbox_gemini": {
+      "x": 0.19,
+      "y": 0.341,
+      "w": 0.025,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w003",
+     "text": "composé",
+     "bbox": {
+      "x": 0.2229,
+      "y": 0.3381,
+      "w": 0.0786,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 11,
+     "char_end": 18,
+     "bbox_gemini": {
+      "x": 0.222,
+      "y": 0.341,
+      "w": 0.079,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w004",
+     "text": "Mṛdumadhyādhimātra",
+     "bbox": {
+      "x": 0.3092,
+      "y": 0.3378,
+      "w": 0.2063,
+      "h": 0.0177
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 19,
+     "char_end": 37,
+     "bbox_gemini": {
+      "x": 0.308,
+      "y": 0.341,
+      "w": 0.171,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w005",
+     "text": "est",
+     "bbox": {
+      "x": 0.5233,
+      "y": 0.3381,
+      "w": 0.0243,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 38,
+     "char_end": 41,
+     "bbox_gemini": {
+      "x": 0.487,
+      "y": 0.341,
+      "w": 0.028,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w006",
+     "text": "un",
+     "bbox": {
+      "x": 0.5552,
+      "y": 0.3381,
+      "w": 0.0238,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 42,
+     "char_end": 44,
+     "bbox_gemini": {
+      "x": 0.523,
+      "y": 0.341,
+      "w": 0.02,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w007",
+     "text": "dvandva",
+     "bbox": {
+      "x": 0.5866,
+      "y": 0.338,
+      "w": 0.0694,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 45,
+     "char_end": 52,
+     "bbox_gemini": {
+      "x": 0.55,
+      "y": 0.341,
+      "w": 0.071,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w008",
+     "text": "dont",
+     "bbox": {
+      "x": 0.6636,
+      "y": 0.3381,
+      "w": 0.0416,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 53,
+     "char_end": 57,
+     "bbox_gemini": {
+      "x": 0.628,
+      "y": 0.341,
+      "w": 0.046,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w009",
+     "text": "chacun",
+     "bbox": {
+      "x": 0.7128,
+      "y": 0.3381,
+      "w": 0.0637,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 58,
+     "char_end": 64,
+     "bbox_gemini": {
+      "x": 0.681,
+      "y": 0.341,
+      "w": 0.062,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w010",
+     "text": "des",
+     "bbox": {
+      "x": 0.7842,
+      "y": 0.3381,
+      "w": 0.0307,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 65,
+     "char_end": 68,
+     "bbox_gemini": {
+      "x": 0.75,
+      "y": 0.341,
+      "w": 0.045,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w011",
+     "text": "termes",
+     "bbox": {
+      "x": 0.8225,
+      "y": 0.3381,
+      "w": 0.0602,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 69,
+     "char_end": 75,
+     "bbox_gemini": {
+      "x": 0.802,
+      "y": 0.341,
+      "w": 0.08,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w012",
+     "text": "qualifie",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.3569,
+      "w": 0.0677,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 76,
+     "char_end": 84,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.359,
+      "w": 0.07,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w013",
+     "text": "tīvra",
+     "bbox": {
+      "x": 0.1959,
+      "y": 0.3568,
+      "w": 0.0392,
+      "h": 0.0175
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 85,
+     "char_end": 90,
+     "bbox_gemini": {
+      "x": 0.195,
+      "y": 0.359,
+      "w": 0.042,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w014",
+     "text": "'l'intensité'",
+     "bbox": {
+      "x": 0.2419,
+      "y": 0.3569,
+      "w": 0.0945,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 91,
+     "char_end": 104,
+     "bbox_gemini": {
+      "x": 0.244,
+      "y": 0.359,
+      "w": 0.091,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w015",
+     "text": "[de",
+     "bbox": {
+      "x": 0.3431,
+      "y": 0.3569,
+      "w": 0.029,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 105,
+     "char_end": 108,
+     "bbox_gemini": {
+      "x": 0.342,
+      "y": 0.359,
+      "w": 0.031,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w016",
+     "text": "l'élan]",
+     "bbox": {
+      "x": 0.3786,
+      "y": 0.3569,
+      "w": 0.0539,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 109,
+     "char_end": 116,
+     "bbox_gemini": {
+      "x": 0.378,
+      "y": 0.359,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w017",
+     "text": "en",
+     "bbox": {
+      "x": 0.4394,
+      "y": 0.3569,
+      "w": 0.0214,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 117,
+     "char_end": 119,
+     "bbox_gemini": {
+      "x": 0.44,
+      "y": 0.359,
+      "w": 0.023,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w018",
+     "text": "sorte",
+     "bbox": {
+      "x": 0.4677,
+      "y": 0.3569,
+      "w": 0.0435,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 120,
+     "char_end": 125,
+     "bbox_gemini": {
+      "x": 0.47,
+      "y": 0.359,
+      "w": 0.045,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w019",
+     "text": "que",
+     "bbox": {
+      "x": 0.5181,
+      "y": 0.3569,
+      "w": 0.0326,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 126,
+     "char_end": 129,
+     "bbox_gemini": {
+      "x": 0.522,
+      "y": 0.359,
+      "w": 0.034,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w020",
+     "text": "le",
+     "bbox": {
+      "x": 0.5576,
+      "y": 0.3569,
+      "w": 0.0157,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 130,
+     "char_end": 132,
+     "bbox_gemini": {
+      "x": 0.563,
+      "y": 0.359,
+      "w": 0.021,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w021",
+     "text": "sens",
+     "bbox": {
+      "x": 0.5802,
+      "y": 0.3569,
+      "w": 0.0384,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 133,
+     "char_end": 137,
+     "bbox_gemini": {
+      "x": 0.591,
+      "y": 0.359,
+      "w": 0.037,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w022",
+     "text": "est",
+     "bbox": {
+      "x": 0.6253,
+      "y": 0.3569,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 138,
+     "char_end": 141,
+     "bbox_gemini": {
+      "x": 0.635,
+      "y": 0.359,
+      "w": 0.018,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w023",
+     "text": ":",
+     "bbox": {
+      "x": 0.6564,
+      "y": 0.3569,
+      "w": 0.005,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 142,
+     "char_end": 143,
+     "bbox_gemini": {
+      "x": 0.66,
+      "y": 0.359,
+      "w": 0.006,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w024",
+     "text": "selon",
+     "bbox": {
+      "x": 0.668,
+      "y": 0.3569,
+      "w": 0.0468,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 144,
+     "char_end": 149,
+     "bbox_gemini": {
+      "x": 0.673,
+      "y": 0.359,
+      "w": 0.048,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w025",
+     "text": "que",
+     "bbox": {
+      "x": 0.7217,
+      "y": 0.3569,
+      "w": 0.033,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 150,
+     "char_end": 153,
+     "bbox_gemini": {
+      "x": 0.728,
+      "y": 0.359,
+      "w": 0.034,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w026",
+     "text": "l'intensité",
+     "bbox": {
+      "x": 0.7616,
+      "y": 0.3569,
+      "w": 0.0863,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 154,
+     "char_end": 165,
+     "bbox_gemini": {
+      "x": 0.769,
+      "y": 0.359,
+      "w": 0.087,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w027",
+     "text": "[de",
+     "bbox": {
+      "x": 0.8543,
+      "y": 0.3569,
+      "w": 0.029,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 166,
+     "char_end": 169,
+     "bbox_gemini": {
+      "x": 0.861,
+      "y": 0.359,
+      "w": 0.021,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w028",
+     "text": "l'élan]",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.3755,
+      "w": 0.0543,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 170,
+     "char_end": 177,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.378,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w029",
+     "text": "est",
+     "bbox": {
+      "x": 0.1818,
+      "y": 0.3755,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 178,
+     "char_end": 181,
+     "bbox_gemini": {
+      "x": 0.178,
+      "y": 0.378,
+      "w": 0.031,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w030",
+     "text": "faible,",
+     "bbox": {
+      "x": 0.2125,
+      "y": 0.3755,
+      "w": 0.0546,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 182,
+     "char_end": 189,
+     "bbox_gemini": {
+      "x": 0.214,
+      "y": 0.378,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w031",
+     "text": "modérée",
+     "bbox": {
+      "x": 0.2733,
+      "y": 0.3755,
+      "w": 0.0778,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 190,
+     "char_end": 197,
+     "bbox_gemini": {
+      "x": 0.274,
+      "y": 0.378,
+      "w": 0.076,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w032",
+     "text": "ou",
+     "bbox": {
+      "x": 0.3572,
+      "y": 0.3755,
+      "w": 0.023,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 198,
+     "char_end": 200,
+     "bbox_gemini": {
+      "x": 0.355,
+      "y": 0.378,
+      "w": 0.023,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w033",
+     "text": "extrême,",
+     "bbox": {
+      "x": 0.3862,
+      "y": 0.3755,
+      "w": 0.0768,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 201,
+     "char_end": 209,
+     "bbox_gemini": {
+      "x": 0.383,
+      "y": 0.378,
+      "w": 0.067,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w034",
+     "text": "[le",
+     "bbox": {
+      "x": 0.4693,
+      "y": 0.3755,
+      "w": 0.0222,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 210,
+     "char_end": 213,
+     "bbox_gemini": {
+      "x": 0.457,
+      "y": 0.378,
+      "w": 0.03,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w035",
+     "text": "caractère",
+     "bbox": {
+      "x": 0.4975,
+      "y": 0.3755,
+      "w": 0.0794,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 214,
+     "char_end": 223,
+     "bbox_gemini": {
+      "x": 0.492,
+      "y": 0.378,
+      "w": 0.082,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w036",
+     "text": "proche",
+     "bbox": {
+      "x": 0.583,
+      "y": 0.3755,
+      "w": 0.0613,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 224,
+     "char_end": 230,
+     "bbox_gemini": {
+      "x": 0.579,
+      "y": 0.378,
+      "w": 0.062,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w037",
+     "text": "du",
+     "bbox": {
+      "x": 0.6503,
+      "y": 0.3755,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 231,
+     "char_end": 233,
+     "bbox_gemini": {
+      "x": 0.646,
+      "y": 0.378,
+      "w": 0.023,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w038",
+     "text": "samādhi]",
+     "bbox": {
+      "x": 0.6809,
+      "y": 0.3753,
+      "w": 0.0736,
+      "h": 0.0176
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 234,
+     "char_end": 242,
+     "bbox_gemini": {
+      "x": 0.674,
+      "y": 0.378,
+      "w": 0.079,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w039",
+     "text": "est",
+     "bbox": {
+      "x": 0.7608,
+      "y": 0.3755,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 243,
+     "char_end": 246,
+     "bbox_gemini": {
+      "x": 0.758,
+      "y": 0.378,
+      "w": 0.031,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w040",
+     "text": "plus",
+     "bbox": {
+      "x": 0.7914,
+      "y": 0.3755,
+      "w": 0.0388,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 247,
+     "char_end": 251,
+     "bbox_gemini": {
+      "x": 0.794,
+      "y": 0.378,
+      "w": 0.038,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w041",
+     "text": "élevé",
+     "bbox": {
+      "x": 0.8362,
+      "y": 0.3755,
+      "w": 0.0463,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 252,
+     "char_end": 257,
+     "bbox_gemini": {
+      "x": 0.837,
+      "y": 0.378,
+      "w": 0.045,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b005_w042",
+     "text": "encore.",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.394,
+      "w": 0.0639,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 258,
+     "char_end": 265,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.397,
+      "w": 0.067,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b005",
+    "chunk_number_in_lrm": 28,
+    "parent_chunk_id": "p0305_b002",
+    "parent_chunk_number_in_lrm": 25,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 1,
+    "prev_chunk_id": "p0305_b004",
+    "next_chunk_id": "p0305_b006",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b002"
+  },
+  {
+   "id": "p0305_b006",
+   "local_id": "b5",
+   "type": "paragraph",
+   "reading_order": 6,
+   "bbox": {
+    "x": 0.1213,
+    "y": 0.4128,
+    "w": 0.7621,
+    "h": 0.073
+   },
+   "text": "En fonction de ce degré [dans l'intensité], l'accession à l'enstase mentale ainsi que son fruit est proche pour celui dont l'élan est faiblement intense, plus proche pour celui dont l'élan est modérément intense et tout proche pour celui qui emploie les moyens extrêmes dans un élan d'une extrême intensité 631 . /22/",
+   "words": [
+    {
+     "id": "p0305_b006_w001",
+     "text": "En",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.4128,
+      "w": 0.0242,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 0,
+     "char_end": 2,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.415,
+      "w": 0.024,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w002",
+     "text": "fonction",
+     "bbox": {
+      "x": 0.1508,
+      "y": 0.4128,
+      "w": 0.0734,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 3,
+     "char_end": 11,
+     "bbox_gemini": {
+      "x": 0.147,
+      "y": 0.415,
+      "w": 0.073,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w003",
+     "text": "de",
+     "bbox": {
+      "x": 0.2298,
+      "y": 0.4128,
+      "w": 0.0222,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 12,
+     "char_end": 14,
+     "bbox_gemini": {
+      "x": 0.225,
+      "y": 0.415,
+      "w": 0.023,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w004",
+     "text": "ce",
+     "bbox": {
+      "x": 0.2572,
+      "y": 0.4128,
+      "w": 0.0185,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 15,
+     "char_end": 17,
+     "bbox_gemini": {
+      "x": 0.253,
+      "y": 0.415,
+      "w": 0.021,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w005",
+     "text": "degré",
+     "bbox": {
+      "x": 0.281,
+      "y": 0.4128,
+      "w": 0.0508,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 18,
+     "char_end": 23,
+     "bbox_gemini": {
+      "x": 0.279,
+      "y": 0.415,
+      "w": 0.052,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w006",
+     "text": "[dans",
+     "bbox": {
+      "x": 0.337,
+      "y": 0.4128,
+      "w": 0.0497,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 24,
+     "char_end": 29,
+     "bbox_gemini": {
+      "x": 0.336,
+      "y": 0.415,
+      "w": 0.055,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w007",
+     "text": "l'intensité],",
+     "bbox": {
+      "x": 0.3919,
+      "y": 0.4128,
+      "w": 0.0978,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 30,
+     "char_end": 43,
+     "bbox_gemini": {
+      "x": 0.396,
+      "y": 0.415,
+      "w": 0.103,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w008",
+     "text": "l'accession",
+     "bbox": {
+      "x": 0.4951,
+      "y": 0.4128,
+      "w": 0.0932,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 44,
+     "char_end": 55,
+     "bbox_gemini": {
+      "x": 0.504,
+      "y": 0.415,
+      "w": 0.084,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w009",
+     "text": "à",
+     "bbox": {
+      "x": 0.5939,
+      "y": 0.4128,
+      "w": 0.0101,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 56,
+     "char_end": 57,
+     "bbox_gemini": {
+      "x": 0.593,
+      "y": 0.415,
+      "w": 0.011,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w010",
+     "text": "l'enstase",
+     "bbox": {
+      "x": 0.6092,
+      "y": 0.4128,
+      "w": 0.0746,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 58,
+     "char_end": 67,
+     "bbox_gemini": {
+      "x": 0.609,
+      "y": 0.415,
+      "w": 0.07,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w011",
+     "text": "mentale",
+     "bbox": {
+      "x": 0.6894,
+      "y": 0.4128,
+      "w": 0.0713,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 68,
+     "char_end": 75,
+     "bbox_gemini": {
+      "x": 0.684,
+      "y": 0.415,
+      "w": 0.07,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w012",
+     "text": "ainsi",
+     "bbox": {
+      "x": 0.7664,
+      "y": 0.4128,
+      "w": 0.0417,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 76,
+     "char_end": 81,
+     "bbox_gemini": {
+      "x": 0.759,
+      "y": 0.415,
+      "w": 0.045,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w013",
+     "text": "que",
+     "bbox": {
+      "x": 0.8136,
+      "y": 0.4128,
+      "w": 0.033,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 82,
+     "char_end": 85,
+     "bbox_gemini": {
+      "x": 0.809,
+      "y": 0.415,
+      "w": 0.034,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w014",
+     "text": "son",
+     "bbox": {
+      "x": 0.8519,
+      "y": 0.4128,
+      "w": 0.0311,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 86,
+     "char_end": 89,
+     "bbox_gemini": {
+      "x": 0.848,
+      "y": 0.415,
+      "w": 0.034,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w015",
+     "text": "fruit",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.4313,
+      "w": 0.0396,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 90,
+     "char_end": 95,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.434,
+      "w": 0.037,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w016",
+     "text": "est",
+     "bbox": {
+      "x": 0.1677,
+      "y": 0.4313,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 96,
+     "char_end": 99,
+     "bbox_gemini": {
+      "x": 0.16,
+      "y": 0.434,
+      "w": 0.031,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w017",
+     "text": "proche",
+     "bbox": {
+      "x": 0.1992,
+      "y": 0.4313,
+      "w": 0.0613,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 100,
+     "char_end": 106,
+     "bbox_gemini": {
+      "x": 0.196,
+      "y": 0.434,
+      "w": 0.062,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w018",
+     "text": "pour",
+     "bbox": {
+      "x": 0.2673,
+      "y": 0.4313,
+      "w": 0.043,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 107,
+     "char_end": 111,
+     "bbox_gemini": {
+      "x": 0.263,
+      "y": 0.434,
+      "w": 0.04,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w019",
+     "text": "celui",
+     "bbox": {
+      "x": 0.3173,
+      "y": 0.4313,
+      "w": 0.0422,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 112,
+     "char_end": 117,
+     "bbox_gemini": {
+      "x": 0.308,
+      "y": 0.434,
+      "w": 0.043,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w020",
+     "text": "dont",
+     "bbox": {
+      "x": 0.3661,
+      "y": 0.4313,
+      "w": 0.0416,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 118,
+     "char_end": 122,
+     "bbox_gemini": {
+      "x": 0.356,
+      "y": 0.434,
+      "w": 0.046,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w021",
+     "text": "l'élan",
+     "bbox": {
+      "x": 0.4144,
+      "y": 0.4313,
+      "w": 0.0476,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 123,
+     "char_end": 129,
+     "bbox_gemini": {
+      "x": 0.407,
+      "y": 0.434,
+      "w": 0.048,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w022",
+     "text": "est",
+     "bbox": {
+      "x": 0.4689,
+      "y": 0.4313,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 130,
+     "char_end": 133,
+     "bbox_gemini": {
+      "x": 0.46,
+      "y": 0.434,
+      "w": 0.031,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w023",
+     "text": "faiblement",
+     "bbox": {
+      "x": 0.4999,
+      "y": 0.4313,
+      "w": 0.0949,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 134,
+     "char_end": 144,
+     "bbox_gemini": {
+      "x": 0.496,
+      "y": 0.434,
+      "w": 0.091,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w024",
+     "text": "intense,",
+     "bbox": {
+      "x": 0.6015,
+      "y": 0.4313,
+      "w": 0.0687,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 145,
+     "char_end": 153,
+     "bbox_gemini": {
+      "x": 0.592,
+      "y": 0.434,
+      "w": 0.069,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w025",
+     "text": "plus",
+     "bbox": {
+      "x": 0.6773,
+      "y": 0.4313,
+      "w": 0.0384,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 154,
+     "char_end": 158,
+     "bbox_gemini": {
+      "x": 0.666,
+      "y": 0.434,
+      "w": 0.038,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w026",
+     "text": "proche",
+     "bbox": {
+      "x": 0.7225,
+      "y": 0.4313,
+      "w": 0.0613,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 159,
+     "char_end": 165,
+     "bbox_gemini": {
+      "x": 0.709,
+      "y": 0.434,
+      "w": 0.062,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w027",
+     "text": "pour",
+     "bbox": {
+      "x": 0.7906,
+      "y": 0.4313,
+      "w": 0.043,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 166,
+     "char_end": 170,
+     "bbox_gemini": {
+      "x": 0.776,
+      "y": 0.434,
+      "w": 0.04,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w028",
+     "text": "celui",
+     "bbox": {
+      "x": 0.8406,
+      "y": 0.4313,
+      "w": 0.0422,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 171,
+     "char_end": 176,
+     "bbox_gemini": {
+      "x": 0.821,
+      "y": 0.434,
+      "w": 0.061,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w029",
+     "text": "dont",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.4499,
+      "w": 0.0416,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 177,
+     "char_end": 181,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.453,
+      "w": 0.046,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w030",
+     "text": "l'élan",
+     "bbox": {
+      "x": 0.1689,
+      "y": 0.4499,
+      "w": 0.0476,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 182,
+     "char_end": 188,
+     "bbox_gemini": {
+      "x": 0.169,
+      "y": 0.453,
+      "w": 0.048,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w031",
+     "text": "est",
+     "bbox": {
+      "x": 0.2221,
+      "y": 0.4499,
+      "w": 0.0247,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 189,
+     "char_end": 192,
+     "bbox_gemini": {
+      "x": 0.222,
+      "y": 0.453,
+      "w": 0.031,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w032",
+     "text": "modérément",
+     "bbox": {
+      "x": 0.2528,
+      "y": 0.4499,
+      "w": 0.1142,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 193,
+     "char_end": 203,
+     "bbox_gemini": {
+      "x": 0.258,
+      "y": 0.453,
+      "w": 0.103,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w033",
+     "text": "intense",
+     "bbox": {
+      "x": 0.3725,
+      "y": 0.4499,
+      "w": 0.0637,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 204,
+     "char_end": 211,
+     "bbox_gemini": {
+      "x": 0.366,
+      "y": 0.453,
+      "w": 0.059,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w034",
+     "text": "et",
+     "bbox": {
+      "x": 0.4423,
+      "y": 0.4499,
+      "w": 0.0162,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 212,
+     "char_end": 214,
+     "bbox_gemini": {
+      "x": 0.43,
+      "y": 0.453,
+      "w": 0.021,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w035",
+     "text": "tout",
+     "bbox": {
+      "x": 0.464,
+      "y": 0.4499,
+      "w": 0.036,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 215,
+     "char_end": 219,
+     "bbox_gemini": {
+      "x": 0.456,
+      "y": 0.453,
+      "w": 0.035,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w036",
+     "text": "proche",
+     "bbox": {
+      "x": 0.506,
+      "y": 0.4499,
+      "w": 0.0613,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 220,
+     "char_end": 226,
+     "bbox_gemini": {
+      "x": 0.496,
+      "y": 0.453,
+      "w": 0.062,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w037",
+     "text": "pour",
+     "bbox": {
+      "x": 0.5733,
+      "y": 0.4499,
+      "w": 0.043,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 227,
+     "char_end": 231,
+     "bbox_gemini": {
+      "x": 0.563,
+      "y": 0.453,
+      "w": 0.04,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w038",
+     "text": "celui",
+     "bbox": {
+      "x": 0.6225,
+      "y": 0.4499,
+      "w": 0.0426,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 232,
+     "char_end": 237,
+     "bbox_gemini": {
+      "x": 0.608,
+      "y": 0.453,
+      "w": 0.043,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w039",
+     "text": "qui",
+     "bbox": {
+      "x": 0.6709,
+      "y": 0.4499,
+      "w": 0.0293,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 238,
+     "char_end": 241,
+     "bbox_gemini": {
+      "x": 0.656,
+      "y": 0.453,
+      "w": 0.028,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w040",
+     "text": "emploie",
+     "bbox": {
+      "x": 0.7059,
+      "y": 0.4499,
+      "w": 0.0721,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 242,
+     "char_end": 249,
+     "bbox_gemini": {
+      "x": 0.689,
+      "y": 0.453,
+      "w": 0.065,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w041",
+     "text": "les",
+     "bbox": {
+      "x": 0.7834,
+      "y": 0.4499,
+      "w": 0.0243,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 250,
+     "char_end": 253,
+     "bbox_gemini": {
+      "x": 0.759,
+      "y": 0.453,
+      "w": 0.03,
+      "h": 0.011
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w042",
+     "text": "moyens",
+     "bbox": {
+      "x": 0.8136,
+      "y": 0.4499,
+      "w": 0.0698,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 254,
+     "char_end": 260,
+     "bbox_gemini": {
+      "x": 0.794,
+      "y": 0.453,
+      "w": 0.088,
+      "h": 0.014
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w043",
+     "text": "extrêmes",
+     "bbox": {
+      "x": 0.1213,
+      "y": 0.4684,
+      "w": 0.0803,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 261,
+     "char_end": 269,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.471,
+      "w": 0.078,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w044",
+     "text": "dans",
+     "bbox": {
+      "x": 0.208,
+      "y": 0.4684,
+      "w": 0.0428,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 270,
+     "char_end": 274,
+     "bbox_gemini": {
+      "x": 0.201,
+      "y": 0.471,
+      "w": 0.035,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w045",
+     "text": "un",
+     "bbox": {
+      "x": 0.2572,
+      "y": 0.4684,
+      "w": 0.0238,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 275,
+     "char_end": 277,
+     "bbox_gemini": {
+      "x": 0.241,
+      "y": 0.471,
+      "w": 0.02,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w046",
+     "text": "élan",
+     "bbox": {
+      "x": 0.2874,
+      "y": 0.4684,
+      "w": 0.0371,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 278,
+     "char_end": 282,
+     "bbox_gemini": {
+      "x": 0.266,
+      "y": 0.471,
+      "w": 0.043,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w047",
+     "text": "d'une",
+     "bbox": {
+      "x": 0.331,
+      "y": 0.4684,
+      "w": 0.05,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 283,
+     "char_end": 288,
+     "bbox_gemini": {
+      "x": 0.314,
+      "y": 0.471,
+      "w": 0.044,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w048",
+     "text": "extrême",
+     "bbox": {
+      "x": 0.3874,
+      "y": 0.4684,
+      "w": 0.0717,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 289,
+     "char_end": 296,
+     "bbox_gemini": {
+      "x": 0.363,
+      "y": 0.471,
+      "w": 0.066,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w049",
+     "text": "intensité",
+     "bbox": {
+      "x": 0.4652,
+      "y": 0.4684,
+      "w": 0.0758,
+      "h": 0.0174
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 297,
+     "char_end": 306,
+     "bbox_gemini": {
+      "x": 0.434,
+      "y": 0.471,
+      "w": 0.097,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w050",
+     "text": "631",
+     "bbox": {
+      "x": 0.541,
+      "y": 0.4684,
+      "w": 0.0183,
+      "h": 0.0174
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 307,
+     "char_end": 310,
+     "bbox_gemini": {
+      "x": 0.531,
+      "y": 0.469,
+      "w": 0.015,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b006_w051",
+     "text": ".",
+     "bbox": {
+      "x": 0.548,
+      "y": 0.471,
+      "w": 0.005,
+      "h": 0.012
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 311,
+     "char_end": 312,
+     "bbox_gemini": {
+      "x": 0.548,
+      "y": 0.471,
+      "w": 0.005,
+      "h": 0.012
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0305_b006_w052",
+     "text": "/22/",
+     "bbox": {
+      "x": 0.566,
+      "y": 0.4684,
+      "w": 0.0445,
+      "h": 0.0174
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 313,
+     "char_end": 317,
+     "bbox_gemini": {
+      "x": 0.558,
+      "y": 0.471,
+      "w": 0.047,
+      "h": 0.015
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b006",
+    "chunk_number_in_lrm": 29,
+    "parent_chunk_id": "p0305_b002",
+    "parent_chunk_number_in_lrm": 25,
+    "child_chunk_ids": [
+     "p0305_b009"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     32
+    ],
+    "level": 1,
+    "prev_chunk_id": "p0305_b005",
+    "next_chunk_id": "p0305_b007",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b002"
+  },
+  {
+   "id": "p0305_b007",
+   "local_id": "b6",
+   "type": "footnote",
+   "reading_order": 7,
+   "bbox": {
+    "x": 0.1197,
+    "y": 0.7723,
+    "w": 0.3167,
+    "h": 0.0162
+   },
+   "text": "629 D et Maas 2006a : 33 : viśeṣād api mṛdu°.",
+   "words": [
+    {
+     "id": "p0305_b007_w001",
+     "text": "629",
+     "bbox": {
+      "x": 0.1197,
+      "y": 0.7723,
+      "w": 0.0131,
+      "h": 0.0073
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.772,
+      "w": 0.015,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w002",
+     "text": "D",
+     "bbox": {
+      "x": 0.1383,
+      "y": 0.7738,
+      "w": 0.0131,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 5,
+     "bbox_gemini": {
+      "x": 0.138,
+      "y": 0.775,
+      "w": 0.014,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w003",
+     "text": "et",
+     "bbox": {
+      "x": 0.1568,
+      "y": 0.7738,
+      "w": 0.0136,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 6,
+     "char_end": 8,
+     "bbox_gemini": {
+      "x": 0.157,
+      "y": 0.775,
+      "w": 0.015,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w004",
+     "text": "Maas",
+     "bbox": {
+      "x": 0.1754,
+      "y": 0.7738,
+      "w": 0.0402,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 9,
+     "char_end": 13,
+     "bbox_gemini": {
+      "x": 0.177,
+      "y": 0.775,
+      "w": 0.043,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w005",
+     "text": "2006a",
+     "bbox": {
+      "x": 0.2205,
+      "y": 0.7738,
+      "w": 0.0423,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 14,
+     "char_end": 19,
+     "bbox_gemini": {
+      "x": 0.225,
+      "y": 0.775,
+      "w": 0.044,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w006",
+     "text": ":",
+     "bbox": {
+      "x": 0.2677,
+      "y": 0.7738,
+      "w": 0.0042,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 20,
+     "char_end": 21,
+     "bbox_gemini": {
+      "x": 0.274,
+      "y": 0.775,
+      "w": 0.006,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w007",
+     "text": "33",
+     "bbox": {
+      "x": 0.2774,
+      "y": 0.7738,
+      "w": 0.0169,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 22,
+     "char_end": 24,
+     "bbox_gemini": {
+      "x": 0.285,
+      "y": 0.775,
+      "w": 0.017,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w008",
+     "text": ":",
+     "bbox": {
+      "x": 0.2991,
+      "y": 0.7738,
+      "w": 0.0042,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 25,
+     "char_end": 26,
+     "bbox_gemini": {
+      "x": 0.307,
+      "y": 0.775,
+      "w": 0.006,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w009",
+     "text": "viśeṣād",
+     "bbox": {
+      "x": 0.3088,
+      "y": 0.7737,
+      "w": 0.0484,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 27,
+     "char_end": 34,
+     "bbox_gemini": {
+      "x": 0.318,
+      "y": 0.775,
+      "w": 0.059,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w010",
+     "text": "api",
+     "bbox": {
+      "x": 0.3624,
+      "y": 0.7737,
+      "w": 0.0204,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 35,
+     "char_end": 38,
+     "bbox_gemini": {
+      "x": 0.382,
+      "y": 0.775,
+      "w": 0.025,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b007_w011",
+     "text": "mṛdu°.",
+     "bbox": {
+      "x": 0.3882,
+      "y": 0.7737,
+      "w": 0.0482,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 39,
+     "char_end": 45,
+     "bbox_gemini": {
+      "x": 0.412,
+      "y": 0.775,
+      "w": 0.025,
+      "h": 0.016
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "629",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b007",
+    "chunk_number_in_lrm": 30,
+    "parent_chunk_id": "p0305_b004",
+    "parent_chunk_number_in_lrm": 27,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 2,
+    "prev_chunk_id": "p0305_b006",
+    "next_chunk_id": "p0305_b008",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b004"
+  },
+  {
+   "id": "p0305_b008",
+   "local_id": "b7",
+   "type": "footnote",
+   "reading_order": 8,
+   "bbox": {
+    "x": 0.1197,
+    "y": 0.7889,
+    "w": 0.5735,
+    "h": 0.0162
+   },
+   "text": "630 MAAS 2006a : 33 : tadviśeṣād apy āsannataras tīvrādhimātrasya samādhilābhaḥ.",
+   "words": [
+    {
+     "id": "p0305_b008_w001",
+     "text": "630",
+     "bbox": {
+      "x": 0.1197,
+      "y": 0.7889,
+      "w": 0.0131,
+      "h": 0.0073
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.791,
+      "w": 0.015,
+      "h": 0.007
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w002",
+     "text": "MAAS",
+     "bbox": {
+      "x": 0.1383,
+      "y": 0.7904,
+      "w": 0.0441,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 8,
+     "bbox_gemini": {
+      "x": 0.138,
+      "y": 0.793,
+      "w": 0.045,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w003",
+     "text": "2006a",
+     "bbox": {
+      "x": 0.1875,
+      "y": 0.7904,
+      "w": 0.0423,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 9,
+     "char_end": 14,
+     "bbox_gemini": {
+      "x": 0.188,
+      "y": 0.793,
+      "w": 0.043,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w004",
+     "text": ":",
+     "bbox": {
+      "x": 0.2346,
+      "y": 0.7904,
+      "w": 0.0042,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 15,
+     "char_end": 16,
+     "bbox_gemini": {
+      "x": 0.236,
+      "y": 0.793,
+      "w": 0.006,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w005",
+     "text": "33",
+     "bbox": {
+      "x": 0.2443,
+      "y": 0.7904,
+      "w": 0.0169,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 17,
+     "char_end": 19,
+     "bbox_gemini": {
+      "x": 0.247,
+      "y": 0.793,
+      "w": 0.017,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w006",
+     "text": ":",
+     "bbox": {
+      "x": 0.2661,
+      "y": 0.7904,
+      "w": 0.0042,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 20,
+     "char_end": 21,
+     "bbox_gemini": {
+      "x": 0.269,
+      "y": 0.793,
+      "w": 0.006,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w007",
+     "text": "tadviśeṣād",
+     "bbox": {
+      "x": 0.2758,
+      "y": 0.7903,
+      "w": 0.0702,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 22,
+     "char_end": 32,
+     "bbox_gemini": {
+      "x": 0.28,
+      "y": 0.793,
+      "w": 0.077,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w008",
+     "text": "apy",
+     "bbox": {
+      "x": 0.3507,
+      "y": 0.7903,
+      "w": 0.0246,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 33,
+     "char_end": 36,
+     "bbox_gemini": {
+      "x": 0.362,
+      "y": 0.793,
+      "w": 0.026,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w009",
+     "text": "āsannataras",
+     "bbox": {
+      "x": 0.3806,
+      "y": 0.7903,
+      "w": 0.0812,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 37,
+     "char_end": 48,
+     "bbox_gemini": {
+      "x": 0.393,
+      "y": 0.793,
+      "w": 0.084,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w010",
+     "text": "tīvrādhimātrasya",
+     "bbox": {
+      "x": 0.4669,
+      "y": 0.7903,
+      "w": 0.1168,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 49,
+     "char_end": 65,
+     "bbox_gemini": {
+      "x": 0.482,
+      "y": 0.793,
+      "w": 0.111,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b008_w011",
+     "text": "samādhilābhaḥ.",
+     "bbox": {
+      "x": 0.589,
+      "y": 0.7903,
+      "w": 0.1042,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 66,
+     "char_end": 80,
+     "bbox_gemini": {
+      "x": 0.598,
+      "y": 0.793,
+      "w": 0.095,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "630",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b008",
+    "chunk_number_in_lrm": 31,
+    "parent_chunk_id": "p0305_b004",
+    "parent_chunk_number_in_lrm": 27,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 2,
+    "prev_chunk_id": "p0305_b007",
+    "next_chunk_id": "p0305_b009",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b004"
+  },
+  {
+   "id": "p0305_b009",
+   "local_id": "b8",
+   "type": "footnote",
+   "reading_order": 9,
+   "bbox": {
+    "x": 0.1197,
+    "y": 0.8054,
+    "w": 0.7617,
+    "h": 0.0942
+   },
+   "text": "631 En combinant les deux sūtra, Vijñāna Bhikṣu arrive à quatre-vingt-une variétés d'élan. Ce genre de calcul est très apprécié dans la tradition brahmanique. Entre autres exemples, Abhinavagupta (Tantrāloka, chap. XIII) dresse un tableau de l'intensité de la grâce divine (anugraha, śaktipāta) avec presque le même vocabulaire que le bhāṣyakāra (tīvra 'intense', madhya 'moyen' et manda 'faible'). Il en distingue neuf, depuis le tīvratīvra 'très intense' (littéralement 'intensément intense') jusqu'au mandamanda 'très faible'.",
+   "words": [
+    {
+     "id": "p0305_b009_w001",
+     "text": "631",
+     "bbox": {
+      "x": 0.1197,
+      "y": 0.8054,
+      "w": 0.0131,
+      "h": 0.0073
+     },
+     "lang": "other",
+     "style": "sup",
+     "char_start": 0,
+     "char_end": 3,
+     "bbox_gemini": {
+      "x": 0.118,
+      "y": 0.807,
+      "w": 0.015,
+      "h": 0.007
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w002",
+     "text": "En",
+     "bbox": {
+      "x": 0.1383,
+      "y": 0.8069,
+      "w": 0.0203,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 4,
+     "char_end": 6,
+     "bbox_gemini": {
+      "x": 0.138,
+      "y": 0.809,
+      "w": 0.02,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w003",
+     "text": "combinant",
+     "bbox": {
+      "x": 0.1637,
+      "y": 0.8069,
+      "w": 0.0793,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 7,
+     "char_end": 16,
+     "bbox_gemini": {
+      "x": 0.163,
+      "y": 0.809,
+      "w": 0.074,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w004",
+     "text": "les",
+     "bbox": {
+      "x": 0.2479,
+      "y": 0.8069,
+      "w": 0.0201,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 17,
+     "char_end": 20,
+     "bbox_gemini": {
+      "x": 0.242,
+      "y": 0.809,
+      "w": 0.03,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w005",
+     "text": "deux",
+     "bbox": {
+      "x": 0.2733,
+      "y": 0.8069,
+      "w": 0.037,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 21,
+     "char_end": 25,
+     "bbox_gemini": {
+      "x": 0.277,
+      "y": 0.809,
+      "w": 0.034,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w006",
+     "text": "sūtra,",
+     "bbox": {
+      "x": 0.3157,
+      "y": 0.8068,
+      "w": 0.0393,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 26,
+     "char_end": 32,
+     "bbox_gemini": {
+      "x": 0.316,
+      "y": 0.809,
+      "w": 0.039,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w007",
+     "text": "Vijñāna",
+     "bbox": {
+      "x": 0.3604,
+      "y": 0.8069,
+      "w": 0.0572,
+      "h": 0.0146
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 33,
+     "char_end": 40,
+     "bbox_gemini": {
+      "x": 0.36,
+      "y": 0.809,
+      "w": 0.057,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w008",
+     "text": "Bhikṣu",
+     "bbox": {
+      "x": 0.4229,
+      "y": 0.8069,
+      "w": 0.0517,
+      "h": 0.0146
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 41,
+     "char_end": 47,
+     "bbox_gemini": {
+      "x": 0.422,
+      "y": 0.809,
+      "w": 0.047,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w009",
+     "text": "arrive",
+     "bbox": {
+      "x": 0.4798,
+      "y": 0.8069,
+      "w": 0.044,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 48,
+     "char_end": 54,
+     "bbox_gemini": {
+      "x": 0.474,
+      "y": 0.809,
+      "w": 0.044,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w010",
+     "text": "à",
+     "bbox": {
+      "x": 0.5289,
+      "y": 0.8069,
+      "w": 0.0085,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 55,
+     "char_end": 56,
+     "bbox_gemini": {
+      "x": 0.523,
+      "y": 0.809,
+      "w": 0.011,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w011",
+     "text": "quatre-vingt-une",
+     "bbox": {
+      "x": 0.5423,
+      "y": 0.8069,
+      "w": 0.1266,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 57,
+     "char_end": 73,
+     "bbox_gemini": {
+      "x": 0.539,
+      "y": 0.809,
+      "w": 0.109,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w012",
+     "text": "variétés",
+     "bbox": {
+      "x": 0.6737,
+      "y": 0.8069,
+      "w": 0.0584,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 74,
+     "char_end": 82,
+     "bbox_gemini": {
+      "x": 0.653,
+      "y": 0.809,
+      "w": 0.058,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w013",
+     "text": "d'élan.",
+     "bbox": {
+      "x": 0.737,
+      "y": 0.8069,
+      "w": 0.0494,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 83,
+     "char_end": 90,
+     "bbox_gemini": {
+      "x": 0.716,
+      "y": 0.809,
+      "w": 0.045,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w014",
+     "text": "Ce",
+     "bbox": {
+      "x": 0.7914,
+      "y": 0.8069,
+      "w": 0.0202,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 91,
+     "char_end": 93,
+     "bbox_gemini": {
+      "x": 0.766,
+      "y": 0.809,
+      "w": 0.02,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w015",
+     "text": "genre",
+     "bbox": {
+      "x": 0.8168,
+      "y": 0.8069,
+      "w": 0.042,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 94,
+     "char_end": 99,
+     "bbox_gemini": {
+      "x": 0.791,
+      "y": 0.809,
+      "w": 0.02,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w016",
+     "text": "de",
+     "bbox": {
+      "x": 0.8632,
+      "y": 0.8069,
+      "w": 0.0182,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 100,
+     "char_end": 102,
+     "bbox_gemini": {
+      "x": 0.816,
+      "y": 0.809,
+      "w": 0.023,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w017",
+     "text": "calcul",
+     "bbox": {
+      "x": 0.1673,
+      "y": 0.8226,
+      "w": 0.0436,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 103,
+     "char_end": 109,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.824,
+      "w": 0.04,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w018",
+     "text": "est",
+     "bbox": {
+      "x": 0.2169,
+      "y": 0.8226,
+      "w": 0.0204,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 110,
+     "char_end": 113,
+     "bbox_gemini": {
+      "x": 0.212,
+      "y": 0.824,
+      "w": 0.031,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w019",
+     "text": "très",
+     "bbox": {
+      "x": 0.2431,
+      "y": 0.8226,
+      "w": 0.0273,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 114,
+     "char_end": 118,
+     "bbox_gemini": {
+      "x": 0.248,
+      "y": 0.824,
+      "w": 0.033,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w020",
+     "text": "apprécié",
+     "bbox": {
+      "x": 0.2766,
+      "y": 0.8226,
+      "w": 0.0637,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 119,
+     "char_end": 127,
+     "bbox_gemini": {
+      "x": 0.286,
+      "y": 0.824,
+      "w": 0.059,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w021",
+     "text": "dans",
+     "bbox": {
+      "x": 0.3459,
+      "y": 0.8226,
+      "w": 0.0358,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 128,
+     "char_end": 132,
+     "bbox_gemini": {
+      "x": 0.35,
+      "y": 0.824,
+      "w": 0.03,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w022",
+     "text": "la",
+     "bbox": {
+      "x": 0.3874,
+      "y": 0.8226,
+      "w": 0.0133,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 133,
+     "char_end": 135,
+     "bbox_gemini": {
+      "x": 0.385,
+      "y": 0.824,
+      "w": 0.02,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w023",
+     "text": "tradition",
+     "bbox": {
+      "x": 0.4064,
+      "y": 0.8226,
+      "w": 0.0655,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 136,
+     "char_end": 145,
+     "bbox_gemini": {
+      "x": 0.41,
+      "y": 0.824,
+      "w": 0.069,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w024",
+     "text": "brahmanique.",
+     "bbox": {
+      "x": 0.4773,
+      "y": 0.8226,
+      "w": 0.1034,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 146,
+     "char_end": 158,
+     "bbox_gemini": {
+      "x": 0.484,
+      "y": 0.824,
+      "w": 0.091,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w025",
+     "text": "Entre",
+     "bbox": {
+      "x": 0.5866,
+      "y": 0.8226,
+      "w": 0.0408,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 159,
+     "char_end": 164,
+     "bbox_gemini": {
+      "x": 0.58,
+      "y": 0.824,
+      "w": 0.043,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w026",
+     "text": "autres",
+     "bbox": {
+      "x": 0.633,
+      "y": 0.8226,
+      "w": 0.0459,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 165,
+     "char_end": 171,
+     "bbox_gemini": {
+      "x": 0.628,
+      "y": 0.824,
+      "w": 0.049,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w027",
+     "text": "exemples,",
+     "bbox": {
+      "x": 0.6846,
+      "y": 0.8226,
+      "w": 0.074,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 172,
+     "char_end": 181,
+     "bbox_gemini": {
+      "x": 0.682,
+      "y": 0.824,
+      "w": 0.071,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w028",
+     "text": "Abhinavagupta",
+     "bbox": {
+      "x": 0.7644,
+      "y": 0.8226,
+      "w": 0.1169,
+      "h": 0.0146
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 182,
+     "char_end": 195,
+     "bbox_gemini": {
+      "x": 0.758,
+      "y": 0.824,
+      "w": 0.123,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w029",
+     "text": "(Tantrāloka,",
+     "bbox": {
+      "x": 0.1673,
+      "y": 0.8381,
+      "w": 0.0837,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 196,
+     "char_end": 208,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.839,
+      "w": 0.087,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w030",
+     "text": "chap.",
+     "bbox": {
+      "x": 0.2576,
+      "y": 0.8383,
+      "w": 0.0397,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 209,
+     "char_end": 214,
+     "bbox_gemini": {
+      "x": 0.259,
+      "y": 0.839,
+      "w": 0.039,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w031",
+     "text": "XIII)",
+     "bbox": {
+      "x": 0.304,
+      "y": 0.8383,
+      "w": 0.0339,
+      "h": 0.0146
+     },
+     "lang": "other",
+     "style": "normal",
+     "char_start": 215,
+     "char_end": 220,
+     "bbox_gemini": {
+      "x": 0.303,
+      "y": 0.839,
+      "w": 0.04,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w032",
+     "text": "dresse",
+     "bbox": {
+      "x": 0.3443,
+      "y": 0.8383,
+      "w": 0.0476,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 221,
+     "char_end": 227,
+     "bbox_gemini": {
+      "x": 0.348,
+      "y": 0.839,
+      "w": 0.047,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w033",
+     "text": "un",
+     "bbox": {
+      "x": 0.3983,
+      "y": 0.8383,
+      "w": 0.0199,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 228,
+     "char_end": 230,
+     "bbox_gemini": {
+      "x": 0.4,
+      "y": 0.839,
+      "w": 0.02,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w034",
+     "text": "tableau",
+     "bbox": {
+      "x": 0.4245,
+      "y": 0.8383,
+      "w": 0.055,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 231,
+     "char_end": 238,
+     "bbox_gemini": {
+      "x": 0.425,
+      "y": 0.839,
+      "w": 0.054,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w035",
+     "text": "de",
+     "bbox": {
+      "x": 0.4858,
+      "y": 0.8383,
+      "w": 0.0186,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 239,
+     "char_end": 241,
+     "bbox_gemini": {
+      "x": 0.484,
+      "y": 0.839,
+      "w": 0.023,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w036",
+     "text": "l'intensité",
+     "bbox": {
+      "x": 0.5108,
+      "y": 0.8383,
+      "w": 0.0714,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 242,
+     "char_end": 253,
+     "bbox_gemini": {
+      "x": 0.512,
+      "y": 0.839,
+      "w": 0.087,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w037",
+     "text": "de",
+     "bbox": {
+      "x": 0.5886,
+      "y": 0.8383,
+      "w": 0.0186,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 254,
+     "char_end": 256,
+     "bbox_gemini": {
+      "x": 0.604,
+      "y": 0.839,
+      "w": 0.023,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w038",
+     "text": "la",
+     "bbox": {
+      "x": 0.6136,
+      "y": 0.8383,
+      "w": 0.0133,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 257,
+     "char_end": 259,
+     "bbox_gemini": {
+      "x": 0.632,
+      "y": 0.839,
+      "w": 0.02,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w039",
+     "text": "grâce",
+     "bbox": {
+      "x": 0.6334,
+      "y": 0.8383,
+      "w": 0.0404,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 260,
+     "char_end": 265,
+     "bbox_gemini": {
+      "x": 0.657,
+      "y": 0.839,
+      "w": 0.042,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w040",
+     "text": "divine",
+     "bbox": {
+      "x": 0.6801,
+      "y": 0.8383,
+      "w": 0.0472,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 266,
+     "char_end": 272,
+     "bbox_gemini": {
+      "x": 0.704,
+      "y": 0.839,
+      "w": 0.047,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w041",
+     "text": "(anugraha,",
+     "bbox": {
+      "x": 0.7338,
+      "y": 0.8381,
+      "w": 0.0744,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 273,
+     "char_end": 283,
+     "bbox_gemini": {
+      "x": 0.756,
+      "y": 0.839,
+      "w": 0.065,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w042",
+     "text": "śaktipāta)",
+     "bbox": {
+      "x": 0.8148,
+      "y": 0.8381,
+      "w": 0.0661,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 284,
+     "char_end": 294,
+     "bbox_gemini": {
+      "x": 0.826,
+      "y": 0.839,
+      "w": 0.055,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w043",
+     "text": "avec",
+     "bbox": {
+      "x": 0.1673,
+      "y": 0.8537,
+      "w": 0.0337,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 295,
+     "char_end": 299,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.855,
+      "w": 0.034,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w044",
+     "text": "presque",
+     "bbox": {
+      "x": 0.2076,
+      "y": 0.8537,
+      "w": 0.0597,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 300,
+     "char_end": 307,
+     "bbox_gemini": {
+      "x": 0.206,
+      "y": 0.855,
+      "w": 0.049,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w045",
+     "text": "le",
+     "bbox": {
+      "x": 0.2737,
+      "y": 0.8537,
+      "w": 0.0129,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 308,
+     "char_end": 310,
+     "bbox_gemini": {
+      "x": 0.26,
+      "y": 0.855,
+      "w": 0.021,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w046",
+     "text": "même",
+     "bbox": {
+      "x": 0.2931,
+      "y": 0.8537,
+      "w": 0.046,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 311,
+     "char_end": 315,
+     "bbox_gemini": {
+      "x": 0.286,
+      "y": 0.855,
+      "w": 0.04,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w047",
+     "text": "vocabulaire",
+     "bbox": {
+      "x": 0.3455,
+      "y": 0.8537,
+      "w": 0.0871,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 316,
+     "char_end": 327,
+     "bbox_gemini": {
+      "x": 0.331,
+      "y": 0.855,
+      "w": 0.08,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w048",
+     "text": "que",
+     "bbox": {
+      "x": 0.4386,
+      "y": 0.8537,
+      "w": 0.0279,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 328,
+     "char_end": 331,
+     "bbox_gemini": {
+      "x": 0.416,
+      "y": 0.855,
+      "w": 0.034,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w049",
+     "text": "le",
+     "bbox": {
+      "x": 0.4729,
+      "y": 0.8537,
+      "w": 0.0129,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 332,
+     "char_end": 334,
+     "bbox_gemini": {
+      "x": 0.455,
+      "y": 0.855,
+      "w": 0.021,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w050",
+     "text": "bhāṣyakāra",
+     "bbox": {
+      "x": 0.4923,
+      "y": 0.8535,
+      "w": 0.0753,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 335,
+     "char_end": 345,
+     "bbox_gemini": {
+      "x": 0.481,
+      "y": 0.855,
+      "w": 0.075,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w051",
+     "text": "(tīvra",
+     "bbox": {
+      "x": 0.5741,
+      "y": 0.8535,
+      "w": 0.0382,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 346,
+     "char_end": 352,
+     "bbox_gemini": {
+      "x": 0.561,
+      "y": 0.855,
+      "w": 0.041,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w052",
+     "text": "'intense',",
+     "bbox": {
+      "x": 0.6189,
+      "y": 0.8537,
+      "w": 0.0643,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 353,
+     "char_end": 363,
+     "bbox_gemini": {
+      "x": 0.607,
+      "y": 0.855,
+      "w": 0.056,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w053",
+     "text": "madhya",
+     "bbox": {
+      "x": 0.6898,
+      "y": 0.8535,
+      "w": 0.054,
+      "h": 0.0148
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 364,
+     "char_end": 370,
+     "bbox_gemini": {
+      "x": 0.668,
+      "y": 0.855,
+      "w": 0.051,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w054",
+     "text": "'moyen'",
+     "bbox": {
+      "x": 0.7503,
+      "y": 0.8537,
+      "w": 0.0584,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 371,
+     "char_end": 378,
+     "bbox_gemini": {
+      "x": 0.724,
+      "y": 0.855,
+      "w": 0.053,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w055",
+     "text": "et",
+     "bbox": {
+      "x": 0.8152,
+      "y": 0.8537,
+      "w": 0.0136,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 379,
+     "char_end": 381,
+     "bbox_gemini": {
+      "x": 0.782,
+      "y": 0.855,
+      "w": 0.021,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w056",
+     "text": "manda",
+     "bbox": {
+      "x": 0.8354,
+      "y": 0.8535,
+      "w": 0.0458,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 382,
+     "char_end": 387,
+     "bbox_gemini": {
+      "x": 0.808,
+      "y": 0.855,
+      "w": 0.043,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w057",
+     "text": "'faible').",
+     "bbox": {
+      "x": 0.856,
+      "y": 0.855,
+      "w": 0.025,
+      "h": 0.012
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 388,
+     "char_end": 398,
+     "bbox_gemini": {
+      "x": 0.856,
+      "y": 0.855,
+      "w": 0.025,
+      "h": 0.012
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0305_b009_w058",
+     "text": "Il",
+     "bbox": {
+      "x": 0.2354,
+      "y": 0.8693,
+      "w": 0.0106,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 399,
+     "char_end": 401,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.871,
+      "w": 0.015,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w059",
+     "text": "en",
+     "bbox": {
+      "x": 0.2556,
+      "y": 0.8693,
+      "w": 0.0179,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 402,
+     "char_end": 404,
+     "bbox_gemini": {
+      "x": 0.187,
+      "y": 0.871,
+      "w": 0.02,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w060",
+     "text": "distingue",
+     "bbox": {
+      "x": 0.283,
+      "y": 0.8693,
+      "w": 0.0702,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 405,
+     "char_end": 414,
+     "bbox_gemini": {
+      "x": 0.212,
+      "y": 0.871,
+      "w": 0.065,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w061",
+     "text": "neuf,",
+     "bbox": {
+      "x": 0.3628,
+      "y": 0.8693,
+      "w": 0.0377,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 415,
+     "char_end": 420,
+     "bbox_gemini": {
+      "x": 0.282,
+      "y": 0.871,
+      "w": 0.035,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w062",
+     "text": "depuis",
+     "bbox": {
+      "x": 0.4104,
+      "y": 0.8693,
+      "w": 0.0507,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 421,
+     "char_end": 427,
+     "bbox_gemini": {
+      "x": 0.322,
+      "y": 0.871,
+      "w": 0.043,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w063",
+     "text": "le",
+     "bbox": {
+      "x": 0.4709,
+      "y": 0.8693,
+      "w": 0.0129,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 428,
+     "char_end": 430,
+     "bbox_gemini": {
+      "x": 0.37,
+      "y": 0.871,
+      "w": 0.021,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w064",
+     "text": "tīvratīvra",
+     "bbox": {
+      "x": 0.4935,
+      "y": 0.8692,
+      "w": 0.0656,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 431,
+     "char_end": 441,
+     "bbox_gemini": {
+      "x": 0.396,
+      "y": 0.871,
+      "w": 0.064,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w065",
+     "text": "'très",
+     "bbox": {
+      "x": 0.5689,
+      "y": 0.8693,
+      "w": 0.031,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 442,
+     "char_end": 447,
+     "bbox_gemini": {
+      "x": 0.465,
+      "y": 0.871,
+      "w": 0.034,
+      "h": 0.009
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w066",
+     "text": "intense'",
+     "bbox": {
+      "x": 0.6096,
+      "y": 0.8693,
+      "w": 0.0567,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 448,
+     "char_end": 456,
+     "bbox_gemini": {
+      "x": 0.504,
+      "y": 0.871,
+      "w": 0.054,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w067",
+     "text": "(littéralement",
+     "bbox": {
+      "x": 0.6761,
+      "y": 0.8693,
+      "w": 0.1007,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 457,
+     "char_end": 471,
+     "bbox_gemini": {
+      "x": 0.563,
+      "y": 0.871,
+      "w": 0.091,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w068",
+     "text": "'intensément",
+     "bbox": {
+      "x": 0.7866,
+      "y": 0.8693,
+      "w": 0.0946,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 472,
+     "char_end": 484,
+     "bbox_gemini": {
+      "x": 0.659,
+      "y": 0.871,
+      "w": 0.085,
+      "h": 0.012
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w069",
+     "text": "intense')",
+     "bbox": {
+      "x": 0.749,
+      "y": 0.871,
+      "w": 0.056,
+      "h": 0.012
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 485,
+     "char_end": 494,
+     "bbox_gemini": {
+      "x": 0.749,
+      "y": 0.871,
+      "w": 0.056,
+      "h": 0.012
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0305_b009_w070",
+     "text": "jusqu'au",
+     "bbox": {
+      "x": 0.81,
+      "y": 0.871,
+      "w": 0.071,
+      "h": 0.012
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 495,
+     "char_end": 503,
+     "bbox_gemini": {
+      "x": 0.81,
+      "y": 0.871,
+      "w": 0.071,
+      "h": 0.012
+     },
+     "bbox_source": "gemini"
+    },
+    {
+     "id": "p0305_b009_w071",
+     "text": "mandamanda",
+     "bbox": {
+      "x": 0.3028,
+      "y": 0.8849,
+      "w": 0.0918,
+      "h": 0.0147
+     },
+     "lang": "sa",
+     "style": "italic",
+     "char_start": 504,
+     "char_end": 514,
+     "bbox_gemini": {
+      "x": 0.167,
+      "y": 0.886,
+      "w": 0.084,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w072",
+     "text": "'très",
+     "bbox": {
+      "x": 0.3995,
+      "y": 0.885,
+      "w": 0.031,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 515,
+     "char_end": 520,
+     "bbox_gemini": {
+      "x": 0.256,
+      "y": 0.886,
+      "w": 0.034,
+      "h": 0.01
+     },
+     "bbox_source": "pdf_text_layer"
+    },
+    {
+     "id": "p0305_b009_w073",
+     "text": "faible'.",
+     "bbox": {
+      "x": 0.4358,
+      "y": 0.885,
+      "w": 0.0486,
+      "h": 0.0146
+     },
+     "lang": "fr",
+     "style": "normal",
+     "char_start": 521,
+     "char_end": 529,
+     "bbox_gemini": {
+      "x": 0.295,
+      "y": 0.886,
+      "w": 0.049,
+      "h": 0.013
+     },
+     "bbox_source": "pdf_text_layer"
+    }
+   ],
+   "sutra_ref": "",
+   "footnote_marker": "631",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "lrm": {
+    "chunk_id": "p0305_b009",
+    "chunk_number_in_lrm": 32,
+    "parent_chunk_id": "p0305_b006",
+    "parent_chunk_number_in_lrm": 29,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 2,
+    "prev_chunk_id": "p0305_b008",
+    "next_chunk_id": "",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "translations": {
+    "ru": null,
+    "en_us": null
+   },
+   "parent_block_id": "p0305_b006"
+  }
+ ],
+ "bbox_refinement": {
+  "method": "pdf_text_layer_snap",
+  "words": 239,
+  "snapped": 235
+ }
+}

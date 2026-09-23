@@ -1,0 +1,31 @@
+{
+ "schema_version": 1,
+ "lang": "ru",
+ "total_pages": 1208,
+ "page_count": 3,
+ "source_key": "human_nutrition_2020_edition",
+ "pdf": "ru/human_nutrition_2020_edition/human_nutrition_2020_edition_ru.pdf",
+ "pages": [
+  {
+   "page": 303,
+   "printed": "261",
+   "blocks": 5,
+   "words": 252,
+   "min_scale": 0.93
+  },
+  {
+   "page": 304,
+   "printed": "",
+   "blocks": 4,
+   "words": 305,
+   "min_scale": 0.91
+  },
+  {
+   "page": 305,
+   "printed": "263",
+   "blocks": 9,
+   "words": 224,
+   "min_scale": 0.793
+  }
+ ]
+}

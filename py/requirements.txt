@@ -7,6 +7,8 @@ gdown>=6.1     # lists a public Google Drive folder and downloads its PDFs
 pymupdf        # NOTE: package name is "pymupdf" but it's imported as `import fitz`
                # -- PDF text/page rendering, used by py/lrm/eda1_extract/recognize.py,
                # translate.py, download.py
+# pytesseract pillow  # optional: only reusable_code/eda/extract's OCR'd scanned source
+                     # (plus the Tesseract engine: brew install tesseract)
 tiktoken       # token-accurate chunk sizing (cl100k_base encoding), used when
                # a page's text needs splitting into more than one lrm_child_chunk_table row
 

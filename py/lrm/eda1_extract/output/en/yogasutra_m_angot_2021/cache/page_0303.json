@@ -1,0 +1,104 @@
+{
+ "lang": "en",
+ "page": 303,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "texts": {
+  "p0303_b002": "[[श्रद्धावीर्यस्मृतिसमाधिप्रज्ञापूर्वक इतरेषाम् । २० । Śraddhāvīryasmṛtisamādhiprajñāpūrvaka itareṣām]] /I.20/ [[Śraddhā-vīrya-smṛti-samādhi-prajñā-pūrvaka itareṣām]] /I.20/",
+  "p0303_b003": "“For the others [this mental enstasis without an object] is preceded by serene confidence, energy, watchful attention, cessation, and [[prajñā]] ‘perfect sapience’.” <sup>615</sup>",
+  "p0303_b004": "[[Upāya-pratyayo yoginām bhavati]] <sup>616</sup> / [[Śraddhā cetasaḥ samprasādaḥ]] / [[Sā hi jananī_iva kalyāṇī yoginaṃ pāti]] / [[Tasya hi śraddadhānasya]] <sup>617</sup> [[viveka-arthino vīryam upajāyate]] / [[Samupajātā]] <sup>618</sup> [[-vīryasya smṛtir upatiṣṭhate]] / [[Smṛty-upasthāne ca]] <sup>619</sup> [[cittam anākulaṃ samādhiyate]] / [[Samāhita-cittasya prajñā-viveka upāvartate]] / [[Yena yathārthaṃ vastu jānāti]] / [[Tad-abhyāsāt tad-viṣayāc ca vairāgyād asaṃprajñātaḥ samādhir bhavati]] <sup>620</sup> /20/",
+  "p0303_b005": "[The other enstasis, the one without a mental object], caused by techniques, is attained by yogins. [[Śraddhā]] <sup>621</sup> is serenity of mind. It protects the yogin like a good mother. Energy arises in him [whose mind] is serene (and) whose goal is discrimination [between the [[puruṣa-subject]] and the psychic-object] <sup>622</sup> . In one who has developed energy, watchful attention arises, and when watchful attention is applied, the unperturbed psyche is led to cessation. In one whose mind is completely at rest, the climax of knowledge appears, a climax thanks to which [the yogin] knows the object as it is <sup>623</sup> . Due to the constant practice of these [means] and to the detachment which is their objective, non-cognitive mental enstasis occurs. /20/",
+  "p0303_b006": "<sup>615</sup> This list coincides with that of the five [[indriya]] or [[bala]] of Buddhism. Cf. L. DE LA VALLÉE POUSSIN 1937: 228. In this Buddhist context, [[smṛti]] is not memory, but presence of mind, watchful attention.",
+  "p0303_b007": "<sup>616</sup> MAAS 2006a: 31 [[om. upāya°...bhavati.]]",
+  "p0303_b008": "<sup>617</sup> MAAS 2006a: 31 [[om. hi śraddadhānasya.]]",
+  "p0303_b009": "<sup>618</sup> MAAS 2006a: 31 lit. [[saṃjātā°.]]",
+  "p0303_b010": "<sup>619</sup> MAAS 2006a: 31 [[om. ca.]]",
+  "p0303_b011": "<sup>620</sup> MAAS 2006a: 32 lit. [[iti]] instead of [[bhavati.]]",
+  "p0303_b012": "<sup>621</sup> In Vedic vocabulary, [[śraddhā]] is confidence in the efficacy of the rite and in the capability of the officiating priests, which is supposed to dwell within the [[yajamāna]] ‘sacrificer’, the couple who, paying for the rite, are its beneficiaries. Without this confidence, this faith, the [[yajña]] is ineffective. The hymn [[ṚS]] X.151 is dedicated to it. Here, if one believes the [[Bhāṣya,]] the meaning of [[śraddhā]] would be ‘serenity of mind’, which is thus a technical meaning specific to the work.",
+  "p0303_b013": "<sup>622</sup> This [[viveka]] is not an action, but a state of affairs. The mind cannot discriminate between itself and a reality, the [[puruṣa]], i.e., consciousness, which is different from itself. Everything it will ever know will never be anything other than itself. On the other hand, according to the logic of the text, there is a state where, the mind being completely at rest and thus knowing nothing, the [[puruṣa]] and the mind are discriminated. It is this state named here [[viveka]] that the yogin seeks.",
+  "p0303_b014": "<sup>623</sup> Commentators disagree on how to understand the nature of this object; for some, it is any object whatsoever; for others, it is an important ‘object’ (center of energy, etc.) or even a venerable one (divine statue, etc.)."
+ },
+ "source_marked": {
+  "p0303_b002": "[[श्रद्धावीर्यस्मृतिसमाधिप्रज्ञापूर्वक इतरेषाम् । २० । Śraddhāvīryasmṛtisamādhiprajñāpūrvaka itareṣām]] /I.20/ [[Śraddhā-vīrya-smṛti-samādhi-prajñā-pūrvaka itareṣām]] /I.20/",
+  "p0303_b003": "« Pour les autres [cette enstase mentale sans objet] est précédée de confiance-sereine, d'énergie, d'attention vigilante, d'arrêt et de [[prajñā]] 'sapience parfaite'. » <sup>615</sup>",
+  "p0303_b004": "[[Upāya-pratyayo yoginām bhavati]] <sup>616</sup> / [[Śraddhā cetasaḥ samprasādaḥ]] / [[Sā hi jananī_iva kalyāṇī yoginaṃ pāti]] / [[Tasya hi śraddadhānasya]] <sup>617</sup> [[viveka-arthino vīryam upajāyate]] / [[Samupajātā]] <sup>618</sup> [[-vīryasya smṛtir upatiṣṭhate]] / [[Smṛty-upasthāne ca]] <sup>619</sup> [[cittam anākulaṃ samādhiyate]] / [[Samāhita-cittasya prajñā-viveka upāvartate]] / [[Yena yathārthaṃ vastu jānāti]] / [[Tad-abhyāsāt tad-viṣayāc ca vairāgyād asaṃprajñātaḥ samādhir bhavati]] <sup>620</sup> /20/",
+  "p0303_b005": "[L'autre enstase, celle sans objet mental], causée par des techniques, est le fait des yogin. La [[śraddhā]] <sup>621</sup> est la sérénité d'esprit. Elle protège le yogin comme une bonne mère. L'énergie naît chez celui [dont le mental] est serein (et) qui a pour but la discrimination [entre le [[puruṣa-sujet]] et le psychisme-objet] <sup>622</sup> . Chez celui qui a développé l'énergie, surgit une attention vigilante et quand l'attention vigilante est appliquée, le psychisme non agité est mené à l'arrêt. Chez celui dont le mental est complétement au repos, le paroxysme de connaissance apparaît, paroxysme grâce auquel [le yogin] connaît l'objet tel qu'il est <sup>623</sup> . À cause de la pratique constante de ces [moyens] et au dépassionnement qui est leur objectif, survient l'enstase mentale non cognitive. /20/",
+  "p0303_b006": "<sup>615</sup> Cette liste coïncide avec celle des cinq [[indriya]] ou [[bala]] du bouddhisme. Cf. L. DE LA VALLÉE POUSSIN 1937 : 228. Dans ce contexte bouddhiste, [[smṛti]] n'est pas la mémoire, mais la présence d'esprit, l'attention vigilante.",
+  "p0303_b007": "<sup>616</sup> MAAS 2006a : 31 [[om. upāya°...bhavati.]]",
+  "p0303_b008": "<sup>617</sup> MAAS 2006a : 31 [[om. hi śraddadhānasya.]]",
+  "p0303_b009": "<sup>618</sup> MAAS 2006a : 31 lit [[saṃjātā°.]]",
+  "p0303_b010": "<sup>619</sup> MAAS 2006a : 31 [[om. ca.]]",
+  "p0303_b011": "<sup>620</sup> MAAS 2006a : 32 lit [[iti]] au lieu de [[bhavati.]]",
+  "p0303_b012": "<sup>621</sup> Dans le vocabulaire védique, la [[śraddhā]] est la confiance en l'efficacité du rite et en la capacité des officiants qui est censée habiter le [[yajamāna]] 'sacrifiant', le couple qui, payant le rite, en est le bénéficiaire. Sans cette confiance, cette foi, le [[yajña]] est inefficace. L'hymne [[ṚS]] X.151 lui est consacré. Ici, si l'on en croit le [[Bhāṣya,]] le sens de [[śraddhā]] serait 'sérénité d'esprit', ce qui est donc un sens technique et propre à l'ouvrage.",
+  "p0303_b013": "<sup>622</sup> Ce [[viveka]] n'est pas une action, mais un état de fait. Le mental ne peut discriminer entre lui-même et une réalité, le [[puruṣa]] c.-à-d. la conscience, différente de lui-même. Tout ce que jamais il connaîtra ne sera jamais rien d'autre que lui-même. En revanche, selon la logique du texte, il existe un état où, le mental étant complétement au repos, ne connaissant rien donc, le [[puruṣa]] et le mental sont discriminés. C'est cet état nommé ici [[viveka]] que recherche le yogin.",
+  "p0303_b014": "<sup>623</sup> Les commentateurs ne sont pas d'accord sur la manière de comprendre la nature de cet objet ; pour les uns, c'est n'importe quel objet ; pour les autres, c'est un 'objet' important (centre d'énergie, etc.) voire vénérable (statue divine, etc.)."
+ },
+ "missing": [],
+ "qa": {
+  "p0303_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.05
+  },
+  "p0303_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.07
+  },
+  "p0303_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.24
+  },
+  "p0303_b005": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 0.99
+  },
+  "p0303_b006": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.01
+  },
+  "p0303_b007": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.34
+  },
+  "p0303_b008": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.33
+  },
+  "p0303_b009": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.45
+  },
+  "p0303_b010": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.52
+  },
+  "p0303_b011": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.4
+  },
+  "p0303_b012": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.16
+  },
+  "p0303_b013": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.1
+  },
+  "p0303_b014": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 0.95
+  }
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "lang": "ru",
+ "page": 304,
+ "model": "gemini-3.5-flash",
+ "prompt_version": "v1",
+ "texts": {
+  "p0304_b002": "[[Te khalu nava yogino mṛdu-madhya-adhimātra-upāyā]] <sup>624</sup> [[bhavanti I Tad yathā-- mṛdu-upāyo madhya-upāyo'dhimātra-upāya iti I Tatra mṛdu-upāyo'pi]] <sup>625</sup> [[tri-vidhaḥ-- mṛdu-saṃvego madhya-saṃvegas tīvra-saṃvega iti I Tathā madhya-upāyas tathā adhimātra-upāya iti I]] Эти йогины бывают девяти видов в зависимости от того, являются ли средства, то есть метод, мягкими, умеренными или крайними; то есть существуют [йогины] [[mṛdūpāya]] «(приверженцы) мягкого метода», [[madhyopāya]] «(приверженцы) умеренного метода» и [[adhimātropāya]] «(приверженцы) крайнего метода». И мягкий метод также бывает трех видов в зависимости от того, является ли устремление [йогина] слабым, умеренным или интенсивным. И это также относится к умеренному методу и к крайнему методу.",
+  "p0304_b003": "[[Tatra_adhimātra-upāyānām]] <sup>626</sup> Среди этих [различных разновидностей йогинов] для приверженцев крайнего метода, то есть",
+  "p0304_b004": "[[तीव्रसंवेगानामासन्नः । २१ । Tīvrasaṃvegānāmāsannaḥ]] /I.21/ [[Tīvra-saṃvegānām āsannaḥ]] /I.21/",
+  "p0304_b005": "«Для тех, чье устремление интенсивно, [[[samādhi]]] близок». <sup>627</sup>",
+  "p0304_b006": "[[Samādhi-lābhaḥ samādhi-phalaṃ ca bhavati]] <sup>628</sup> [[iti]] /21/",
+  "p0304_b007": "Обретение ментального сосредоточения и плод этого сосредоточения [близки для тех, чье устремление интенсивно]. /21/",
+  "p0304_b008": "<sup>624</sup> MAAS 2006a : 32 читает [[amī]] вместо [[mṛdu...upāyā.]]",
+  "p0304_b009": "<sup>625</sup> MAAS 2006a : 36 [[om. api.]]",
+  "p0304_b010": "<sup>626</sup> [[Vijñāna Bhikṣu]] считает, что слово [[adhimātropāyānām]] является частью [[sūtra]], тогда как до него [[Vācaspati]] отвергал это чтение.",
+  "p0304_b011": "<sup>627</sup> BRONKHORST 1985 использует эти три [[sūtra]] для подкрепления гипотезы о том, что [[Patañjali]] является одновременно и [[sūtrakāra]], и [[bhāṣyakāra.]]",
+  "p0304_b012": "<sup>628</sup> MAAS 2006a [[om. bhavati.]]"
+ },
+ "source_marked": {
+  "p0304_b002": "[[Te khalu nava yogino mṛdu-madhya-adhimātra-upāyā]] <sup>624</sup> [[bhavanti I Tad yathā-- mṛdu-upāyo madhya-upāyo'dhimātra-upāya iti I Tatra mṛdu-upāyo'pi]] <sup>625</sup> [[tri-vidhaḥ-- mṛdu-saṃvego madhya-saṃvegas tīvra-saṃvega iti I Tathā madhya-upāyas tathā adhimātra-upāya iti I]] Ces yogin sont de neuf sortes selon que les moyens, c.-à-d. la méthode, sont doux, modérés ou extrêmes ; c'est-à-dire qu'il y a [les yogin] [[mṛdūpāya]] '(partisans) de la méthode douce', les [[madhyopāya]] '(partisans) de la méthode modérée' et les [[adhimātropāya]] '(partisans) de la méthode extrême'. Et la méthode douce est aussi de trois sortes selon que l'élan [du yogin] est doux, modéré ou intense. Et cela vaut aussi pour la méthode modérée et la méthode extrême.",
+  "p0304_b003": "[[Tatra_adhimātra-upāyānām]] <sup>626</sup> Parmi ces [différentes variétés de yogin], pour les partisans de la méthode extrême, c'est-à-dire",
+  "p0304_b004": "[[तीव्रसंवेगानामासन्नः । २१ । Tīvrasaṃvegānāmāsannaḥ]] /I.21/ [[Tīvra-saṃvegānām āsannaḥ]] /I.21/",
+  "p0304_b005": "« Pour ceux dont l'élan est intense, le [[[samādhi]]] est proche. » <sup>627</sup>",
+  "p0304_b006": "[[Samādhi-lābhaḥ samādhi-phalaṃ ca bhavati]] <sup>628</sup> [[iti]] /21/",
+  "p0304_b007": "L'obtention de l'enstase mentale et le fruit de cette enstase est [proche pour ceux l'élan est intense]. /21/",
+  "p0304_b008": "<sup>624</sup> MAAS 2006a : 32 lit [[amī]] au lieu de [[mṛdu...upāyā.]]",
+  "p0304_b009": "<sup>625</sup> MAAS 2006a : 36 [[om. api.]]",
+  "p0304_b010": "<sup>626</sup> [[Vijñāna Bhikṣu]] considère que le mot [[adhimātropāyānām]] fait partie du [[sūtra]] tandis que, avant lui, [[Vācaspati]] refusait cette lecture.",
+  "p0304_b011": "<sup>627</sup> BRONKHORST 1985 se sert de ces trois [[sūtra]] pour alimenter l'hypothèse d'un [[Patañjali]] qui serait à la fois le [[sūtrakāra]] et le [[bhāṣyakāra.]]",
+  "p0304_b012": "<sup>628</sup> MAAS 2006a [[om. bhavati.]]"
+ },
+ "missing": [],
+ "qa": {
+  "p0304_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.09
+  },
+  "p0304_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.04
+  },
+  "p0304_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.09
+  },
+  "p0304_b005": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.12
+  },
+  "p0304_b006": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.36
+  },
+  "p0304_b007": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.06
+  },
+  "p0304_b008": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.35
+  },
+  "p0304_b009": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.54
+  },
+  "p0304_b010": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.14
+  },
+  "p0304_b011": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.19
+  },
+  "p0304_b012": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.56
+  }
+ }
+}

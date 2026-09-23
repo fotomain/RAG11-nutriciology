@@ -1,0 +1,69 @@
+{
+ "lang": "en",
+ "page": 305,
+ "model": "gemini-3.5-flash",
+ "prompt_version": "v1",
+ "texts": {
+  "p0305_b002": "[[मृदुमध्याधिमात्रत्वात्ततोऽपि विशेषः । २२ । Mṛdumadhyādhimātratvāttato'pi viśeṣaḥ]] /I.22/ [[Mṛdu-madhya-adhimātratvāt tato'pi viśeṣaḥ/I.22/]]",
+  "p0305_b003": "“And it is even closer according as the intensity [of the drive] is mild, moderate, or extreme.”",
+  "p0305_b004": "[[Mṛdu-tīvro madhya-tīvro'dhimātra-tīvra iti, tato'pi viśeṣaḥ]] / [[Tad-viśeṣān]] <sup>629</sup> [[mṛdu-tīvrasaṃvegasya_āsannas tato madhya-tīvra-saṃvegasya_āsannataras tasmād adhimātra-tīvrasaṃvegasya_adhimātra-upāyasya_āsannatamaḥ samādhi-lābhaḥ]] <sup>630</sup> [[samādhi-phalaṃ ca_iti]] /22/",
+  "p0305_b005": "[Gloss] The compound [[Mṛdumadhyādhimātra]] is a [[dvandva]] of which each term qualifies [[tīvra]] ‘intensity’ [of the drive], so that the meaning is: according as the intensity [of the drive] is mild, moderate, or extreme, [the closeness of [[samādhi]]] is even greater.",
+  "p0305_b006": "Depending on this degree [of intensity], the attainment of mental enstasis as well as its fruit is close for one whose drive is mildly intense, closer for one whose drive is moderately intense, and closest for one who employs extreme means with a drive of extreme intensity <sup>631</sup>. /22/",
+  "p0305_b007": "<sup>629</sup> D and Maas 2006a: 33: [[viśeṣād api mṛdu°.]]",
+  "p0305_b008": "<sup>630</sup> MAAS 2006a: 33: [[tadviśeṣād apy āsannataras tīvrādhimātrasya samādhilābhaḥ.]]",
+  "p0305_b009": "<sup>631</sup> By combining the two [[sūtra, Vijñāna Bhikṣu]] arrives at eighty-one varieties of drive. This kind of calculation is highly appreciated in the Brahmanical tradition. Among other examples, [[Abhinavagupta (Tantrāloka,]] chap. XIII) presents a table of the intensity of divine grace [[(anugraha, śaktipāta)]] using almost the same vocabulary as the [[bhāṣyakāra (tīvra]] ‘intense’, [[madhya]] ‘medium’, and [[manda]] ‘weak’). He distinguishes nine of them, from [[tīvratīvra]] ‘very intense’ (literally ‘intensely intense’) to [[mandamanda]] ‘very weak’."
+ },
+ "source_marked": {
+  "p0305_b002": "[[मृदुमध्याधिमात्रत्वात्ततोऽपि विशेषः । २२ । Mṛdumadhyādhimātratvāttato'pi viśeṣaḥ]] /I.22/ [[Mṛdu-madhya-adhimātratvāt tato'pi viśeṣaḥ/I.22/]]",
+  "p0305_b003": "« Et il est plus [proche] encore selon que l'intensité [de l'élan] est faible, modérée ou extrême. »",
+  "p0305_b004": "[[Mṛdu-tīvro madhya-tīvro'dhimātra-tīvra iti, tato'pi viśeṣaḥ]] / [[Tad-viśeṣān]] <sup>629</sup> [[mṛdu-tīvrasaṃvegasya_āsannas tato madhya-tīvra-saṃvegasya_āsannataras tasmād adhimātra-tīvrasaṃvegasya_adhimātra-upāyasya_āsannatamaḥ samādhi-lābhaḥ]] <sup>630</sup> [[samādhi-phalaṃ ca_iti]] /22/",
+  "p0305_b005": "[Glose] Le composé [[Mṛdumadhyādhimātra]] est un [[dvandva]] dont chacun des termes qualifie [[tīvra]] 'l'intensité' [de l'élan] en sorte que le sens est : selon que l'intensité [de l'élan] est faible, modérée ou extrême, [le caractère proche du [[samādhi]]] est plus élevé encore.",
+  "p0305_b006": "En fonction de ce degré [dans l'intensité], l'accession à l'enstase mentale ainsi que son fruit est proche pour celui dont l'élan est faiblement intense, plus proche pour celui dont l'élan est modérément intense et tout proche pour celui qui emploie les moyens extrêmes dans un élan d'une extrême intensité <sup>631</sup> . /22/",
+  "p0305_b007": "<sup>629</sup> D et Maas 2006a : 33 : [[viśeṣād api mṛdu°.]]",
+  "p0305_b008": "<sup>630</sup> MAAS 2006a : 33 : [[tadviśeṣād apy āsannataras tīvrādhimātrasya samādhilābhaḥ.]]",
+  "p0305_b009": "<sup>631</sup> En combinant les deux [[sūtra, Vijñāna Bhikṣu]] arrive à quatre-vingt-une variétés d'élan. Ce genre de calcul est très apprécié dans la tradition brahmanique. Entre autres exemples, [[Abhinavagupta (Tantrāloka,]] chap. XIII) dresse un tableau de l'intensité de la grâce divine [[(anugraha, śaktipāta)]] avec presque le même vocabulaire que le [[bhāṣyakāra (tīvra]] 'intense', [[madhya]] 'moyen' et [[manda]] 'faible'). Il en distingue neuf, depuis le [[tīvratīvra]] 'très intense' (littéralement 'intensément intense') jusqu'au [[mandamanda]] 'très faible'."
+ },
+ "missing": [],
+ "qa": {
+  "p0305_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.06
+  },
+  "p0305_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 0.96
+  },
+  "p0305_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.15
+  },
+  "p0305_b005": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.03
+  },
+  "p0305_b006": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 0.93
+  },
+  "p0305_b007": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.31
+  },
+  "p0305_b008": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.16
+  },
+  "p0305_b009": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.07
+  }
+ }
+}

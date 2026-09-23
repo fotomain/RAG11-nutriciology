@@ -1,0 +1,41 @@
+{
+ "lang": "ru",
+ "page": 303,
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "texts": {
+  "p0303_b001": "Совет по продовольствию и питанию Института медицины (IOM) определяет добавленные сахара как «сахара и сиропы, которые добавляются в продукты питания в процессе их обработки или приготовления». Далее IOM утверждает: «Основными источниками добавленных сахаров являются безалкогольные напитки, спортивные напитки, торты, печенье, пироги, фруктовые напитки, фруктовые пунши, молочные десерты и конфеты». Обработанные продукты, включая обеды для микроволновых печей, также содержат добавленные сахара. Добавленные сахара не включают сахара, которые содержатся в цельных продуктах от природы (например, в яблоке), но включают такие натуральные сахара, как коричневый сахар, кукурузный сироп, декстроза, фруктоза, концентраты фруктовых соков, кленовый сироп, сахароза и сырой сахар, которые затем добавляются при создании других продуктов (например, печенья). Результаты опроса сорока двух тысяч американцев показывают, что в 2008 году среднее потребление добавленных сахаров составляло 15 процентов от общего числа калорий, что ниже по сравнению с 18 процентами от общего числа калорий в 2000 году. <sup>1</sup> Это по-прежнему выше рекомендуемого уровня потребления, составляющего менее 10 процентов от общего числа калорий. Министерство сельского хозяйства США (USDA) сообщает, что потребление сахара в рационе американцев в 2008 году составляло в среднем 28 чайных ложек в день (Рисунок 4.13 «Потребление сахара (в чайных ложках) из различных источников»).",
+  "p0303_b002": "Ожирение, диабет и сердечно-сосудистые заболевания и их предполагаемая связь с чрезмерным потреблением сахара и рафинированных углеводов",
+  "p0303_b003": "Чтобы понять масштабы проблемы здравоохранения в Соединенных",
+  "p0303_b004": "1. Welsh JA, Sharma AJ, [[et al.]] (2011). Consumption of Added Sugars Is Decreasing in the United States. American Journal of Clinical Nutrition, 94(3), 726–34. http://www.ncbi.nlm.nih.gov/pubmed/21753067. Accessed September 22, 2017."
+ },
+ "source_marked": {
+  "p0303_b001": "The Food and Nutrition Board of the Institute of Medicine (IOM) defines added sugars as “sugars and syrups that are added to foods during processing or preparation.” The IOM goes on to state, “Major sources of added sugars include soft drinks, sports drinks, cakes, cookies, pies, fruitades, fruit punch, dairy desserts, and candy.” Processed foods, even microwaveable dinners, also contain added sugars. Added sugars do not include sugars that occur naturally in whole foods (such as an apple), but do include natural sugars such as brown sugar, corn syrup, dextrose, fructose, fruit juice concentrates, maple syrup, sucrose, and raw sugar that are then added to create other foods (such as cookies). Results from a survey of forty-two thousand Americans reports that in 2008 the average intake of added sugars is 15 percent of total calories, a drop from 18 percent of total calories in 2000. <sup>1</sup> This is still above the recommended intake of less than 10 percent of total calories. The US Department of Agriculture (USDA) reports that sugar consumption in the American diet in 2008 was, on average, 28 teaspoons per day (Figure 4.13 “Sugar Consumption (in Teaspoons) from Various Sources”).",
+  "p0303_b002": "Obesity, Diabetes, and Heart Disease and Their Hypothesized Link to Excessive Sugar and Refined Carbohydrate Consumption",
+  "p0303_b003": "To understand the magnitude of the health problem in the United",
+  "p0303_b004": "1. Welsh JA, Sharma AJ, [[et al.]] (2011). Consumption of Added Sugars Is Decreasing in the United States. American Journal of Clinical Nutrition, 94(3), 726–34. http://www.ncbi.nlm.nih.gov/pubmed/21753067. Accessed September 22, 2017."
+ },
+ "missing": [],
+ "qa": {
+  "p0303_b001": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.22
+  },
+  "p0303_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.13
+  },
+  "p0303_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 0.95
+  },
+  "p0303_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.02
+  }
+ }
+}

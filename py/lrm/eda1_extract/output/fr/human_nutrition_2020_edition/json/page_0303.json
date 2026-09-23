@@ -1,0 +1,5152 @@
+{
+ "schema_version": 1,
+ "page": 303,
+ "lang": "fr",
+ "printed_page_number": "261",
+ "image": "fr/human_nutrition_2020_edition/pages/page_0303.png",
+ "source_key": "human_nutrition_2020_edition",
+ "image_size": {
+  "width": 935,
+  "height": 1445
+ },
+ "coordinate_system": "fractions of page image; x,y,w,h in 0..1; origin top-left",
+ "source": {
+  "lang": "en",
+  "page": 303
+ },
+ "pdf": "files/fr/pages/page_0303.pdf",
+ "model": "gemini-3.5-flash-lite",
+ "prompt_version": "v1",
+ "blocks": [
+  {
+   "id": "p0303_b001",
+   "local_id": "b1",
+   "type": "paragraph",
+   "reading_order": 1,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.0975,
+    "w": 0.7133,
+    "h": 0.4755
+   },
+   "text": "Le Food and Nutrition Board de l'Institute of Medicine (IOM) définit les sucres ajoutés comme « les sucres et sirops qui sont ajoutés aux aliments pendant leur transformation ou leur préparation ». L'IOM ajoute : « Les principales sources de sucres ajoutés comprennent les boissons gazeuses, les boissons pour sportifs, les gâteaux, les biscuits, les tourtes, les boissons aromatisées aux fruits, les punchs aux fruits, les desserts à base de produits laitiers et les bonbons. » Les aliments transformés, y compris les plats cuisinés micro-ondables, contiennent également des sucres ajoutés. Les sucres ajoutés ne comprennent pas les sucres naturellement présents dans les aliments entiers (tels qu'une pomme), mais incluent les sucres naturels tels que la cassonade, le sirop de maïs, le dextrose, le fructose, les concentrés de jus de fruits, le sirop d'érable, le saccharose et le sucre brut qui sont ensuite ajoutés pour créer d'autres aliments (tels que des biscuits). Les résultats d'une enquête menée auprès de quarante-deux mille Américains indiquent qu'en 2008, la consommation moyenne de sucres ajoutés s'élève à 15 pour cent des calories totales, soit une baisse par rapport aux 18 pour cent des calories totales de 2000. 1 Cela reste supérieur à l'apport recommandé, qui est inférieur à 10 pour cent des calories totales. Le Département de l'Agriculture des États-Unis (USDA) indique qu'en 2008, la consommation de sucre dans le régime alimentaire américain était en moyenne de 28 cuillères à café par jour (Figure 4.13 « Consommation de sucre (en cuillères à café) provenant de diverses sources »).",
+   "words": [
+    {
+     "id": "p0303_b001_w001",
+     "text": "Le",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.0975,
+      "w": 0.0238,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 2
+    },
+    {
+     "id": "p0303_b001_w002",
+     "text": "Food",
+     "bbox": {
+      "x": 0.1778,
+      "y": 0.0975,
+      "w": 0.0465,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 3,
+     "char_end": 7
+    },
+    {
+     "id": "p0303_b001_w003",
+     "text": "and",
+     "bbox": {
+      "x": 0.2352,
+      "y": 0.0975,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 8,
+     "char_end": 11
+    },
+    {
+     "id": "p0303_b001_w004",
+     "text": "Nutrition",
+     "bbox": {
+      "x": 0.2786,
+      "y": 0.0975,
+      "w": 0.0829,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 12,
+     "char_end": 21
+    },
+    {
+     "id": "p0303_b001_w005",
+     "text": "Board",
+     "bbox": {
+      "x": 0.3723,
+      "y": 0.0975,
+      "w": 0.0552,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 22,
+     "char_end": 27
+    },
+    {
+     "id": "p0303_b001_w006",
+     "text": "de",
+     "bbox": {
+      "x": 0.4384,
+      "y": 0.0975,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 28,
+     "char_end": 30
+    },
+    {
+     "id": "p0303_b001_w007",
+     "text": "l'Institute",
+     "bbox": {
+      "x": 0.4705,
+      "y": 0.0975,
+      "w": 0.0844,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 31,
+     "char_end": 42
+    },
+    {
+     "id": "p0303_b001_w008",
+     "text": "of",
+     "bbox": {
+      "x": 0.5657,
+      "y": 0.0975,
+      "w": 0.0188,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 43,
+     "char_end": 45
+    },
+    {
+     "id": "p0303_b001_w009",
+     "text": "Medicine",
+     "bbox": {
+      "x": 0.5954,
+      "y": 0.0975,
+      "w": 0.0853,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 46,
+     "char_end": 54
+    },
+    {
+     "id": "p0303_b001_w010",
+     "text": "(IOM)",
+     "bbox": {
+      "x": 0.6915,
+      "y": 0.0975,
+      "w": 0.059,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 55,
+     "char_end": 60
+    },
+    {
+     "id": "p0303_b001_w011",
+     "text": "définit",
+     "bbox": {
+      "x": 0.7614,
+      "y": 0.0975,
+      "w": 0.059,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 61,
+     "char_end": 68
+    },
+    {
+     "id": "p0303_b001_w012",
+     "text": "les",
+     "bbox": {
+      "x": 0.8312,
+      "y": 0.0975,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 69,
+     "char_end": 72
+    },
+    {
+     "id": "p0303_b001_w013",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1194,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 73,
+     "char_end": 79
+    },
+    {
+     "id": "p0303_b001_w014",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.21,
+      "y": 0.1194,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 80,
+     "char_end": 87
+    },
+    {
+     "id": "p0303_b001_w015",
+     "text": "comme",
+     "bbox": {
+      "x": 0.2842,
+      "y": 0.1194,
+      "w": 0.0665,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 88,
+     "char_end": 93
+    },
+    {
+     "id": "p0303_b001_w016",
+     "text": "«",
+     "bbox": {
+      "x": 0.361,
+      "y": 0.1194,
+      "w": 0.0113,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 94,
+     "char_end": 95
+    },
+    {
+     "id": "p0303_b001_w017",
+     "text": "les",
+     "bbox": {
+      "x": 0.3826,
+      "y": 0.1194,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 96,
+     "char_end": 99
+    },
+    {
+     "id": "p0303_b001_w018",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.418,
+      "y": 0.1194,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 100,
+     "char_end": 106
+    },
+    {
+     "id": "p0303_b001_w019",
+     "text": "et",
+     "bbox": {
+      "x": 0.4847,
+      "y": 0.1194,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 107,
+     "char_end": 109
+    },
+    {
+     "id": "p0303_b001_w020",
+     "text": "sirops",
+     "bbox": {
+      "x": 0.5113,
+      "y": 0.1194,
+      "w": 0.054,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 110,
+     "char_end": 116
+    },
+    {
+     "id": "p0303_b001_w021",
+     "text": "qui",
+     "bbox": {
+      "x": 0.5756,
+      "y": 0.1194,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 117,
+     "char_end": 120
+    },
+    {
+     "id": "p0303_b001_w022",
+     "text": "sont",
+     "bbox": {
+      "x": 0.6147,
+      "y": 0.1194,
+      "w": 0.0377,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 121,
+     "char_end": 125
+    },
+    {
+     "id": "p0303_b001_w023",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.6627,
+      "y": 0.1194,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 126,
+     "char_end": 133
+    },
+    {
+     "id": "p0303_b001_w024",
+     "text": "aux",
+     "bbox": {
+      "x": 0.737,
+      "y": 0.1194,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 134,
+     "char_end": 137
+    },
+    {
+     "id": "p0303_b001_w025",
+     "text": "aliments",
+     "bbox": {
+      "x": 0.7799,
+      "y": 0.1194,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 138,
+     "char_end": 146
+    },
+    {
+     "id": "p0303_b001_w026",
+     "text": "pendant",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1412,
+      "w": 0.0716,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 147,
+     "char_end": 154
+    },
+    {
+     "id": "p0303_b001_w027",
+     "text": "leur",
+     "bbox": {
+      "x": 0.2264,
+      "y": 0.1412,
+      "w": 0.0351,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 155,
+     "char_end": 159
+    },
+    {
+     "id": "p0303_b001_w028",
+     "text": "transformation",
+     "bbox": {
+      "x": 0.2732,
+      "y": 0.1412,
+      "w": 0.1331,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 160,
+     "char_end": 174
+    },
+    {
+     "id": "p0303_b001_w029",
+     "text": "ou",
+     "bbox": {
+      "x": 0.418,
+      "y": 0.1412,
+      "w": 0.0226,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 175,
+     "char_end": 177
+    },
+    {
+     "id": "p0303_b001_w030",
+     "text": "leur",
+     "bbox": {
+      "x": 0.4523,
+      "y": 0.1412,
+      "w": 0.0351,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 178,
+     "char_end": 182
+    },
+    {
+     "id": "p0303_b001_w031",
+     "text": "préparation",
+     "bbox": {
+      "x": 0.4991,
+      "y": 0.1412,
+      "w": 0.1029,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 183,
+     "char_end": 194
+    },
+    {
+     "id": "p0303_b001_w032",
+     "text": "».",
+     "bbox": {
+      "x": 0.6137,
+      "y": 0.1412,
+      "w": 0.017,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 195,
+     "char_end": 197
+    },
+    {
+     "id": "p0303_b001_w033",
+     "text": "L'IOM",
+     "bbox": {
+      "x": 0.6423,
+      "y": 0.1412,
+      "w": 0.0619,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 198,
+     "char_end": 203
+    },
+    {
+     "id": "p0303_b001_w034",
+     "text": "ajoute",
+     "bbox": {
+      "x": 0.7158,
+      "y": 0.1412,
+      "w": 0.0552,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 204,
+     "char_end": 210
+    },
+    {
+     "id": "p0303_b001_w035",
+     "text": ":",
+     "bbox": {
+      "x": 0.7827,
+      "y": 0.1412,
+      "w": 0.0063,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 211,
+     "char_end": 212
+    },
+    {
+     "id": "p0303_b001_w036",
+     "text": "«",
+     "bbox": {
+      "x": 0.8007,
+      "y": 0.1412,
+      "w": 0.0113,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 213,
+     "char_end": 214
+    },
+    {
+     "id": "p0303_b001_w037",
+     "text": "Les",
+     "bbox": {
+      "x": 0.8236,
+      "y": 0.1412,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 215,
+     "char_end": 218
+    },
+    {
+     "id": "p0303_b001_w038",
+     "text": "principales",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.1631,
+      "w": 0.0991,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 219,
+     "char_end": 230
+    },
+    {
+     "id": "p0303_b001_w039",
+     "text": "sources",
+     "bbox": {
+      "x": 0.2504,
+      "y": 0.1631,
+      "w": 0.0678,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 231,
+     "char_end": 238
+    },
+    {
+     "id": "p0303_b001_w040",
+     "text": "de",
+     "bbox": {
+      "x": 0.3262,
+      "y": 0.1631,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 239,
+     "char_end": 241
+    },
+    {
+     "id": "p0303_b001_w041",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.3556,
+      "y": 0.1631,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 242,
+     "char_end": 248
+    },
+    {
+     "id": "p0303_b001_w042",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.4201,
+      "y": 0.1631,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 249,
+     "char_end": 256
+    },
+    {
+     "id": "p0303_b001_w043",
+     "text": "comprennent",
+     "bbox": {
+      "x": 0.4921,
+      "y": 0.1631,
+      "w": 0.118,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 257,
+     "char_end": 268
+    },
+    {
+     "id": "p0303_b001_w044",
+     "text": "les",
+     "bbox": {
+      "x": 0.6182,
+      "y": 0.1631,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 269,
+     "char_end": 272
+    },
+    {
+     "id": "p0303_b001_w045",
+     "text": "boissons",
+     "bbox": {
+      "x": 0.6513,
+      "y": 0.1631,
+      "w": 0.0779,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 273,
+     "char_end": 281
+    },
+    {
+     "id": "p0303_b001_w046",
+     "text": "gazeuses,",
+     "bbox": {
+      "x": 0.7372,
+      "y": 0.1631,
+      "w": 0.086,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 282,
+     "char_end": 291
+    },
+    {
+     "id": "p0303_b001_w047",
+     "text": "les",
+     "bbox": {
+      "x": 0.8312,
+      "y": 0.1631,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 292,
+     "char_end": 295
+    },
+    {
+     "id": "p0303_b001_w048",
+     "text": "boissons",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.185,
+      "w": 0.0779,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 296,
+     "char_end": 304
+    },
+    {
+     "id": "p0303_b001_w049",
+     "text": "pour",
+     "bbox": {
+      "x": 0.2335,
+      "y": 0.185,
+      "w": 0.0415,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 305,
+     "char_end": 309
+    },
+    {
+     "id": "p0303_b001_w050",
+     "text": "sportifs,",
+     "bbox": {
+      "x": 0.2874,
+      "y": 0.185,
+      "w": 0.0735,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 310,
+     "char_end": 319
+    },
+    {
+     "id": "p0303_b001_w051",
+     "text": "les",
+     "bbox": {
+      "x": 0.3733,
+      "y": 0.185,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 320,
+     "char_end": 323
+    },
+    {
+     "id": "p0303_b001_w052",
+     "text": "gâteaux,",
+     "bbox": {
+      "x": 0.4108,
+      "y": 0.185,
+      "w": 0.0759,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 324,
+     "char_end": 332
+    },
+    {
+     "id": "p0303_b001_w053",
+     "text": "les",
+     "bbox": {
+      "x": 0.4992,
+      "y": 0.185,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 333,
+     "char_end": 336
+    },
+    {
+     "id": "p0303_b001_w054",
+     "text": "biscuits,",
+     "bbox": {
+      "x": 0.5367,
+      "y": 0.185,
+      "w": 0.0747,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 337,
+     "char_end": 346
+    },
+    {
+     "id": "p0303_b001_w055",
+     "text": "les",
+     "bbox": {
+      "x": 0.6238,
+      "y": 0.185,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 347,
+     "char_end": 350
+    },
+    {
+     "id": "p0303_b001_w056",
+     "text": "tourtes,",
+     "bbox": {
+      "x": 0.6613,
+      "y": 0.185,
+      "w": 0.0672,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 351,
+     "char_end": 359
+    },
+    {
+     "id": "p0303_b001_w057",
+     "text": "les",
+     "bbox": {
+      "x": 0.7409,
+      "y": 0.185,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 360,
+     "char_end": 363
+    },
+    {
+     "id": "p0303_b001_w058",
+     "text": "boissons",
+     "bbox": {
+      "x": 0.7784,
+      "y": 0.185,
+      "w": 0.0779,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 364,
+     "char_end": 372
+    },
+    {
+     "id": "p0303_b001_w059",
+     "text": "aromatisées",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2068,
+      "w": 0.1066,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 373,
+     "char_end": 384
+    },
+    {
+     "id": "p0303_b001_w060",
+     "text": "aux",
+     "bbox": {
+      "x": 0.2584,
+      "y": 0.2068,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 385,
+     "char_end": 388
+    },
+    {
+     "id": "p0303_b001_w061",
+     "text": "fruits,",
+     "bbox": {
+      "x": 0.2997,
+      "y": 0.2068,
+      "w": 0.0534,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 389,
+     "char_end": 396
+    },
+    {
+     "id": "p0303_b001_w062",
+     "text": "les",
+     "bbox": {
+      "x": 0.3617,
+      "y": 0.2068,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 397,
+     "char_end": 400
+    },
+    {
+     "id": "p0303_b001_w063",
+     "text": "punchs",
+     "bbox": {
+      "x": 0.3953,
+      "y": 0.2068,
+      "w": 0.0641,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 401,
+     "char_end": 407
+    },
+    {
+     "id": "p0303_b001_w064",
+     "text": "aux",
+     "bbox": {
+      "x": 0.468,
+      "y": 0.2068,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 408,
+     "char_end": 411
+    },
+    {
+     "id": "p0303_b001_w065",
+     "text": "fruits,",
+     "bbox": {
+      "x": 0.5092,
+      "y": 0.2068,
+      "w": 0.0534,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 412,
+     "char_end": 419
+    },
+    {
+     "id": "p0303_b001_w066",
+     "text": "les",
+     "bbox": {
+      "x": 0.5712,
+      "y": 0.2068,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 420,
+     "char_end": 423
+    },
+    {
+     "id": "p0303_b001_w067",
+     "text": "desserts",
+     "bbox": {
+      "x": 0.6049,
+      "y": 0.2068,
+      "w": 0.0716,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 424,
+     "char_end": 432
+    },
+    {
+     "id": "p0303_b001_w068",
+     "text": "à",
+     "bbox": {
+      "x": 0.6851,
+      "y": 0.2068,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 433,
+     "char_end": 434
+    },
+    {
+     "id": "p0303_b001_w069",
+     "text": "base",
+     "bbox": {
+      "x": 0.7037,
+      "y": 0.2068,
+      "w": 0.0402,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 435,
+     "char_end": 439
+    },
+    {
+     "id": "p0303_b001_w070",
+     "text": "de",
+     "bbox": {
+      "x": 0.7524,
+      "y": 0.2068,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 440,
+     "char_end": 442
+    },
+    {
+     "id": "p0303_b001_w071",
+     "text": "produits",
+     "bbox": {
+      "x": 0.7824,
+      "y": 0.2068,
+      "w": 0.0741,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 443,
+     "char_end": 451
+    },
+    {
+     "id": "p0303_b001_w072",
+     "text": "laitiers",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2287,
+      "w": 0.0614,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 452,
+     "char_end": 460
+    },
+    {
+     "id": "p0303_b001_w073",
+     "text": "et",
+     "bbox": {
+      "x": 0.2105,
+      "y": 0.2287,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 461,
+     "char_end": 463
+    },
+    {
+     "id": "p0303_b001_w074",
+     "text": "les",
+     "bbox": {
+      "x": 0.2327,
+      "y": 0.2287,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 464,
+     "char_end": 467
+    },
+    {
+     "id": "p0303_b001_w075",
+     "text": "bonbons.",
+     "bbox": {
+      "x": 0.2636,
+      "y": 0.2287,
+      "w": 0.0823,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 468,
+     "char_end": 476
+    },
+    {
+     "id": "p0303_b001_w076",
+     "text": "»",
+     "bbox": {
+      "x": 0.3518,
+      "y": 0.2287,
+      "w": 0.0113,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 477,
+     "char_end": 478
+    },
+    {
+     "id": "p0303_b001_w077",
+     "text": "Les",
+     "bbox": {
+      "x": 0.369,
+      "y": 0.2287,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 479,
+     "char_end": 482
+    },
+    {
+     "id": "p0303_b001_w078",
+     "text": "aliments",
+     "bbox": {
+      "x": 0.4074,
+      "y": 0.2287,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 483,
+     "char_end": 491
+    },
+    {
+     "id": "p0303_b001_w079",
+     "text": "transformés,",
+     "bbox": {
+      "x": 0.4898,
+      "y": 0.2287,
+      "w": 0.1124,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 492,
+     "char_end": 504
+    },
+    {
+     "id": "p0303_b001_w080",
+     "text": "y",
+     "bbox": {
+      "x": 0.6081,
+      "y": 0.2287,
+      "w": 0.0113,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 505,
+     "char_end": 506
+    },
+    {
+     "id": "p0303_b001_w081",
+     "text": "compris",
+     "bbox": {
+      "x": 0.6252,
+      "y": 0.2287,
+      "w": 0.0728,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 507,
+     "char_end": 514
+    },
+    {
+     "id": "p0303_b001_w082",
+     "text": "les",
+     "bbox": {
+      "x": 0.7039,
+      "y": 0.2287,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 515,
+     "char_end": 518
+    },
+    {
+     "id": "p0303_b001_w083",
+     "text": "plats",
+     "bbox": {
+      "x": 0.7349,
+      "y": 0.2287,
+      "w": 0.0427,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 519,
+     "char_end": 524
+    },
+    {
+     "id": "p0303_b001_w084",
+     "text": "cuisinés",
+     "bbox": {
+      "x": 0.7834,
+      "y": 0.2287,
+      "w": 0.0728,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 525,
+     "char_end": 533
+    },
+    {
+     "id": "p0303_b001_w085",
+     "text": "micro-ondables,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2506,
+      "w": 0.1463,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 534,
+     "char_end": 549
+    },
+    {
+     "id": "p0303_b001_w086",
+     "text": "contiennent",
+     "bbox": {
+      "x": 0.2969,
+      "y": 0.2506,
+      "w": 0.1054,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 550,
+     "char_end": 561
+    },
+    {
+     "id": "p0303_b001_w087",
+     "text": "également",
+     "bbox": {
+      "x": 0.4097,
+      "y": 0.2506,
+      "w": 0.0928,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 562,
+     "char_end": 571
+    },
+    {
+     "id": "p0303_b001_w088",
+     "text": "des",
+     "bbox": {
+      "x": 0.5099,
+      "y": 0.2506,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 572,
+     "char_end": 575
+    },
+    {
+     "id": "p0303_b001_w089",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.5474,
+      "y": 0.2506,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 576,
+     "char_end": 582
+    },
+    {
+     "id": "p0303_b001_w090",
+     "text": "ajoutés.",
+     "bbox": {
+      "x": 0.6113,
+      "y": 0.2506,
+      "w": 0.0697,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 583,
+     "char_end": 591
+    },
+    {
+     "id": "p0303_b001_w091",
+     "text": "Les",
+     "bbox": {
+      "x": 0.6884,
+      "y": 0.2506,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 592,
+     "char_end": 595
+    },
+    {
+     "id": "p0303_b001_w092",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.7284,
+      "y": 0.2506,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 596,
+     "char_end": 602
+    },
+    {
+     "id": "p0303_b001_w093",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.7923,
+      "y": 0.2506,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 603,
+     "char_end": 610
+    },
+    {
+     "id": "p0303_b001_w094",
+     "text": "ne",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2725,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 611,
+     "char_end": 613
+    },
+    {
+     "id": "p0303_b001_w095",
+     "text": "comprennent",
+     "bbox": {
+      "x": 0.1706,
+      "y": 0.2725,
+      "w": 0.118,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 614,
+     "char_end": 625
+    },
+    {
+     "id": "p0303_b001_w096",
+     "text": "pas",
+     "bbox": {
+      "x": 0.2946,
+      "y": 0.2725,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 626,
+     "char_end": 629
+    },
+    {
+     "id": "p0303_b001_w097",
+     "text": "les",
+     "bbox": {
+      "x": 0.3308,
+      "y": 0.2725,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 630,
+     "char_end": 633
+    },
+    {
+     "id": "p0303_b001_w098",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.3619,
+      "y": 0.2725,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 634,
+     "char_end": 640
+    },
+    {
+     "id": "p0303_b001_w099",
+     "text": "naturellement",
+     "bbox": {
+      "x": 0.4245,
+      "y": 0.2725,
+      "w": 0.1242,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 641,
+     "char_end": 654
+    },
+    {
+     "id": "p0303_b001_w100",
+     "text": "présents",
+     "bbox": {
+      "x": 0.5547,
+      "y": 0.2725,
+      "w": 0.0741,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 655,
+     "char_end": 663
+    },
+    {
+     "id": "p0303_b001_w101",
+     "text": "dans",
+     "bbox": {
+      "x": 0.6348,
+      "y": 0.2725,
+      "w": 0.0414,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 664,
+     "char_end": 668
+    },
+    {
+     "id": "p0303_b001_w102",
+     "text": "les",
+     "bbox": {
+      "x": 0.6823,
+      "y": 0.2725,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 669,
+     "char_end": 672
+    },
+    {
+     "id": "p0303_b001_w103",
+     "text": "aliments",
+     "bbox": {
+      "x": 0.7134,
+      "y": 0.2725,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 673,
+     "char_end": 681
+    },
+    {
+     "id": "p0303_b001_w104",
+     "text": "entiers",
+     "bbox": {
+      "x": 0.796,
+      "y": 0.2725,
+      "w": 0.0602,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 682,
+     "char_end": 689
+    },
+    {
+     "id": "p0303_b001_w105",
+     "text": "(tels",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.2943,
+      "w": 0.0389,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 690,
+     "char_end": 695
+    },
+    {
+     "id": "p0303_b001_w106",
+     "text": "qu'une",
+     "bbox": {
+      "x": 0.188,
+      "y": 0.2943,
+      "w": 0.0593,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 696,
+     "char_end": 702
+    },
+    {
+     "id": "p0303_b001_w107",
+     "text": "pomme),",
+     "bbox": {
+      "x": 0.2533,
+      "y": 0.2943,
+      "w": 0.081,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 703,
+     "char_end": 710
+    },
+    {
+     "id": "p0303_b001_w108",
+     "text": "mais",
+     "bbox": {
+      "x": 0.3403,
+      "y": 0.2943,
+      "w": 0.0427,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 711,
+     "char_end": 715
+    },
+    {
+     "id": "p0303_b001_w109",
+     "text": "incluent",
+     "bbox": {
+      "x": 0.3889,
+      "y": 0.2943,
+      "w": 0.0728,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 716,
+     "char_end": 724
+    },
+    {
+     "id": "p0303_b001_w110",
+     "text": "les",
+     "bbox": {
+      "x": 0.4676,
+      "y": 0.2943,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 725,
+     "char_end": 728
+    },
+    {
+     "id": "p0303_b001_w111",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.4987,
+      "y": 0.2943,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 729,
+     "char_end": 735
+    },
+    {
+     "id": "p0303_b001_w112",
+     "text": "naturels",
+     "bbox": {
+      "x": 0.5611,
+      "y": 0.2943,
+      "w": 0.0715,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 736,
+     "char_end": 744
+    },
+    {
+     "id": "p0303_b001_w113",
+     "text": "tels",
+     "bbox": {
+      "x": 0.6386,
+      "y": 0.2943,
+      "w": 0.0314,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 745,
+     "char_end": 749
+    },
+    {
+     "id": "p0303_b001_w114",
+     "text": "que",
+     "bbox": {
+      "x": 0.6759,
+      "y": 0.2943,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 750,
+     "char_end": 753
+    },
+    {
+     "id": "p0303_b001_w115",
+     "text": "la",
+     "bbox": {
+      "x": 0.7145,
+      "y": 0.2943,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 754,
+     "char_end": 756
+    },
+    {
+     "id": "p0303_b001_w116",
+     "text": "cassonade,",
+     "bbox": {
+      "x": 0.7367,
+      "y": 0.2943,
+      "w": 0.0973,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 757,
+     "char_end": 767
+    },
+    {
+     "id": "p0303_b001_w117",
+     "text": "le",
+     "bbox": {
+      "x": 0.84,
+      "y": 0.2943,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 768,
+     "char_end": 770
+    },
+    {
+     "id": "p0303_b001_w118",
+     "text": "sirop",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3162,
+      "w": 0.0452,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 771,
+     "char_end": 776
+    },
+    {
+     "id": "p0303_b001_w119",
+     "text": "de",
+     "bbox": {
+      "x": 0.1955,
+      "y": 0.3162,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 777,
+     "char_end": 779
+    },
+    {
+     "id": "p0303_b001_w120",
+     "text": "maïs,",
+     "bbox": {
+      "x": 0.224,
+      "y": 0.3162,
+      "w": 0.0483,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 780,
+     "char_end": 785
+    },
+    {
+     "id": "p0303_b001_w121",
+     "text": "le",
+     "bbox": {
+      "x": 0.2794,
+      "y": 0.3162,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 786,
+     "char_end": 788
+    },
+    {
+     "id": "p0303_b001_w122",
+     "text": "dextrose,",
+     "bbox": {
+      "x": 0.3028,
+      "y": 0.3162,
+      "w": 0.0822,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 789,
+     "char_end": 798
+    },
+    {
+     "id": "p0303_b001_w123",
+     "text": "le",
+     "bbox": {
+      "x": 0.3921,
+      "y": 0.3162,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 799,
+     "char_end": 801
+    },
+    {
+     "id": "p0303_b001_w124",
+     "text": "fructose,",
+     "bbox": {
+      "x": 0.4155,
+      "y": 0.3162,
+      "w": 0.0785,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 802,
+     "char_end": 811
+    },
+    {
+     "id": "p0303_b001_w125",
+     "text": "les",
+     "bbox": {
+      "x": 0.5011,
+      "y": 0.3162,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 812,
+     "char_end": 815
+    },
+    {
+     "id": "p0303_b001_w126",
+     "text": "concentrés",
+     "bbox": {
+      "x": 0.5333,
+      "y": 0.3162,
+      "w": 0.0966,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 816,
+     "char_end": 826
+    },
+    {
+     "id": "p0303_b001_w127",
+     "text": "de",
+     "bbox": {
+      "x": 0.637,
+      "y": 0.3162,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 827,
+     "char_end": 829
+    },
+    {
+     "id": "p0303_b001_w128",
+     "text": "jus",
+     "bbox": {
+      "x": 0.6654,
+      "y": 0.3162,
+      "w": 0.0264,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 830,
+     "char_end": 833
+    },
+    {
+     "id": "p0303_b001_w129",
+     "text": "de",
+     "bbox": {
+      "x": 0.6989,
+      "y": 0.3162,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 834,
+     "char_end": 836
+    },
+    {
+     "id": "p0303_b001_w130",
+     "text": "fruits,",
+     "bbox": {
+      "x": 0.7274,
+      "y": 0.3162,
+      "w": 0.0534,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 837,
+     "char_end": 844
+    },
+    {
+     "id": "p0303_b001_w131",
+     "text": "le",
+     "bbox": {
+      "x": 0.7878,
+      "y": 0.3162,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 845,
+     "char_end": 847
+    },
+    {
+     "id": "p0303_b001_w132",
+     "text": "sirop",
+     "bbox": {
+      "x": 0.8112,
+      "y": 0.3162,
+      "w": 0.0452,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 848,
+     "char_end": 853
+    },
+    {
+     "id": "p0303_b001_w133",
+     "text": "d'érable,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3381,
+      "w": 0.0762,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 854,
+     "char_end": 863
+    },
+    {
+     "id": "p0303_b001_w134",
+     "text": "le",
+     "bbox": {
+      "x": 0.2298,
+      "y": 0.3381,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 864,
+     "char_end": 866
+    },
+    {
+     "id": "p0303_b001_w135",
+     "text": "saccharose",
+     "bbox": {
+      "x": 0.2565,
+      "y": 0.3381,
+      "w": 0.0979,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 867,
+     "char_end": 877
+    },
+    {
+     "id": "p0303_b001_w136",
+     "text": "et",
+     "bbox": {
+      "x": 0.3648,
+      "y": 0.3381,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 878,
+     "char_end": 880
+    },
+    {
+     "id": "p0303_b001_w137",
+     "text": "le",
+     "bbox": {
+      "x": 0.3915,
+      "y": 0.3381,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 881,
+     "char_end": 883
+    },
+    {
+     "id": "p0303_b001_w138",
+     "text": "sucre",
+     "bbox": {
+      "x": 0.4182,
+      "y": 0.3381,
+      "w": 0.0477,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 884,
+     "char_end": 889
+    },
+    {
+     "id": "p0303_b001_w139",
+     "text": "brut",
+     "bbox": {
+      "x": 0.4763,
+      "y": 0.3381,
+      "w": 0.0364,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 890,
+     "char_end": 894
+    },
+    {
+     "id": "p0303_b001_w140",
+     "text": "qui",
+     "bbox": {
+      "x": 0.5231,
+      "y": 0.3381,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 895,
+     "char_end": 898
+    },
+    {
+     "id": "p0303_b001_w141",
+     "text": "sont",
+     "bbox": {
+      "x": 0.5624,
+      "y": 0.3381,
+      "w": 0.0377,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 899,
+     "char_end": 903
+    },
+    {
+     "id": "p0303_b001_w142",
+     "text": "ensuite",
+     "bbox": {
+      "x": 0.6105,
+      "y": 0.3381,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 904,
+     "char_end": 911
+    },
+    {
+     "id": "p0303_b001_w143",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.6849,
+      "y": 0.3381,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 912,
+     "char_end": 919
+    },
+    {
+     "id": "p0303_b001_w144",
+     "text": "pour",
+     "bbox": {
+      "x": 0.7593,
+      "y": 0.3381,
+      "w": 0.0415,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 920,
+     "char_end": 924
+    },
+    {
+     "id": "p0303_b001_w145",
+     "text": "créer",
+     "bbox": {
+      "x": 0.8112,
+      "y": 0.3381,
+      "w": 0.0451,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 925,
+     "char_end": 930
+    },
+    {
+     "id": "p0303_b001_w146",
+     "text": "d'autres",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3599,
+      "w": 0.0693,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 931,
+     "char_end": 939
+    },
+    {
+     "id": "p0303_b001_w147",
+     "text": "aliments",
+     "bbox": {
+      "x": 0.2223,
+      "y": 0.3599,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 940,
+     "char_end": 948
+    },
+    {
+     "id": "p0303_b001_w148",
+     "text": "(tels",
+     "bbox": {
+      "x": 0.3087,
+      "y": 0.3599,
+      "w": 0.0389,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 949,
+     "char_end": 954
+    },
+    {
+     "id": "p0303_b001_w149",
+     "text": "que",
+     "bbox": {
+      "x": 0.3574,
+      "y": 0.3599,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 955,
+     "char_end": 958
+    },
+    {
+     "id": "p0303_b001_w150",
+     "text": "des",
+     "bbox": {
+      "x": 0.3998,
+      "y": 0.3599,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 959,
+     "char_end": 962
+    },
+    {
+     "id": "p0303_b001_w151",
+     "text": "biscuits).",
+     "bbox": {
+      "x": 0.4397,
+      "y": 0.3599,
+      "w": 0.0822,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 963,
+     "char_end": 973
+    },
+    {
+     "id": "p0303_b001_w152",
+     "text": "Les",
+     "bbox": {
+      "x": 0.5318,
+      "y": 0.3599,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 974,
+     "char_end": 977
+    },
+    {
+     "id": "p0303_b001_w153",
+     "text": "résultats",
+     "bbox": {
+      "x": 0.5742,
+      "y": 0.3599,
+      "w": 0.0753,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 978,
+     "char_end": 987
+    },
+    {
+     "id": "p0303_b001_w154",
+     "text": "d'une",
+     "bbox": {
+      "x": 0.6593,
+      "y": 0.3599,
+      "w": 0.048,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 988,
+     "char_end": 993
+    },
+    {
+     "id": "p0303_b001_w155",
+     "text": "enquête",
+     "bbox": {
+      "x": 0.7171,
+      "y": 0.3599,
+      "w": 0.0703,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 994,
+     "char_end": 1001
+    },
+    {
+     "id": "p0303_b001_w156",
+     "text": "menée",
+     "bbox": {
+      "x": 0.7972,
+      "y": 0.3599,
+      "w": 0.059,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1002,
+     "char_end": 1007
+    },
+    {
+     "id": "p0303_b001_w157",
+     "text": "auprès",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.3818,
+      "w": 0.059,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1008,
+     "char_end": 1014
+    },
+    {
+     "id": "p0303_b001_w158",
+     "text": "de",
+     "bbox": {
+      "x": 0.2213,
+      "y": 0.3818,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1015,
+     "char_end": 1017
+    },
+    {
+     "id": "p0303_b001_w159",
+     "text": "quarante-deux",
+     "bbox": {
+      "x": 0.2616,
+      "y": 0.3818,
+      "w": 0.1293,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1018,
+     "char_end": 1031
+    },
+    {
+     "id": "p0303_b001_w160",
+     "text": "mille",
+     "bbox": {
+      "x": 0.41,
+      "y": 0.3818,
+      "w": 0.0464,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1032,
+     "char_end": 1037
+    },
+    {
+     "id": "p0303_b001_w161",
+     "text": "Américains",
+     "bbox": {
+      "x": 0.4754,
+      "y": 0.3818,
+      "w": 0.1042,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1038,
+     "char_end": 1048
+    },
+    {
+     "id": "p0303_b001_w162",
+     "text": "indiquent",
+     "bbox": {
+      "x": 0.5986,
+      "y": 0.3818,
+      "w": 0.0854,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1049,
+     "char_end": 1058
+    },
+    {
+     "id": "p0303_b001_w163",
+     "text": "qu'en",
+     "bbox": {
+      "x": 0.7031,
+      "y": 0.3818,
+      "w": 0.048,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1059,
+     "char_end": 1064
+    },
+    {
+     "id": "p0303_b001_w164",
+     "text": "2008,",
+     "bbox": {
+      "x": 0.7701,
+      "y": 0.3818,
+      "w": 0.0509,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1065,
+     "char_end": 1070
+    },
+    {
+     "id": "p0303_b001_w165",
+     "text": "la",
+     "bbox": {
+      "x": 0.8401,
+      "y": 0.3818,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1071,
+     "char_end": 1073
+    },
+    {
+     "id": "p0303_b001_w166",
+     "text": "consommation",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4037,
+      "w": 0.1331,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1074,
+     "char_end": 1086
+    },
+    {
+     "id": "p0303_b001_w167",
+     "text": "moyenne",
+     "bbox": {
+      "x": 0.2838,
+      "y": 0.4037,
+      "w": 0.0829,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1087,
+     "char_end": 1094
+    },
+    {
+     "id": "p0303_b001_w168",
+     "text": "de",
+     "bbox": {
+      "x": 0.3742,
+      "y": 0.4037,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1095,
+     "char_end": 1097
+    },
+    {
+     "id": "p0303_b001_w169",
+     "text": "sucres",
+     "bbox": {
+      "x": 0.403,
+      "y": 0.4037,
+      "w": 0.0565,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1098,
+     "char_end": 1104
+    },
+    {
+     "id": "p0303_b001_w170",
+     "text": "ajoutés",
+     "bbox": {
+      "x": 0.467,
+      "y": 0.4037,
+      "w": 0.064,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1105,
+     "char_end": 1112
+    },
+    {
+     "id": "p0303_b001_w171",
+     "text": "s'élève",
+     "bbox": {
+      "x": 0.5385,
+      "y": 0.4037,
+      "w": 0.0605,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1113,
+     "char_end": 1120
+    },
+    {
+     "id": "p0303_b001_w172",
+     "text": "à",
+     "bbox": {
+      "x": 0.6066,
+      "y": 0.4037,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1121,
+     "char_end": 1122
+    },
+    {
+     "id": "p0303_b001_w173",
+     "text": "15",
+     "bbox": {
+      "x": 0.6241,
+      "y": 0.4037,
+      "w": 0.0226,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1123,
+     "char_end": 1125
+    },
+    {
+     "id": "p0303_b001_w174",
+     "text": "pour",
+     "bbox": {
+      "x": 0.6542,
+      "y": 0.4037,
+      "w": 0.0415,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1126,
+     "char_end": 1130
+    },
+    {
+     "id": "p0303_b001_w175",
+     "text": "cent",
+     "bbox": {
+      "x": 0.7032,
+      "y": 0.4037,
+      "w": 0.0376,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1131,
+     "char_end": 1135
+    },
+    {
+     "id": "p0303_b001_w176",
+     "text": "des",
+     "bbox": {
+      "x": 0.7484,
+      "y": 0.4037,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1136,
+     "char_end": 1139
+    },
+    {
+     "id": "p0303_b001_w177",
+     "text": "calories",
+     "bbox": {
+      "x": 0.786,
+      "y": 0.4037,
+      "w": 0.0702,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1140,
+     "char_end": 1148
+    },
+    {
+     "id": "p0303_b001_w178",
+     "text": "totales,",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4256,
+      "w": 0.0646,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1149,
+     "char_end": 1157
+    },
+    {
+     "id": "p0303_b001_w179",
+     "text": "soit",
+     "bbox": {
+      "x": 0.217,
+      "y": 0.4256,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1158,
+     "char_end": 1162
+    },
+    {
+     "id": "p0303_b001_w180",
+     "text": "une",
+     "bbox": {
+      "x": 0.2587,
+      "y": 0.4256,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1163,
+     "char_end": 1166
+    },
+    {
+     "id": "p0303_b001_w181",
+     "text": "baisse",
+     "bbox": {
+      "x": 0.3005,
+      "y": 0.4256,
+      "w": 0.0552,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1167,
+     "char_end": 1173
+    },
+    {
+     "id": "p0303_b001_w182",
+     "text": "par",
+     "bbox": {
+      "x": 0.3649,
+      "y": 0.4256,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1174,
+     "char_end": 1177
+    },
+    {
+     "id": "p0303_b001_w183",
+     "text": "rapport",
+     "bbox": {
+      "x": 0.4029,
+      "y": 0.4256,
+      "w": 0.0653,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1178,
+     "char_end": 1185
+    },
+    {
+     "id": "p0303_b001_w184",
+     "text": "aux",
+     "bbox": {
+      "x": 0.4773,
+      "y": 0.4256,
+      "w": 0.0326,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1186,
+     "char_end": 1189
+    },
+    {
+     "id": "p0303_b001_w185",
+     "text": "18",
+     "bbox": {
+      "x": 0.5191,
+      "y": 0.4256,
+      "w": 0.0226,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1190,
+     "char_end": 1192
+    },
+    {
+     "id": "p0303_b001_w186",
+     "text": "pour",
+     "bbox": {
+      "x": 0.5509,
+      "y": 0.4256,
+      "w": 0.0415,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1193,
+     "char_end": 1197
+    },
+    {
+     "id": "p0303_b001_w187",
+     "text": "cent",
+     "bbox": {
+      "x": 0.6015,
+      "y": 0.4256,
+      "w": 0.0376,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1198,
+     "char_end": 1202
+    },
+    {
+     "id": "p0303_b001_w188",
+     "text": "des",
+     "bbox": {
+      "x": 0.6482,
+      "y": 0.4256,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1203,
+     "char_end": 1206
+    },
+    {
+     "id": "p0303_b001_w189",
+     "text": "calories",
+     "bbox": {
+      "x": 0.6875,
+      "y": 0.4256,
+      "w": 0.0702,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1207,
+     "char_end": 1215
+    },
+    {
+     "id": "p0303_b001_w190",
+     "text": "totales",
+     "bbox": {
+      "x": 0.7669,
+      "y": 0.4256,
+      "w": 0.059,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1216,
+     "char_end": 1223
+    },
+    {
+     "id": "p0303_b001_w191",
+     "text": "de",
+     "bbox": {
+      "x": 0.835,
+      "y": 0.4256,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1224,
+     "char_end": 1226
+    },
+    {
+     "id": "p0303_b001_w192",
+     "text": "2000.",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4474,
+      "w": 0.0509,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1227,
+     "char_end": 1232
+    },
+    {
+     "id": "p0303_b001_w193",
+     "text": "1",
+     "bbox": {
+      "x": 0.2001,
+      "y": 0.4448,
+      "w": 0.0094,
+      "h": 0.0135
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1233,
+     "char_end": 1234
+    },
+    {
+     "id": "p0303_b001_w194",
+     "text": "Cela",
+     "bbox": {
+      "x": 0.2155,
+      "y": 0.4474,
+      "w": 0.0414,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1235,
+     "char_end": 1239
+    },
+    {
+     "id": "p0303_b001_w195",
+     "text": "reste",
+     "bbox": {
+      "x": 0.2629,
+      "y": 0.4474,
+      "w": 0.0426,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1240,
+     "char_end": 1245
+    },
+    {
+     "id": "p0303_b001_w196",
+     "text": "supérieur",
+     "bbox": {
+      "x": 0.3116,
+      "y": 0.4474,
+      "w": 0.0841,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1246,
+     "char_end": 1255
+    },
+    {
+     "id": "p0303_b001_w197",
+     "text": "à",
+     "bbox": {
+      "x": 0.4017,
+      "y": 0.4474,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1256,
+     "char_end": 1257
+    },
+    {
+     "id": "p0303_b001_w198",
+     "text": "l'apport",
+     "bbox": {
+      "x": 0.4178,
+      "y": 0.4474,
+      "w": 0.0681,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1258,
+     "char_end": 1266
+    },
+    {
+     "id": "p0303_b001_w199",
+     "text": "recommandé,",
+     "bbox": {
+      "x": 0.4919,
+      "y": 0.4474,
+      "w": 0.1224,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1267,
+     "char_end": 1278
+    },
+    {
+     "id": "p0303_b001_w200",
+     "text": "qui",
+     "bbox": {
+      "x": 0.6203,
+      "y": 0.4474,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1279,
+     "char_end": 1282
+    },
+    {
+     "id": "p0303_b001_w201",
+     "text": "est",
+     "bbox": {
+      "x": 0.6552,
+      "y": 0.4474,
+      "w": 0.0251,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1283,
+     "char_end": 1286
+    },
+    {
+     "id": "p0303_b001_w202",
+     "text": "inférieur",
+     "bbox": {
+      "x": 0.6863,
+      "y": 0.4474,
+      "w": 0.0778,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1287,
+     "char_end": 1296
+    },
+    {
+     "id": "p0303_b001_w203",
+     "text": "à",
+     "bbox": {
+      "x": 0.7701,
+      "y": 0.4474,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1297,
+     "char_end": 1298
+    },
+    {
+     "id": "p0303_b001_w204",
+     "text": "10",
+     "bbox": {
+      "x": 0.7861,
+      "y": 0.4474,
+      "w": 0.0226,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1299,
+     "char_end": 1301
+    },
+    {
+     "id": "p0303_b001_w205",
+     "text": "pour",
+     "bbox": {
+      "x": 0.8148,
+      "y": 0.4474,
+      "w": 0.0415,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1302,
+     "char_end": 1306
+    },
+    {
+     "id": "p0303_b001_w206",
+     "text": "cent",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4693,
+      "w": 0.0376,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1307,
+     "char_end": 1311
+    },
+    {
+     "id": "p0303_b001_w207",
+     "text": "des",
+     "bbox": {
+      "x": 0.1929,
+      "y": 0.4693,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1312,
+     "char_end": 1315
+    },
+    {
+     "id": "p0303_b001_w208",
+     "text": "calories",
+     "bbox": {
+      "x": 0.2351,
+      "y": 0.4693,
+      "w": 0.0702,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1316,
+     "char_end": 1324
+    },
+    {
+     "id": "p0303_b001_w209",
+     "text": "totales.",
+     "bbox": {
+      "x": 0.3174,
+      "y": 0.4693,
+      "w": 0.0646,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1325,
+     "char_end": 1333
+    },
+    {
+     "id": "p0303_b001_w210",
+     "text": "Le",
+     "bbox": {
+      "x": 0.394,
+      "y": 0.4693,
+      "w": 0.0238,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1334,
+     "char_end": 1336
+    },
+    {
+     "id": "p0303_b001_w211",
+     "text": "Département",
+     "bbox": {
+      "x": 0.4299,
+      "y": 0.4693,
+      "w": 0.1167,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1337,
+     "char_end": 1348
+    },
+    {
+     "id": "p0303_b001_w212",
+     "text": "de",
+     "bbox": {
+      "x": 0.5587,
+      "y": 0.4693,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1349,
+     "char_end": 1351
+    },
+    {
+     "id": "p0303_b001_w213",
+     "text": "l'Agriculture",
+     "bbox": {
+      "x": 0.5921,
+      "y": 0.4693,
+      "w": 0.1145,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1352,
+     "char_end": 1365
+    },
+    {
+     "id": "p0303_b001_w214",
+     "text": "des",
+     "bbox": {
+      "x": 0.7186,
+      "y": 0.4693,
+      "w": 0.0301,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1366,
+     "char_end": 1369
+    },
+    {
+     "id": "p0303_b001_w215",
+     "text": "États-Unis",
+     "bbox": {
+      "x": 0.7608,
+      "y": 0.4693,
+      "w": 0.0954,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1370,
+     "char_end": 1380
+    },
+    {
+     "id": "p0303_b001_w216",
+     "text": "(USDA)",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.4912,
+      "w": 0.0766,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1381,
+     "char_end": 1387
+    },
+    {
+     "id": "p0303_b001_w217",
+     "text": "indique",
+     "bbox": {
+      "x": 0.2329,
+      "y": 0.4912,
+      "w": 0.0678,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1388,
+     "char_end": 1395
+    },
+    {
+     "id": "p0303_b001_w218",
+     "text": "qu'en",
+     "bbox": {
+      "x": 0.3138,
+      "y": 0.4912,
+      "w": 0.048,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1396,
+     "char_end": 1401
+    },
+    {
+     "id": "p0303_b001_w219",
+     "text": "2008,",
+     "bbox": {
+      "x": 0.375,
+      "y": 0.4912,
+      "w": 0.0509,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1402,
+     "char_end": 1407
+    },
+    {
+     "id": "p0303_b001_w220",
+     "text": "la",
+     "bbox": {
+      "x": 0.439,
+      "y": 0.4912,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1408,
+     "char_end": 1410
+    },
+    {
+     "id": "p0303_b001_w221",
+     "text": "consommation",
+     "bbox": {
+      "x": 0.4684,
+      "y": 0.4912,
+      "w": 0.1331,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1411,
+     "char_end": 1423
+    },
+    {
+     "id": "p0303_b001_w222",
+     "text": "de",
+     "bbox": {
+      "x": 0.6146,
+      "y": 0.4912,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1424,
+     "char_end": 1426
+    },
+    {
+     "id": "p0303_b001_w223",
+     "text": "sucre",
+     "bbox": {
+      "x": 0.649,
+      "y": 0.4912,
+      "w": 0.0477,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1427,
+     "char_end": 1432
+    },
+    {
+     "id": "p0303_b001_w224",
+     "text": "dans",
+     "bbox": {
+      "x": 0.7098,
+      "y": 0.4912,
+      "w": 0.0414,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1433,
+     "char_end": 1437
+    },
+    {
+     "id": "p0303_b001_w225",
+     "text": "le",
+     "bbox": {
+      "x": 0.7643,
+      "y": 0.4912,
+      "w": 0.0163,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1438,
+     "char_end": 1440
+    },
+    {
+     "id": "p0303_b001_w226",
+     "text": "régime",
+     "bbox": {
+      "x": 0.7937,
+      "y": 0.4912,
+      "w": 0.0627,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1441,
+     "char_end": 1447
+    },
+    {
+     "id": "p0303_b001_w227",
+     "text": "alimentaire",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5131,
+      "w": 0.1016,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1448,
+     "char_end": 1459
+    },
+    {
+     "id": "p0303_b001_w228",
+     "text": "américain",
+     "bbox": {
+      "x": 0.2514,
+      "y": 0.5131,
+      "w": 0.089,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1460,
+     "char_end": 1469
+    },
+    {
+     "id": "p0303_b001_w229",
+     "text": "était",
+     "bbox": {
+      "x": 0.347,
+      "y": 0.5131,
+      "w": 0.0388,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1470,
+     "char_end": 1475
+    },
+    {
+     "id": "p0303_b001_w230",
+     "text": "en",
+     "bbox": {
+      "x": 0.3925,
+      "y": 0.5131,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1476,
+     "char_end": 1478
+    },
+    {
+     "id": "p0303_b001_w231",
+     "text": "moyenne",
+     "bbox": {
+      "x": 0.4204,
+      "y": 0.5131,
+      "w": 0.0829,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1479,
+     "char_end": 1486
+    },
+    {
+     "id": "p0303_b001_w232",
+     "text": "de",
+     "bbox": {
+      "x": 0.5099,
+      "y": 0.5131,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1487,
+     "char_end": 1489
+    },
+    {
+     "id": "p0303_b001_w233",
+     "text": "28",
+     "bbox": {
+      "x": 0.5378,
+      "y": 0.5131,
+      "w": 0.0226,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1490,
+     "char_end": 1492
+    },
+    {
+     "id": "p0303_b001_w234",
+     "text": "cuillères",
+     "bbox": {
+      "x": 0.5671,
+      "y": 0.5131,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1493,
+     "char_end": 1502
+    },
+    {
+     "id": "p0303_b001_w235",
+     "text": "à",
+     "bbox": {
+      "x": 0.6502,
+      "y": 0.5131,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1503,
+     "char_end": 1504
+    },
+    {
+     "id": "p0303_b001_w236",
+     "text": "café",
+     "bbox": {
+      "x": 0.6668,
+      "y": 0.5131,
+      "w": 0.0376,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1505,
+     "char_end": 1509
+    },
+    {
+     "id": "p0303_b001_w237",
+     "text": "par",
+     "bbox": {
+      "x": 0.711,
+      "y": 0.5131,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1510,
+     "char_end": 1513
+    },
+    {
+     "id": "p0303_b001_w238",
+     "text": "jour",
+     "bbox": {
+      "x": 0.7465,
+      "y": 0.5131,
+      "w": 0.0364,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1514,
+     "char_end": 1518
+    },
+    {
+     "id": "p0303_b001_w239",
+     "text": "(Figure",
+     "bbox": {
+      "x": 0.7895,
+      "y": 0.5131,
+      "w": 0.0666,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1519,
+     "char_end": 1526
+    },
+    {
+     "id": "p0303_b001_w240",
+     "text": "4.13",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5349,
+      "w": 0.0396,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1527,
+     "char_end": 1531
+    },
+    {
+     "id": "p0303_b001_w241",
+     "text": "«",
+     "bbox": {
+      "x": 0.1927,
+      "y": 0.5349,
+      "w": 0.0113,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1532,
+     "char_end": 1533
+    },
+    {
+     "id": "p0303_b001_w242",
+     "text": "Consommation",
+     "bbox": {
+      "x": 0.2139,
+      "y": 0.5349,
+      "w": 0.1381,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1534,
+     "char_end": 1546
+    },
+    {
+     "id": "p0303_b001_w243",
+     "text": "de",
+     "bbox": {
+      "x": 0.3619,
+      "y": 0.5349,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1547,
+     "char_end": 1549
+    },
+    {
+     "id": "p0303_b001_w244",
+     "text": "sucre",
+     "bbox": {
+      "x": 0.3931,
+      "y": 0.5349,
+      "w": 0.0477,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1550,
+     "char_end": 1555
+    },
+    {
+     "id": "p0303_b001_w245",
+     "text": "(en",
+     "bbox": {
+      "x": 0.4507,
+      "y": 0.5349,
+      "w": 0.0289,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1556,
+     "char_end": 1559
+    },
+    {
+     "id": "p0303_b001_w246",
+     "text": "cuillères",
+     "bbox": {
+      "x": 0.4895,
+      "y": 0.5349,
+      "w": 0.0765,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1560,
+     "char_end": 1569
+    },
+    {
+     "id": "p0303_b001_w247",
+     "text": "à",
+     "bbox": {
+      "x": 0.5758,
+      "y": 0.5349,
+      "w": 0.01,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1570,
+     "char_end": 1571
+    },
+    {
+     "id": "p0303_b001_w248",
+     "text": "café)",
+     "bbox": {
+      "x": 0.5958,
+      "y": 0.5349,
+      "w": 0.0451,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1572,
+     "char_end": 1577
+    },
+    {
+     "id": "p0303_b001_w249",
+     "text": "provenant",
+     "bbox": {
+      "x": 0.6508,
+      "y": 0.5349,
+      "w": 0.0904,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1578,
+     "char_end": 1587
+    },
+    {
+     "id": "p0303_b001_w250",
+     "text": "de",
+     "bbox": {
+      "x": 0.7511,
+      "y": 0.5349,
+      "w": 0.0213,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1588,
+     "char_end": 1590
+    },
+    {
+     "id": "p0303_b001_w251",
+     "text": "diverses",
+     "bbox": {
+      "x": 0.7823,
+      "y": 0.5349,
+      "w": 0.0741,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1591,
+     "char_end": 1599
+    },
+    {
+     "id": "p0303_b001_w252",
+     "text": "sources",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.5568,
+      "w": 0.0678,
+      "h": 0.0162
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1600,
+     "char_end": 1607
+    },
+    {
+     "id": "p0303_b001_w253",
+     "text": "»).",
+     "bbox": {
+      "x": 0.2167,
+      "y": 0.5568,
+      "w": 0.0245,
+      "h": 0.0162
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 1608,
+     "char_end": 1611
+    }
+   ],
+   "lang": "fr",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b001",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b001",
+    "chunk_number_in_lrm": 1,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [
+     "p0303_b004"
+    ],
+    "child_chunk_numbers_in_lrm": [
+     4
+    ],
+    "level": 0,
+    "prev_chunk_id": "",
+    "next_chunk_id": "p0303_b002",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 9.37,
+    "scale": 0.956,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.36
+   }
+  },
+  {
+   "id": "p0303_b002",
+   "local_id": "b2",
+   "type": "heading",
+   "reading_order": 2,
+   "bbox": {
+    "x": 0.1552,
+    "y": 0.5823,
+    "w": 0.6527,
+    "h": 0.0792
+   },
+   "text": "L'obésité, le diabète et les maladies cardiaques et leur lien supposé avec une consommation excessive de sucre et de glucides raffinés",
+   "words": [
+    {
+     "id": "p0303_b002_w001",
+     "text": "L'obésité,",
+     "bbox": {
+      "x": 0.1552,
+      "y": 0.5823,
+      "w": 0.1297,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 10
+    },
+    {
+     "id": "p0303_b002_w002",
+     "text": "le",
+     "bbox": {
+      "x": 0.2927,
+      "y": 0.5823,
+      "w": 0.0226,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 11,
+     "char_end": 13
+    },
+    {
+     "id": "p0303_b002_w003",
+     "text": "diabète",
+     "bbox": {
+      "x": 0.3232,
+      "y": 0.5823,
+      "w": 0.0975,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 14,
+     "char_end": 21
+    },
+    {
+     "id": "p0303_b002_w004",
+     "text": "et",
+     "bbox": {
+      "x": 0.4285,
+      "y": 0.5823,
+      "w": 0.0243,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 22,
+     "char_end": 24
+    },
+    {
+     "id": "p0303_b002_w005",
+     "text": "les",
+     "bbox": {
+      "x": 0.4607,
+      "y": 0.5823,
+      "w": 0.0348,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 25,
+     "char_end": 28
+    },
+    {
+     "id": "p0303_b002_w006",
+     "text": "maladies",
+     "bbox": {
+      "x": 0.5033,
+      "y": 0.5823,
+      "w": 0.1184,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 29,
+     "char_end": 37
+    },
+    {
+     "id": "p0303_b002_w007",
+     "text": "cardiaques",
+     "bbox": {
+      "x": 0.6295,
+      "y": 0.5823,
+      "w": 0.1462,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 38,
+     "char_end": 48
+    },
+    {
+     "id": "p0303_b002_w008",
+     "text": "et",
+     "bbox": {
+      "x": 0.7836,
+      "y": 0.5823,
+      "w": 0.0243,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 49,
+     "char_end": 51
+    },
+    {
+     "id": "p0303_b002_w009",
+     "text": "leur",
+     "bbox": {
+      "x": 0.2062,
+      "y": 0.6106,
+      "w": 0.0539,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 52,
+     "char_end": 56
+    },
+    {
+     "id": "p0303_b002_w010",
+     "text": "lien",
+     "bbox": {
+      "x": 0.2679,
+      "y": 0.6106,
+      "w": 0.0487,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 57,
+     "char_end": 61
+    },
+    {
+     "id": "p0303_b002_w011",
+     "text": "supposé",
+     "bbox": {
+      "x": 0.3245,
+      "y": 0.6106,
+      "w": 0.1063,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 62,
+     "char_end": 69
+    },
+    {
+     "id": "p0303_b002_w012",
+     "text": "avec",
+     "bbox": {
+      "x": 0.4386,
+      "y": 0.6106,
+      "w": 0.0592,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 70,
+     "char_end": 74
+    },
+    {
+     "id": "p0303_b002_w013",
+     "text": "une",
+     "bbox": {
+      "x": 0.5056,
+      "y": 0.6106,
+      "w": 0.0488,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 75,
+     "char_end": 78
+    },
+    {
+     "id": "p0303_b002_w014",
+     "text": "consommation",
+     "bbox": {
+      "x": 0.5622,
+      "y": 0.6106,
+      "w": 0.1951,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 79,
+     "char_end": 91
+    },
+    {
+     "id": "p0303_b002_w015",
+     "text": "excessive",
+     "bbox": {
+      "x": 0.2139,
+      "y": 0.639,
+      "w": 0.12,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 92,
+     "char_end": 101
+    },
+    {
+     "id": "p0303_b002_w016",
+     "text": "de",
+     "bbox": {
+      "x": 0.3418,
+      "y": 0.639,
+      "w": 0.0313,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 102,
+     "char_end": 104
+    },
+    {
+     "id": "p0303_b002_w017",
+     "text": "sucre",
+     "bbox": {
+      "x": 0.381,
+      "y": 0.639,
+      "w": 0.0708,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 105,
+     "char_end": 110
+    },
+    {
+     "id": "p0303_b002_w018",
+     "text": "et",
+     "bbox": {
+      "x": 0.4596,
+      "y": 0.639,
+      "w": 0.0243,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 111,
+     "char_end": 113
+    },
+    {
+     "id": "p0303_b002_w019",
+     "text": "de",
+     "bbox": {
+      "x": 0.4917,
+      "y": 0.639,
+      "w": 0.0313,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 114,
+     "char_end": 116
+    },
+    {
+     "id": "p0303_b002_w020",
+     "text": "glucides",
+     "bbox": {
+      "x": 0.5309,
+      "y": 0.639,
+      "w": 0.1079,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 117,
+     "char_end": 125
+    },
+    {
+     "id": "p0303_b002_w021",
+     "text": "raffinés",
+     "bbox": {
+      "x": 0.6467,
+      "y": 0.639,
+      "w": 0.1027,
+      "h": 0.0225
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 126,
+     "char_end": 134
+    }
+   ],
+   "lang": "fr",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b002",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b002",
+    "chunk_number_in_lrm": 2,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0303_b001",
+    "next_chunk_id": "p0303_b003",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 12.42,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.12
+   }
+  },
+  {
+   "id": "p0303_b003",
+   "local_id": "b3",
+   "type": "paragraph",
+   "reading_order": 3,
+   "bbox": {
+    "x": 0.1432,
+    "y": 0.6992,
+    "w": 0.6109,
+    "h": 0.0169
+   },
+   "text": "Pour comprendre l'ampleur du problème de santé aux États-Unis",
+   "words": [
+    {
+     "id": "p0303_b003_w001",
+     "text": "Pour",
+     "bbox": {
+      "x": 0.1432,
+      "y": 0.6992,
+      "w": 0.0447,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 4
+    },
+    {
+     "id": "p0303_b003_w002",
+     "text": "comprendre",
+     "bbox": {
+      "x": 0.1938,
+      "y": 0.6992,
+      "w": 0.1129,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 5,
+     "char_end": 15
+    },
+    {
+     "id": "p0303_b003_w003",
+     "text": "l'ampleur",
+     "bbox": {
+      "x": 0.3126,
+      "y": 0.6992,
+      "w": 0.0883,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 16,
+     "char_end": 25
+    },
+    {
+     "id": "p0303_b003_w004",
+     "text": "du",
+     "bbox": {
+      "x": 0.4068,
+      "y": 0.6992,
+      "w": 0.0237,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 26,
+     "char_end": 28
+    },
+    {
+     "id": "p0303_b003_w005",
+     "text": "problème",
+     "bbox": {
+      "x": 0.4364,
+      "y": 0.6992,
+      "w": 0.0893,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 29,
+     "char_end": 37
+    },
+    {
+     "id": "p0303_b003_w006",
+     "text": "de",
+     "bbox": {
+      "x": 0.5316,
+      "y": 0.6992,
+      "w": 0.0223,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 38,
+     "char_end": 40
+    },
+    {
+     "id": "p0303_b003_w007",
+     "text": "santé",
+     "bbox": {
+      "x": 0.5598,
+      "y": 0.6992,
+      "w": 0.0486,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 41,
+     "char_end": 46
+    },
+    {
+     "id": "p0303_b003_w008",
+     "text": "aux",
+     "bbox": {
+      "x": 0.6143,
+      "y": 0.6992,
+      "w": 0.0341,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 47,
+     "char_end": 50
+    },
+    {
+     "id": "p0303_b003_w009",
+     "text": "États-Unis",
+     "bbox": {
+      "x": 0.6543,
+      "y": 0.6992,
+      "w": 0.0998,
+      "h": 0.0169
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 51,
+     "char_end": 61
+    }
+   ],
+   "lang": "fr",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b003",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b003",
+    "chunk_number_in_lrm": 3,
+    "parent_chunk_id": "",
+    "parent_chunk_number_in_lrm": null,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 0,
+    "prev_chunk_id": "p0303_b002",
+    "next_chunk_id": "p0303_b004",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 9.37,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 0.97
+   }
+  },
+  {
+   "id": "p0303_b004",
+   "local_id": "b4",
+   "type": "footnote",
+   "reading_order": 4,
+   "bbox": {
+    "x": 0.1196,
+    "y": 0.7773,
+    "w": 0.7266,
+    "h": 0.1015
+   },
+   "text": "1. Welsh JA, Sharma AJ, et al. (2011). Consumption of Added Sugars Is Decreasing in the United States. American Journal of Clinical Nutrition, 94(3), 726–34. http://www.ncbi.nlm.nih.gov/ pubmed/21753067. Consulté le 22 septembre 2017.",
+   "words": [
+    {
+     "id": "p0303_b004_w001",
+     "text": "1.",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.7773,
+      "w": 0.021,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 2
+    },
+    {
+     "id": "p0303_b004_w002",
+     "text": "Welsh",
+     "bbox": {
+      "x": 0.1501,
+      "y": 0.7773,
+      "w": 0.0694,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 3,
+     "char_end": 8
+    },
+    {
+     "id": "p0303_b004_w003",
+     "text": "JA,",
+     "bbox": {
+      "x": 0.229,
+      "y": 0.7773,
+      "w": 0.0382,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 9,
+     "char_end": 12
+    },
+    {
+     "id": "p0303_b004_w004",
+     "text": "Sharma",
+     "bbox": {
+      "x": 0.2766,
+      "y": 0.7773,
+      "w": 0.0856,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 13,
+     "char_end": 19
+    },
+    {
+     "id": "p0303_b004_w005",
+     "text": "AJ,",
+     "bbox": {
+      "x": 0.3717,
+      "y": 0.7773,
+      "w": 0.0382,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 20,
+     "char_end": 23
+    },
+    {
+     "id": "p0303_b004_w006",
+     "text": "et",
+     "bbox": {
+      "x": 0.4196,
+      "y": 0.7773,
+      "w": 0.0202,
+      "h": 0.0201
+     },
+     "lang": "la",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 24,
+     "char_end": 26
+    },
+    {
+     "id": "p0303_b004_w007",
+     "text": "al.",
+     "bbox": {
+      "x": 0.4493,
+      "y": 0.7773,
+      "w": 0.0288,
+      "h": 0.0201
+     },
+     "lang": "la",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 27,
+     "char_end": 30
+    },
+    {
+     "id": "p0303_b004_w008",
+     "text": "(2011).",
+     "bbox": {
+      "x": 0.4877,
+      "y": 0.7773,
+      "w": 0.0808,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 31,
+     "char_end": 38
+    },
+    {
+     "id": "p0303_b004_w009",
+     "text": "Consumption",
+     "bbox": {
+      "x": 0.5779,
+      "y": 0.7773,
+      "w": 0.1511,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 39,
+     "char_end": 50
+    },
+    {
+     "id": "p0303_b004_w010",
+     "text": "of",
+     "bbox": {
+      "x": 0.7385,
+      "y": 0.7773,
+      "w": 0.0234,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 51,
+     "char_end": 53
+    },
+    {
+     "id": "p0303_b004_w011",
+     "text": "Added",
+     "bbox": {
+      "x": 0.7714,
+      "y": 0.7773,
+      "w": 0.0748,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 54,
+     "char_end": 59
+    },
+    {
+     "id": "p0303_b004_w012",
+     "text": "Sugars",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8045,
+      "w": 0.0763,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 60,
+     "char_end": 66
+    },
+    {
+     "id": "p0303_b004_w013",
+     "text": "Is",
+     "bbox": {
+      "x": 0.2049,
+      "y": 0.8045,
+      "w": 0.0203,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 67,
+     "char_end": 69
+    },
+    {
+     "id": "p0303_b004_w014",
+     "text": "Decreasing",
+     "bbox": {
+      "x": 0.2342,
+      "y": 0.8045,
+      "w": 0.1261,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 70,
+     "char_end": 80
+    },
+    {
+     "id": "p0303_b004_w015",
+     "text": "in",
+     "bbox": {
+      "x": 0.3692,
+      "y": 0.8045,
+      "w": 0.0218,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 81,
+     "char_end": 83
+    },
+    {
+     "id": "p0303_b004_w016",
+     "text": "the",
+     "bbox": {
+      "x": 0.4,
+      "y": 0.8045,
+      "w": 0.0342,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 84,
+     "char_end": 87
+    },
+    {
+     "id": "p0303_b004_w017",
+     "text": "United",
+     "bbox": {
+      "x": 0.4432,
+      "y": 0.8045,
+      "w": 0.0763,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 88,
+     "char_end": 94
+    },
+    {
+     "id": "p0303_b004_w018",
+     "text": "States.",
+     "bbox": {
+      "x": 0.5284,
+      "y": 0.8045,
+      "w": 0.0739,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 95,
+     "char_end": 102
+    },
+    {
+     "id": "p0303_b004_w019",
+     "text": "American",
+     "bbox": {
+      "x": 0.6113,
+      "y": 0.8045,
+      "w": 0.1105,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 103,
+     "char_end": 111
+    },
+    {
+     "id": "p0303_b004_w020",
+     "text": "Journal",
+     "bbox": {
+      "x": 0.7308,
+      "y": 0.8045,
+      "w": 0.0825,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 112,
+     "char_end": 119
+    },
+    {
+     "id": "p0303_b004_w021",
+     "text": "of",
+     "bbox": {
+      "x": 0.8223,
+      "y": 0.8045,
+      "w": 0.0234,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 120,
+     "char_end": 122
+    },
+    {
+     "id": "p0303_b004_w022",
+     "text": "Clinical",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8316,
+      "w": 0.0887,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 123,
+     "char_end": 131
+    },
+    {
+     "id": "p0303_b004_w023",
+     "text": "Nutrition,",
+     "bbox": {
+      "x": 0.2176,
+      "y": 0.8316,
+      "w": 0.1098,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 132,
+     "char_end": 142
+    },
+    {
+     "id": "p0303_b004_w024",
+     "text": "94(3),",
+     "bbox": {
+      "x": 0.3367,
+      "y": 0.8316,
+      "w": 0.0678,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 143,
+     "char_end": 149
+    },
+    {
+     "id": "p0303_b004_w025",
+     "text": "726–34.",
+     "bbox": {
+      "x": 0.4138,
+      "y": 0.8316,
+      "w": 0.0912,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 150,
+     "char_end": 157
+    },
+    {
+     "id": "p0303_b004_w026",
+     "text": "http://www.ncbi.nlm.nih.gov/",
+     "bbox": {
+      "x": 0.5143,
+      "y": 0.8316,
+      "w": 0.3314,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 158,
+     "char_end": 186
+    },
+    {
+     "id": "p0303_b004_w027",
+     "text": "pubmed/21753067.",
+     "bbox": {
+      "x": 0.1196,
+      "y": 0.8587,
+      "w": 0.2173,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 187,
+     "char_end": 203
+    },
+    {
+     "id": "p0303_b004_w028",
+     "text": "Consulté",
+     "bbox": {
+      "x": 0.344,
+      "y": 0.8587,
+      "w": 0.0997,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 204,
+     "char_end": 212
+    },
+    {
+     "id": "p0303_b004_w029",
+     "text": "le",
+     "bbox": {
+      "x": 0.4506,
+      "y": 0.8587,
+      "w": 0.0202,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 213,
+     "char_end": 215
+    },
+    {
+     "id": "p0303_b004_w030",
+     "text": "22",
+     "bbox": {
+      "x": 0.4778,
+      "y": 0.8587,
+      "w": 0.0281,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 216,
+     "char_end": 218
+    },
+    {
+     "id": "p0303_b004_w031",
+     "text": "septembre",
+     "bbox": {
+      "x": 0.5129,
+      "y": 0.8587,
+      "w": 0.1152,
+      "h": 0.0201
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 219,
+     "char_end": 228
+    },
+    {
+     "id": "p0303_b004_w032",
+     "text": "2017.",
+     "bbox": {
+      "x": 0.6351,
+      "y": 0.8587,
+      "w": 0.0631,
+      "h": 0.0201
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 229,
+     "char_end": 234
+    }
+   ],
+   "lang": "fr",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b004",
+    "translated": true
+   },
+   "sutra_ref": "",
+   "footnote_marker": "1",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "p0303_b001",
+   "lrm": {
+    "chunk_id": "p0303_b004",
+    "chunk_number_in_lrm": 4,
+    "parent_chunk_id": "p0303_b001",
+    "parent_chunk_number_in_lrm": 1,
+    "child_chunk_ids": [],
+    "child_chunk_numbers_in_lrm": [],
+    "level": 1,
+    "prev_chunk_id": "p0303_b003",
+    "next_chunk_id": "p0304_b001",
+    "continues_from_chunk_id": "",
+    "sutra_ref": "",
+    "section_path": [],
+    "is_translation_unit": true,
+    "keep_original": {
+     "sa": true,
+     "la": true,
+     "proper_names": true
+    }
+   },
+   "layout": {
+    "font_pt": 11.11,
+    "scale": 1.0,
+    "fits": true
+   },
+   "qa": {
+    "marks_ok": true,
+    "sup_ok": true,
+    "len_ratio": 1.03
+   }
+  },
+  {
+   "id": "p0303_b005",
+   "local_id": "b5",
+   "type": "running_footer",
+   "reading_order": 5,
+   "bbox": {
+    "x": 0.2079,
+    "y": 0.9226,
+    "w": 0.5418,
+    "h": 0.0141
+   },
+   "text": "Health Consequences and Benefits of High-Carbohydrate Diets | 261",
+   "words": [
+    {
+     "id": "p0303_b005_w001",
+     "text": "Health",
+     "bbox": {
+      "x": 0.2079,
+      "y": 0.9226,
+      "w": 0.0523,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 0,
+     "char_end": 6
+    },
+    {
+     "id": "p0303_b005_w002",
+     "text": "Consequences",
+     "bbox": {
+      "x": 0.2651,
+      "y": 0.9226,
+      "w": 0.1124,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 7,
+     "char_end": 19
+    },
+    {
+     "id": "p0303_b005_w003",
+     "text": "and",
+     "bbox": {
+      "x": 0.3824,
+      "y": 0.9226,
+      "w": 0.0284,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 20,
+     "char_end": 23
+    },
+    {
+     "id": "p0303_b005_w004",
+     "text": "Benefits",
+     "bbox": {
+      "x": 0.4157,
+      "y": 0.9226,
+      "w": 0.0654,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 24,
+     "char_end": 32
+    },
+    {
+     "id": "p0303_b005_w005",
+     "text": "of",
+     "bbox": {
+      "x": 0.486,
+      "y": 0.9226,
+      "w": 0.0164,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 33,
+     "char_end": 35
+    },
+    {
+     "id": "p0303_b005_w006",
+     "text": "High-Carbohydrate",
+     "bbox": {
+      "x": 0.5073,
+      "y": 0.9226,
+      "w": 0.1527,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 36,
+     "char_end": 53
+    },
+    {
+     "id": "p0303_b005_w007",
+     "text": "Diets",
+     "bbox": {
+      "x": 0.665,
+      "y": 0.9226,
+      "w": 0.0414,
+      "h": 0.0141
+     },
+     "lang": "fr",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 54,
+     "char_end": 59
+    },
+    {
+     "id": "p0303_b005_w008",
+     "text": "|",
+     "bbox": {
+      "x": 0.7113,
+      "y": 0.9226,
+      "w": 0.0039,
+      "h": 0.0141
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 60,
+     "char_end": 61
+    },
+    {
+     "id": "p0303_b005_w009",
+     "text": "261",
+     "bbox": {
+      "x": 0.7202,
+      "y": 0.9226,
+      "w": 0.0295,
+      "h": 0.0141
+     },
+     "lang": "other",
+     "style": "normal",
+     "bbox_source": "pdf_text_layer",
+     "char_start": 62,
+     "char_end": 65
+    }
+   ],
+   "lang": "fr",
+   "source": {
+    "lang": "en",
+    "chunk_id": "p0303_b005",
+    "translated": false
+   },
+   "sutra_ref": "",
+   "footnote_marker": "",
+   "section_path": [],
+   "continues_from_previous_page": false,
+   "continues_on_next_page": false,
+   "parent_block_id": "",
+   "lrm": {
+    "chunk_id": "p0303_b005",
+    "chunk_number_in_lrm": null,
+    "is_translation_unit": false
+   },
+   "layout": {
+    "font_pt": 8.37,
+    "scale": 0.93,
+    "fits": true
+   },
+   "qa": {}
+  }
+ ]
+}

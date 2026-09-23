@@ -1,0 +1,90 @@
+{
+ "lang": "en",
+ "page": 304,
+ "model": "gemini-3.5-flash",
+ "prompt_version": "v1",
+ "texts": {
+  "p0304_b002": "[[Te khalu nava yogino mṛdu-madhya-adhimātra-upāyā]] <sup>624</sup> [[bhavanti I Tad yathā-- mṛdu-upāyo madhya-upāyo'dhimātra-upāya iti I Tatra mṛdu-upāyo'pi]] <sup>625</sup> [[tri-vidhaḥ-- mṛdu-saṃvego madhya-saṃvegas tīvra-saṃvega iti I Tathā madhya-upāyas tathā adhimātra-upāya iti I]] These yogis are of nine kinds according to whether their means, i.e., their method, are mild, moderate, or extreme; that is to say, there are [[mṛdūpāya]] [yogis] “(adherents) of the mild method,” [[madhyopāya]] [yogis] “(adherents) of the moderate method,” and [[adhimātropāya]] [yogis] “(adherents) of the extreme method.” And the mild method is also of three kinds according to whether the [yogi’s] drive is mild, moderate, or intense. And this also holds true for the moderate method and the extreme method.",
+  "p0304_b003": "[[Tatra_adhimātra-upāyānām]] <sup>626</sup> Among these [different varieties of yogis], for the adherents of the extreme method, that is to say,",
+  "p0304_b004": "[[तीव्रसंवेगानामासन्नः । २१ । Tīvrasaṃvegānāmāsannaḥ]] /I.21/ [[Tīvra-saṃvegānām āsannaḥ]] /I.21/",
+  "p0304_b005": "“For those whose drive is intense, [[[samādhi]]] is near.” <sup>627</sup>",
+  "p0304_b006": "[[Samādhi-lābhaḥ samādhi-phalaṃ ca bhavati]] <sup>628</sup> [[iti]] /21/",
+  "p0304_b007": "The attainment of mental enstasis and the fruit of this enstasis are [near for those whose drive is intense]. /21/",
+  "p0304_b008": "<sup>624</sup> MAAS 2006a: 32 reads [[amī]] instead of [[mṛdu...upāyā.]]",
+  "p0304_b009": "<sup>625</sup> MAAS 2006a: 36 [[om. api.]]",
+  "p0304_b010": "<sup>626</sup> [[Vijñāna Bhikṣu]] considers that the word [[adhimātropāyānām]] is part of the [[sūtra]], whereas, before him, [[Vācaspati]] rejected this reading.",
+  "p0304_b011": "<sup>627</sup> BRONKHORST 1985 uses these three [[sūtra]] to support the hypothesis of a [[Patañjali]] who was both the [[sūtrakāra]] and the [[bhāṣyakāra.]]",
+  "p0304_b012": "<sup>628</sup> MAAS 2006a [[om. bhavati.]]"
+ },
+ "source_marked": {
+  "p0304_b002": "[[Te khalu nava yogino mṛdu-madhya-adhimātra-upāyā]] <sup>624</sup> [[bhavanti I Tad yathā-- mṛdu-upāyo madhya-upāyo'dhimātra-upāya iti I Tatra mṛdu-upāyo'pi]] <sup>625</sup> [[tri-vidhaḥ-- mṛdu-saṃvego madhya-saṃvegas tīvra-saṃvega iti I Tathā madhya-upāyas tathā adhimātra-upāya iti I]] Ces yogin sont de neuf sortes selon que les moyens, c.-à-d. la méthode, sont doux, modérés ou extrêmes ; c'est-à-dire qu'il y a [les yogin] [[mṛdūpāya]] '(partisans) de la méthode douce', les [[madhyopāya]] '(partisans) de la méthode modérée' et les [[adhimātropāya]] '(partisans) de la méthode extrême'. Et la méthode douce est aussi de trois sortes selon que l'élan [du yogin] est doux, modéré ou intense. Et cela vaut aussi pour la méthode modérée et la méthode extrême.",
+  "p0304_b003": "[[Tatra_adhimātra-upāyānām]] <sup>626</sup> Parmi ces [différentes variétés de yogin], pour les partisans de la méthode extrême, c'est-à-dire",
+  "p0304_b004": "[[तीव्रसंवेगानामासन्नः । २१ । Tīvrasaṃvegānāmāsannaḥ]] /I.21/ [[Tīvra-saṃvegānām āsannaḥ]] /I.21/",
+  "p0304_b005": "« Pour ceux dont l'élan est intense, le [[[samādhi]]] est proche. » <sup>627</sup>",
+  "p0304_b006": "[[Samādhi-lābhaḥ samādhi-phalaṃ ca bhavati]] <sup>628</sup> [[iti]] /21/",
+  "p0304_b007": "L'obtention de l'enstase mentale et le fruit de cette enstase est [proche pour ceux l'élan est intense]. /21/",
+  "p0304_b008": "<sup>624</sup> MAAS 2006a : 32 lit [[amī]] au lieu de [[mṛdu...upāyā.]]",
+  "p0304_b009": "<sup>625</sup> MAAS 2006a : 36 [[om. api.]]",
+  "p0304_b010": "<sup>626</sup> [[Vijñāna Bhikṣu]] considère que le mot [[adhimātropāyānām]] fait partie du [[sūtra]] tandis que, avant lui, [[Vācaspati]] refusait cette lecture.",
+  "p0304_b011": "<sup>627</sup> BRONKHORST 1985 se sert de ces trois [[sūtra]] pour alimenter l'hypothèse d'un [[Patañjali]] qui serait à la fois le [[sūtrakāra]] et le [[bhāṣyakāra.]]",
+  "p0304_b012": "<sup>628</sup> MAAS 2006a [[om. bhavati.]]"
+ },
+ "missing": [],
+ "qa": {
+  "p0304_b002": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.12
+  },
+  "p0304_b003": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.14
+  },
+  "p0304_b004": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.09
+  },
+  "p0304_b005": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.09
+  },
+  "p0304_b006": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.36
+  },
+  "p0304_b007": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.05
+  },
+  "p0304_b008": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.38
+  },
+  "p0304_b009": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.5
+  },
+  "p0304_b010": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.21
+  },
+  "p0304_b011": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.12
+  },
+  "p0304_b012": {
+   "marks_ok": true,
+   "sup_ok": true,
+   "len_ratio": 1.56
+  }
+ }
+}

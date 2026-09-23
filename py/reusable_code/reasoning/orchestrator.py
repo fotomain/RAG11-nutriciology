@@ -24,7 +24,7 @@ from ..config import (
     REASONING_MODEL,
     REASONING_SELF_CHECK,
 )
-from ..generation import ask_question
+from ..ask.generation import ask_question
 from ..retry import with_retry
 from .prompts import SELF_CHECK_SYSTEM_PROMPT
 
