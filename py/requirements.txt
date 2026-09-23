@@ -3,14 +3,14 @@
 #   pip install -r requirements.txt
 
 gdown>=6.1     # lists a public Google Drive folder and downloads its PDFs
-               # (py/lrm/data/download.py)
+               # (py/lrm/eda1_extract/download.py)
 pymupdf        # NOTE: package name is "pymupdf" but it's imported as `import fitz`
-               # -- PDF text/page rendering, used by py/lrm/data/recognize.py,
+               # -- PDF text/page rendering, used by py/lrm/eda1_extract/recognize.py,
                # translate.py, download.py
 tiktoken       # token-accurate chunk sizing (cl100k_base encoding), used when
-               # a page's text needs splitting into more than one lrm_chunks row
+               # a page's text needs splitting into more than one lrm_child_chunk_table row
 
-supabase       # Supabase Python client (lrm_sources / lrm_pages / lrm_chunks)
+supabase       # Supabase Python client (lrm_source_table / lrm_page_table / lrm_child_chunk_table)
 voyageai       # Voyage AI embeddings
 anthropic      # Claude API (OCR/translation via recognize_aws.py, generation)
 python-dotenv  # loads secrets from .env
@@ -21,7 +21,6 @@ ipywidgets     # silences "TqdmWarning: IProgress not found" from tqdm.auto,
 
 fastapi
 uvicorn
-psycopg[binary]
-google-genai>=1.0   # py/lrm/data/recognize_google.py: OCR_PROVIDER_NAME=ocr_with_google (default)
+google-genai>=1.0   # py/lrm/eda1_extract/recognize_google.py: OCR_PROVIDER_NAME=ocr_with_google (default)
 tenacity
-boto3          # py/lrm/data/recognize_aws.py: OCR_PROVIDER_NAME=ocr_with_aws (Claude via AWS Bedrock)
+boto3          # py/lrm/eda1_extract/recognize_aws.py: OCR_PROVIDER_NAME=ocr_with_aws (Claude via AWS Bedrock)

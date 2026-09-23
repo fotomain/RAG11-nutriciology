@@ -4,7 +4,7 @@ from typing import Optional
 
 from ..clients import Clients, get_clients
 
-# source_key is a slug of the PDF filename (see py/lrm/data/download.py's detect()/slug()), not the
+# source_key is a slug of the PDF filename (see py/lrm/eda1_extract/download.py's detect()/slug()), not the
 # filename itself -- lrm_source_table has no filename column, only source_key/language/title.
 BOOK_SOURCE_KEY_LIKE = "%yogasutra%"
 
@@ -35,8 +35,9 @@ def find_book(clients: Optional[Clients] = None) -> BookStatus:
             .ilike("source_key", BOOK_SOURCE_KEY_LIKE).execute().data)
     if not rows:
         raise RuntimeError(
-            "The Yoga-Sutra book is not in the database. Run the LRM pipeline first: "
-            "py/run/run1_lrm_eda.command, then run2_lrm_upload.command --init, then run2b_lrm_chunks.command."
+            "The Yoga-Sutra book is not in the database. First time only: paste sql/create_lrm_tables.sql "
+            "into the Supabase SQL Editor and run it. Then run the LRM pipeline: "
+            "py/run/run1_lrm_eda.command, then run2_lrm_upload.command, then run2b_lrm_chunks.command."
         )
     row = rows[0]
     guid = row["rowGUID"]
@@ -60,5 +61,5 @@ def readiness_message(status: BookStatus) -> str:
         "'the excerpts do not contain ...'. To load it:\n"
         "  1. in .env set MAX_NUMBER_OF_PAGES_TO_USE=NONE (and restart the notebook kernel)\n"
         "  2. re-run py/run/run1_lrm_eda.command\n"
-        "  3. run2_lrm_upload.command --init, then run2b_lrm_chunks.command\n"
+        "  3. run2_lrm_upload.command, then run2b_lrm_chunks.command\n"
     )

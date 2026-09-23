@@ -2,7 +2,7 @@
 """LRM stage 3.1a: scholarly PDF -> static per-page JSON (page -> block -> word bbox) + page PNGs via an LLM vision call.
 Adapted from YS1's ys_pipeline.py (word boxes are snapped to the PDF text layer when it matches).
 
-    python lrm/data/recognize.py --pdf input/fr/book.pdf --lang fr [--start 1 --end 100]
+    python lrm/eda1_extract/recognize.py --pdf input/fr/book.pdf --lang fr [--start 1 --end 100]
 
 The page limit defaults to MAX_NUMBER_OF_PAGES_TO_USE from .env (a number, or NONE for the whole book).
 Output: output/<lang>/<source_key>/json/page_0001.json, index.json and output/<lang>/<source_key>/pages/page_0001.png
@@ -24,7 +24,7 @@ from pathlib import Path
 import fitz  # pymupdf
 from dotenv import load_dotenv
 
-STAGE = Path(__file__).resolve().parent  # py/lrm/data/ (input/, output/, languages.json)
+STAGE = Path(__file__).resolve().parent  # py/lrm/eda1_extract/ (input/, output/, languages.json)
 ROOT = STAGE.parent.parent  # py/ (.env)
 load_dotenv(ROOT / ".env")
 LANGS = json.loads((STAGE / "languages.json").read_text(encoding="utf-8"))

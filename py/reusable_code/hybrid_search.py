@@ -1,9 +1,8 @@
 """Hybrid (dense + keyword) search for ``lrm_child_chunk_table`` -- the
 retrieval-method counterpart to ``retrieval.py``'s plain vector search (see
 ``retrieval.retrieve_chunks``), living in its own module the same way
-row-level CRUD for the parent/child chunk tables lives in
-``crud_chunks_parent.py``/``crud_chunks_child.py`` instead of being folded
-into ``retrieval.py`` itself.
+reranking lives in ``rerunk_code.py`` instead of being folded into
+``retrieval.py`` itself.
 
 Two independent search methods over the same table, then one merge step:
 

@@ -6,8 +6,8 @@ lrm_page_table is already the single source of truth once upload.py has run.
     python build_chunks.py [--source-key KEY] [--language LANG]
 
 Usage: run after upload.py (see py/run/run2_lrm_upload.command). Needs
-sql/create_lrm_tables.sql's lrm_child_chunk_table to already exist (--init on
-upload.py creates it).
+sql/create_lrm_tables.sql's lrm_child_chunk_table to already exist -- paste that file into
+the Supabase SQL Editor once, first time only.
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from pathlib import Path
 
 import tiktoken
 
-ROOT = Path(__file__).resolve().parent  # py/lrm/chunks/
+ROOT = Path(__file__).resolve().parent  # py/lrm/eda2_transform/
 RAG = ROOT.parent.parent  # py/
 sys.path.insert(0, str(RAG))
 from reusable_code.clients import EMBEDDING_MODEL, make_supabase_client, make_voyage_client  # noqa: E402

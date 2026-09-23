@@ -64,9 +64,8 @@ cp py/.env.sample py/.env
 ```
 
 Fill in `PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`/`PUBLIC_SUPABASE_ANON_KEY`, `VOYAGE_API_KEY`,
-`ANTHROPIC_API_KEY`, `LRM_SOURCES_FOLDER` (a Google Drive folder of source PDFs), `LRM_DB_URL` (direct
-Postgres connection, for `--init`/`--reset`), and `OCR_PROVIDER_NAME` (`ocr_with_google` — default, needs
-`GOOGLE_AI_API_KEY` — or `ocr_with_aws`, needs AWS Bedrock credentials).
+`ANTHROPIC_API_KEY`, `LRM_SOURCES_FOLDER` (a Google Drive folder of source PDFs), and `OCR_PROVIDER_NAME`
+(`ocr_with_google` — default, needs `GOOGLE_AI_API_KEY` — or `ocr_with_aws`, needs AWS Bedrock credentials).
 
 > [!IMPORTANT]
 > Never commit your `.env` file to version control. It is protected and excluded by `.gitignore`.
@@ -75,8 +74,9 @@ Postgres connection, for `--init`/`--reset`), and `OCR_PROVIDER_NAME` (`ocr_with
 
 ## Step 3: Initialize the Database in Supabase
 
-Paste [`sql/create_lrm_tables.sql`](sql/create_lrm_tables.sql) into the Supabase SQL Editor and run it (or
-pass `--init` to `run2_lrm_upload.command`, which does this for you). It creates:
+Paste [`sql/create_lrm_tables.sql`](sql/create_lrm_tables.sql) into the Supabase SQL Editor and run it.
+First time only — the upload/chunk scripts talk to Supabase over its REST API (`PUBLIC_SUPABASE_URL` +
+`SUPABASE_SERVICE_ROLE_KEY`), which can't run schema DDL itself, so this one step stays manual. It creates:
 
 - `lrm_language_table` — reference table of supported language codes (fr/en/ru seeded; add more by inserting a row)
 - `lrm_source_table` — one row per (book, language)
@@ -96,10 +96,11 @@ pass `--init` to `run2_lrm_upload.command`, which does this for you). It creates
 
 ```bash
 ./py/run/run1_lrm_eda.command        # 3.1 download -> recognise -> translate every source PDF
-./py/run/run2_lrm_upload.command     # 3.3 upload lrm_source_table/lrm_page_table to Supabase (--init to create tables first)
+./py/run/run2_lrm_upload.command     # 3.3 upload lrm_source_table/lrm_page_table to Supabase
 ./py/run/run2b_lrm_chunks.command    # 3.4 chunk + embed into lrm_child_chunk_table
-./py/run/run3_lrm_fastapi.command    # serve the API on :8000
+./py/run/run3_lrm_fastapi.command    # serve the API on :8000 (GET /sources, /page, /files, POST /ask)
 ./py/run/run4_lrm_frontend.command   # serve the Expo web viewer on :8081
+./py/run/ask_lrm.command "question"  # ask a question from the terminal (see Step 5)
 ```
 
 Or run everything in sequence with `./py/run/run9_lrm_all.command`. Every stage is idempotent and resumable.
@@ -136,10 +137,30 @@ per call.
 > Notebooks 2–6 are being ported one at a time from the same techniques' RAG11 originals; #1, #7 and #7_RU
 > are done and use real Yoga-Sūtra book content.
 
+### Multi-step reasoning (optional, opt-in)
+[`py/reusable_code/reasoning/`](py/reusable_code/reasoning/) sits on top of `ask_question()`: draft an
+answer, self-check its claims against the excerpts it actually retrieved (an extended-thinking Claude
+call), and — if the check finds unsupported claims — retrieve again with a refined query and redraft, up
+to `REASONING_MAX_STEPS` times. Off by default (`USE_REASONING=False`, see `.env.sample`) since it's
+slower/costlier than one `ask_question()` call.
+
+```python
+from reusable_code import ask_with_reasoning
+
+result = ask_with_reasoning("What does the Yoga-Sutra say about ahimsa?")
+print(result["reasoning_verified"], result["reasoning_steps"])
+```
+
+Three ways in: `python py/lrm/reasoning/ask.py "question" [--source-key KEY] [--reasoning]` (or
+`./py/run/ask_lrm.command "question"`) from the terminal; `POST /ask` on the API
+(`{"question": ..., "source_key": ..., "use_reasoning": true}`); or `ask_with_reasoning()` directly, as
+above.
+
 ### Running the test suite
 ```bash
 python3 py/tests/test_reusable_code.py   # fully faked Supabase/Voyage/Anthropic clients -- no network needed
 python3 py/tests/test_ys.py
+python3 py/tests/test_reasoning.py
 ```
 
 ---
@@ -163,7 +184,7 @@ Or from Python: `from reusable_code import save_to_github; save_to_github("messa
 ## Repo layout
 
 ```
-py/           Python backend — venv, requirements, reusable_code/, lrm/{data,upload,chunks}/, api/, ipynb/, run/, tests/, documentation/
+py/           Python backend — venv, requirements, reusable_code/ (incl. reasoning/), lrm/{eda1_extract,eda2_transform,eda3_load,reasoning}/, api/{sources,reasoning}/, ipynb/, run/, tests/, documentation/
 rn/frontend/  Expo (React Native) page-image viewer, web + native
 sql/          Database schema (create/delete), shared reference point for the repo
 ```

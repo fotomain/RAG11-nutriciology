@@ -2,7 +2,7 @@
 """LRM stage 3.1 driver: for every PDF in input/<lang>/, recognise it (Gemini, word boxes), then translate it into the
 languages that have no PDF of their own for that source key. Idempotent: existing pages are skipped.
 
-    python lrm/data/run_all.py [--start N --end M] [--force]
+    python lrm/eda1_extract/run_all.py [--start N --end M] [--force]
 The page limit comes from MAX_NUMBER_OF_PAGES_TO_USE in .env (default 100, NONE = whole book)."""
 import argparse
 import subprocess
@@ -30,7 +30,7 @@ def main() -> int:
         for pdf in sorted((HERE / "input" / lang).glob("*.pdf")):
             sources.setdefault(rc.slug(pdf.stem), {})[lang] = pdf
     if not sources:
-        print("No PDFs in lrm/data/input/<lang>/ (fr, en, ru). Put the downloaded Drive files there.")
+        print("No PDFs in lrm/eda1_extract/input/<lang>/ (fr, en, ru). Put the downloaded Drive files there.")
         return 1
 
     for key, pdfs in sources.items():

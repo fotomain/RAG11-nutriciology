@@ -1,8 +1,7 @@
 """Reranking + manual rank overrides for ``lrm_child_chunk_table`` --
 the retrieval-method counterpart to ``hybrid_search.py``, living in its own
-module the same way row-level CRUD for the parent/child chunk tables lives
-in ``crud_chunks_parent.py``/``crud_chunks_child.py`` instead of being
-folded into ``retrieval.py`` itself.
+module the same way hybrid search lives in ``hybrid_search.py`` instead of
+being folded into ``retrieval.py`` itself.
 
 Two functions, both operating on an already-retrieved list of rows (from
 ``retrieval.retrieve_chunks()`` and/or ``hybrid_search.hybrid_search()``):

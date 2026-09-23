@@ -133,7 +133,7 @@ class FakeSupabaseTableQuery:
             if not matches:
                 raise RuntimeError("no matching row (fake supabase)")
             return FakeSupabaseTableRow(matches[0])
-        # Plain (non-.single()) select -- e.g. crud_chunks_parent.read_parent_row()'s
+        # Plain (non-.single()) select -- e.g. retrieval.read_page_row()'s
         # `.select("*").eq("rowGUID", row_guid).execute()`, which expects
         # `resp.data` to be a *list* (possibly empty, not an error).
         return FakeSupabaseTableRow(matches)

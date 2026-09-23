@@ -5,7 +5,7 @@ Per target language and page: translate every block with Gemini (one call per pa
 the source layout, read exact word boxes back from that PDF's text layer, render the PNG. Block ids and chunk numbers are
 identical in every language.
 
-    python lrm/data/translate.py --source-key book --pdf input/fr/book.pdf --from fr --lang en ru [--start 1 --end 100]
+    python lrm/eda1_extract/translate.py --source-key book --pdf input/fr/book.pdf --from fr --lang en ru [--start 1 --end 100]
 
 Output per language: output/<lang>/<source_key>/{json,pages,pdf,cache}/
 """

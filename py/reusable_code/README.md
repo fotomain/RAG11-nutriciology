@@ -11,7 +11,7 @@ this repo can `import reusable_code` instead of re-defining the same
 | File | What's in it |
 | --- | --- |
 | `env.py` | `require_env`, `optional_env`, `optional_env_bool` — read `.env` with clear errors |
-| `config.py` | RAG technique feature flags read from `.env` at import time: `USE_HYBRID_SEARCH`, `USE_PARENT_CHUNK_EXPANSION`, `USE_MULTI_QUERY_QUESTION_SPLITTING`, `USE_HYPOTHETICAL_DOCUMENT_EMBEDDING` (each `True` if unset) — these are `ask_question()`'s defaults for the matching keyword |
+| `config.py` | RAG technique feature flags read from `.env` at import time: `USE_HYBRID_SEARCH`, `USE_PARENT_CHUNK_EXPANSION`, `USE_MULTI_QUERY_QUESTION_SPLITTING`, `USE_HYPOTHETICAL_DOCUMENT_EMBEDDING` (each `True` if unset) — these are `ask_question()`'s defaults for the matching keyword. Also `USE_REASONING`/`REASONING_MODEL`/`REASONING_MAX_STEPS`/`REASONING_MAX_THINKING_TOKENS`/`REASONING_SELF_CHECK` for `reasoning/` (see below; `USE_REASONING` defaults to `False`) |
 | `clients.py` | `init_clients()` / `get_clients()` — one Supabase + Voyage + Anthropic client per kernel, plus the model-id constants (`EMBEDDING_MODEL`, `RERANK_MODEL`, `GENERATION_MODEL`) |
 | `retry.py` | `with_retry()` — the exponential-backoff wrapper every notebook already had a copy of |
 | `retrieval.py` | `embed_query`, `retrieve_chunks`, `page_numbers_for_chunk` |
@@ -21,14 +21,12 @@ this repo can `import reusable_code` instead of re-defining the same
 | `hypothetical_document_embedding.py` | HyDE retrieval: **`generate_hypothetical_document`**, `embed_hypothetical_document`, **`retrieve_chunks_hyde`** |
 | `multi_query_question_splitting.py` | Multi-query / question splitting: **`split_into_subquestions`**, **`retrieve_chunks_multi_query`** |
 | `parent_chunk_expansion.py` | Small-to-big context expansion: **`expand_to_parent_chunks`**, `build_expanded_context_block`, `page_numbers_for_expanded_chunk` |
-| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, `expand_to_parents`, plus `filter_owner` to search a single source, `system_prompt` to replace the nutrition prompt, `retrieval_query` to search with different text than the question shown to the model, and `answer_language` to force the answer's language) |
-| `crud_chunks_parent.py` | Row-level CRUD for `lrm_page_table`: `create_parent_payload`/`create_parent_row`/`create_parent_rows`, `read_parent_row`/`read_parent_rows_by_owner`/`read_all_parent_rows`, `update_parent_rowjson`, `delete_parent_row`/`delete_parent_rows_by_owner` |
-| `crud_chunks_child.py` | Row-level CRUD for `lrm_child_chunk_table`: `create_child_payload`/`create_child_row`/`create_child_rows`, `read_child_row`/`read_child_rows_by_parent`/`read_child_rows_by_owner`/`read_all_child_rows`, `update_child_rowjson`/`update_child_embedding`, `delete_child_row`/`delete_child_rows_by_parent`/`delete_child_rows_by_owner` |
+| `generation.py` | `build_context_block`, `extract_short_answer`, `grounding_words`, **`ask_question`** (now with `use_hybrid`, `use_hyde`, `use_multi_query`, `use_rerank`, `expand_to_parents`, plus `filter_owner` to search a single source, `system_prompt` to replace the nutrition prompt, `retrieval_query` to search with different text than the question shown to the model, and `answer_language` to force the answer's language; returns `chunks`/`context_block` alongside the answer, for a caller that needs to re-check or re-display exactly what Claude was shown) |
+| `reasoning/` | Multi-step reasoning on top of `ask_question()`: **`ask_with_reasoning`** — draft, self-check the draft's claims against its own retrieved excerpts (extended thinking), retrieve again with a refined query and redraft if unsupported, up to `REASONING_MAX_STEPS` times. Off by default (`USE_REASONING`); see `reasoning/orchestrator.py` |
 | `devanagari.py` | `romanize_devanagari`, `contains_devanagari` — Devanagari to IAST, so a question typed in Devanagari can match IAST-transliterated chunks (used by `stage2_ask_examples7_ys.ipynb`) |
 | `language.py` | Speaking language: `prepare_question()` (one Claude call: detect language, translate, rewrite jokes/slang/emoji into a clean search query in the corpus language; falls back to the original question), `answer_language_directive()`, `language_name()` |
 | `display.py` | Notebook Question/Answer cards: `show_qa()`, `show_summary()`, `answer_html()`, `format_pages()` |
 | `ys/` | Everything behind the Yoga-Sūtra notebooks: `YogaSutraQA(speaking_language)` (`ask()`, `ask_all()`, `compare_retrieval()`), `find_book()` / `readiness_message()`, `YS_SYSTEM_PROMPT` |
-| `stage1/` | The whole of stage 1 as code: `extract_chunk.py` (1.1), `load.py` (1.2), `verify.py` (1.9), `common.py` (paths, local loaders, row builders shared by 1.2 and 1.9), `pipeline.py` + `__main__.py` (`python -m reusable_code.stage1`, wrapped by `run_stage1_all.command`) |
 | `git_sync.py` | `save_to_github` — wraps `save_to_github.command` |
 
 ## Using it from a notebook
@@ -108,55 +106,13 @@ Everything else lives in the package: `book.py` (find the book, readiness check)
 hint), `qa.py` (`YogaSutraQA`). Card labels follow `speaking_language` (`display.UI`: English and Russian so far; add
 a dict entry for another language).
 
-## Stage 1.1 page window (`START_PAGE_NUMBER` / `MAX_NUMBER_OF_PAGES_TO_USE`)
+## Stage 3.1 page window (`--start`/`--end` / `MAX_NUMBER_OF_PAGES_TO_USE`)
 
-Read from `.env` by `env.optional_env_int()` / `env.optional_env_limit()`: `MAX_NUMBER_OF_PAGES_TO_USE` caps how many
-pages of text are extracted per PDF (unset = `100`, a fast smoke test; `NONE`/`ALL`/`0` = no cap, the real run) and
-`START_PAGE_NUMBER` (unset = `1`) is the 1-based page that cap starts counting from. Together they select one page
-window per PDF -- `START_PAGE_NUMBER=303` + `MAX_NUMBER_OF_PAGES_TO_USE=10` extracts only pages 303-312 -- which is
-handy for iterating on a section-detection module against just the pages that matter, without re-extracting the whole
-book. Pages outside the window are `""`; section *boundaries* still come from the whole PDF. Restart the kernel (or
-re-run `run_stage1_all.command`) after editing `.env`. `extract_chunk.Config.page_window_desc()` prints the window in
-human terms, and the page-text cache file name encodes the window so different windows never share a stale cache.
-
-## Row-level CRUD on the parent/child chunk tables
-
-`stage1_2_eda_load_chunks.ipynb` writes parent/child rows in bulk, once, as
-part of ingestion. `crud_chunks_parent.py`/`crud_chunks_child.py` are for
-everything else: creating, reading, updating, or deleting *one* (or a
-handful of) parent/child row(s) from a notebook or script, without
-re-running Stage 1.2. Same row shape and deterministic-`uuid5` id scheme as
-Stage 1.2, so a row created here is upsert-safe against a later full
-Stage 1.2 re-run, and vice versa.
-
-```python
-from reusable_code import (
-    create_parent_row, read_parent_row, update_parent_rowjson, delete_parent_row,
-    create_child_row, read_child_rows_by_parent, update_child_rowjson, delete_child_row,
-)
-
-parent = create_parent_row({"parent_id": "source1-p1", "title": "Vitamins", "source_row_guid": owner_guid}, order=0)
-children = read_child_rows_by_parent(parent["rowGUID"])
-update_parent_rowjson(parent["rowGUID"], {"reviewed": True})
-delete_child_row(children[0]["rowGUID"])
-```
-
-Every public function name is prefixed `create_` / `read_` / `update_` /
-`delete_`, naming exactly which CRUD operation it performs.
-
-`update_*_rowjson` merges a patch into the existing `rowJSON` (an ordinary
-`UPDATE`, no `ALTER TABLE`) — the same pattern `update_rank_value(...,
-persist=True)` already uses in `retrieval.py`. `delete_parent_row`/
-`delete_parent_rows_by_owner` cascade to child rows via the foreign key in
-`sql/create_lrm_tables.sql`, so deleting a parent is enough to also remove
-its children.
-
-Every function also accepts an explicit `clients=` argument instead of
-relying on the cached one from `init_clients()` — that's what makes them
-independently unit-testable (see `test_reusable_code.py` at the repo root,
-which exercises all of this with fully faked clients and no network
-access) and reusable across notebooks that might each want their own
-client instance.
+`py/lrm/eda1_extract/recognize.py` (see its docstring) caps how many pages of a PDF it recognises: `--start`/`--end`
+on the command line select an explicit page range, and when `--end` is omitted it falls back to
+`MAX_NUMBER_OF_PAGES_TO_USE` from `.env` (unset = `100`, a fast smoke test; `NONE` = the whole book). Handy for
+iterating against just the pages that matter without re-recognising the whole book. Already-recognised pages are
+skipped unless `--force` is passed.
 
 ## What "rerank" adds, in one paragraph
 
@@ -295,7 +251,7 @@ write-up.
 Like reranking, this needs **zero** schema change — `lrm_page_table`
 and the `rowParentGUID` foreign key from child to parent already exist
 (`sql/create_lrm_tables.sql`); `expand_to_parent_chunks()` just reads them
-via `crud_chunks_parent.read_parent_row()`. The only thing to watch is
+via `retrieval.read_page_row()`. The only thing to watch is
 size: a parent chunk is a whole book *section*, not token-budgeted the way
 a child chunk is, so `expand_to_parent_chunks(..., max_parent_chars=...)`
 truncates an unusually long one (default 6000 chars, `None` to disable).
@@ -339,7 +295,7 @@ over `rowJSON->>'text'` (the chunk text Voyage already has to embed), so:
   `ask_question(expand_to_parents=True)`)** also needs **zero** table/column
   changes — `lrm_page_table` and the child table's
   `rowParentGUID` foreign key already exist. It only reads an existing
-  parent row (`crud_chunks_parent.read_parent_row()`) and swaps it into the
+  parent row (`retrieval.read_page_row()`) and swaps it into the
   *in-memory* row dict; nothing is written back to Supabase.
 - **`update_rank_value(..., persist=False)`** (the default) is the same
   story: purely in-memory, nothing in Supabase changes.

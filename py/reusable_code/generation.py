@@ -236,8 +236,8 @@ def ask_question(
 
     Returned dict keys (all present regardless of
     ``use_hybrid``/``use_hyde``/``use_multi_query``/``use_rerank``/``expand_to_parents``):
-        question, short_answer, answer, chunks_used, source_pages,
-        source_keys, grounding_words, used_hybrid, used_hyde,
+        question, short_answer, answer, chunks, context_block, chunks_used,
+        source_pages, source_keys, grounding_words, used_hybrid, used_hyde,
         hypothetical_document, used_multi_query, subquestions,
         used_rerank, rerank_model, used_parent_expansion,
         candidates_considered
@@ -347,6 +347,8 @@ def ask_question(
         "retrieval_query": search_question,
         "short_answer": extract_short_answer(answer_text),  # "Yes" / "No" / None
         "answer": answer_text,
+        "chunks": chunks,  # the actual rows Claude was shown, for a caller that needs to re-check/re-display them
+        "context_block": context_block,  # exactly what was sent to Claude, verbatim
         "chunks_used": len(chunks),
         "source_pages": source_pages,  # array of page numbers backing this answer
         "source_keys": source_keys,

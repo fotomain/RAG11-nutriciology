@@ -324,7 +324,7 @@ flowchart TD
       </div>
       <div class="callout callout-parent">
         <h3>🟡 Parent chunk (after expansion)</h3>
-        <p>The full page (recognised once via py/lrm/data/recognize.py, stored in <code class="pill">lrm_page_table</code>),
+        <p>The full page (recognised once via py/lrm/eda1_extract/recognize.py, stored in <code class="pill">lrm_page_table</code>),
         fetched by <code class="pill">retrieval.read_page_row(rowParentGUID)</code> and
         swapped into the same row shape — same keys, same ranking metadata, bigger <code class="pill">text</code>.</p>
         <div class="example"><code class="pill">row["rowJSON"]["text"]</code> → the whole "Fiber" section, both fiber types included</div>
@@ -363,7 +363,7 @@ flowchart TD
 
     <h3 style="margin-top:1.6rem;">Sizing: a parent chunk is a whole section, not a token budget</h3>
     <p class="lede">
-      Chunks are capped at ~500 tokens by design (<code class="pill">CHUNK_TOKEN_BUDGET</code> in <code class="pill">py/lrm/chunks/build_chunks.py</code>).
+      Chunks are capped at ~500 tokens by design (<code class="pill">CHUNK_TOKEN_BUDGET</code> in <code class="pill">py/lrm/eda2_transform/build_chunks.py</code>).
       Parent chunks aren't — a parent is <em>one whole book section</em>, which can run from a
       paragraph to several thousand words. Sending an oversized parent unchecked could quietly
       consume the entire context budget <code class="pill">build_expanded_context_block()</code>

@@ -110,7 +110,7 @@ create table if not exists public.lrm_page_table (
     "rowOwnerGUID"  uuid not null,
     "rowParentGUID" uuid,
     "orderInList"   int  not null,
-    "rowJSON"       jsonb not null,   -- blocks/words/bboxes/text, see py/lrm/data/recognize.py
+    "rowJSON"       jsonb not null,   -- blocks/words/bboxes/text, see py/lrm/eda1_extract/recognize.py
 
     source_key  text generated always as ("rowJSON"->>'source_key') stored,
     language    text generated always as ("rowJSON"->>'language') stored,

@@ -38,11 +38,16 @@ from .clients import (
     init_clients,
 )
 from .config import (
+    REASONING_MAX_STEPS,
+    REASONING_MAX_THINKING_TOKENS,
+    REASONING_MODEL,
+    REASONING_SELF_CHECK,
     SPEAKING_LANGUAGE,
     USE_HYBRID_SEARCH,
     USE_HYPOTHETICAL_DOCUMENT_EMBEDDING,
     USE_MULTI_QUERY_QUESTION_SPLITTING,
     USE_PARENT_CHUNK_EXPANSION,
+    USE_REASONING,
 )
 from .deduplication import (
     first_occurrence_map,
@@ -72,6 +77,7 @@ from .language import (
     prepare_question,
 )
 from .git_sync import save_to_github
+from .reasoning import ask_with_reasoning
 from .hybrid_search import (
     HYBRID_MIN_POOL,
     HYBRID_POOL_MULTIPLIER,
@@ -184,4 +190,10 @@ __all__ = [
     "read_page_row",
     "group_by_key",
     "first_occurrence_map",
+    "ask_with_reasoning",
+    "USE_REASONING",
+    "REASONING_MODEL",
+    "REASONING_MAX_STEPS",
+    "REASONING_MAX_THINKING_TOKENS",
+    "REASONING_SELF_CHECK",
 ]
